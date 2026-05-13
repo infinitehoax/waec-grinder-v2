@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Summary — WAEC Grinder{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 60px 0 80px;">
+  <div id="summary-content">
+    <div class="loading-state">
+      <div class="spinner"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import Storage from '/static/js/storage.js';
+
+  const summary = Storage.getSessionSummary();
+  const el = document.getElementById('summary-content');
+
+  el.innerHTML = `
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="font-size:3rem; margin-bottom:12px;">📊</div>
+      <h1 style="margin-bottom:8px;">Session Summary</h1>
+      <p>${summary.subject}</p>
+    </div>
+    <div class="stats-grid" style="max-width:600px; margin:0 auto 40px;">
+      <div class="stat-card stat--accent">
+        <div class="stat-card__value">${summary.stats.mastered}</div>
+        <div class="stat-card__label">Mastered</div>
+      </div>
+      <div class="stat-card stat--fail">
+        <div class="stat-card__value">${summary.failed_obj + summary.failed_theory}</div>
+        <div class="stat-card__label">Still Failing</div>
+      </div>
+      <div class="stat-card stat--neutral">
+        <div class="stat-card__value">${summary.unseen_obj + summary.unseen_theory}</div>
+        <div class="stat-card__label">Unseen Left</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__value" style="color:var(--text-secondary)">${summary.stats.sessions}</div>
+        <div class="stat-card__label">Sessions</div>
+      </div>
+    </div>
+    <div style="text-align:center; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="/study" class="btn btn--primary btn--lg">Continue Grinding &rarr;</a>
+      <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
+    </div>
+  `;
+
+  // Update nav
+  const nm = document.getElementById('nav-mastered');
+  const nf = document.getElementById('nav-failed');
+  const nu = document.getElementById('nav-unseen');
+  if (nm) nm.textContent = summary.stats.mastered;
+  if (nf) nf.textContent = summary.failed_obj + summary.failed_theory;
+  if (nu) nu.textContent = summary.unseen_obj + summary.unseen_theory;
+</script>
+{% endblock %}

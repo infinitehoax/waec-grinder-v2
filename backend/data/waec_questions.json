@@ -1,0 +1,735 @@
+{
+  "subject": "E-ICT (Digital Tech)",
+  "obj": [
+    {
+      "id": "obj_001",
+      "question": "The purpose of Transaction Processing System as part of an Information System is to",
+      "options": {
+        "A": "analyze large datasets for trends.",
+        "B": "support strategic decision-making.",
+        "C": "manage day-to-day business transactions.",
+        "D": "store historical data for reporting to management."
+      },
+      "correct_option": "C",
+      "explanation": "A Transaction Processing System (TPS) is primarily designed to capture and process the detailed information necessary to update data on the fundamental operations of an organization, managing day-to-day transactions."
+    },
+    {
+      "id": "obj_002",
+      "question": "Which of the following statements is a characteristic of digital citizenship?",
+      "options": {
+        "A": "The practice of creating digital art for online resources",
+        "B": "Responsible use of technology and online interactions",
+        "C": "Ability to make online purchases secure and profitable",
+        "D": "The exclusive use of digital devices for educational purposes"
+      },
+      "correct_option": "B",
+      "explanation": "Digital citizenship involves the responsible, ethical, and safe use of technology and online platforms."
+    },
+    {
+      "id": "obj_003",
+      "question": "In Desktop Publishing application, a layout basically helps a user to",
+      "options": {
+        "A": "edit video files during the design stage.",
+        "B": "store images and graphics in soft copy form.",
+        "C": "develop the content of a website from scratch.",
+        "D": "arrange texts, images, and other elements in a document."
+      },
+      "correct_option": "D",
+      "explanation": "Layout in DTP refers to the arrangement of text, images, and other elements on a page to create a visually appealing and organized document."
+    },
+    {
+      "id": "obj_004",
+      "question": "The purpose of using the Freeze Panes feature in a Spreadsheet application is to",
+      "options": {
+        "A": "prevent data from being saved while scrolling through the rest of the worksheet.",
+        "B": "resize columns based on the content while scrolling through the rest of the worksheet.",
+        "C": "keep specific rows or columns visible while scrolling through the rest of the worksheet.",
+        "D": "lock rows and columns from editing while scrolling through the rest of the worksheet."
+      },
+      "correct_option": "C",
+      "explanation": "Freeze Panes allows users to lock specific rows or columns (usually headers) so they remain visible when scrolling through large datasets."
+    },
+    {
+      "id": "obj_005",
+      "question": "In computer hardware, running the CPU at a higher speed than its original specification is termed",
+      "options": {
+        "A": "clocking.",
+        "B": "sub-clocking.",
+        "C": "overclocking.",
+        "D": "under-clocking."
+      },
+      "correct_option": "C",
+      "explanation": "Overclocking is the practice of increasing the clock rate of a computer component (like a CPU) beyond the manufacturer's certified limits to boost performance."
+    },
+    {
+      "id": "obj_006",
+      "question": "Which of the following utility programs is used to manage and configure hardware components and their drivers in an Operating System?",
+      "options": {
+        "A": "System Restore",
+        "B": "Task Scheduler",
+        "C": "Device Manager",
+        "D": "Disk Defragmenter"
+      },
+      "correct_option": "C",
+      "explanation": "Device Manager is an OS component that allows users to view and control the hardware attached to the computer, including updating drivers."
+    },
+    {
+      "id": "obj_007",
+      "question": "In which of the following programming languages is memory management primarily handled by the developer, requiring explicit allocation and deallocation of memory?",
+      "options": {
+        "A": "C",
+        "B": "C++",
+        "C": "Java",
+        "D": "Python"
+      },
+      "correct_option": "A",
+      "explanation": "In C, developers must manually manage memory using functions like malloc() and free(), unlike Java or Python which use automatic garbage collection."
+    },
+    {
+      "id": "obj_008",
+      "question": "What is the correct HTML element used to define important text with emphasis?",
+      "options": {
+        "A": "<p>",
+        "B": "<br>",
+        "C": "<body>",
+        "D": "<strong>"
+      },
+      "correct_option": "D",
+      "explanation": "The <strong> HTML element is used to define text with strong importance or emphasis, usually rendered in bold."
+    },
+    {
+      "id": "obj_009",
+      "question": "The function of a firewall in a computer network is for",
+      "options": {
+        "A": "data encoding.",
+        "B": "error checking.",
+        "C": "data encryption.",
+        "D": "intrusion detection."
+      },
+      "correct_option": "D",
+      "explanation": "A firewall monitors and controls incoming and outgoing network traffic based on security rules, playing a key role in intrusion detection and prevention."
+    },
+    {
+      "id": "obj_010",
+      "question": "Which of the following SQL commands is used to modify data that is already in a table?",
+      "options": {
+        "A": "INSERT",
+        "B": "SELECT",
+        "C": "DELETE",
+        "D": "UPDATE"
+      },
+      "correct_option": "D",
+      "explanation": "The UPDATE command in SQL is used to modify existing records in a database table."
+    },
+    {
+      "id": "obj_011",
+      "question": "The fundamental purpose of using ASCII in computing systems is to encode",
+      "options": {
+        "A": "texts into binary format.",
+        "B": "videos into binary format.",
+        "C": "images into binary format.",
+        "D": "numbers into binary format."
+      },
+      "correct_option": "A",
+      "explanation": "ASCII (American Standard Code for Information Interchange) is a character encoding standard used to represent text as binary numbers in computers."
+    },
+    {
+      "id": "obj_012",
+      "question": "Which of the following statements best describes the role of an Enterprise Resource Planning System in an organization?",
+      "options": {
+        "A": "It is used solely for customer relationship management.",
+        "B": "It integrates core business processes into a unified system.",
+        "C": "It focuses only on financial transactions within a business.",
+        "D": "It primarily deals with cybersecurity and risk management."
+      },
+      "correct_option": "B",
+      "explanation": "An ERP system integrates various core business processes (like finance, HR, supply chain) into a single, unified centralized system."
+    },
+    {
+      "id": "obj_013",
+      "question": "The purpose of a Data Warehouse in the context of an Information System is to",
+      "options": {
+        "A": "manage and secure sensitive customer information.",
+        "B": "provide real-time transaction processing for day-to-day operations.",
+        "C": "store historical data from multiple sources for analysis and reporting.",
+        "D": "facilitate communication between different departments in an organization."
+      },
+      "correct_option": "C",
+      "explanation": "A data warehouse is a centralized repository that stores large volumes of historical data from multiple sources, specifically optimized for analysis and reporting."
+    },
+    {
+      "id": "obj_014",
+      "question": "The primary ethical concern associated with the selection of algorithm for use in digital technology culture is that, algorithms can",
+      "options": {
+        "A": "increase the cost of digital services for consumers.",
+        "B": "perpetuate bias and discrimination if not designed carefully.",
+        "C": "reduce the need for human creativity in digital content creation.",
+        "D": "influence computational power, leading to environmental concerns."
+      },
+      "correct_option": "B",
+      "explanation": "Algorithms trained on biased data can unintentionally automate and perpetuate human biases and discrimination."
+    },
+    {
+      "id": "obj_015",
+      "question": "Which of the following image file formats is an example of vector graphics commonly used in Desktop publishing?",
+      "options": {
+        "A": "SVG",
+        "B": "PNG",
+        "C": "BMP",
+        "D": "JPEG"
+      },
+      "correct_option": "A",
+      "explanation": "SVG (Scalable Vector Graphics) is an XML-based vector image format. PNG, BMP, and JPEG are raster/bitmap formats."
+    },
+    {
+      "id": "obj_016",
+      "question": "Which of the following formulae specifies the correct usage of an absolute reference in a Spreadsheet application?",
+      "options": {
+        "A": "=A1+B$2$",
+        "B": "=A1+$B2",
+        "C": "=A$1+B$2",
+        "D": "=$A$1+B2"
+      },
+      "correct_option": "D",
+      "explanation": "An absolute reference uses dollar signs before both the column letter and row number (e.g., $A$1) to lock the cell reference."
+    },
+    {
+      "id": "obj_017",
+      "question": "The speed at which data, instructions, and information is transferred to and from a device is called",
+      "options": {
+        "A": "access time.",
+        "B": "reading rate.",
+        "C": "transfer rate.",
+        "D": "formatting rate."
+      },
+      "correct_option": "C",
+      "explanation": "Transfer rate refers to the speed at which data is moved from one location (like a storage device) to another over a network or system bus."
+    },
+    {
+      "id": "obj_018",
+      "question": "Which of the following media types is an example of a primary storage?",
+      "options": {
+        "A": "Cache Memory",
+        "B": "Hard Disk Drive",
+        "C": "Solid State Drive",
+        "D": "Random Access Memory"
+      },
+      "correct_option": "D",
+      "explanation": "Primary storage refers to memory that is directly accessed by the CPU. Random Access Memory (RAM) is the most common example. Note: Cache is also primary, but RAM is the definitive main primary storage standard expected here."
+    },
+    {
+      "id": "obj_019",
+      "question": "Which of the following programs is a text editor?",
+      "options": {
+        "A": "Scribus",
+        "B": "Notepad",
+        "C": "Open Office",
+        "D": "Microsoft Word"
+      },
+      "correct_option": "B",
+      "explanation": "Notepad is a basic text editor included with Windows. Microsoft Word and Open Office are word processors, and Scribus is DTP software."
+    },
+    {
+      "id": "obj_020",
+      "question": "Which of the following processes is a memory management technique in Operating Systems?",
+      "options": {
+        "A": "Paging",
+        "B": "Partitioning",
+        "C": "Fragmentation",
+        "D": "Defragmentation"
+      },
+      "correct_option": "A",
+      "explanation": "Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory by dividing it into fixed-size blocks called pages."
+    },
+    {
+      "id": "obj_021",
+      "question": "Which of the following statements best describes the purpose of a compiler in programming languages?",
+      "options": {
+        "A": "It optimizes the runtime performance of interpreted languages.",
+        "B": "It executes code line by line without producing an executable file.",
+        "C": "It converts machine code into high-level code for debugging purpose.",
+        "D": "It translates high-level code into machine code all at once, producing an executable file."
+      },
+      "correct_option": "D",
+      "explanation": "A compiler translates the entire source code of a high-level language into machine code in a single batch before execution."
+    },
+    {
+      "id": "obj_022",
+      "question": "What is the correct way to create an ordered list in an HTML program?",
+      "options": {
+        "A": "<ol><li>Item 1</li><li>Item 2</li></ol>",
+        "B": "<ul><li>Item 1</li><li>Item 2</li></ul>",
+        "C": "<list><li>Item 1</li><li>Item 2</li></list>",
+        "D": "<ol><item>Item 1</item><item>Item 2</item></ol>"
+      },
+      "correct_option": "A",
+      "explanation": "The <ol> tag defines an ordered (numbered) list, and the <li> tag defines each list item."
+    },
+    {
+      "id": "obj_023",
+      "question": "Which of the following functions is a common use of the ICMP protocol?",
+      "options": {
+        "A": "Sending e-mail",
+        "B": "Routing data packets",
+        "C": "File transfer services",
+        "D": "Testing network connectivity"
+      },
+      "correct_option": "D",
+      "explanation": "ICMP (Internet Control Message Protocol) is used by network devices for diagnostics and to send error messages, such as checking connectivity with the 'ping' utility."
+    },
+    {
+      "id": "obj_024",
+      "question": "Which of the following protocols is used for secure file transfer over a network?",
+      "options": {
+        "A": "FTP",
+        "B": "SFTP",
+        "C": "SMTP",
+        "D": "DHCP"
+      },
+      "correct_option": "B",
+      "explanation": "SFTP (SSH File Transfer Protocol) provides secure file transfer capabilities using encryption, unlike standard FTP."
+    },
+    {
+      "id": "obj_025",
+      "question": "Which of the following options is a characteristic of a normalized database?",
+      "options": {
+        "A": "Data is stored in a flat file",
+        "B": "Data redundancy is minimized",
+        "C": "Data is stored in a text file format",
+        "D": "Data is organized into a single table"
+      },
+      "correct_option": "B",
+      "explanation": "Database normalization is the process of organizing data to minimize redundancy and dependency by dividing large tables into smaller related ones."
+    },
+    {
+      "id": "obj_026",
+      "question": "Which of the following relationships is not associated with a relational database?",
+      "options": {
+        "A": "One-to-One",
+        "B": "Any-to-Any",
+        "C": "One-to-Many",
+        "D": "Many-to-Many"
+      },
+      "correct_option": "B",
+      "explanation": "Relational databases use One-to-One, One-to-Many, and Many-to-Many relationships. 'Any-to-Any' is not a standard relational database model term."
+    },
+    {
+      "id": "obj_027",
+      "question": "The most effective strategy to incorporate ICT tools in education to access students' understanding in real-time is to",
+      "options": {
+        "A": "implement online polling and quiz platforms for instant feedback.",
+        "B": "implement manual quizzes for later grading and provide feedback.",
+        "C": "use an interactive whiteboard to display key concepts during lessons.",
+        "D": "replace classroom discussions with recorded videos for self-paced learning."
+      },
+      "correct_option": "A",
+      "explanation": "Online polling and quiz platforms (like Kahoot or Mentimeter) allow educators to assess understanding and receive feedback instantly during a lesson."
+    },
+    {
+      "id": "obj_028",
+      "question": "The hexadecimal representation of the binary number 11110000_2 is ...",
+      "options": {
+        "A": "C0",
+        "B": "D0",
+        "C": "E0",
+        "D": "F0"
+      },
+      "correct_option": "D",
+      "explanation": "Grouping the binary number into 4-bit sections: 1111 = F and 0000 = 0 in hexadecimal. Therefore, it is F0."
+    },
+    {
+      "id": "obj_029",
+      "question": "Which of the following binary numbers converts to the hexadecimal number A7?",
+      "options": {
+        "A": "10000011",
+        "B": "10100111",
+        "C": "11000011",
+        "D": "10010111"
+      },
+      "correct_option": "B",
+      "explanation": "In hex, A = 1010 in binary, and 7 = 0111 in binary. Combining them gives 10100111."
+    },
+    {
+      "id": "obj_030",
+      "question": "Which of the following factors is the most important consideration when designing a multi-page document for commercial printing?",
+      "options": {
+        "A": "Setting up proper bleed and margins to avoid cutting off content",
+        "B": "Using the highest resolution images available, regardless of file size",
+        "C": "Ensuring that all images are in RGB colour mode for better vibrancy",
+        "D": "Using a wide variety of fonts to make the document visually appealing"
+      },
+      "correct_option": "A",
+      "explanation": "Proper bleeds and margins are critical in commercial printing to ensure no essential content is trimmed off when the paper is cut."
+    },
+    {
+      "id": "obj_031",
+      "question": "Given a dataset with columns: Product, Region, and Sales. A user wants to create a PivotTable to show the total sales for each product by region. What fields should the user place in the Rows and Columns area?",
+      "options": {
+        "A": "Rows: Region, Columns: Product, Values: Sales",
+        "B": "Rows: Sales, Columns: Product, Values: Region",
+        "C": "Rows: Product, Columns: Sales, Values: Region",
+        "D": "Rows: Product, Columns: Region, Values: Sales"
+      },
+      "correct_option": "D",
+      "explanation": "To show sales for each product by region, Product should go to Rows (or Columns), Region to Columns (or Rows), and Sales to the Values area to aggregate them."
+    },
+    {
+      "id": "obj_032",
+      "question": "The number of cells contained in the worksheet range of A1:D2 is ...",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "6",
+        "D": "8"
+      },
+      "correct_option": "D",
+      "explanation": "The range A1:D2 includes columns A, B, C, D (4 columns) and rows 1, 2 (2 rows). 4 x 2 = 8 cells."
+    },
+    {
+      "id": "obj_033",
+      "question": "A user is working with a large dataset in a Spreadsheet and needs to highlight rows where sales exceeded GHC 50,000.00. Which of the following activities is the most efficient method?",
+      "options": {
+        "A": "Use the IF function to check each row manually.",
+        "B": "Sort the dataset in descending order and colour the high-value rows.",
+        "C": "Apply Conditional Formatting with a rule based on the sales column.",
+        "D": "Filter the dataset and use Find and Replace to highlight values over GHC 50,000.00."
+      },
+      "correct_option": "C",
+      "explanation": "Conditional Formatting allows users to set automatic rules to change the appearance of cells based on their values efficiently."
+    },
+    {
+      "id": "obj_034",
+      "question": "The best way to prevent damaging a personal computer with static electricity is to",
+      "options": {
+        "A": "wear an electrostatic discharge wrist strap.",
+        "B": "wear a rubber shoe when using the computer.",
+        "C": "always place the personal computer on a table.",
+        "D": "periodically touch the personal computer to discharge electrons."
+      },
+      "correct_option": "A",
+      "explanation": "An anti-static (ESD) wrist strap safely grounds a person working on sensitive electronic equipment, preventing the buildup of static electricity."
+    },
+    {
+      "id": "obj_035",
+      "question": "The main advantage of using Error-Correcting Code memory in a workstation or server is that it",
+      "options": {
+        "A": "reduces power consumption significantly.",
+        "B": "allows the RAM to be overclocked without risk.",
+        "C": "increases the clock speed of RAM beyond standard limits.",
+        "D": "detects and corrects memory errors to improve system stability."
+      },
+      "correct_option": "D",
+      "explanation": "ECC (Error-Correcting Code) memory can detect and automatically correct the most common kinds of internal data corruption, maintaining high system stability."
+    },
+    {
+      "id": "obj_036",
+      "question": "Which of the following signs depicts that a CMOS battery is running out of power in the computer?",
+      "options": {
+        "A": "Fails to boot properly",
+        "B": "Gives a long beep sound",
+        "C": "Starts losing information in memory",
+        "D": "Starts showing incorrect date and time"
+      },
+      "correct_option": "D",
+      "explanation": "The CMOS battery maintains the system clock when powered off. A dying CMOS battery typically causes the system time and date to reset."
+    },
+    {
+      "id": "obj_037",
+      "question": "When building a high-performance computer, which factor is the most important when selecting a power supply unit?",
+      "options": {
+        "A": "The physical size of the computer",
+        "B": "Total wattage and efficiency rating",
+        "C": "The number of USB ports available",
+        "D": "The colour of the power supply unit casting"
+      },
+      "correct_option": "B",
+      "explanation": "High-performance components draw more power. Ensuring the PSU has sufficient total wattage and a good efficiency rating is crucial for stable operation."
+    },
+    {
+      "id": "obj_038",
+      "question": "The backup method that only stores files that have been modified since the last backup, thereby optimizing storage space is referred to as",
+      "options": {
+        "A": "full backup.",
+        "B": "cloud backup.",
+        "C": "differential backup.",
+        "D": "incremental backup."
+      },
+      "correct_option": "D",
+      "explanation": "An incremental backup only copies data that has changed since the last backup of any type, saving the most storage space."
+    },
+    {
+      "id": "obj_039",
+      "question": "A user notices that their system is running slower than usual due to high RAM consumption. Which utility software can help them identify and close resource-intensive applications?",
+      "options": {
+        "A": "Task Manager",
+        "B": "Registry Editor",
+        "C": "System Restore",
+        "D": "Device Manager"
+      },
+      "correct_option": "A",
+      "explanation": "Task Manager provides details about programs and processes running on the computer and allows users to terminate those consuming too many resources."
+    },
+    {
+      "id": "obj_040",
+      "question": "The QBASIC statement PRINT 5*2+3 will output the result on the screen as ...",
+      "options": {
+        "A": "10",
+        "B": "13",
+        "C": "25",
+        "D": "30"
+      },
+      "correct_option": "B",
+      "explanation": "Following the order of operations (BODMAS/PEMDAS), multiplication is performed before addition: (5 * 2) + 3 = 10 + 3 = 13."
+    },
+    {
+      "id": "obj_041",
+      "question": "Study the following QBASIC code snippet:\nINPUT \"Enter a number: \", N\nPRINT \"The square of the number entered is; \" N^2\nWhat will be the output if a user input the number 5?",
+      "options": {
+        "A": "The square of the number entered is 5",
+        "B": "The square of the number entered is 10",
+        "C": "The square of the number entered is 25",
+        "D": "The square of the number entered is 125"
+      },
+      "correct_option": "C",
+      "explanation": "The code calculates N raised to the power of 2 (N^2). If N=5, 5^2 = 25. The output will be 'The square of the number entered is 25'."
+    },
+    {
+      "id": "obj_042",
+      "question": "Which of the following statements is the correct syntax for using the WHILE loop in QBASIC?",
+      "options": {
+        "A": "WHILE X>2",
+        "B": "DO WHILE X>2",
+        "C": "LOOP WHILE X>2",
+        "D": "REPEAT WHILE X>2"
+      },
+      "correct_option": "B",
+      "explanation": "In QBASIC, 'DO WHILE [condition]' is a valid and commonly used syntax for initiating a while loop structure."
+    },
+    {
+      "id": "obj_043",
+      "question": "Study the following QBASIC code snippet:\nINPUT \"Enter a number: \", X\nIF X MOD 2 = 0 THEN\nPRINT \"The number is Even\"\nELSE\nPRINT \"The number is Odd\"\nENDIF\nWhat will be the output if a user input the number 8?",
+      "options": {
+        "A": "The number is X",
+        "B": "The number is 8",
+        "C": "The number is Odd",
+        "D": "The number is Even"
+      },
+      "correct_option": "D",
+      "explanation": "The MOD operator returns the remainder of division. 8 MOD 2 = 0, which satisfies the IF condition, causing the program to print 'The number is Even'."
+    },
+    {
+      "id": "obj_044",
+      "question": "Which of the following security protocols is used for wireless networks?",
+      "options": {
+        "A": "SSH",
+        "B": "SSL",
+        "C": "WPA2",
+        "D": "IPSEC"
+      },
+      "correct_option": "C",
+      "explanation": "WPA2 (Wi-Fi Protected Access 2) is a standard security protocol used to secure wireless computer networks."
+    },
+    {
+      "id": "obj_045",
+      "question": "Which of the following subnet masks is invalid?",
+      "options": {
+        "A": "255.255.224.0",
+        "B": "255.255.252.0",
+        "C": "255.255.255.240",
+        "D": "255.255.128.255"
+      },
+      "correct_option": "D",
+      "explanation": "A valid subnet mask consists of a continuous sequence of 1s followed by 0s in binary. 255.255.128.255 breaks this continuity."
+    },
+    {
+      "id": "obj_046",
+      "question": "In an IPv4 addressing scheme, the total number of bits is ...",
+      "options": {
+        "A": "32",
+        "B": "48",
+        "C": "64",
+        "D": "128"
+      },
+      "correct_option": "A",
+      "explanation": "An IPv4 address is a 32-bit number that uniquely identifies a network interface on a machine."
+    },
+    {
+      "id": "obj_047",
+      "question": "A key advantage of using a relational database management system over a flat-file system is",
+      "options": {
+        "A": "reduced data redundancy.",
+        "B": "faster data access for small datasets.",
+        "C": "simplicity in design and implementation.",
+        "D": "no need to use structured query language."
+      },
+      "correct_option": "A",
+      "explanation": "Relational databases use normalization to divide data into related tables, significantly reducing data duplication (redundancy) compared to flat-file systems."
+    },
+    {
+      "id": "obj_048",
+      "question": "Which of the following characteristics is not an ACID property of a transaction in a database management system?",
+      "options": {
+        "A": "Atomicity",
+        "B": "Durability",
+        "C": "Consistency",
+        "D": "Independence"
+      },
+      "correct_option": "D",
+      "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Independence is not one of the ACID properties (Isolation is the 'I')."
+    },
+    {
+      "id": "obj_049",
+      "question": "Which of the following types of database indexes is most commonly used to search for each specific value in a column?",
+      "options": {
+        "A": "Hash index",
+        "B": "B-tree index",
+        "C": "Bitmap index",
+        "D": "Clustered index"
+      },
+      "correct_option": "A",
+      "explanation": "A hash index is highly efficient and commonly used for exact-match lookups (finding a specific value)."
+    },
+    {
+      "id": "obj_050",
+      "question": "Which of the following statements is a major benefit of using cloud computing in education?",
+      "options": {
+        "A": "Lack of data security in the cloud system",
+        "B": "Real-time access to resources and documents",
+        "C": "Reduced collaboration among teachers and learners",
+        "D": "Increased hardware costs to educational institutions"
+      },
+      "correct_option": "B",
+      "explanation": "Cloud computing allows students and educators to access learning materials and collaborate on documents anytime and anywhere over the internet."
+    }
+  ],
+  "theory": [
+    {
+      "id": "th_001",
+      "main_context": "Question 1",
+      "sub_questions": [
+        {
+          "sub_id": "th_001_a",
+          "label": "1(a)",
+          "question": "Differentiate between ASCII and Unicode data representation formats as they are used in computers.",
+          "rubric": "ASCII (American Standard Code for Information Interchange): It is a 7-bit or 8-bit character encoding scheme that can represent up to 128 or 256 characters. It primarily covers English letters, numbers, and basic symbols. \nUnicode: It is a universal character encoding standard (often using 16 or 32 bits) designed to represent characters from all writing systems in the world, including emojis and ancient scripts. It can represent over 1.1 million unique characters. \nAward 2 marks for each accurate differentiation point (Max 4 marks).",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_001_b",
+          "label": "1(b)",
+          "question": "State three functions of Information Systems in organization.",
+          "rubric": "1. Data Processing: Converting raw data into meaningful information for daily operations. \n2. Decision Support: Providing management with accurate reports and trends to make informed strategic choices. \n3. Storage and Retrieval: Safely storing large volumes of organizational records and allowing quick access when needed. \nAward 2 marks for each correct function stated and explained (Max 6 marks).",
+          "max_marks": 6
+        }
+      ]
+    },
+    {
+      "id": "th_002",
+      "main_context": "Question 2",
+      "sub_questions": [
+        {
+          "sub_id": "th_002_a",
+          "label": "2(a)",
+          "question": "Explain two ethical challenges of digital culture in the workplace.",
+          "rubric": "1. Privacy Concerns: The monitoring of employee digital activity (emails, screen time) can lead to a breach of personal privacy and trust. \n2. Plagiarism/Intellectual Property Theft: The ease of \"copy-pasting\" digital content makes it easier for employees to use others' work without authorization or credit. \nAward 3 marks for each valid challenge clearly explained (Max 6 marks).",
+          "max_marks": 6
+        },
+        {
+          "sub_id": "th_002_b",
+          "label": "2(b)",
+          "question": "Outline two measures to mitigate the ethical challenges explained in 2(a).",
+          "rubric": "1. Policy Formulation: Establishing clear Acceptable Use Policies (AUP) that define what is ethical and what is prohibited. \n2. Digital Literacy/Ethics Training: Regularly educating staff on the importance of data privacy and the legalities of intellectual property. \nAward 2 marks for each valid measure outlined (Max 4 marks).",
+          "max_marks": 4
+        }
+      ]
+    },
+    {
+      "id": "th_003",
+      "main_context": "Question 3",
+      "sub_questions": [
+        {
+          "sub_id": "th_003_a",
+          "label": "3(a)",
+          "question": "State two importance of hardware devices in a computer system.",
+          "rubric": "1. Enabling Interaction: Input devices (like keyboards) allow the user to communicate commands to the system. \n2. Physical Execution: Hardware like the CPU and RAM provide the physical power and space required to run software and process data. \nAward 2 marks for each correct point stated (Max 4 marks).",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_003_b",
+          "label": "3(b)",
+          "question": "Explain two functions of IP addresses in networking.",
+          "rubric": "1. Host Identification: It provides a unique identity to a specific device on a network so it can be distinguished from others. \n2. Location Addressing: It serves as a digital \"address\" that allows routers to find the correct path to deliver data packets to the intended destination. \nAward 3 marks for each correctly explained function (Max 6 marks).",
+          "max_marks": 6
+        }
+      ]
+    },
+    {
+      "id": "th_004",
+      "main_context": "Question 4",
+      "sub_questions": [
+        {
+          "sub_id": "th_004_a",
+          "label": "4(a)",
+          "question": "List three ways to edit a picture in Microsoft Publisher application.",
+          "rubric": "1. Cropping: Removing unwanted outer areas of an image. \n2. Resizing: Adjusting the height and width of the picture to fit the layout. \n3. Adjusting Brightness/Contrast: Modifying the light levels and color depth of the image. \nAward 1 mark for each valid method listed (Max 3 marks).",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_004_b",
+          "label": "4(b)",
+          "question": "What are Macros as used in Spreadsheet applications?",
+          "rubric": "A Macro is a recorded sequence of instructions or actions that can be played back to automate repetitive tasks in a spreadsheet (like formatting or complex calculations). \nAward up to 3 marks for a comprehensive definition.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_004_c",
+          "label": "4(c)",
+          "question": "State the function of the SQL command SELECT.",
+          "rubric": "The SELECT command is used to fetch or retrieve specific data from one or more tables in a database. \nAward 2 marks for a correct statement.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_004_d",
+          "label": "4(d)",
+          "question": "Write the syntax of the SQL command SELECT.",
+          "rubric": "Syntax: SELECT column1, column2 FROM table_name; \nAward 2 marks for correct syntax.",
+          "max_marks": 2
+        }
+      ]
+    },
+    {
+      "id": "th_005",
+      "main_context": "Question 5",
+      "sub_questions": [
+        {
+          "sub_id": "th_005_a",
+          "label": "5(a)",
+          "question": "Explain the term variable as used in programming.",
+          "rubric": "A variable is a symbolic name (identifier) given to a memory location used to store data that can be changed or updated during the execution of a program. \nAward up to 3 marks for a clear explanation.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_005_b",
+          "label": "5(b)",
+          "question": "Write the syntax of how a variable is declared in QBASIC programming language.",
+          "rubric": "Syntax: DIM variableName AS DataType (Example: DIM age AS INTEGER). \nAward 2 marks for the correct syntax format.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_c_i",
+          "label": "5(c)(i)",
+          "question": "An HTML page uses the field name Full Name to collect information from users. State the input type for the Full Name field.",
+          "rubric": "Input type for the Full Name field: text. \nAward 2 marks.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_c_ii",
+          "label": "5(c)(ii)",
+          "question": "Write the HTML tag for the input type; id and field name for the Full Name field.",
+          "rubric": "HTML tag: <input type=\"text\" id=\"full_name\" name=\"Full Name\">. \nAward up to 3 marks for the correctly constructed HTML tag.",
+          "max_marks": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Study — WAEC Grinder{% endblock %}
+
+{% block content %}
+<div class="study-layout">
+  <div class="container">
+
+    <!-- Batch header -->
+    <div class="batch-header">
+      <div class="batch-header__left">
+        <span class="batch-label">Active Session</span>
+        <span class="batch-title" id="batch-title">Loading batch...</span>
+        <div class="step-dots" id="step-dots"></div>
+      </div>
+      <div class="batch-progress">
+        <span>Progress:</span>
+        <strong id="progress-label">0 / 0</strong>
+        <a href="/" class="btn btn--ghost btn--sm" style="margin-left:8px;">← Exit</a>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar" style="margin-bottom: 28px;">
+      <div class="progress-bar__fill" id="progress-fill" style="width: 0%"></div>
+    </div>
+
+    <!-- Question wrapper -->
+    <div id="question-wrapper">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p style="margin-top:12px; color:var(--text-muted);">Loading your questions...</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import Storage from '/static/js/storage.js';
+  import Engine from '/static/js/engine.js';
+  import { UI, updateNavStats } from '/static/js/ui.js';
+  import API from '/static/js/api.js';
+  import APP_CONFIG from '/static/js/config.js';
+
+  async function init() {
+    // Get mode from URL
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('mode') || Storage.getMode() || 'both';
+
+    // Try to resume existing batch
+    let batch = Storage.loadBatch();
+
+    if (!batch || batch.length === 0) {
+      // Build a new batch
+      try {
+        const data = await API.getQuestions();
+        Storage.initSession(data, mode);
+      } catch (e) {
+        document.getElementById('question-wrapper').innerHTML = `
+          <div class="empty-state">
+            <span class="empty-state__icon">😞</span>
+            <h2>Failed to load questions</h2>
+            <p>Make sure the Flask server is running and waec_questions.json exists.</p>
+            <a href="/" class="btn btn--primary">← Back to Dashboard</a>
+          </div>
+        `;
+        return;
+      }
+
+      batch = Engine.buildBatch(mode);
+
+      if (batch.length === 0) {
+        document.getElementById('question-wrapper').innerHTML = `
+          <div class="empty-state">
+            <span class="empty-state__icon">🏆</span>
+            <h2>Nothing left to study!</h2>
+            <p>You've mastered all the questions in this mode. Go back and start a new session.</p>
+            <a href="/" class="btn btn--primary">← Back to Dashboard</a>
+          </div>
+        `;
+        return;
+      }
+
+      Engine.consumeBatch(batch);
+      Storage.saveBatch(batch);
+      Storage.saveIdx(0);
+    }
+
+    // Update batch title
+    const subject = Storage.getSubject();
+    const batchTitle = document.getElementById('batch-title');
+    if (batchTitle) {
+      const failed = batch.filter(q => q._from_failed).length;
+      batchTitle.textContent = `${subject} — ${batch.length} questions${failed > 0 ? ` (${failed} repeats)` : ''}`;
+    }
+
+    // Boot the UI
+    UI.init(batch);
+    updateNavStats();
+  }
+
+  init();
+</script>
+{% endblock %}
