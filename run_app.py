@@ -12,8 +12,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from backend.app import create_app
 from backend.config import Config
 
+# IMPORTANT: Define 'app' outside the main block so Gunicorn can find it on Render
+app = create_app()
+
 if __name__ == '__main__':
-    app = create_app()
     print("=" * 55)
     print("  📚 WAEC Grinder is starting up...")
     print("=" * 55)
@@ -23,6 +25,10 @@ if __name__ == '__main__':
         print("     See README.md for setup instructions.")
     else:
         print("  ✅ API key detected. Theory grading is active.")
-    print("  🌐 Open your browser to: http://localhost:5000")
+        
+    # Render assigns its own port dynamically, but localhost uses 5000
+    port = int(os.environ.get("PORT", 5000))
+    print(f"  🌐 App running on port {port}")
     print("=" * 55)
-    app.run(debug=Config.DEBUG, host='0.0.0.0', port=5000)
+    
+    app.run(debug=Config.DEBUG, host='0.0.0.0', port=port)
