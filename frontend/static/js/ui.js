@@ -52,9 +52,9 @@ function renderObjQuestion(q, idx, total) {
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
       </div>
       <p class="question-text">${escapeHtml(q.question)}</p>
-      <div class="options-grid" id="options-grid">
+      <div class="options-grid" id="options-grid" data-correct="${escapeHtml(q.correct_option)}" data-explanation="${escapeAttr(q.explanation || '')}">
         ${Object.entries(q.options).map(([letter, text]) => `
-          <button class="option-btn" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}', '${escapeHtml(q.correct_option)}', '${escapeAttr(q.explanation || '')}')">
+          <button class="option-btn" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}')">
             <span class="option-letter">${letter}</span>
             <span class="option-text">${escapeHtml(text)}</span>
           </button>
@@ -229,8 +229,12 @@ const UI = {
   },
 
   // ---- OBJ: select an option ----
-  selectOption(btn, letter, correct, explanation) {
+  selectOption(btn, letter) {
     if (btn.disabled) return;
+
+    const grid = btn.closest('#options-grid');
+    const correct = grid ? grid.dataset.correct : '';
+    const explanation = grid ? grid.dataset.explanation : '';
 
     // Disable all options
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
