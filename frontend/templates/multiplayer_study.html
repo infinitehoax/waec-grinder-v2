@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Multiplayer Study — WAEC Grinder{% endblock %}
+
+{% block content %}
+<div class="study-layout multiplayer-layout">
+  <div class="container" style="display: grid; grid-template-columns: 1fr 280px; gap: 32px;">
+
+    <div class="main-column">
+        <!-- Batch header -->
+        <div class="batch-header">
+        <div class="batch-header__left">
+            <span class="batch-label">Multiplayer Session</span>
+            <span class="batch-title" id="batch-title">Loading questions...</span>
+            <div class="step-dots" id="step-dots"></div>
+        </div>
+        <div class="batch-progress">
+            <span>Progress:</span>
+            <strong id="progress-label">0 / 0</strong>
+            <button id="exit-multiplayer" class="btn btn--ghost btn--sm" style="margin-left:8px;">← Exit</button>
+        </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-bar" style="margin-bottom: 28px;">
+        <div class="progress-bar__fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+
+        <!-- Question wrapper -->
+        <div id="question-wrapper">
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <p style="margin-top:12px; color:var(--text-muted);">Syncing with players...</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- Multiplayer Sidebar -->
+    <aside class="sidebar" style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="card">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--text-muted);">Live Progress</h3>
+            <div id="player-progress-list" style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Player progress bars will be here -->
+            </div>
+        </div>
+
+        <div class="card chat-card" style="flex: 1; display: flex; flex-direction: column; min-height: 400px;">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--text-muted);">Room Chat</h3>
+            <div id="chat-messages" style="flex: 1; overflow-y: auto; margin-bottom: 16px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px; padding-right: 8px;">
+                <!-- Chat messages -->
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <input type="text" id="chat-input" placeholder="Type a message..." style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid var(--border-subtle); background: var(--bg-card-alt); color: var(--text-primary);">
+                <button id="chat-send" class="btn btn--primary btn--sm">Send</button>
+            </div>
+        </div>
+    </aside>
+
+  </div>
+</div>
+
+<style>
+.multiplayer-layout {
+    padding-top: 40px;
+}
+.player-progress-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+.mini-bar {
+    height: 6px;
+    background: var(--bg-card-alt);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.mini-bar__fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+.player-finished {
+    color: var(--accent);
+    font-weight: bold;
+}
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr !important;
+    }
+    .sidebar {
+        order: -1;
+    }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+<script type="module">
+  import multiplayer_study from '/static/js/multiplayer_study.js';
+  window.multiplayer_study = multiplayer_study;
+  multiplayer_study.init();
+</script>
+{% endblock %}

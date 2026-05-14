@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Multiplayer Lobby — WAEC Grinder{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 60px; padding-bottom: 80px; max-width: 800px;">
+
+  <div style="margin-bottom: 40px; text-align: center;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 12px;">Multiplayer Lobby</h1>
+    <p style="color: var(--text-secondary);">Grind together, master faster.</p>
+  </div>
+
+  <div id="lobby-setup" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+    <!-- Create Room -->
+    <div class="card">
+      <h3 style="margin-bottom: 20px;">Create a Room</h3>
+      <div style="margin-bottom: 16px;">
+        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Your Name</label>
+        <input type="text" id="create-name" placeholder="Enter your name" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Study Mode</label>
+        <select id="create-mode" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
+          <option value="both">Both (Mixed)</option>
+          <option value="obj">OBJ Only</option>
+          <option value="theory">Theory Only</option>
+        </select>
+      </div>
+      <button class="btn btn--primary" style="width:100%;" onclick="lobby.createRoom()">Create Room</button>
+    </div>
+
+    <!-- Join Room -->
+    <div class="card">
+      <h3 style="margin-bottom: 20px;">Join a Room</h3>
+      <div style="margin-bottom: 16px;">
+        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Your Name</label>
+        <input type="text" id="join-name" placeholder="Enter your name" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Room ID</label>
+        <input type="text" id="join-room-id" placeholder="Enter 6-char Room ID" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px; text-transform: uppercase;">
+      </div>
+      <button class="btn btn--secondary" style="width:100%;" onclick="lobby.joinRoom()">Join Room</button>
+    </div>
+  </div>
+
+  <!-- Waiting Room (Hidden by default) -->
+  <div id="waiting-room" class="card hidden" style="text-align: center; padding: 40px;">
+    <div style="margin-bottom: 24px;">
+      <span class="badge badge--accent" style="font-size: 1.2rem; padding: 8px 16px;" id="display-room-id">ROOM ID: ------</span>
+      <p style="margin-top: 12px; color: var(--text-secondary);">Share this ID with your friends to join (Max 5 players)</p>
+    </div>
+
+    <div style="margin-bottom: 32px;">
+      <h4 style="margin-bottom: 16px; color: var(--text-muted); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">Players in Room</h4>
+      <div id="player-list" style="display: flex; flex-direction: column; gap: 10px; max-width: 300px; margin: 0 auto;">
+        <!-- Players will be listed here -->
+      </div>
+    </div>
+
+    <div id="host-controls" class="hidden">
+      <button class="btn btn--primary btn--lg" onclick="lobby.startGame()">Start Competition</button>
+    </div>
+    <div id="guest-waiting">
+      <p style="color: var(--accent); font-weight: 500;">Waiting for host to start...</p>
+    </div>
+
+    <div style="margin-top: 24px;">
+        <button id="exit-waiting" class="btn btn--ghost">← Leave Room</button>
+    </div>
+
+    <!-- Lobby Chat -->
+    <div class="card chat-card" style="margin-top: 32px; text-align: left; display: flex; flex-direction: column; min-height: 300px;">
+        <h4 style="margin-bottom: 16px; color: var(--text-muted); text-transform: uppercase; font-size: 0.8rem;">Room Chat</h4>
+        <div id="lobby-chat-messages" style="flex: 1; overflow-y: auto; margin-bottom: 16px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px; max-height: 200px;">
+            <!-- Messages -->
+        </div>
+        <div style="display: flex; gap: 8px;">
+            <input type="text" id="lobby-chat-input" placeholder="Say hello..." style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border-subtle); background: var(--bg-card-alt); color: var(--text-primary);">
+            <button id="lobby-chat-send" class="btn btn--primary">Send</button>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent) !important;
+}
+.player-tag {
+    background: var(--bg-card-alt);
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-subtle);
+}
+.player-tag.is-you {
+    border-color: var(--accent);
+}
+.player-tag.is-host::after {
+    content: 'HOST';
+    font-size: 0.65rem;
+    background: var(--accent);
+    color: #000;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+<script type="module">
+    import lobby from '/static/js/multiplayer_lobby.js';
+    window.lobby = lobby;
+    lobby.init();
+</script>
+{% endblock %}
