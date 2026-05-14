@@ -115,6 +115,18 @@ const Storage = {
     if (!arr.find(x => x.id === q.id)) arr.push(q);
     this._setScoped(sub, SUB_KEYS.FAILED_THEORY, arr);
   },
+  pushUnseenObj(q) {
+    const sub = this.getSubject();
+    const arr = this.getUnseenObj(sub);
+    if (!arr.find(x => x.id === q.id)) arr.push(q);
+    this._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
+  },
+  pushUnseenTheory(q) {
+    const sub = this.getSubject();
+    const arr = this.getUnseenTheory(sub);
+    if (!arr.find(x => x.id === q.id)) arr.push(q);
+    this._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
+  },
   removeFailedObj(id) {
     const sub = this.getSubject();
     this._setScoped(sub, SUB_KEYS.FAILED_OBJ, this.getFailedObj(sub).filter(q => q.id !== id));
