@@ -1,4 +1,4 @@
-{
+[{
   "subject": "E-ICT (Digital Tech)",
   "obj": [
     {
@@ -732,4 +732,160 @@
       ]
     }
   ]
+},
+{
+  "subject": "Digital Tech v2",
+  "obj": [],
+  "theory": [
+    {
+      "id": "th_001",
+      "main_context": "QUESTION 1: NETWORKING, PRESENTATIONS & ROBOTICS",
+      "sub_questions": [
+        {
+          "sub_id": "th_001_a_i",
+          "label": "1(a)(i)",
+          "question": "Name the type of computer network suitable for sharing files between three classrooms.",
+          "rubric": "Golden Answer: Local Area Network (LAN). Note: Examiners should not award marks for just writing 'Network'. A network within a single building or campus is always a LAN. (Do not accept WAN or PAN).",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_001_a_ii",
+          "label": "1(a)(ii)",
+          "question": "List hardware components required to set up this network.",
+          "rubric": "Award marks for any of the following components: Network cables / Ethernet cables (Twisted Pair, Fiber Optic), Switch, Router, Network Interface Card (NIC), Wireless Access Point (WAP), Hub (accepted in theory though outdated), and Modem.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_001_b",
+          "label": "1(b)",
+          "question": "List features to make a PowerPoint presentation engaging.",
+          "rubric": "Award marks for any of the following: Animations (adding movement to individual text/objects), Transitions (visual effect moving from slide to slide), Multimedia (pictures, graphics, videos, sound effects), Hyperlinks/Action Buttons (interactive clicking), SmartArt (visually representing data).",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_001_c",
+          "label": "1(c)",
+          "question": "Suggest visual elements that would make a Publisher flyer attractive.",
+          "rubric": "Award marks for any of the following: High-quality pictures / images / clip arts; Bold, catchy headings / WordArt; Attractive and contrasting color schemes; Use of shapes and borders; Callouts / Text boxes with drop shadows.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_001_f",
+          "label": "1(f)",
+          "question": "State one function of the following robot components: Gears, Grippers, and Motors.",
+          "rubric": "Gears: Help to control the speed, direction, and movement/torque of the robot. Grippers (End Effectors): Used to hold, pick up, manipulate, or release objects. Motors (Actuators): Provide the physical electrical power/motion for robot parts to move.",
+          "max_marks": 3
+        }
+      ]
+    },
+    {
+      "id": "th_002",
+      "main_context": "QUESTION 2: GENERATIONS, FILE MANAGEMENT & HEALTH",
+      "sub_questions": [
+        {
+          "sub_id": "th_002_a",
+          "label": "2(a)",
+          "question": "Describe the term 'generation of computers'.",
+          "rubric": "Generation of computers refers to the classification or historical stages of computers according to the core electronic technology/hardware components used in their design and operation over time. Mandatory keywords for full marks: 'technology used' or 'hardware component' (e.g., 1st Gen = Vacuum Tubes).",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_002_b",
+          "label": "2(b)",
+          "question": "List file management practices to organize work better.",
+          "rubric": "Award marks for: Creating distinct folders and sub-folders for different file types; Using meaningful, descriptive file names; Deleting unwanted or obsolete files regularly; Backing up important files to external drives or the cloud; Sorting files by date, type, or name for easy retrieval.",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_002_c",
+          "label": "2(c)(i & ii)",
+          "question": "A student plays a game for 5 hours and gets headache, dry, and blurry eyes. What is this disorder and explain it?",
+          "rubric": "The Disorder: Computer Vision Syndrome (CVS) OR Digital Eye Strain. The Explanation: It is a physical condition caused by staring at a computer screen, tablet, or phone for long, uninterrupted hours, leading to symptoms like headaches, dry eyes, blurred vision, and neck/shoulder pain. Bonus prevention fixes: use anti-glare screen, blink more, use 20-20-20 Rule.",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_002_d",
+          "label": "2(d)",
+          "question": "State the most appropriate output device for: Printing a detailed architectural blueprint, Presenting a movie to the entire class, and Sharing a short animation clip with 8 friends during lunch.",
+          "rubric": "Blueprint: Plotter (Do NOT accept Printer; Plotters use pens for massive high-precision vectors). Movie: Projector (or Multimedia Projector). Animation clip: Tablet screen / Monitor / Display screen.",
+          "max_marks": 3
+        }
+      ]
+    },
+    {
+      "id": "th_003",
+      "main_context": "QUESTION 3: WORD PROCESSING & SPREAD SHEET SECRETS",
+      "sub_questions": [
+        {
+          "sub_id": "th_003_a",
+          "label": "3(a)",
+          "question": "The student typed 'BASIC EDUCATION CERTIFICATE EXAMINATION' and wants to fix it without retyping. Which feature and steps should they use?",
+          "rubric": "The Feature: Change Case. The Steps: 1. Highlight/Select the entire typed title. 2. Click on the Home tab on the ribbon. 3. Locate and click the Change Case icon (Aa). 4. Choose Title Case (or 'Capitalize Each Word') from the drop-down menu. Examiner note: Ensure the sequence of steps is accurate.",
+          "max_marks": 5
+        },
+        {
+          "sub_id": "th_003_b",
+          "label": "3(b) (Spreadsheet Concepts)",
+          "question": "Provide the appropriate formulas or functions to add cells A2, B2, and C2 together, and to find the mean of these cells.",
+          "rubric": "To add: =A2+B2+C2 OR the function =SUM(A2:C2). To find the mean: =AVERAGE(A2:C2). Golden Rule Penalty: EVERY single formula or function MUST begin with the Equals sign (=). If the '=' is omitted, award ZERO marks.",
+          "max_marks": 2
+        }
+      ]
+    },
+    {
+      "id": "th_004",
+      "main_context": "QUESTION 4: SOCIAL MEDIA, CYBERSECURITY & SEARCHING",
+      "sub_questions": [
+        {
+          "sub_id": "th_004_b",
+          "label": "4(b)",
+          "question": "An Art club wants to share photos, have a discussion forum, and an event page. Which platform is best and why?",
+          "rubric": "The Platform: Facebook Group (best theoretical answer), WhatsApp Group, or a dedicated School Website Forum. The Reasons: Allows uploading/sharing massive photo albums; supports threaded discussions and comment sections; has a built-in 'Events' feature for scheduling; easily accessible on smartphones.",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_004_c",
+          "label": "4(c)",
+          "question": "List methods of protecting data against threats.",
+          "rubric": "Award marks for: Using strong, alphanumeric passwords (and changing them regularly); Installing and regularly updating Antivirus / Anti-malware software; Performing regular data backups (cloud/external hard drives); Using Data Encryption; Enabling Two-Factor Authentication (2FA); Using Firewalls to block unauthorized network access.",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_004_d",
+          "label": "4(d)",
+          "question": "A student searched 'sharks' and got too many random results (movies, toys, attacks). How do they improve the search?",
+          "rubric": "Award marks for: Use specific keywords (e.g., 'Great White Shark biology habitat'); Use quotation marks to force exact phrase matching; Use search filters (e.g., Educational sites .edu, or specific dates); Use Boolean Operators (e.g., minus sign to exclude words like Sharks -toys -movies).",
+          "max_marks": 4
+        }
+      ]
+    },
+    {
+      "id": "th_005",
+      "main_context": "QUESTION 5: PROGRAMMING & COMPUTATIONAL MATH",
+      "sub_questions": [
+        {
+          "sub_id": "th_005_a",
+          "label": "5(a)",
+          "question": "repeat (2) move (5) steps end. What is the correct programming term for this?",
+          "rubric": "Golden Answers: Loop OR Repetition OR Iteration. (Award full mark for any of these three terms).",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_005_b",
+          "label": "5(b)",
+          "question": "Calculate the expenses using operator precedence: Total = 12 * 200.00 + 150.00 + 7 * 23.00",
+          "rubric": "Examiner expects BODMAS/PEMDAS. Step 1 (Multiply first): (12 × 200) = 2400. Step 2 (Multiply second): (7 × 23) = 161. Step 3 (Add them all up): 2400 + 150 + 161. Final Answer: GH¢ 2,711.00. Examiner penalty: Student must include the currency symbol for full marks.",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_005_c",
+          "label": "5(c)",
+          "question": "A robotic arm is crushing delicate light bulbs. What two components need to be improved?",
+          "rubric": "Component 1: Pressure/Force Sensors (The robot needs to 'feel' how hard it is squeezing to know when to stop). Component 2: A Better Gripper / Soft Gripper (Replacing hard metal claws with rubber, silicone, or suction-based soft control systems).",
+          "max_marks": 2
+        }
+      ]
+    }
+  ]
 }
+]
