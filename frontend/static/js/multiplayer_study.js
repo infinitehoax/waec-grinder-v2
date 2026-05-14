@@ -8,6 +8,7 @@ import { UI, updateNavStats } from './ui.js';
 const multiplayer_study = {
     roomState: null,
     roomId: null,
+    myScore: 0,
 
     init() {
         this.roomState = JSON.parse(sessionStorage.getItem('wg_multiplayer_room'));
@@ -19,6 +20,12 @@ const multiplayer_study = {
         }
 
         SocketClient.init();
+
+        // Restore score if re-joining
+        if (this.roomState.players && SocketClient.player_uuid) {
+            const me = this.roomState.players[SocketClient.player_uuid];
+            if (me) this.myScore = me.score || 0;
+        }
 
         const join = () => {
             const myName = sessionStorage.getItem('wg_multiplayer_name');
@@ -78,13 +85,22 @@ const multiplayer_study = {
 
         const originalSelectOption = UI.selectOption;
         UI.selectOption = (btn, letter) => {
+            if (btn.disabled) return;
+            const grid = btn.closest('#options-grid');
+            const correct = grid ? grid.dataset.correct : '';
+            if (letter === correct) {
+                this.myScore++;
+            }
             originalSelectOption.call(UI, btn, letter);
             this.emitProgress();
         };
 
         const originalSubmitTheory = UI.submitTheory;
         UI.submitTheory = async () => {
-            await originalSubmitTheory.call(UI);
+            const result = await originalSubmitTheory.call(UI);
+            if (result && result.passed) {
+                this.myScore++;
+            }
             this.emitProgress();
         };
 
@@ -104,8 +120,8 @@ const multiplayer_study = {
                     <p style="margin-bottom:28px">Wait for others to complete the challenge.</p>
                     <div class="stats-grid" style="max-width:500px;margin:0 auto 32px">
                         <div class="stat-card stat--accent">
-                            <div class="stat-card__value" id="final-score-val">${questions.length}</div>
-                            <div class="stat-card__label">Questions Completed</div>
+                            <div class="stat-card__value" id="final-score-val">${this.myScore} / ${questions.length}</div>
+                            <div class="stat-card__label">Final Score</div>
                         </div>
                     </div>
                     <div id="wait-message" style="margin-top: 20px; color: var(--text-muted);">
@@ -147,8 +163,8 @@ const multiplayer_study = {
         const progress = UI.currentIdx;
         const total = UI.batch.length;
         const currentProgress = finished ? total : progress;
-        const score = currentProgress;
-        console.log('Emitting progress:', currentProgress, 'Finished:', finished);
+        const score = this.myScore;
+        console.log('Emitting progress:', currentProgress, 'Score:', score, 'Finished:', finished);
         SocketClient.updateProgress(this.roomId, currentProgress, score, finished);
     },
 
