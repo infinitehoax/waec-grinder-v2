@@ -14,7 +14,7 @@ from backend.services.data_service import load_questions
 # }
 rooms = {}
 
-def create_room(player_uuid, sid, host_name, mode):
+def create_room(player_uuid, sid, host_name, mode, subject=None):
     room_id = str(uuid.uuid4())[:6].upper()
     while room_id in rooms:
         room_id = str(uuid.uuid4())[:6].upper()
@@ -34,6 +34,7 @@ def create_room(player_uuid, sid, host_name, mode):
         "questions": [],
         "status": "waiting",
         "mode": mode,
+        "subject": subject,
         "messages": []
     }
     return room_id
@@ -96,9 +97,17 @@ def start_game(room_id, host_id):
         return False, "Failed to load questions"
 
     data_raw = result["data"]
-    # Handle the list vs dict issue: waec_questions.json is a list of subject objects
-    data = data_raw[0] if isinstance(data_raw, list) and len(data_raw) > 0 else data_raw
     mode = rooms[room_id]["mode"]
+    subject = rooms[room_id].get("subject")
+
+    # Filter data by subject if specified
+    if subject and isinstance(data_raw, list):
+        data = next((s for s in data_raw if s.get("subject") == subject), None)
+        if not data:
+            return False, f"Subject '{subject}' not found"
+    else:
+        # Fallback to the first subject if none specified or data is not a list
+        data = data_raw[0] if isinstance(data_raw, list) and len(data_raw) > 0 else data_raw
 
     questions = []
     # Simplified batching for multiplayer: take 10 random questions

@@ -7,11 +7,12 @@ from backend.services import room_service
 def handle_create_room(data):
     host_name = data.get('name', 'Player 1')
     mode = data.get('mode', 'both')
+    subject = data.get('subject')
     player_uuid = data.get('player_uuid')
     if not player_uuid:
         return emit('error', {'message': 'Missing player_uuid'})
 
-    room_id = room_service.create_room(player_uuid, request.sid, host_name, mode)
+    room_id = room_service.create_room(player_uuid, request.sid, host_name, mode, subject)
     join_room(room_id)
     emit('room_created', {'room_id': room_id, 'room_state': room_service.get_room_state(room_id)})
 
