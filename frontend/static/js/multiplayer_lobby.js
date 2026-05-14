@@ -3,13 +3,16 @@
 // ============================================
 
 import SocketClient from './socket_client.js';
+import API from './api.js';
+import Storage from './storage.js';
 
 const lobby = {
     currentRoomId: null,
     currentRoomState: null,
 
-    init() {
+    async init() {
         SocketClient.init();
+        this.populateSubjects();
 
         SocketClient.on('roomCreated', (data) => {
             this.showWaitingRoom(data.room_id, data.room_state, true);
@@ -47,12 +50,39 @@ const lobby = {
         });
     },
 
+    async populateSubjects() {
+        const selector = document.getElementById('create-subject');
+        if (!selector) return;
+
+        try {
+            const allQuestions = await API.getQuestions();
+            selector.innerHTML = '';
+            allQuestions.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s.subject;
+                opt.textContent = s.subject;
+                selector.appendChild(opt);
+            });
+
+            // Try to restore last selected subject
+            const lastSubject = Storage.getSubject();
+            if (lastSubject && allQuestions.some(s => s.subject === lastSubject)) {
+                selector.value = lastSubject;
+            }
+        } catch (e) {
+            console.error('Failed to load subjects:', e);
+            selector.innerHTML = '<option disabled>Error loading subjects</option>';
+        }
+    },
+
     createRoom() {
         const name = document.getElementById('create-name').value.trim();
         const mode = document.getElementById('create-mode').value;
+        const subject = document.getElementById('create-subject').value;
         if (!name) return alert('Please enter your name');
+        if (!subject) return alert('Please select a subject');
         sessionStorage.setItem('wg_multiplayer_name', name);
-        SocketClient.createRoom(name, mode);
+        SocketClient.createRoom(name, mode, subject);
     },
 
     joinRoom() {

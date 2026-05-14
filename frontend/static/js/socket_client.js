@@ -63,8 +63,8 @@ const SocketClient = {
         });
     },
 
-    createRoom(name, mode) {
-        this.socket.emit('create_room', { name, mode, player_uuid: this.player_uuid });
+    createRoom(name, mode, subject) {
+        this.socket.emit('create_room', { name, mode, subject, player_uuid: this.player_uuid });
     },
 
     joinRoom(roomId, name) {
