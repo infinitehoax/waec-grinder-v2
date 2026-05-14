@@ -8,6 +8,8 @@ import { UI, updateNavStats } from './ui.js';
 const multiplayer_study = {
     roomState: null,
     roomId: null,
+    myScore: 0,
+    isFinished: false,
 
     init() {
         this.roomState = JSON.parse(sessionStorage.getItem('wg_multiplayer_room'));
@@ -41,6 +43,11 @@ const multiplayer_study = {
         SocketClient.on('progressUpdated', (data) => {
             this.roomState = data.room_state;
             sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+
+            // Note: We don't update this.myScore from roomState here to avoid race conditions.
+            // Local this.myScore is the source of truth during active play.
+            // On page refresh, it is restored in init().
+
             this.renderSidebar();
 
             if (this.roomState.status === 'finished') {
@@ -68,6 +75,17 @@ const multiplayer_study = {
         // Initialize UI with room questions
         const questions = this.roomState.questions;
 
+        const myData = this.roomState.players[SocketClient.player_uuid];
+        if (myData) {
+            this.myScore = myData.score || 0;
+            UI.currentIdx = myData.progress || 0;
+            this.isFinished = myData.finished || false;
+            // Also update storage's currentIdx so UI doesn't overwrite it on reload
+            import('./storage.js').then(({ default: Storage }) => {
+                Storage.saveIdx(UI.currentIdx);
+            });
+        }
+
         // Override UI.nextQuestion and UI.selectOption/submitTheory to emit progress
         const originalNextQuestion = UI.nextQuestion;
         UI.nextQuestion = () => {
@@ -78,13 +96,25 @@ const multiplayer_study = {
 
         const originalSelectOption = UI.selectOption;
         UI.selectOption = (btn, letter) => {
+            if (btn.disabled) return;
+            // Capture current myScore to see if it changes
+            const scoreBefore = this.myScore;
             originalSelectOption.call(UI, btn, letter);
+            if (btn.classList.contains('correct')) {
+                this.myScore++;
+            }
+            console.log('selectOption called. Score change:', scoreBefore, '->', this.myScore);
             this.emitProgress();
         };
 
         const originalSubmitTheory = UI.submitTheory;
         UI.submitTheory = async () => {
+            if (UI._gradingActive) return;
             await originalSubmitTheory.call(UI);
+            const banner = document.getElementById('result-banner');
+            if (banner && banner.classList.contains('pass')) {
+                this.myScore++;
+            }
             this.emitProgress();
         };
 
@@ -120,7 +150,7 @@ const multiplayer_study = {
         };
 
         UI.batch = questions;
-        UI.currentIdx = 0;
+        // UI.currentIdx is already set from myData if available
         UI.renderCurrent();
         UI.updateProgress();
         this.renderSidebar();
@@ -147,8 +177,8 @@ const multiplayer_study = {
         const progress = UI.currentIdx;
         const total = UI.batch.length;
         const currentProgress = finished ? total : progress;
-        const score = currentProgress;
-        console.log('Emitting progress:', currentProgress, 'Finished:', finished);
+        const score = this.myScore;
+        console.log('Emitting progress:', currentProgress, 'Score:', score, 'Finished:', finished);
         SocketClient.updateProgress(this.roomId, currentProgress, score, finished);
     },
 
@@ -172,7 +202,7 @@ const multiplayer_study = {
 
             const statSpan = document.createElement('span');
             statSpan.className = player.finished ? 'player-finished' : '';
-            statSpan.textContent = player.finished ? 'DONE' : `${player.progress}/${player.total}`;
+            statSpan.textContent = player.finished ? `DONE (${player.score} pts)` : `${player.progress}/${player.total} (${player.score} pts)`;
 
             info.appendChild(nameSpan);
             info.appendChild(statSpan);
