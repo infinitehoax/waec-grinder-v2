@@ -370,8 +370,8 @@ const UI = {
     const q = this.batch[this.currentIdx];
     // Push skipped unseen questions back to unseen queue (don't count as failed)
     if (!q._from_failed) {
-      if (q._type === 'obj') Storage.pushFailedObj(q);
-      else Storage.pushFailedTheory(q);
+      if (q._type === 'obj') Storage.pushUnseenObj(q);
+      else Storage.pushUnseenTheory(q);
     }
     this.nextQuestion();
   },
