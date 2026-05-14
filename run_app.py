@@ -9,7 +9,7 @@ import os
 # Add the project root to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from backend.app import create_app
+from backend.app import create_app, socketio
 from backend.config import Config
 
 # IMPORTANT: Define 'app' outside the main block so Gunicorn can find it on Render
@@ -31,4 +31,4 @@ if __name__ == '__main__':
     print(f"  🌐 App running on port {port}")
     print("=" * 55)
     
-    app.run(debug=Config.DEBUG, host='0.0.0.0', port=port)
+    socketio.run(app, debug=Config.DEBUG, host='0.0.0.0', port=port, allow_unsafe_werkzeug=True)

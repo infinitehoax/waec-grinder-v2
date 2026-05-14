@@ -16,3 +16,13 @@ def study():
 @view_bp.route('/summary')
 def summary():
     return render_template('summary.html')
+
+
+@view_bp.route('/multiplayer')
+def multiplayer_lobby():
+    return render_template('multiplayer_lobby.html')
+
+
+@view_bp.route('/multiplayer/study')
+def multiplayer_study():
+    return render_template('multiplayer_study.html')
