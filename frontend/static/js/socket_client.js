@@ -17,7 +17,9 @@ const SocketClient = {
         }
 
         if (this.socket) return;
-        this.socket = io();
+        this.socket = io({
+            transports: ['websocket', 'polling']
+        });
 
         this.socket.on('connect', () => {
             console.log('Connected to server');
