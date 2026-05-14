@@ -3,16 +3,18 @@ import json
 from backend.config import Config
 
 
+class GradingError(Exception):
+    """Custom exception for grading failures that should not be treated as a score of 0."""
+    pass
+
+
 def grade_sub_question(sub_question: str, student_answer: str, rubric: str, max_marks: int) -> dict:
     """
     Sends a single sub-question answer to OpenRouter for AI grading.
     Returns a dict with 'score' (int) and 'feedback' (str).
     """
     if not Config.OPENROUTER_API_KEY:
-        return {
-            "score": 0,
-            "feedback": "No API key configured. Please add your OPENROUTER_API_KEY to the .env file."
-        }
+        raise GradingError("No API key configured. Please add your OPENROUTER_API_KEY to the .env file.")
 
     if not student_answer or not str(student_answer).strip():
         return {
@@ -77,7 +79,7 @@ Now grade the student's answer:"""
 
         raw_content = data["choices"][0]["message"].get("content")
         if raw_content is None:
-            return {"score": 0, "feedback": "The AI returned an empty response. Please try again."}
+            raise GradingError("The AI returned an empty response. Please try again.")
 
         raw_text = raw_content.strip()
 
@@ -97,7 +99,7 @@ Now grade the student's answer:"""
         return {"score": score, "feedback": feedback}
 
     except requests.exceptions.Timeout:
-        return {"score": 0, "feedback": "Grading timed out. Check your internet connection and try again."}
+        raise GradingError("Grading timed out. Check your internet connection and try again.")
     except requests.exceptions.HTTPError as e:
         body = ""
         try:
@@ -105,9 +107,11 @@ Now grade the student's answer:"""
         except Exception:
             body = "<unavailable>"
         if e.response.status_code == 401:
-            return {"score": 0, "feedback": "Invalid API key. Please check your OPENROUTER_API_KEY in the .env file."}
-        return {"score": 0, "feedback": f"API error: {e.response.status_code}. Response: {body[:200]}"}
+            raise GradingError("Invalid API key. Please check your OPENROUTER_API_KEY in the .env file.")
+        raise GradingError(f"API error: {e.response.status_code}. Response: {body[:200]}")
     except (json.JSONDecodeError, KeyError):
-        return {"score": 0, "feedback": "The AI returned an unexpected response format. Please try again."}
+        raise GradingError("The AI returned an unexpected response format. Please try again.")
+    except GradingError:
+        raise
     except Exception as e:
-        return {"score": 0, "feedback": f"An unexpected error occurred: {str(e)[:60]}"}
+        raise GradingError(f"An unexpected error occurred: {str(e)[:60]}")

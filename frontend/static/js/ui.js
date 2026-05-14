@@ -305,10 +305,12 @@ const UI = {
     let runningTotal = 0;
     const totalMax = q.sub_questions.reduce((s, sub) => s + sub.max_marks, 0);
 
-    const { totalScore, maxScore, passed } = await Engine.gradeTheoryQuestion(
-      q,
-      answers,
-      (subId, result) => {
+    let totalScore, maxScore, passed;
+    try {
+      ({ totalScore, maxScore, passed } = await Engine.gradeTheoryQuestion(
+        q,
+        answers,
+        (subId, result) => {
         // Update per-sub feedback
         const block = document.getElementById(`sub-block-${subId}`);
         const fScore = document.getElementById(`fscore-${subId}`);
@@ -342,7 +344,22 @@ const UI = {
           if (nextBlock) nextBlock.classList.add('grading');
         }
       }
-    );
+    ));
+    } catch (err) {
+      if (gradingOverlay) gradingOverlay.classList.add('hidden');
+      showToast(`Grading failed: ${err.message}`, 'error');
+
+      // Re-enable UI for retry
+      q.sub_questions.forEach(sub => {
+        const ta = document.getElementById(`answer-${sub.sub_id}`);
+        if (ta) ta.disabled = false;
+        const block = document.getElementById(`sub-block-${sub.sub_id}`);
+        if (block) block.classList.remove('grading');
+      });
+      if (submitBtn) submitBtn.style.display = 'flex';
+      this._gradingActive = false;
+      return;
+    }
 
     if (gradingOverlay) gradingOverlay.classList.add('hidden');
 
