@@ -887,5 +887,305 @@
       ]
     }
   ]
+},
+{
+  "subject": "Digital Tech - v3 (main)",
+  "obj": [],
+  "theory": [
+    {
+      "id": "th_001",
+      "main_context": "SECTION A: SHORT-STRUCTURED QUESTIONS - Question 1: Data Processing",
+      "sub_questions": [
+        {
+          "sub_id": "th_001_a_i",
+          "label": "1(a)(i)",
+          "question": "Explain the following term: Data processing;",
+          "rubric": "**Answer:** Data processing is the collection, manipulation, and transformation of raw, unorganized facts (data) into meaningful and useful information.\n\n👨‍🏫 **Teacher's Trap:** You MUST use the keywords \"raw data\" and \"meaningful information\". If you just say \"working on data,\" you will lose the mark!",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_001_a_ii",
+          "label": "1(a)(ii)",
+          "question": "Explain the following term: Data collation;",
+          "rubric": "**Answer:** This is the process of gathering, arranging, and assembling data from different sources into a standard, logical order or structured format before it is processed.\n\n✅ **Acceptable WAEC Alternatives:** Bringing data together, sorting data into groups, merging raw data.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_001_b",
+          "label": "1(b)",
+          "question": "Describe Data Processing Cycle.",
+          "rubric": "**Answer:** The data processing cycle is the sequence of steps involved in converting raw data into information.\n\n**The Steps (Describe them briefly for full marks):**\n1. **Data Collection/Gathering:** Acquiring the raw data.\n2. **Data Input:** Entering the data into the computer system.\n3. **Processing:** Manipulating the data (calculating, sorting, etc.).\n4. **Output:** Displaying the processed information.\n5. **Storage:** Saving the output for future use.\n\n👨‍🏫 **Teacher's Secret:** Because the question says \"Describe\" and carries marks, do not just list the words! Give a tiny one-sentence explanation of the flow.",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_001_c",
+          "label": "1(c)",
+          "question": "State four benefits of the computer as a tool for processing data.",
+          "rubric": "✅ **Acceptable WAEC Alternatives (Pick any 4, but memorize them all!):**\n* **Speed:** Computations are done in fractions of a second.\n* **Accuracy:** It eliminates human error if programmed correctly (GIGO principle).\n* **Storage Capacity:** Can hold massive amounts of data in small physical spaces.\n* **Efficiency:** Can work continuously without fatigue.\n* **Versatility:** Can be used for a wide variety of tasks (text, numbers, graphics).\n* **Reliability:** Gives consistent results for the same inputs.",
+          "max_marks": 4
+        }
+      ]
+    },
+    {
+      "id": "th_002",
+      "main_context": "Question 2: Computer Hardware & Setup",
+      "sub_questions": [
+        {
+          "sub_id": "th_002_a",
+          "label": "2(a)",
+          "question": "Identify the part labelled in Figure 1: (i) A (ii) B (iii) C (iv) D",
+          "rubric": "**(i) A:** Monitor ✅ *(Alternative: Visual Display Unit / VDU)*\n**(ii) B:** Printer ✅\n**(iii) C:** Mouse ✅\n**(iv) D:** Keyboard ✅ *(Trap: Make sure you follow the exact arrow line! D points to the flat board, not the system unit box).* ",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_002_b",
+          "label": "2(b)",
+          "question": "For each device, tick if it is an Input or Output device (A, B, C, D).",
+          "rubric": "**A (Monitor):** Output Device\n**B (Printer):** Output Device\n**C (Mouse):** Input Device\n**D (Keyboard):** Input Device",
+          "max_marks": 4
+        },
+        {
+          "sub_id": "th_002_c",
+          "label": "2(c)",
+          "question": "Name two devices that can be used for both input and output operations.",
+          "rubric": "✅ **Acceptable WAEC Alternatives (The Examiner's Buffet):**\n* Touchscreen\n* Modem\n* Digital Camera\n* Interactive Whiteboard\n* Headset (with microphone)\n* Storage devices (Flash drive, Hard drive - as they read and write)\n* Fax Machine (Facsimile)",
+          "max_marks": 2
+        }
+      ]
+    },
+    {
+      "id": "th_003",
+      "main_context": "Question 3: Modes of Information Transmission",
+      "sub_questions": [
+        {
+          "sub_id": "th_003_a_i",
+          "label": "3(a)(i)",
+          "question": "With the aid of a well-labelled diagram, explain the following: Simplex",
+          "rubric": "**Simplex:** Data transmission occurs in **only one direction**.\n*Diagram:* [Sender] ➔➔➔➔ [Receiver]\n\n👨‍🏫 **Teacher's Trap:** Forget the diagrams, and you lose half the marks! Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_003_a_ii",
+          "label": "3(a)(ii)",
+          "question": "With the aid of a well-labelled diagram, explain the following: Half duplex",
+          "rubric": "**Half duplex:** Data transmission occurs in **both directions, but only ONE AT A TIME**.\n*Diagram:* [Device A] ➔➔ (Wait) ➔➔ [Device B] AND THEN [Device A] ⬅️⬅️ (Wait) ⬅️⬅️ [Device B]. *(Label it: Two-way, but not at the same time).* \n\n👨‍🏫 **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_003_a_iii",
+          "label": "3(a)(iii)",
+          "question": "With the aid of a well-labelled diagram, explain the following: Full duplex",
+          "rubric": "**Full duplex:** Data transmission occurs in **both directions SIMULTANEOUSLY** (at the same time).\n*Diagram:* [Device A] ⇄ [Device B] *(Draw two distinct arrows pointing in opposite directions).*\n\n👨‍🏫 **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_003_b_i",
+          "label": "3(b)(i)",
+          "question": "State one example of: Simplex",
+          "rubric": "✅ Radio broadcast, Television broadcast, Keyboard to Computer.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_003_b_ii",
+          "label": "3(b)(ii)",
+          "question": "State one example of: Half duplex",
+          "rubric": "✅ Walkie-talkie, Police radio, CB Radio.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_003_b_iii",
+          "label": "3(b)(iii)",
+          "question": "State one example of: Full duplex",
+          "rubric": "✅ Telephone conversation, Mobile phone call, Video conferencing.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_003_c",
+          "label": "3(c)",
+          "question": "Name one component of a data communication system.",
+          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Sender (or Source)\n* Receiver (or Destination)\n* Transmission Medium (or Communication Channel)\n* Message (or Data)\n* Protocol",
+          "max_marks": 1
+        }
+      ]
+    },
+    {
+      "id": "th_004",
+      "main_context": "Question 4: Computing Terms",
+      "sub_questions": [
+        {
+          "sub_id": "th_004_a",
+          "label": "4(a)",
+          "question": "Differentiate between hackers and spammers.",
+          "rubric": "**Answer:** A **hacker** is an individual who gains unauthorized access to computer systems or networks (either to steal/destroy data or test security), WHEREAS a **spammer** is someone who sends unsolicited, bulk junk messages (usually emails) for advertising, phishing, or spreading malware.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_004_b",
+          "label": "4(b)",
+          "question": "State one importance of add-in in MS Excel.",
+          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* It provides additional custom commands and features not available in the default Excel setup.\n* It automates complex mathematical or statistical tasks (e.g., Solver or Data Analysis ToolPak).\n* It allows integration with third-party software.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_004_c_i",
+          "label": "4(c)(i)",
+          "question": "Explain the following term: cookies",
+          "rubric": "Small text files saved on a user's computer by a web browser that store user preferences, login details, and browsing history.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_004_c_ii",
+          "label": "4(c)(ii)",
+          "question": "Explain the following term: plugin",
+          "rubric": "A software add-on that is installed onto a web browser or program to give it a specific extra functionality (e.g., an ad-blocker or a PDF viewer).",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_004_c_iii",
+          "label": "4(c)(iii)",
+          "question": "Explain the following term: web crawlers",
+          "rubric": "(Also known as spiders or bots) These are automated internet programs used by search engines to systematically browse the World Wide Web and index website content so it can be searched.",
+          "max_marks": 2
+        }
+      ]
+    },
+    {
+      "id": "th_005",
+      "main_context": "SECTION B: TEST OF PRACTICAL WORK - Question 5: Presentation Software Interface",
+      "sub_questions": [
+        {
+          "sub_id": "th_005_a",
+          "label": "5(a)",
+          "question": "Identify the type of application whose interface is shown in Figure 2.",
+          "rubric": "**Answer:** Presentation Software ✅ *(Acceptable alternative: Microsoft PowerPoint)*.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_005_b_i",
+          "label": "5(b)(i)",
+          "question": "Outline the steps to insert a new slide to the interface.",
+          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Go to the **Home** tab ➔ Click on **New Slide**.\n* *Method 2:* Right-click on the slide navigation pane on the left ➔ Select **New Slide**.\n* *Method 3:* Use the keyboard shortcut **Ctrl + M**.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_b_ii",
+          "label": "5(b)(ii)",
+          "question": "Outline the steps to delete a slide from the interface.",
+          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Click/Select the slide in the navigation pane ➔ Press the **Delete** or **Backspace** key on the keyboard.\n* *Method 2:* Right-click the slide in the navigation pane ➔ Click **Delete Slide**.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_c",
+          "label": "5(c)",
+          "question": "State two examples of the application in Figure 2.",
+          "rubric": "✅ **Acceptable WAEC Alternatives:** Microsoft PowerPoint, Google Slides, Apple Keynote, LibreOffice Impress, Prezi, WPS Presentation.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_d_i",
+          "label": "5(d)(i)",
+          "question": "Give two uses of the application in Figure 2.",
+          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Delivering educational lectures or teaching.\n* Making business proposals or corporate pitches.\n* Creating automated informational kiosks/digital signage.\n* Creating multimedia photo/video slideshows.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_d_ii",
+          "label": "5(d)(ii)",
+          "question": "Give two differences between transitions and animations.",
+          "rubric": "**Answer:** **Transitions** are the visual effects that occur when moving from *one entire slide to the next* during a presentation, WHEREAS **Animations** are the visual effects applied to *individual elements* (like text, images, or shapes) on a single, specific slide.\n\n👨‍🏫 **Teacher's Secret:** The words **\"Slide-to-slide\"** versus **\"Elements ON a slide\"** are the exact keywords the examiner is hunting for!",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_e_i",
+          "label": "5(e)(i)",
+          "question": "Highlight the steps to run slideshow.",
+          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Click on the **Slide Show** tab ➔ Click **From Beginning** (or From Current Slide).\n* *Method 2:* Press **F5** (to start from the beginning) or **Shift + F5** (to start from current slide).\n* *Method 3:* Click the small **Slide Show icon** at the bottom right of the screen.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_005_e_ii",
+          "label": "5(e)(ii)",
+          "question": "Highlight the steps to print a handout of 6 slides on a page.",
+          "rubric": "**Step-by-step:** Click the **File** tab ➔ Select **Print** ➔ Under settings, click on the \"Full Page Slides\" drop-down menu ➔ Look under the \"Handouts\" section and select **\"6 Slides\"** ➔ Click **Print**.",
+          "max_marks": 3
+        }
+      ]
+    },
+    {
+      "id": "th_006",
+      "main_context": "Question 6: Mail Merge",
+      "sub_questions": [
+        {
+          "sub_id": "th_006_a",
+          "label": "6(a)",
+          "question": "Describe in detail the step-by-step approach to create (a mail merge document):",
+          "rubric": "**Step-by-step:**\n1. Open Microsoft Word and click on the **Mailings** tab.\n2. Click **Start Mail Merge** and choose your document type (e.g., Letters or Email Messages).\n3. Click **Select Recipients** ➔ Choose **Use an Existing List**.\n4. Browse your computer to locate and open the provided database (contacts list).\n5. Place your cursor in the document and click **Insert Merge Field** to add the contact details (like Name, Address) into the document.",
+          "max_marks": 5
+        },
+        {
+          "sub_id": "th_006_b",
+          "label": "6(b)",
+          "question": "Preview and complete a mail merge using a template in MS Word:",
+          "rubric": "**Step-by-step:**\n1. Still on the **Mailings** tab, click **Preview Results** to see how the actual names look in the template.\n2. Check for any spacing or formatting errors.\n3. Click **Finish & Merge**.\n4. Choose either **Print Documents** (to send to a printer) or **Edit Individual Documents** (to save them as a new combined Word file).",
+          "max_marks": 4
+        }
+      ]
+    },
+    {
+      "id": "th_007",
+      "main_context": "EXTRA PAGE QUESTIONS (ROBOTICS & ERGONOMICS)",
+      "sub_questions": [
+        {
+          "sub_id": "th_007_f_i",
+          "label": "(f)(i)",
+          "question": "State the function of components used in constructing a robot: Gears",
+          "rubric": "Used to transmit rotational power, change the speed, or alter the direction of force within the robot's mechanical joints.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_007_f_ii",
+          "label": "(f)(ii)",
+          "question": "State the function of components used in constructing a robot: Grippers",
+          "rubric": "Also known as end-effectors, they act as the robot's \"hands\" to grasp, lift, hold, and manipulate objects.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_007_f_iii",
+          "label": "(f)(iii)",
+          "question": "State the function of components used in constructing a robot: Motors",
+          "rubric": "Actuators that convert electrical energy into mechanical movement/rotation to drive the robot's wheels or joints.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_007_a",
+          "label": "(a)",
+          "question": "Describe the term \"generation of computers\":",
+          "rubric": "**Answer:** This refers to the historical developmental stages of computer technology. Each \"generation\" is characterized by a major technological leap in the primary electronic components used to build the computer (e.g., moving from vacuum tubes to transistors, to microprocessors), resulting in smaller, faster, and more efficient machines.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_007_b",
+          "label": "(b)",
+          "question": "List three file management practices to organize work better:",
+          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Create logically named folders and subfolders to categorize files.\n* Use descriptive, clear, and consistent file naming conventions.\n* Regularly back up important files to an external drive or cloud.\n* Delete duplicated or obsolete (unwanted) files.\n* Sort files by date, type, or name to find them easily.",
+          "max_marks": 3
+        },
+        {
+          "sub_id": "th_007_c_i",
+          "label": "(c)(i)",
+          "question": "What computing-related disorder is the student likely experiencing?",
+          "rubric": "**Answer:** Computer Vision Syndrome (CVS) ✅ *(Acceptable alternative: Digital Eye Strain)*.",
+          "max_marks": 1
+        },
+        {
+          "sub_id": "th_007_c_ii",
+          "label": "(c)(ii)",
+          "question": "Explain the identified disorder:",
+          "rubric": "**Answer:** It is a group of eye and vision-related problems (like dry eyes, headaches, blurred vision, and eye fatigue) caused by prolonged, uninterrupted viewing of digital screens, poor lighting, screen glare, and reduced blinking.",
+          "max_marks": 2
+        }
+      ]
+    }
+  ]
 }
 ]
