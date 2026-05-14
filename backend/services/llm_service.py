@@ -14,7 +14,7 @@ def grade_sub_question(sub_question: str, student_answer: str, rubric: str, max_
             "feedback": "No API key configured. Please add your OPENROUTER_API_KEY to the .env file."
         }
 
-    if not student_answer or not student_answer.strip():
+    if not student_answer or not str(student_answer).strip():
         return {
             "score": 0,
             "feedback": "No answer was provided for this sub-question."
@@ -76,7 +76,11 @@ Now grade the student's answer:"""
         response.raise_for_status()
         data = response.json()
 
-        raw_text = data["choices"][0]["message"]["content"].strip()
+        raw_content = data["choices"][0]["message"].get("content")
+        if raw_content is None:
+            return {"score": 0, "feedback": "The AI returned an empty response. Please try again."}
+
+        raw_text = raw_content.strip()
 
         # Strip any markdown fences if the model added them
         if raw_text.startswith("```"):
