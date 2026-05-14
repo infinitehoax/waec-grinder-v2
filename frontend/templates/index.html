@@ -45,12 +45,25 @@
       Start a new session
     </h2>
 
+    <!-- Subject Selection -->
+    <div class="card" style="margin-bottom: 20px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div>
+          <div style="font-weight:600; margin-bottom:4px;">Select Subject</div>
+          <div style="font-size:0.85rem; color:var(--text-secondary);">Choose the subject you want to grind today.</div>
+        </div>
+        <select id="subject-selector" class="btn btn--ghost" style="padding-right: 32px; appearance: auto;" onchange="updateSubjectSelection()">
+          <option value="" disabled selected>Loading subjects...</option>
+        </select>
+      </div>
+    </div>
+
     <!-- Subject info -->
-    <div class="card" style="margin-bottom: 20px;" id="subject-card">
+    <div class="card" style="margin-bottom: 20px; display:none;" id="subject-card">
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
         <div>
-          <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; font-family:var(--font-mono);">Subject</div>
-          <div style="font-size:1.2rem; font-weight:700;" id="subject-name">Loading...</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; font-family:var(--font-mono);">Selected Subject</div>
+          <div style="font-size:1.2rem; font-weight:700;" id="subject-name">–</div>
         </div>
         <div style="display:flex; gap:16px; font-size:0.8rem; font-family:var(--font-mono); color:var(--text-muted);">
           <span>OBJ: <strong id="obj-count" style="color:var(--text-primary)">–</strong></span>
@@ -140,23 +153,24 @@
 
   let selectedMode = 'both';
   let selectedBatchSize = 5;
-  let questionsData = null;
+  let allQuestions = null;
+  let selectedSubjectData = null;
 
   // Make functions available globally for onclick handlers
   window.selectMode = selectMode;
   window.startSession = startSession;
   window.resumeSession = resumeSession;
   window.clearSession = clearSession;
+  window.updateSubjectSelection = updateSubjectSelection;
 
   async function init() {
     // Load questions + config
     try {
-      [questionsData] = await Promise.all([API.getQuestions(), loadServerConfig()]);
-      document.getElementById('subject-name').textContent = questionsData.subject || 'Unknown Subject';
-      document.getElementById('obj-count').textContent = (questionsData.obj || []).length;
-      document.getElementById('theory-count').textContent = (questionsData.theory || []).length;
+      [allQuestions] = await Promise.all([API.getQuestions(), loadServerConfig()]);
+      populateSubjects();
     } catch (e) {
-      document.getElementById('subject-name').textContent = 'Error loading questions';
+      console.error(e);
+      document.getElementById('subject-selector').innerHTML = '<option disabled>Error loading subjects</option>';
     }
 
     // Check for existing session
@@ -195,6 +209,57 @@
     if (navUnseen) navUnseen.textContent = summary.unseen_obj + summary.unseen_theory;
   }
 
+  function populateSubjects() {
+    const selector = document.getElementById('subject-selector');
+    selector.innerHTML = '';
+
+    allQuestions.forEach((s, idx) => {
+      const opt = document.createElement('option');
+      opt.value = idx;
+      opt.textContent = s.subject;
+      selector.appendChild(opt);
+    });
+
+    // Try to restore last selected subject or first one
+    const lastSubject = Storage.getSubject();
+    const lastIdx = allQuestions.findIndex(s => s.subject === lastSubject);
+    if (lastIdx !== -1) {
+      selector.value = lastIdx;
+    } else {
+      selector.value = 0;
+    }
+    updateSubjectSelection();
+  }
+
+  function updateSubjectSelection() {
+    const idx = document.getElementById('subject-selector').value;
+    selectedSubjectData = allQuestions[idx];
+
+    document.getElementById('subject-card').style.display = 'block';
+    document.getElementById('subject-name').textContent = selectedSubjectData.subject;
+    document.getElementById('obj-count').textContent = (selectedSubjectData.obj || []).length;
+    document.getElementById('theory-count').textContent = (selectedSubjectData.theory || []).length;
+
+    // Refresh resume card for this specific subject
+    refreshResumeCard();
+    updateNavDisplay();
+  }
+
+  function refreshResumeCard() {
+    const resumeCard = document.getElementById('resume-card');
+    if (Storage.hasExistingSession() && Storage.getSubject() === selectedSubjectData.subject) {
+      const summary = Storage.getSessionSummary();
+      const total = summary.unseen_obj + summary.unseen_theory + summary.failed_obj + summary.failed_theory;
+      if (total > 0) {
+        const desc = document.getElementById('resume-desc');
+        resumeCard.style.display = 'block';
+        desc.textContent = `Subject: ${summary.subject} | ${summary.failed_obj + summary.failed_theory} failed, ${summary.unseen_obj + summary.unseen_theory} unseen, ${summary.stats.mastered} mastered.`;
+        return;
+      }
+    }
+    resumeCard.style.display = 'none';
+  }
+
   function selectMode(mode) {
     selectedMode = mode;
     document.querySelectorAll('.mode-card').forEach(c => {
@@ -211,8 +276,8 @@
   }
 
   async function startSession() {
-    if (!questionsData) {
-      alert('Questions failed to load. Please refresh the page.');
+    if (!selectedSubjectData) {
+      alert('Please select a subject first.');
       return;
     }
 
@@ -221,11 +286,11 @@
     btn.textContent = 'Building session...';
 
     APP_CONFIG.BATCH_SIZE = selectedBatchSize;
-    Storage.initSession(questionsData, selectedMode);
+    Storage.initSession(selectedSubjectData, selectedMode);
 
     // If all already done, soft-reset
     if (Storage.isAllDone(selectedMode)) {
-      Storage.softReset(questionsData, selectedMode);
+      Storage.softReset(selectedSubjectData, selectedMode);
     }
 
     // Navigate to study page
@@ -238,9 +303,9 @@
   }
 
   function clearSession() {
-    if (confirm('This will clear all your progress for this subject. Are you sure?')) {
-      Storage.hardReset();
-      document.getElementById('resume-card').style.display = 'none';
+    if (confirm(`This will clear all your progress for "${selectedSubjectData.subject}". Are you sure?`)) {
+      Storage.clearSubjectProgress(selectedSubjectData.subject);
+      refreshResumeCard();
       updateNavDisplay();
     }
   }

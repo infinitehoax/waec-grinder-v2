@@ -61,7 +61,7 @@ const Engine = {
    * Remove items pulled from unseen queues so they aren't double-counted.
    */
   consumeBatch(batch) {
-    const mode = Storage.getMode();
+    const sub = Storage.getSubject();
     const batchIds = {
       obj: batch.filter(q => q._type === 'obj' && !q._from_failed).map(q => q.id),
       theory: batch.filter(q => q._type === 'theory' && !q._from_failed).map(q => q.id),
@@ -69,12 +69,12 @@ const Engine = {
 
     // Drain unseen queues of batch items
     if (batchIds.obj.length > 0) {
-      const unseen = Storage.getUnseenObj().filter(q => !batchIds.obj.includes(q.id));
-      Storage._set('wg_unseen_obj', unseen);
+      const unseen = Storage.getUnseenObj(sub).filter(q => !batchIds.obj.includes(q.id));
+      Storage._setScoped(sub, 'unseen_obj', unseen);
     }
     if (batchIds.theory.length > 0) {
-      const unseen = Storage.getUnseenTheory().filter(q => !batchIds.theory.includes(q.id));
-      Storage._set('wg_unseen_theory', unseen);
+      const unseen = Storage.getUnseenTheory(sub).filter(q => !batchIds.theory.includes(q.id));
+      Storage._setScoped(sub, 'unseen_theory', unseen);
     }
   },
 

@@ -18,9 +18,3 @@ def load_questions() -> dict:
         return {"success": False, "error": f"Failed to load questions: {str(e)}"}
 
 
-def get_subject() -> str:
-    """Returns the subject name from the questions file."""
-    result = load_questions()
-    if result["success"]:
-        return result["data"].get("subject", "Unknown Subject")
-    return "Unknown Subject"

@@ -55,8 +55,11 @@
     if (!batch || batch.length === 0) {
       // Build a new batch
       try {
-        const data = await API.getQuestions();
-        Storage.initSession(data, mode);
+        const allQuestions = await API.getQuestions();
+        const currentSubject = Storage.getSubject();
+        const subjectData = allQuestions.find(s => s.subject === currentSubject) || allQuestions[0];
+
+        Storage.initSession(subjectData, mode);
       } catch (e) {
         document.getElementById('question-wrapper').innerHTML = `
           <div class="empty-state">

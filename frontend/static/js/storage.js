@@ -4,15 +4,18 @@
 // ============================================
 
 const KEYS = {
-  UNSEEN_OBJ:    'wg_unseen_obj',
-  UNSEEN_THEORY: 'wg_unseen_theory',
-  FAILED_OBJ:    'wg_failed_obj',
-  FAILED_THEORY: 'wg_failed_theory',
-  STATS:         'wg_stats',
-  CURRENT_BATCH: 'wg_current_batch',
-  CURRENT_IDX:   'wg_current_idx',
-  STUDY_MODE:    'wg_study_mode',
-  SUBJECT:       'wg_subject',
+  CURRENT_SUBJECT: 'wg_current_subject',
+  CURRENT_BATCH:   'wg_current_batch',
+  CURRENT_IDX:     'wg_current_idx',
+  STUDY_MODE:      'wg_study_mode',
+};
+
+const SUB_KEYS = {
+  UNSEEN_OBJ:    'unseen_obj',
+  UNSEEN_THEORY: 'unseen_theory',
+  FAILED_OBJ:    'failed_obj',
+  FAILED_THEORY: 'failed_theory',
+  STATS:         'stats',
 };
 
 const Storage = {
@@ -24,102 +27,129 @@ const Storage = {
     localStorage.setItem(key, JSON.stringify(val));
   },
 
+  // ---- Subject-scoped helpers ----
+  _getScoped(subject, key) {
+    const data = this._get(`wg_sub_${subject}`) || {};
+    return data[key];
+  },
+  _setScoped(subject, key, val) {
+    const data = this._get(`wg_sub_${subject}`) || {};
+    data[key] = val;
+    this._set(`wg_sub_${subject}`, data);
+  },
+
   // ---- Initialise from loaded question data ----
   initSession(data, mode) {
-    this._set(KEYS.SUBJECT, data.subject || 'Unknown Subject');
+    const subject = data.subject || 'Unknown Subject';
+    this._set(KEYS.CURRENT_SUBJECT, subject);
     this._set(KEYS.STUDY_MODE, mode);
 
     if (mode === 'obj' || mode === 'both') {
-      // Only reset unseen if not already initialised
-      if (!this._get(KEYS.UNSEEN_OBJ)) {
-        this._set(KEYS.UNSEEN_OBJ, data.obj || []);
+      if (!this._getScoped(subject, SUB_KEYS.UNSEEN_OBJ)) {
+        this._setScoped(subject, SUB_KEYS.UNSEEN_OBJ, data.obj || []);
       }
     }
     if (mode === 'theory' || mode === 'both') {
-      if (!this._get(KEYS.UNSEEN_THEORY)) {
-        this._set(KEYS.UNSEEN_THEORY, data.theory || []);
+      if (!this._getScoped(subject, SUB_KEYS.UNSEEN_THEORY)) {
+        this._setScoped(subject, SUB_KEYS.UNSEEN_THEORY, data.theory || []);
       }
     }
 
-    // Ensure failed queues exist
-    if (!this._get(KEYS.FAILED_OBJ))    this._set(KEYS.FAILED_OBJ, []);
-    if (!this._get(KEYS.FAILED_THEORY)) this._set(KEYS.FAILED_THEORY, []);
+    if (!this._getScoped(subject, SUB_KEYS.FAILED_OBJ))    this._setScoped(subject, SUB_KEYS.FAILED_OBJ, []);
+    if (!this._getScoped(subject, SUB_KEYS.FAILED_THEORY)) this._setScoped(subject, SUB_KEYS.FAILED_THEORY, []);
 
-    // Ensure stats exist
-    if (!this._get(KEYS.STATS)) {
-      this._set(KEYS.STATS, { mastered: 0, failed_total: 0, sessions: 0 });
+    if (!this._getScoped(subject, SUB_KEYS.STATS)) {
+      this._setScoped(subject, SUB_KEYS.STATS, { mastered: 0, failed_total: 0, sessions: 0 });
     }
   },
 
-  // ---- Force reset (re-study all questions) ----
+  // ---- Force reset (re-study all questions for a subject) ----
+  clearSubjectProgress(subject) {
+    localStorage.removeItem(`wg_sub_${subject}`);
+    if (this.getSubject() === subject) {
+      localStorage.removeItem(KEYS.CURRENT_BATCH);
+      localStorage.removeItem(KEYS.CURRENT_IDX);
+      localStorage.removeItem(KEYS.STUDY_MODE);
+    }
+  },
+
   hardReset() {
-    Object.values(KEYS).forEach(k => localStorage.removeItem(k));
+    // This now clears EVERYTHING
+    localStorage.clear();
   },
 
   // ---- Soft reset (keep subject/mode, clear queues) ----
   softReset(data, mode) {
-    localStorage.removeItem(KEYS.UNSEEN_OBJ);
-    localStorage.removeItem(KEYS.UNSEEN_THEORY);
-    localStorage.removeItem(KEYS.FAILED_OBJ);
-    localStorage.removeItem(KEYS.FAILED_THEORY);
+    const subject = data.subject || 'Unknown Subject';
+    const stats = this.getStats(subject);
+    stats.sessions += 1;
+
+    localStorage.removeItem(`wg_sub_${subject}`);
     localStorage.removeItem(KEYS.CURRENT_BATCH);
     localStorage.removeItem(KEYS.CURRENT_IDX);
-    const stats = this._get(KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0 };
-    stats.sessions += 1;
-    this._set(KEYS.STATS, stats);
+
     this.initSession(data, mode);
+    this._setScoped(subject, SUB_KEYS.STATS, stats);
   },
 
   // ---- Queue accessors ----
-  getUnseenObj()    { return this._get(KEYS.UNSEEN_OBJ)    || []; },
-  getUnseenTheory() { return this._get(KEYS.UNSEEN_THEORY) || []; },
-  getFailedObj()    { return this._get(KEYS.FAILED_OBJ)    || []; },
-  getFailedTheory() { return this._get(KEYS.FAILED_THEORY) || []; },
+  getUnseenObj(sub)    { return this._getScoped(sub || this.getSubject(), SUB_KEYS.UNSEEN_OBJ)    || []; },
+  getUnseenTheory(sub) { return this._getScoped(sub || this.getSubject(), SUB_KEYS.UNSEEN_THEORY) || []; },
+  getFailedObj(sub)    { return this._getScoped(sub || this.getSubject(), SUB_KEYS.FAILED_OBJ)    || []; },
+  getFailedTheory(sub) { return this._getScoped(sub || this.getSubject(), SUB_KEYS.FAILED_THEORY) || []; },
 
   getMode()    { return this._get(KEYS.STUDY_MODE) || 'both'; },
-  getSubject() { return this._get(KEYS.SUBJECT) || 'Unknown Subject'; },
-  getStats()   { return this._get(KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0 }; },
+  getSubject() { return this._get(KEYS.CURRENT_SUBJECT) || 'Unknown Subject'; },
+  getStats(sub)   { return this._getScoped(sub || this.getSubject(), SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0 }; },
 
   // ---- Queue mutators ----
   pushFailedObj(q) {
-    const arr = this.getFailedObj();
+    const sub = this.getSubject();
+    const arr = this.getFailedObj(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._set(KEYS.FAILED_OBJ, arr);
+    this._setScoped(sub, SUB_KEYS.FAILED_OBJ, arr);
   },
   pushFailedTheory(q) {
-    const arr = this.getFailedTheory();
+    const sub = this.getSubject();
+    const arr = this.getFailedTheory(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._set(KEYS.FAILED_THEORY, arr);
+    this._setScoped(sub, SUB_KEYS.FAILED_THEORY, arr);
   },
   removeFailedObj(id) {
-    this._set(KEYS.FAILED_OBJ, this.getFailedObj().filter(q => q.id !== id));
+    const sub = this.getSubject();
+    this._setScoped(sub, SUB_KEYS.FAILED_OBJ, this.getFailedObj(sub).filter(q => q.id !== id));
   },
   removeFailedTheory(id) {
-    this._set(KEYS.FAILED_THEORY, this.getFailedTheory().filter(q => q.id !== id));
+    const sub = this.getSubject();
+    this._setScoped(sub, SUB_KEYS.FAILED_THEORY, this.getFailedTheory(sub).filter(q => q.id !== id));
   },
   shiftUnseenObj() {
-    const arr = this.getUnseenObj();
+    const sub = this.getSubject();
+    const arr = this.getUnseenObj(sub);
     const q = arr.shift();
-    this._set(KEYS.UNSEEN_OBJ, arr);
+    this._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
     return q;
   },
   shiftUnseenTheory() {
-    const arr = this.getUnseenTheory();
+    const sub = this.getSubject();
+    const arr = this.getUnseenTheory(sub);
     const q = arr.shift();
-    this._set(KEYS.UNSEEN_THEORY, arr);
+    this._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
     return q;
   },
 
   // ---- Stats updaters ----
   incrementMastered(count = 1) {
-    const s = this.getStats();
+    const sub = this.getSubject();
+    const s = this.getStats(sub);
     s.mastered += count;
-    this._set(KEYS.STATS, s);
+    this._setScoped(sub, SUB_KEYS.STATS, s);
   },
   incrementFailed(count = 1) {
-    const s = this.getStats();
+    const sub = this.getSubject();
+    const s = this.getStats(sub);
     s.failed_total += count;
-    this._set(KEYS.STATS, s);
+    this._setScoped(sub, SUB_KEYS.STATS, s);
   },
 
   // ---- Batch state ----
