@@ -37,7 +37,8 @@ MAXIMUM MARKS AVAILABLE: {max_marks}
 
 Instructions:
 - Grade ONLY the answer to this specific sub-question.
-- Apply the rubric strictly. Do not give marks for vague or irrelevant statements.
+- NOTE: The provided MARKING RUBRIC may be INCOMPLETE. If the student's answer is factually correct based on your internal knowledge but missing from the rubric, you SHOULD still award marks. Use the rubric as a guide, but rely on your internal expertise to ensure fair and accurate grading.
+- Apply these standards strictly. Do not give marks for vague or irrelevant statements.
 - Your response MUST be a valid JSON object and NOTHING ELSE. No preamble, no explanation outside the JSON.
 - The JSON must have exactly two keys:
   - "score": an integer from 0 to {max_marks}
