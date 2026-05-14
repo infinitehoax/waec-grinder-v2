@@ -364,6 +364,8 @@ const UI = {
 
     const nextBtn = document.getElementById('next-btn');
     if (nextBtn) nextBtn.style.display = 'flex';
+
+    return { totalScore, maxScore, passed };
   },
 
   skipQuestion() {

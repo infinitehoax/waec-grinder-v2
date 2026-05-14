@@ -22,6 +22,12 @@ const multiplayer_study = {
 
         SocketClient.init();
 
+        // Restore score if re-joining
+        if (this.roomState.players && SocketClient.player_uuid) {
+            const me = this.roomState.players[SocketClient.player_uuid];
+            if (me) this.myScore = me.score || 0;
+        }
+
         const join = () => {
             const myName = sessionStorage.getItem('wg_multiplayer_name');
             console.log('Joining room:', this.roomId, 'as', myName);
@@ -99,6 +105,11 @@ const multiplayer_study = {
             if (btn.disabled) return;
             // Capture current myScore to see if it changes
             const scoreBefore = this.myScore;
+            const grid = btn.closest('#options-grid');
+            const correct = grid ? grid.dataset.correct : '';
+            if (letter === correct) {
+                this.myScore++;
+            }
             originalSelectOption.call(UI, btn, letter);
             if (btn.classList.contains('correct')) {
                 this.myScore++;
@@ -113,6 +124,8 @@ const multiplayer_study = {
             await originalSubmitTheory.call(UI);
             const banner = document.getElementById('result-banner');
             if (banner && banner.classList.contains('pass')) {
+            const result = await originalSubmitTheory.call(UI);
+            if (result && result.passed) {
                 this.myScore++;
             }
             this.emitProgress();
@@ -134,8 +147,8 @@ const multiplayer_study = {
                     <p style="margin-bottom:28px">Wait for others to complete the challenge.</p>
                     <div class="stats-grid" style="max-width:500px;margin:0 auto 32px">
                         <div class="stat-card stat--accent">
-                            <div class="stat-card__value" id="final-score-val">${questions.length}</div>
-                            <div class="stat-card__label">Questions Completed</div>
+                            <div class="stat-card__value" id="final-score-val">${this.myScore} / ${questions.length}</div>
+                            <div class="stat-card__label">Final Score</div>
                         </div>
                     </div>
                     <div id="wait-message" style="margin-top: 20px; color: var(--text-muted);">
