@@ -7,7 +7,7 @@ import os
 # Add the project root to sys.path to import backend modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from backend.services.llm_service import grade_sub_question
+from backend.services.llm_service import grade_sub_question, GradingError
 
 class TestLLMGrading(unittest.TestCase):
 
@@ -58,10 +58,8 @@ class TestLLMGrading(unittest.TestCase):
         }
         mock_post.return_value = mock_response
 
-        result = grade_sub_question("What is 1+1?", "2", "1+1 is 2", 5)
-
-        self.assertEqual(result['feedback'], "The AI returned an empty response. Please try again.")
-        self.assertEqual(result['score'], 0)
+        with self.assertRaisesRegex(GradingError, "The AI returned an empty response"):
+            grade_sub_question("What is 1+1?", "2", "1+1 is 2", 5)
 
     @patch('backend.services.llm_service.Config')
     @patch('backend.services.llm_service.requests.post')
@@ -108,10 +106,8 @@ class TestLLMGrading(unittest.TestCase):
         }
         mock_post.return_value = mock_response
 
-        result = grade_sub_question("What is 1+1?", "2", "1+1 is 2", 5)
-
-        self.assertEqual(result['feedback'], "The AI returned an unexpected response format. Please try again.")
-        self.assertEqual(result['score'], 0)
+        with self.assertRaisesRegex(GradingError, "unexpected response format"):
+            grade_sub_question("What is 1+1?", "2", "1+1 is 2", 5)
 
 if __name__ == '__main__':
     unittest.main()

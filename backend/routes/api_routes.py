@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from backend.services.data_service import load_questions
-from backend.services.llm_service import grade_sub_question
+from backend.services.llm_service import grade_sub_question, GradingError
 from backend.config import Config
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
@@ -44,15 +44,18 @@ def grade_answer():
     if missing:
         return jsonify({"error": f"Missing fields: {', '.join(missing)}"}), 400
 
-    result = grade_sub_question(
-        sub_question=data["sub_question"],
-        student_answer=data["student_answer"],
-        rubric=data["rubric"],
-        max_marks=int(data["max_marks"])
-    )
+    try:
+        result = grade_sub_question(
+            sub_question=data["sub_question"],
+            student_answer=data["student_answer"],
+            rubric=data["rubric"],
+            max_marks=int(data["max_marks"])
+        )
 
-    result["max_marks"] = int(data["max_marks"])
-    return jsonify(result), 200
+        result["max_marks"] = int(data["max_marks"])
+        return jsonify(result), 200
+    except GradingError as e:
+        return jsonify({"error": str(e)}), 500
 
 
 @api_bp.route('/config', methods=['GET'])

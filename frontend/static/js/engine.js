@@ -125,17 +125,12 @@ const Engine = {
 
     for (const sub of q.sub_questions) {
       const answer = answers[sub.sub_id] || '';
-      let result;
-      try {
-        result = await API.gradeSubQuestion({
-          sub_question: sub.question,
-          student_answer: answer,
-          rubric: sub.rubric,
-          max_marks: sub.max_marks,
-        });
-      } catch (err) {
-        result = { score: 0, feedback: `Error: ${err.message}`, max_marks: sub.max_marks };
-      }
+      const result = await API.gradeSubQuestion({
+        sub_question: sub.question,
+        student_answer: answer,
+        rubric: sub.rubric,
+        max_marks: sub.max_marks,
+      });
       totalScore += result.score;
       maxScore += sub.max_marks;
       if (onSubGraded) onSubGraded(sub.sub_id, result);
