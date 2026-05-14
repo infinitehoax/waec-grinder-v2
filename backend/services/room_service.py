@@ -64,19 +64,22 @@ def join_room(room_id, player_uuid, sid, player_name):
     return True, rooms[room_id]
 
 def leave_room(room_id, player_uuid):
-    if room_id in rooms:
-        if player_uuid in rooms[room_id]["players"]:
-            del rooms[room_id]["players"][player_uuid]
+    room = rooms.get(room_id)
+    if room:
+        if player_uuid in room["players"]:
+            del room["players"][player_uuid]
 
-            # If host leaves, pick a new host or delete room
-            if player_uuid == rooms[room_id]["host_id"]:
-                if rooms[room_id]["players"]:
-                    rooms[room_id]["host_id"] = list(rooms[room_id]["players"].keys())[0]
+            # If host leaves, pick a new host
+            if player_uuid == room["host_id"]:
+                if room["players"]:
+                    room["host_id"] = list(room["players"].keys())[0]
                 else:
-                    del rooms[room_id]
+                    rooms.pop(room_id, None)
+                    return True
 
-            if room_id in rooms and not rooms[room_id]["players"]:
-                del rooms[room_id]
+            # If room is empty, delete it
+            if not room["players"]:
+                rooms.pop(room_id, None)
         return True
     return False
 
