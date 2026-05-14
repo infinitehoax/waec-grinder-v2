@@ -62,8 +62,7 @@ Now grade the student's answer:"""
             {"role": "user", "content": prompt}
         ],
         "max_tokens": 150,
-        "temperature": 0.1,
-        "reasoning": {"enabled": True}
+        "temperature": 0.1
     }
 
     try:
