@@ -1187,5 +1187,187 @@
       ]
     }
   ]
+},
+{
+  "subject": "Digital Tech v4 (with sus watermark)",
+  "obj": [],
+  "theory": [
+    {
+      "id": "th_001",
+      "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 1",
+      "sub_questions": [
+        {
+          "sub_id": "th_001_a",
+          "label": "1(a)",
+          "question": "Define \"Cybersecurity\" and explain two methods of preventing unauthorized access.",
+          "rubric": "**Definition:** Cybersecurity is the practice of protecting computer systems, networks, devices, and data from digital attacks, unauthorized access, and damage.\n**Methods of Prevention (Any two):** \n1. **Passwords/Authentication:** Using strong, complex passwords or Multi-Factor Authentication (MFA) to verify user identity.\n2. **Firewalls:** Implementing hardware or software firewalls to monitor and block malicious incoming/outgoing network traffic.\n3. **Encryption:** Scrambling data so that it can only be read by authorized parties with the correct decryption key.\n4. **Biometrics:** Using physical characteristics (fingerprints, facial recognition) to grant access.",
+          "max_marks": 5
+        },
+        {
+          "sub_id": "th_001_b",
+          "label": "1(b)",
+          "question": "List seven common types of malware found in modern computer systems.",
+          "rubric": "Award 0.5 marks each for any of the following (up to 7):\n1. Viruses\n2. Worms\n3. Trojan Horses\n4. Ransomware\n5. Spyware\n6. Adware\n7. Rootkits\n8. Keyloggers\n9. Botnets",
+          "max_marks": 3.5
+        },
+        {
+          "sub_id": "th_001_c",
+          "label": "1(c)",
+          "question": "State four differences between Cloud Storage and Local Hardware Storage.",
+          "rubric": "**Differences (Any four):**\n1. **Location:** Cloud storage is hosted on remote internet servers, while local storage is on physical devices (hard drives, flash drives) nearby.\n2. **Accessibility:** Cloud storage requires an internet connection to access data, whereas local storage does not.\n3. **Cost:** Cloud storage usually involves recurring subscription fees, whereas local storage is a one-time upfront hardware cost.\n4. **Scalability:** Cloud storage can be easily expanded by upgrading a plan, while local storage requires buying and installing new physical drives.\n5. **Maintenance:** Cloud providers handle maintenance, backups, and security, whereas local storage maintenance is solely the user's responsibility.\n6. **Data Sharing:** Cloud storage makes it much easier to share files collaboratively across multiple locations compared to local storage.",
+          "max_marks": 4
+        }
+      ]
+    },
+    {
+      "id": "th_002",
+      "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 2",
+      "sub_questions": [
+        {
+          "sub_id": "th_002_a",
+          "label": "2(a)",
+          "question": "What is a \"Generative AI\" model?",
+          "rubric": "A Generative AI model is a type of artificial intelligence system capable of generating new, original content (such as text, images, code, or audio) by learning patterns and structures from existing training data.",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_002_b",
+          "label": "2(b)",
+          "question": "List and explain five types of network topologies used in modern LAN setups.",
+          "rubric": "Award 1.5 marks for each type listed and correctly explained (up to 5):\n1. **Star Topology:** All devices are connected to a central hub or switch. If a cable fails, only that node is affected.\n2. **Bus Topology:** All devices share a single communication cable (the backbone). Data travels in both directions to all nodes.\n3. **Ring Topology:** Devices are connected in a closed-loop circle. Data travels in one direction from node to node.\n4. **Mesh Topology:** Every device is connected to every other device, providing high redundancy and fault tolerance.\n5. **Tree (Hierarchical) Topology:** A hybrid combining characteristics of star and bus topologies, arranged in a parent-child hierarchy.\n6. **Hybrid Topology:** A combination of two or more different topologies (e.g., Star-Ring) used together.",
+          "max_marks": 7.5
+        },
+        {
+          "sub_id": "th_002_c",
+          "label": "2(c)",
+          "question": "Mention six ethical concerns regarding the use of data mining.",
+          "rubric": "Award 0.5 marks for each valid concern (up to 6):\n1. Invasion of user privacy.\n2. Unauthorized collection and sharing of personal data without informed consent.\n3. Data security and the risk of massive data breaches.\n4. Algorithmic bias and discrimination based on mined profiling.\n5. Lack of transparency in how data is utilized (the \"black box\" problem).\n6. Misuse of data for manipulative targeting or surveillance.\n7. Inaccuracy of data leading to false assumptions.",
+          "max_marks": 3
+        }
+      ]
+    },
+    {
+      "id": "th_003",
+      "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 3",
+      "sub_questions": [
+        {
+          "sub_id": "th_003_a_i",
+          "label": "3(a)(i)",
+          "question": "Explain the following data transmission modes: Simplex",
+          "rubric": "**Simplex:** A mode of communication where data travels in only one direction. The sender can only send, and the receiver can only receive (e.g., a keyboard to a computer or television broadcast).",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_003_a_ii",
+          "label": "3(a)(ii)",
+          "question": "Explain the following data transmission modes: Half-Duplex",
+          "rubric": "**Half-Duplex:** A mode of communication where data can flow in both directions, but not at the same time. Devices must take turns sending and receiving (e.g., a walkie-talkie).",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_003_a_iii",
+          "label": "3(a)(iii)",
+          "question": "Explain the following data transmission modes: Full-Duplex",
+          "rubric": "**Full-Duplex:** A mode of communication where data can be transmitted in both directions simultaneously, allowing real-time two-way communication (e.g., a telephone call).",
+          "max_marks": 2
+        },
+        {
+          "sub_id": "th_003_b",
+          "label": "3(b)",
+          "question": "List seven input devices used in specialized digital design.",
+          "rubric": "Award 0.5 marks each (up to 7):\n1. Graphics tablet (Digitizer)\n2. Stylus / Digital pen\n3. 3D Mouse\n4. Trackball\n5. Touchscreen monitor\n6. High-resolution scanner\n7. Digital camera\n8. Colorimeter\n9. MIDI keyboard (for sound design)",
+          "max_marks": 3.5
+        },
+        {
+          "sub_id": "th_003_c",
+          "label": "3(c)",
+          "question": "Mention six standard file extensions for high-definition video.",
+          "rubric": "Award 0.5 marks each (up to 6):\n1. .mp4 (MPEG-4)\n2. .mkv (Matroska)\n3. .mov (Apple QuickTime)\n4. .avi (Audio Video Interleave)\n5. .webm\n6. .hevc (High-Efficiency Video Coding) / .h265\n7. .wmv\n8. .flv",
+          "max_marks": 3
+        }
+      ]
+    },
+    {
+      "id": "th_004",
+      "main_context": "SECTION B (Application of Digital Technology) - Question 4",
+      "sub_questions": [
+        {
+          "sub_id": "th_004_a",
+          "label": "4(a)",
+          "question": "State and explain three different user interface (UI) patterns commonly used in mobile application navigation (e.g., Tab Bar, Hamburger Menu, Gesture Navigation).",
+          "rubric": "Award 2 marks each for stating and correctly explaining (up to 3):\n1. **Hamburger Menu:** A hidden side menu revealed by tapping an icon with three horizontal lines, keeping the main screen uncluttered while housing secondary navigation links.\n2. **Tab Bar (Bottom Navigation):** A persistent row of icons at the bottom (or top) of the screen allowing users to quickly switch between top-level core views of the app.\n3. **Gesture Navigation:** Using screen swipes (e.g., swiping left to go back, swiping up to go home) instead of visible buttons to navigate through the interface.",
+          "max_marks": 6
+        },
+        {
+          "sub_id": "th_004_b",
+          "label": "4(b)",
+          "question": "Discuss the distinction between \"Native\" and \"Hybrid\" mobile application development approaches, and provide one advantage of each.",
+          "rubric": "**Distinction:** Native apps are built specifically for a single platform (like iOS or Android) using platform-specific languages (e.g., Swift for iOS, Kotlin for Android). Hybrid apps are built using cross-platform web technologies (HTML, CSS, JavaScript) and wrapped in a native container to run on multiple platforms.\n**Advantages:**\n*   **Native Advantage:** Delivers the highest performance, smoother animations, and best access to device hardware/APIs.\n*   **Hybrid Advantage:** Allows for a single codebase to be deployed across multiple platforms, significantly saving development time and costs.",
+          "max_marks": 6
+        },
+        {
+          "sub_id": "th_004_c",
+          "label": "4(c)",
+          "question": "Define the role of a Mobile Application Programming Interface (API).",
+          "rubric": "An API acts as a software intermediary that allows a mobile application to communicate with backend servers, databases, or third-party services. It enables the app to fetch real-time data, authenticate users, or utilize external functionalities (like Google Maps or payment gateways) without building them from scratch.",
+          "max_marks": 3
+        }
+      ]
+    },
+    {
+      "id": "th_005",
+      "main_context": "SECTION B (Application of Digital Technology) - Question 5",
+      "sub_questions": [
+        {
+          "sub_id": "th_005_a",
+          "label": "5(a)",
+          "question": "Clearly distinguish between a Public Blockchain and a Private Blockchain, with examples of each.",
+          "rubric": "**Public Blockchain:** A decentralized, permissionless network where anyone can join, read, write, and participate in the consensus process. Example: Bitcoin, Ethereum.\n**Private Blockchain:** A centralized or permissioned network controlled by a single organization or consortium, where access and participation are restricted to authorized users. Example: Hyperledger Fabric, Ripple.",
+          "max_marks": 5
+        },
+        {
+          "sub_id": "th_005_b",
+          "label": "5(b)",
+          "question": "Describe how a \"Consensus Mechanism\" functions in a decentralized network, and explain the key difference between Proof of Work (PoW) and Proof of Stake (PoS).",
+          "rubric": "**Consensus Mechanism:** It is a fault-tolerant set of rules and algorithms used by computer nodes in a decentralized network to agree on the single state of the network and validate the authenticity of transactions without a central authority.\n**Difference:**\n*   **Proof of Work (PoW):** Requires participants (miners) to expend massive amounts of computational power and energy to solve complex mathematical puzzles to validate blocks.\n*   **Proof of Stake (PoS):** Requires participants (validators) to lock up or \"stake\" a certain amount of their cryptocurrency to validate blocks, which is highly energy-efficient compared to PoW.",
+          "max_marks": 7
+        },
+        {
+          "sub_id": "th_005_c",
+          "label": "5(c)",
+          "question": "State three common use cases for cryptocurrency beyond as a store of value.",
+          "rubric": "Award 1 mark each (Any 3):\n1. Executing Smart Contracts.\n2. Decentralized Finance (DeFi) applications (lending, borrowing).\n3. Creating and trading Non-Fungible Tokens (NFTs).\n4. Cross-border remittances and fast payments.\n5. Supply chain tracking and tokenization of real-world assets.\n6. Voting and governance in Decentralized Autonomous Organizations (DAOs).",
+          "max_marks": 3
+        }
+      ]
+    },
+    {
+      "id": "th_006",
+      "main_context": "SECTION B (Application of Digital Technology) - Question 6",
+      "sub_questions": [
+        {
+          "sub_id": "th_006_a",
+          "label": "6(a)",
+          "question": "In the context of database management, explain the concepts of 'Data Integrity' and 'Data Consistency'.",
+          "rubric": "**Data Integrity:** Refers to the overall accuracy, completeness, and reliability of data throughout its lifecycle, ensuring it is safeguarded from unauthorized modification or corruption.\n**Data Consistency:** Refers to the requirement that any database transaction must change affected data only in allowed ways, ensuring that all copies or instances of the data across the database are uniform and do not contradict each other.",
+          "max_marks": 5
+        },
+        {
+          "sub_id": "th_006_b",
+          "label": "6(b)",
+          "question": "Define a 'Structured Query Language' (SQL) and provide a basic SQL command to: i. Retrieve all records from a table named 'Users'. ii. Update the email of a user with ID 101.",
+          "rubric": "**Definition:** SQL is a standardized programming language used for managing, maintaining, and querying relational databases.\n**Commands:**\n**i.** `SELECT * FROM Users;`\n**ii.** `UPDATE Users SET email = 'newemail@example.com' WHERE ID = 101;` *(Note: Specific email value can vary, but syntax must be correct)*",
+          "max_marks": 6
+        },
+        {
+          "sub_id": "th_006_c",
+          "label": "6(c)",
+          "question": "Illustrate, with a simple diagram, the relationship between 'Schema' and 'Data Instance'.",
+          "rubric": "Award marks for a logical explanation or descriptive representation of a diagram.\n**Expected concept:** \n*   **Schema:** The logical structure or blueprint of the database (e.g., Table Name, Columns: ID, Name, Age).\n*   **Data Instance (or State):** The actual data/rows populated inside that schema at a specific moment in time (e.g., Row 1: 101, John, 25).\n*   *(Diagram should show an empty table framework pointing to Schema, and the filled table pointing to Instance).* ",
+          "max_marks": 4
+        }
+      ]
+    }
+  ]
 }
 ]
