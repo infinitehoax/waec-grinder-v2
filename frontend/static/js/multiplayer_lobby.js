@@ -63,6 +63,9 @@ const lobby = {
     },
 
     startGame() {
+        if (!this.currentRoomState || !this.currentRoomState.players) {
+            return alert('Room state not loaded yet. Please wait.');
+        }
         if (Object.keys(this.currentRoomState.players).length < 2) {
             return alert('Need at least 2 players to start');
         }
@@ -132,7 +135,7 @@ const lobby = {
 
         // Load existing messages if any
         const container = document.getElementById('lobby-chat-messages');
-        if (container) {
+        if (container && this.currentRoomState) {
             container.innerHTML = '';
             if (this.currentRoomState.messages) {
                 this.currentRoomState.messages.forEach(msg => this.appendMessage(msg));
