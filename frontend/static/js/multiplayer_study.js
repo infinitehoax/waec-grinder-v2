@@ -103,27 +103,16 @@ const multiplayer_study = {
         const originalSelectOption = UI.selectOption;
         UI.selectOption = (btn, letter) => {
             if (btn.disabled) return;
-            // Capture current myScore to see if it changes
-            const scoreBefore = this.myScore;
-            const grid = btn.closest('#options-grid');
-            const correct = grid ? grid.dataset.correct : '';
-            if (letter === correct) {
-                this.myScore++;
-            }
             originalSelectOption.call(UI, btn, letter);
             if (btn.classList.contains('correct')) {
                 this.myScore++;
             }
-            console.log('selectOption called. Score change:', scoreBefore, '->', this.myScore);
             this.emitProgress();
         };
 
         const originalSubmitTheory = UI.submitTheory;
         UI.submitTheory = async () => {
             if (UI._gradingActive) return;
-            await originalSubmitTheory.call(UI);
-            const banner = document.getElementById('result-banner');
-            if (banner && banner.classList.contains('pass')) {
             const result = await originalSubmitTheory.call(UI);
             if (result && result.passed) {
                 this.myScore++;
