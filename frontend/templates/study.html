@@ -61,8 +61,9 @@
       let subjectData;
       try {
         const allQuestions = await API.getQuestions();
-        const currentSubject = Storage.getSubject();
-        subjectData = allQuestions.find(s => s.subject === currentSubject) || allQuestions[0];
+        const currentSubjects = Storage.getSubjects();
+        subjectData = allQuestions.filter(s => currentSubjects.includes(s.subject));
+        if (!subjectData || subjectData.length === 0) subjectData = [allQuestions[0]];
 
         Storage.initSession(subjectData, mode);
       } catch (e) {
@@ -118,7 +119,8 @@
     }
 
     // Update batch title
-    const subject = Storage.getSubject();
+    const subjects = Storage.getSubjects();
+    const subject = subjects.length === 1 ? subjects[0] : `${subjects.length} Subjects`;
     const batchTitle = document.getElementById('batch-title');
     if (batchTitle) {
       const failed = batch.filter(q => q._from_failed).length;

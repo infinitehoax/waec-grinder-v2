@@ -20,7 +20,6 @@ const Engine = {
 
     // customBatchSize takes precedence if set, otherwise fallback to TIMED_BATCH_SIZE (if timed) or default BATCH_SIZE
     const limit = customBatchSize || (isTimed ? APP_CONFIG.TIMED_BATCH_SIZE : APP_CONFIG.BATCH_SIZE);
-    const limit = isTimed ? APP_CONFIG.TIMED_BATCH_SIZE : APP_CONFIG.BATCH_SIZE;
     const focusTopic = Storage.getFocusTopic();
     const subjects = Storage.getSubjects();
 
@@ -119,17 +118,12 @@ const Engine = {
    * @param {boolean} passed
    */
   markObjResult(q, passed) {
+    q._passed = passed;
     Storage.updateTopicStats(q.topic, passed, q._subject);
     if (passed) {
       // Passed: remove from failed if it was there, do not re-add
       Storage.removeFailedObj(q.id, q._subject);
       Storage.incrementMastered(1, q._subject);
-    q._passed = passed;
-    Storage.updateTopicStats(q.topic, passed);
-    if (passed) {
-      // Passed: remove from failed if it was there, do not re-add
-      Storage.removeFailedObj(q.id);
-      Storage.incrementMastered(1);
       Storage.incrementGlobalStat('mastered_obj', 1);
     } else {
       // Failed: push to failed queue
@@ -147,15 +141,11 @@ const Engine = {
   markTheoryResult(q, totalScore, maxScore) {
     const pct = maxScore > 0 ? totalScore / maxScore : 0;
     const passed = pct >= APP_CONFIG.PASS_THRESHOLD;
+    q._passed = passed;
     Storage.updateTopicStats(q.topic, passed, q._subject);
     if (passed) {
       Storage.removeFailedTheory(q.id, q._subject);
       Storage.incrementMastered(1, q._subject);
-    q._passed = passed;
-    Storage.updateTopicStats(q.topic, passed);
-    if (passed) {
-      Storage.removeFailedTheory(q.id);
-      Storage.incrementMastered(1);
       Storage.incrementGlobalStat('mastered_theory', 1);
     } else {
       Storage.pushFailedTheory(q);
