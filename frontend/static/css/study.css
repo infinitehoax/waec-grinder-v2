@@ -51,6 +51,34 @@
   font-size: 1.1rem;
 }
 
+/* ---- Timer Display ---- */
+.timer-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-input);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-left: 16px;
+}
+
+.timer-display.low-time {
+  color: var(--fail);
+  border-color: var(--fail-border);
+  background: var(--fail-bg);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
 /* ---- Step Dots ---- */
 .step-dots {
   display: flex;

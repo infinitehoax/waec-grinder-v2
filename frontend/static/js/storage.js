@@ -8,6 +8,8 @@ const KEYS = {
   CURRENT_BATCH:   'wg_current_batch',
   CURRENT_IDX:     'wg_current_idx',
   STUDY_MODE:      'wg_study_mode',
+  TIME_LIMIT:      'wg_time_limit', // in minutes
+  TIMER_END:       'wg_timer_end',   // timestamp
   FOCUS_TOPIC:     'wg_focus_topic',
 };
 
@@ -71,6 +73,7 @@ const Storage = {
       localStorage.removeItem(KEYS.CURRENT_BATCH);
       localStorage.removeItem(KEYS.CURRENT_IDX);
       localStorage.removeItem(KEYS.STUDY_MODE);
+      this.clearTimer();
     }
   },
 
@@ -102,6 +105,15 @@ const Storage = {
   getMode()    { return this._get(KEYS.STUDY_MODE) || 'both'; },
   getSubject() { return this._get(KEYS.CURRENT_SUBJECT) || 'Unknown Subject'; },
   getStats(sub)   { return this._getScoped(sub || this.getSubject(), SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} }; },
+
+  getTimeLimit() { return this._get(KEYS.TIME_LIMIT); },
+  setTimeLimit(v) { this._set(KEYS.TIME_LIMIT, v); },
+  getTimerEnd() { return this._get(KEYS.TIMER_END); },
+  setTimerEnd(v) { this._set(KEYS.TIMER_END, v); },
+  clearTimer() {
+    localStorage.removeItem(KEYS.TIME_LIMIT);
+    localStorage.removeItem(KEYS.TIMER_END);
+  },
 
   // ---- Queue mutators ----
   pushFailedObj(q) {
