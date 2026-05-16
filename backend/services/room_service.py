@@ -84,12 +84,19 @@ def leave_room(room_id, player_uuid):
         return True
     return False
 
-def start_game(room_id, host_id):
+import time
+
+def start_game(room_id, host_id, total_questions=None, time_limit=0):
     if room_id not in rooms:
         return False, "Room not found"
 
     if rooms[room_id]["host_id"] != host_id:
         return False, "Only host can start the game"
+
+    try:
+        time_limit = int(time_limit)
+    except:
+        time_limit = 0
 
     # Load questions and prepare a batch for everyone
     result = load_questions()
@@ -110,22 +117,44 @@ def start_game(room_id, host_id):
         data = data_raw[0] if isinstance(data_raw, list) and len(data_raw) > 0 else data_raw
 
     questions = []
-    # Simplified batching for multiplayer: take 10 random questions
     all_obj = [{**q, "_type": "obj"} for q in data.get("obj", [])]
     all_theory = [{**q, "_type": "theory"} for q in data.get("theory", [])]
 
-    if mode == "obj":
-        questions = random.sample(all_obj, min(10, len(all_obj)))
-    elif mode == "theory":
-        questions = random.sample(all_theory, min(5, len(all_theory)))
+    # Determine how many questions to take
+    if total_questions == "all":
+        count = len(all_obj) + len(all_theory)
+    elif isinstance(total_questions, int) and total_questions > 0:
+        count = total_questions
     else:
-        q_obj = random.sample(all_obj, min(5, len(all_obj)))
-        q_theory = random.sample(all_theory, min(3, len(all_theory)))
+        count = 10 # Default
+
+    if mode == "obj":
+        questions = random.sample(all_obj, min(count, len(all_obj)))
+    elif mode == "theory":
+        questions = random.sample(all_theory, min(count, len(all_theory)))
+    else:
+        # For mixed mode, try to maintain 70/30 split if possible
+        obj_target = int(count * 0.7)
+        theory_target = count - obj_target
+
+        # Adjust if not enough questions in one category
+        if len(all_obj) < obj_target:
+            obj_target = len(all_obj)
+            theory_target = count - obj_target
+        if len(all_theory) < theory_target:
+            theory_target = len(all_theory)
+            obj_target = min(len(all_obj), count - theory_target)
+
+        q_obj = random.sample(all_obj, obj_target)
+        q_theory = random.sample(all_theory, theory_target)
         questions = q_obj + q_theory
         random.shuffle(questions)
 
     rooms[room_id]["questions"] = questions
     rooms[room_id]["status"] = "playing"
+    rooms[room_id]["time_limit"] = time_limit
+    if time_limit > 0:
+        rooms[room_id]["end_time"] = (time.time() * 1000) + (time_limit * 60 * 1000)
 
     for p_id in rooms[room_id]["players"]:
         rooms[room_id]["players"][p_id]["total"] = len(questions)

@@ -64,6 +64,28 @@
     </div>
 
     <div id="host-controls" class="hidden">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Questions</label>
+          <select id="total-questions" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
+            <option value="10">10 (Default)</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="all">ALL</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Time Limit</label>
+          <select id="time-limit" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
+            <option value="0">No Limit</option>
+            <option value="5">5 Mins</option>
+            <option value="10">10 Mins</option>
+            <option value="20">20 Mins</option>
+            <option value="30">30 Mins</option>
+          </select>
+        </div>
+      </div>
       <button class="btn btn--primary btn--lg" onclick="lobby.startGame()">Start Competition</button>
     </div>
     <div id="guest-waiting">

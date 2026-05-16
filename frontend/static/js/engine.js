@@ -16,6 +16,10 @@ const Engine = {
   buildBatch(mode) {
     const batch = [];
     const isTimed = !!Storage.getTimeLimit();
+    const customBatchSize = Storage.getBatchSize();
+
+    // customBatchSize takes precedence if set, otherwise fallback to TIMED_BATCH_SIZE (if timed) or default BATCH_SIZE
+    const limit = customBatchSize || (isTimed ? APP_CONFIG.TIMED_BATCH_SIZE : APP_CONFIG.BATCH_SIZE);
     const limit = isTimed ? APP_CONFIG.TIMED_BATCH_SIZE : APP_CONFIG.BATCH_SIZE;
     const focusTopic = Storage.getFocusTopic();
     const subjects = Storage.getSubjects();

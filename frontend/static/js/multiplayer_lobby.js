@@ -99,7 +99,10 @@ const lobby = {
         if (Object.keys(this.currentRoomState.players).length < 2) {
             return alert('Need at least 2 players to start');
         }
-        SocketClient.startGame(this.currentRoomId);
+        const totalQuestions = document.getElementById('total-questions').value;
+        const val = totalQuestions === 'all' ? 'all' : parseInt(totalQuestions);
+        const timeLimit = parseInt(document.getElementById('time-limit').value);
+        SocketClient.startGame(this.currentRoomId, val, timeLimit);
     },
 
     showWaitingRoom(roomId, roomState, isHost) {

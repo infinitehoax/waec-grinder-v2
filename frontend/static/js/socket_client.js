@@ -71,8 +71,8 @@ const SocketClient = {
         this.socket.emit('join_room', { room_id: roomId, name, player_uuid: this.player_uuid });
     },
 
-    startGame(roomId) {
-        this.socket.emit('start_game', { room_id: roomId, player_uuid: this.player_uuid });
+    startGame(roomId, totalQuestions, timeLimit) {
+        this.socket.emit('start_game', { room_id: roomId, player_uuid: this.player_uuid, total_questions: totalQuestions, time_limit: timeLimit });
     },
 
     updateProgress(roomId, progress, score, finished) {

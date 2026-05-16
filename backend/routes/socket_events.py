@@ -37,7 +37,9 @@ def handle_join_room(data):
 def handle_start_game(data):
     room_id = data.get('room_id')
     player_uuid = data.get('player_uuid')
-    success, result = room_service.start_game(room_id, player_uuid)
+    total_questions = data.get('total_questions')
+    time_limit = data.get('time_limit', 0)
+    success, result = room_service.start_game(room_id, player_uuid, total_questions, time_limit)
 
     if success:
         emit('game_started', {'room_state': result}, to=room_id)
