@@ -106,8 +106,33 @@ class TestLLMGrading(unittest.TestCase):
         }
         mock_post.return_value = mock_response
 
-        with self.assertRaisesRegex(GradingError, "unexpected response format"):
+        with self.assertRaisesRegex(GradingError, "could not be parsed as JSON"):
             grade_sub_question("What is 1+1?", "2", "1+1 is 2", 5)
+
+    @patch('backend.services.llm_service.Config')
+    @patch('backend.services.llm_service.requests.post')
+    def test_grade_sub_question_with_preamble(self, mock_post, mock_config):
+        # Setup mock config
+        mock_config.OPENROUTER_API_KEY = "test_key"
+
+        # Setup mock response with preamble and JSON
+        mock_response = MagicMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "choices": [
+                {
+                    "message": {
+                        "content": 'Here is the grade: {"score": 4, "feedback": "Good job!"} I hope this helps.'
+                    }
+                }
+            ]
+        }
+        mock_post.return_value = mock_response
+
+        result = grade_sub_question("What is 1+1?", "2", "1+1 is 2", 5)
+
+        self.assertEqual(result['score'], 4)
+        self.assertEqual(result['feedback'], "Good job!")
 
 if __name__ == '__main__':
     unittest.main()

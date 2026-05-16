@@ -1,5 +1,6 @@
 import requests
 import json
+import re
 from backend.config import Config
 
 
@@ -77,22 +78,37 @@ Now grade the student's answer:"""
         response.raise_for_status()
         data = response.json()
 
+        if "choices" not in data or not data["choices"]:
+            raise GradingError("The AI returned no choices. Please try again.")
+
         raw_content = data["choices"][0]["message"].get("content")
         if raw_content is None:
             raise GradingError("The AI returned an empty response. Please try again.")
 
         raw_text = raw_content.strip()
 
-        # Strip any markdown fences if the model added them
-        if raw_text.startswith("```"):
-            raw_text = raw_text.strip("`").strip()
-            if raw_text.startswith("json"):
-                raw_text = raw_text[4:].strip()
+        # More robust JSON extraction using regex
+        json_match = re.search(r'\{.*\}', raw_text, re.DOTALL)
+        if json_match:
+            raw_text = json_match.group(0)
+        else:
+            # Fallback to stripping fences if regex fails (though re.DOTALL {.*} should be very broad)
+            if raw_text.startswith("```"):
+                raw_text = raw_text.strip("`").strip()
+                if raw_text.startswith("json"):
+                    raw_text = raw_text[4:].strip()
 
-        result = json.loads(raw_text)
+        try:
+            result = json.loads(raw_text)
+        except json.JSONDecodeError:
+            raise GradingError("The AI response could not be parsed as JSON. Please try again.")
 
         # Sanitise: ensure score is within valid range
-        score = int(result.get("score", 0))
+        try:
+            score = int(result.get("score", 0))
+        except (ValueError, TypeError):
+            score = 0
+
         score = max(0, min(score, max_marks))
         feedback = str(result.get("feedback", "No feedback provided."))
 
@@ -109,8 +125,8 @@ Now grade the student's answer:"""
         if e.response.status_code == 401:
             raise GradingError("Invalid API key. Please check your OPENROUTER_API_KEY in the .env file.")
         raise GradingError(f"API error: {e.response.status_code}. Response: {body[:200]}")
-    except (json.JSONDecodeError, KeyError):
-        raise GradingError("The AI returned an unexpected response format. Please try again.")
+    except (KeyError, IndexError) as e:
+        raise GradingError(f"The AI response was missing expected data: {str(e)}")
     except GradingError:
         raise
     except Exception as e:
