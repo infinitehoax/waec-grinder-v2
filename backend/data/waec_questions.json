@@ -1,1373 +1,1429 @@
-[{
-  "subject": "E-ICT (Digital Tech)",
-  "obj": [
-    {
-      "id": "obj_001",
-      "question": "The purpose of Transaction Processing System as part of an Information System is to",
-      "options": {
-        "A": "analyze large datasets for trends.",
-        "B": "support strategic decision-making.",
-        "C": "manage day-to-day business transactions.",
-        "D": "store historical data for reporting to management."
+[
+  {
+    "subject": "E-ICT (Digital Tech)",
+    "obj": [
+      {
+        "id": "obj_001",
+        "question": "The purpose of Transaction Processing System as part of an Information System is to",
+        "options": {
+          "A": "analyze large datasets for trends.",
+          "B": "support strategic decision-making.",
+          "C": "manage day-to-day business transactions.",
+          "D": "store historical data for reporting to management."
+        },
+        "correct_option": "C",
+        "explanation": "A Transaction Processing System (TPS) is primarily designed to capture and process the detailed information necessary to update data on the fundamental operations of an organization, managing day-to-day transactions.",
+        "topic": "Information Systems"
       },
-      "correct_option": "C",
-      "explanation": "A Transaction Processing System (TPS) is primarily designed to capture and process the detailed information necessary to update data on the fundamental operations of an organization, managing day-to-day transactions."
-    },
-    {
-      "id": "obj_002",
-      "question": "Which of the following statements is a characteristic of digital citizenship?",
-      "options": {
-        "A": "The practice of creating digital art for online resources",
-        "B": "Responsible use of technology and online interactions",
-        "C": "Ability to make online purchases secure and profitable",
-        "D": "The exclusive use of digital devices for educational purposes"
+      {
+        "id": "obj_002",
+        "question": "Which of the following statements is a characteristic of digital citizenship?",
+        "options": {
+          "A": "The practice of creating digital art for online resources",
+          "B": "Responsible use of technology and online interactions",
+          "C": "Ability to make online purchases secure and profitable",
+          "D": "The exclusive use of digital devices for educational purposes"
+        },
+        "correct_option": "B",
+        "explanation": "Digital citizenship involves the responsible, ethical, and safe use of technology and online platforms.",
+        "topic": "Digital Culture"
       },
-      "correct_option": "B",
-      "explanation": "Digital citizenship involves the responsible, ethical, and safe use of technology and online platforms."
-    },
-    {
-      "id": "obj_003",
-      "question": "In Desktop Publishing application, a layout basically helps a user to",
-      "options": {
-        "A": "edit video files during the design stage.",
-        "B": "store images and graphics in soft copy form.",
-        "C": "develop the content of a website from scratch.",
-        "D": "arrange texts, images, and other elements in a document."
+      {
+        "id": "obj_003",
+        "question": "In Desktop Publishing application, a layout basically helps a user to",
+        "options": {
+          "A": "edit video files during the design stage.",
+          "B": "store images and graphics in soft copy form.",
+          "C": "develop the content of a website from scratch.",
+          "D": "arrange texts, images, and other elements in a document."
+        },
+        "correct_option": "D",
+        "explanation": "Layout in DTP refers to the arrangement of text, images, and other elements on a page to create a visually appealing and organized document.",
+        "topic": "Application Software"
       },
-      "correct_option": "D",
-      "explanation": "Layout in DTP refers to the arrangement of text, images, and other elements on a page to create a visually appealing and organized document."
-    },
-    {
-      "id": "obj_004",
-      "question": "The purpose of using the Freeze Panes feature in a Spreadsheet application is to",
-      "options": {
-        "A": "prevent data from being saved while scrolling through the rest of the worksheet.",
-        "B": "resize columns based on the content while scrolling through the rest of the worksheet.",
-        "C": "keep specific rows or columns visible while scrolling through the rest of the worksheet.",
-        "D": "lock rows and columns from editing while scrolling through the rest of the worksheet."
+      {
+        "id": "obj_004",
+        "question": "The purpose of using the Freeze Panes feature in a Spreadsheet application is to",
+        "options": {
+          "A": "prevent data from being saved while scrolling through the rest of the worksheet.",
+          "B": "resize columns based on the content while scrolling through the rest of the worksheet.",
+          "C": "keep specific rows or columns visible while scrolling through the rest of the worksheet.",
+          "D": "lock rows and columns from editing while scrolling through the rest of the worksheet."
+        },
+        "correct_option": "C",
+        "explanation": "Freeze Panes allows users to lock specific rows or columns (usually headers) so they remain visible when scrolling through large datasets.",
+        "topic": "Application Software"
       },
-      "correct_option": "C",
-      "explanation": "Freeze Panes allows users to lock specific rows or columns (usually headers) so they remain visible when scrolling through large datasets."
-    },
-    {
-      "id": "obj_005",
-      "question": "In computer hardware, running the CPU at a higher speed than its original specification is termed",
-      "options": {
-        "A": "clocking.",
-        "B": "sub-clocking.",
-        "C": "overclocking.",
-        "D": "under-clocking."
+      {
+        "id": "obj_005",
+        "question": "In computer hardware, running the CPU at a higher speed than its original specification is termed",
+        "options": {
+          "A": "clocking.",
+          "B": "sub-clocking.",
+          "C": "overclocking.",
+          "D": "under-clocking."
+        },
+        "correct_option": "C",
+        "explanation": "Overclocking is the practice of increasing the clock rate of a computer component (like a CPU) beyond the manufacturer's certified limits to boost performance.",
+        "topic": "Hardware"
       },
-      "correct_option": "C",
-      "explanation": "Overclocking is the practice of increasing the clock rate of a computer component (like a CPU) beyond the manufacturer's certified limits to boost performance."
-    },
-    {
-      "id": "obj_006",
-      "question": "Which of the following utility programs is used to manage and configure hardware components and their drivers in an Operating System?",
-      "options": {
-        "A": "System Restore",
-        "B": "Task Scheduler",
-        "C": "Device Manager",
-        "D": "Disk Defragmenter"
+      {
+        "id": "obj_006",
+        "question": "Which of the following utility programs is used to manage and configure hardware components and their drivers in an Operating System?",
+        "options": {
+          "A": "System Restore",
+          "B": "Task Scheduler",
+          "C": "Device Manager",
+          "D": "Disk Defragmenter"
+        },
+        "correct_option": "C",
+        "explanation": "Device Manager is an OS component that allows users to view and control the hardware attached to the computer, including updating drivers.",
+        "topic": "Operating Systems"
       },
-      "correct_option": "C",
-      "explanation": "Device Manager is an OS component that allows users to view and control the hardware attached to the computer, including updating drivers."
-    },
-    {
-      "id": "obj_007",
-      "question": "In which of the following programming languages is memory management primarily handled by the developer, requiring explicit allocation and deallocation of memory?",
-      "options": {
-        "A": "C",
-        "B": "C++",
-        "C": "Java",
-        "D": "Python"
+      {
+        "id": "obj_007",
+        "question": "In which of the following programming languages is memory management primarily handled by the developer, requiring explicit allocation and deallocation of memory?",
+        "options": {
+          "A": "C",
+          "B": "C++",
+          "C": "Java",
+          "D": "Python"
+        },
+        "correct_option": "A",
+        "explanation": "In C, developers must manually manage memory using functions like malloc() and free(), unlike Java or Python which use automatic garbage collection.",
+        "topic": "Programming"
       },
-      "correct_option": "A",
-      "explanation": "In C, developers must manually manage memory using functions like malloc() and free(), unlike Java or Python which use automatic garbage collection."
-    },
-    {
-      "id": "obj_008",
-      "question": "What is the correct HTML element used to define important text with emphasis?",
-      "options": {
-        "A": "<p>",
-        "B": "<br>",
-        "C": "<body>",
-        "D": "<strong>"
+      {
+        "id": "obj_008",
+        "question": "What is the correct HTML element used to define important text with emphasis?",
+        "options": {
+          "A": "<p>",
+          "B": "<br>",
+          "C": "<body>",
+          "D": "<strong>"
+        },
+        "correct_option": "D",
+        "explanation": "The <strong> HTML element is used to define text with strong importance or emphasis, usually rendered in bold.",
+        "topic": "Web Development"
       },
-      "correct_option": "D",
-      "explanation": "The <strong> HTML element is used to define text with strong importance or emphasis, usually rendered in bold."
-    },
-    {
-      "id": "obj_009",
-      "question": "The function of a firewall in a computer network is for",
-      "options": {
-        "A": "data encoding.",
-        "B": "error checking.",
-        "C": "data encryption.",
-        "D": "intrusion detection."
+      {
+        "id": "obj_009",
+        "question": "The function of a firewall in a computer network is for",
+        "options": {
+          "A": "data encoding.",
+          "B": "error checking.",
+          "C": "data encryption.",
+          "D": "intrusion detection."
+        },
+        "correct_option": "D",
+        "explanation": "A firewall monitors and controls incoming and outgoing network traffic based on security rules, playing a key role in intrusion detection and prevention.",
+        "topic": "Networking"
       },
-      "correct_option": "D",
-      "explanation": "A firewall monitors and controls incoming and outgoing network traffic based on security rules, playing a key role in intrusion detection and prevention."
-    },
-    {
-      "id": "obj_010",
-      "question": "Which of the following SQL commands is used to modify data that is already in a table?",
-      "options": {
-        "A": "INSERT",
-        "B": "SELECT",
-        "C": "DELETE",
-        "D": "UPDATE"
+      {
+        "id": "obj_010",
+        "question": "Which of the following SQL commands is used to modify data that is already in a table?",
+        "options": {
+          "A": "INSERT",
+          "B": "SELECT",
+          "C": "DELETE",
+          "D": "UPDATE"
+        },
+        "correct_option": "D",
+        "explanation": "The UPDATE command in SQL is used to modify existing records in a database table.",
+        "topic": "Databases"
       },
-      "correct_option": "D",
-      "explanation": "The UPDATE command in SQL is used to modify existing records in a database table."
-    },
-    {
-      "id": "obj_011",
-      "question": "The fundamental purpose of using ASCII in computing systems is to encode",
-      "options": {
-        "A": "texts into binary format.",
-        "B": "videos into binary format.",
-        "C": "images into binary format.",
-        "D": "numbers into binary format."
+      {
+        "id": "obj_011",
+        "question": "The fundamental purpose of using ASCII in computing systems is to encode",
+        "options": {
+          "A": "texts into binary format.",
+          "B": "videos into binary format.",
+          "C": "images into binary format.",
+          "D": "numbers into binary format."
+        },
+        "correct_option": "A",
+        "explanation": "ASCII (American Standard Code for Information Interchange) is a character encoding standard used to represent text as binary numbers in computers.",
+        "topic": "Data Representation"
       },
-      "correct_option": "A",
-      "explanation": "ASCII (American Standard Code for Information Interchange) is a character encoding standard used to represent text as binary numbers in computers."
-    },
-    {
-      "id": "obj_012",
-      "question": "Which of the following statements best describes the role of an Enterprise Resource Planning System in an organization?",
-      "options": {
-        "A": "It is used solely for customer relationship management.",
-        "B": "It integrates core business processes into a unified system.",
-        "C": "It focuses only on financial transactions within a business.",
-        "D": "It primarily deals with cybersecurity and risk management."
+      {
+        "id": "obj_012",
+        "question": "Which of the following statements best describes the role of an Enterprise Resource Planning System in an organization?",
+        "options": {
+          "A": "It is used solely for customer relationship management.",
+          "B": "It integrates core business processes into a unified system.",
+          "C": "It focuses only on financial transactions within a business.",
+          "D": "It primarily deals with cybersecurity and risk management."
+        },
+        "correct_option": "B",
+        "explanation": "An ERP system integrates various core business processes (like finance, HR, supply chain) into a single, unified centralized system.",
+        "topic": "Information Systems"
       },
-      "correct_option": "B",
-      "explanation": "An ERP system integrates various core business processes (like finance, HR, supply chain) into a single, unified centralized system."
-    },
-    {
-      "id": "obj_013",
-      "question": "The purpose of a Data Warehouse in the context of an Information System is to",
-      "options": {
-        "A": "manage and secure sensitive customer information.",
-        "B": "provide real-time transaction processing for day-to-day operations.",
-        "C": "store historical data from multiple sources for analysis and reporting.",
-        "D": "facilitate communication between different departments in an organization."
+      {
+        "id": "obj_013",
+        "question": "The purpose of a Data Warehouse in the context of an Information System is to",
+        "options": {
+          "A": "manage and secure sensitive customer information.",
+          "B": "provide real-time transaction processing for day-to-day operations.",
+          "C": "store historical data from multiple sources for analysis and reporting.",
+          "D": "facilitate communication between different departments in an organization."
+        },
+        "correct_option": "C",
+        "explanation": "A data warehouse is a centralized repository that stores large volumes of historical data from multiple sources, specifically optimized for analysis and reporting.",
+        "topic": "Information Systems"
       },
-      "correct_option": "C",
-      "explanation": "A data warehouse is a centralized repository that stores large volumes of historical data from multiple sources, specifically optimized for analysis and reporting."
-    },
-    {
-      "id": "obj_014",
-      "question": "The primary ethical concern associated with the selection of algorithm for use in digital technology culture is that, algorithms can",
-      "options": {
-        "A": "increase the cost of digital services for consumers.",
-        "B": "perpetuate bias and discrimination if not designed carefully.",
-        "C": "reduce the need for human creativity in digital content creation.",
-        "D": "influence computational power, leading to environmental concerns."
+      {
+        "id": "obj_014",
+        "question": "The primary ethical concern associated with the selection of algorithm for use in digital technology culture is that, algorithms can",
+        "options": {
+          "A": "increase the cost of digital services for consumers.",
+          "B": "perpetuate bias and discrimination if not designed carefully.",
+          "C": "reduce the need for human creativity in digital content creation.",
+          "D": "influence computational power, leading to environmental concerns."
+        },
+        "correct_option": "B",
+        "explanation": "Algorithms trained on biased data can unintentionally automate and perpetuate human biases and discrimination.",
+        "topic": "Digital Culture"
       },
-      "correct_option": "B",
-      "explanation": "Algorithms trained on biased data can unintentionally automate and perpetuate human biases and discrimination."
-    },
-    {
-      "id": "obj_015",
-      "question": "Which of the following image file formats is an example of vector graphics commonly used in Desktop publishing?",
-      "options": {
-        "A": "SVG",
-        "B": "PNG",
-        "C": "BMP",
-        "D": "JPEG"
+      {
+        "id": "obj_015",
+        "question": "Which of the following image file formats is an example of vector graphics commonly used in Desktop publishing?",
+        "options": {
+          "A": "SVG",
+          "B": "PNG",
+          "C": "BMP",
+          "D": "JPEG"
+        },
+        "correct_option": "A",
+        "explanation": "SVG (Scalable Vector Graphics) is an XML-based vector image format. PNG, BMP, and JPEG are raster/bitmap formats.",
+        "topic": "Application Software"
       },
-      "correct_option": "A",
-      "explanation": "SVG (Scalable Vector Graphics) is an XML-based vector image format. PNG, BMP, and JPEG are raster/bitmap formats."
-    },
-    {
-      "id": "obj_016",
-      "question": "Which of the following formulae specifies the correct usage of an absolute reference in a Spreadsheet application?",
-      "options": {
-        "A": "=A1+B$2$",
-        "B": "=A1+$B2",
-        "C": "=A$1+B$2",
-        "D": "=$A$1+B2"
+      {
+        "id": "obj_016",
+        "question": "Which of the following formulae specifies the correct usage of an absolute reference in a Spreadsheet application?",
+        "options": {
+          "A": "=A1+B$2$",
+          "B": "=A1+$B2",
+          "C": "=A$1+B$2",
+          "D": "=$A$1+B2"
+        },
+        "correct_option": "D",
+        "explanation": "An absolute reference uses dollar signs before both the column letter and row number (e.g., $A$1) to lock the cell reference.",
+        "topic": "Application Software"
       },
-      "correct_option": "D",
-      "explanation": "An absolute reference uses dollar signs before both the column letter and row number (e.g., $A$1) to lock the cell reference."
-    },
-    {
-      "id": "obj_017",
-      "question": "The speed at which data, instructions, and information is transferred to and from a device is called",
-      "options": {
-        "A": "access time.",
-        "B": "reading rate.",
-        "C": "transfer rate.",
-        "D": "formatting rate."
+      {
+        "id": "obj_017",
+        "question": "The speed at which data, instructions, and information is transferred to and from a device is called",
+        "options": {
+          "A": "access time.",
+          "B": "reading rate.",
+          "C": "transfer rate.",
+          "D": "formatting rate."
+        },
+        "correct_option": "C",
+        "explanation": "Transfer rate refers to the speed at which data is moved from one location (like a storage device) to another over a network or system bus.",
+        "topic": "Hardware"
       },
-      "correct_option": "C",
-      "explanation": "Transfer rate refers to the speed at which data is moved from one location (like a storage device) to another over a network or system bus."
-    },
-    {
-      "id": "obj_018",
-      "question": "Which of the following media types is an example of a primary storage?",
-      "options": {
-        "A": "Cache Memory",
-        "B": "Hard Disk Drive",
-        "C": "Solid State Drive",
-        "D": "Random Access Memory"
+      {
+        "id": "obj_018",
+        "question": "Which of the following media types is an example of a primary storage?",
+        "options": {
+          "A": "Cache Memory",
+          "B": "Hard Disk Drive",
+          "C": "Solid State Drive",
+          "D": "Random Access Memory"
+        },
+        "correct_option": "D",
+        "explanation": "Primary storage refers to memory that is directly accessed by the CPU. Random Access Memory (RAM) is the most common example. Note: Cache is also primary, but RAM is the definitive main primary storage standard expected here.",
+        "topic": "Hardware"
       },
-      "correct_option": "D",
-      "explanation": "Primary storage refers to memory that is directly accessed by the CPU. Random Access Memory (RAM) is the most common example. Note: Cache is also primary, but RAM is the definitive main primary storage standard expected here."
-    },
-    {
-      "id": "obj_019",
-      "question": "Which of the following programs is a text editor?",
-      "options": {
-        "A": "Scribus",
-        "B": "Notepad",
-        "C": "Open Office",
-        "D": "Microsoft Word"
+      {
+        "id": "obj_019",
+        "question": "Which of the following programs is a text editor?",
+        "options": {
+          "A": "Scribus",
+          "B": "Notepad",
+          "C": "Open Office",
+          "D": "Microsoft Word"
+        },
+        "correct_option": "B",
+        "explanation": "Notepad is a basic text editor included with Windows. Microsoft Word and Open Office are word processors, and Scribus is DTP software.",
+        "topic": "Application Software"
       },
-      "correct_option": "B",
-      "explanation": "Notepad is a basic text editor included with Windows. Microsoft Word and Open Office are word processors, and Scribus is DTP software."
-    },
-    {
-      "id": "obj_020",
-      "question": "Which of the following processes is a memory management technique in Operating Systems?",
-      "options": {
-        "A": "Paging",
-        "B": "Partitioning",
-        "C": "Fragmentation",
-        "D": "Defragmentation"
+      {
+        "id": "obj_020",
+        "question": "Which of the following processes is a memory management technique in Operating Systems?",
+        "options": {
+          "A": "Paging",
+          "B": "Partitioning",
+          "C": "Fragmentation",
+          "D": "Defragmentation"
+        },
+        "correct_option": "A",
+        "explanation": "Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory by dividing it into fixed-size blocks called pages.",
+        "topic": "Operating Systems"
       },
-      "correct_option": "A",
-      "explanation": "Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory by dividing it into fixed-size blocks called pages."
-    },
-    {
-      "id": "obj_021",
-      "question": "Which of the following statements best describes the purpose of a compiler in programming languages?",
-      "options": {
-        "A": "It optimizes the runtime performance of interpreted languages.",
-        "B": "It executes code line by line without producing an executable file.",
-        "C": "It converts machine code into high-level code for debugging purpose.",
-        "D": "It translates high-level code into machine code all at once, producing an executable file."
+      {
+        "id": "obj_021",
+        "question": "Which of the following statements best describes the purpose of a compiler in programming languages?",
+        "options": {
+          "A": "It optimizes the runtime performance of interpreted languages.",
+          "B": "It executes code line by line without producing an executable file.",
+          "C": "It converts machine code into high-level code for debugging purpose.",
+          "D": "It translates high-level code into machine code all at once, producing an executable file."
+        },
+        "correct_option": "D",
+        "explanation": "A compiler translates the entire source code of a high-level language into machine code in a single batch before execution.",
+        "topic": "Programming"
       },
-      "correct_option": "D",
-      "explanation": "A compiler translates the entire source code of a high-level language into machine code in a single batch before execution."
-    },
-    {
-      "id": "obj_022",
-      "question": "What is the correct way to create an ordered list in an HTML program?",
-      "options": {
-        "A": "<ol><li>Item 1</li><li>Item 2</li></ol>",
-        "B": "<ul><li>Item 1</li><li>Item 2</li></ul>",
-        "C": "<list><li>Item 1</li><li>Item 2</li></list>",
-        "D": "<ol><item>Item 1</item><item>Item 2</item></ol>"
+      {
+        "id": "obj_022",
+        "question": "What is the correct way to create an ordered list in an HTML program?",
+        "options": {
+          "A": "<ol><li>Item 1</li><li>Item 2</li></ol>",
+          "B": "<ul><li>Item 1</li><li>Item 2</li></ul>",
+          "C": "<list><li>Item 1</li><li>Item 2</li></list>",
+          "D": "<ol><item>Item 1</item><item>Item 2</item></ol>"
+        },
+        "correct_option": "A",
+        "explanation": "The <ol> tag defines an ordered (numbered) list, and the <li> tag defines each list item.",
+        "topic": "Web Development"
       },
-      "correct_option": "A",
-      "explanation": "The <ol> tag defines an ordered (numbered) list, and the <li> tag defines each list item."
-    },
-    {
-      "id": "obj_023",
-      "question": "Which of the following functions is a common use of the ICMP protocol?",
-      "options": {
-        "A": "Sending e-mail",
-        "B": "Routing data packets",
-        "C": "File transfer services",
-        "D": "Testing network connectivity"
+      {
+        "id": "obj_023",
+        "question": "Which of the following functions is a common use of the ICMP protocol?",
+        "options": {
+          "A": "Sending e-mail",
+          "B": "Routing data packets",
+          "C": "File transfer services",
+          "D": "Testing network connectivity"
+        },
+        "correct_option": "D",
+        "explanation": "ICMP (Internet Control Message Protocol) is used by network devices for diagnostics and to send error messages, such as checking connectivity with the 'ping' utility.",
+        "topic": "Networking"
       },
-      "correct_option": "D",
-      "explanation": "ICMP (Internet Control Message Protocol) is used by network devices for diagnostics and to send error messages, such as checking connectivity with the 'ping' utility."
-    },
-    {
-      "id": "obj_024",
-      "question": "Which of the following protocols is used for secure file transfer over a network?",
-      "options": {
-        "A": "FTP",
-        "B": "SFTP",
-        "C": "SMTP",
-        "D": "DHCP"
+      {
+        "id": "obj_024",
+        "question": "Which of the following protocols is used for secure file transfer over a network?",
+        "options": {
+          "A": "FTP",
+          "B": "SFTP",
+          "C": "SMTP",
+          "D": "DHCP"
+        },
+        "correct_option": "B",
+        "explanation": "SFTP (SSH File Transfer Protocol) provides secure file transfer capabilities using encryption, unlike standard FTP.",
+        "topic": "Networking"
       },
-      "correct_option": "B",
-      "explanation": "SFTP (SSH File Transfer Protocol) provides secure file transfer capabilities using encryption, unlike standard FTP."
-    },
-    {
-      "id": "obj_025",
-      "question": "Which of the following options is a characteristic of a normalized database?",
-      "options": {
-        "A": "Data is stored in a flat file",
-        "B": "Data redundancy is minimized",
-        "C": "Data is stored in a text file format",
-        "D": "Data is organized into a single table"
+      {
+        "id": "obj_025",
+        "question": "Which of the following options is a characteristic of a normalized database?",
+        "options": {
+          "A": "Data is stored in a flat file",
+          "B": "Data redundancy is minimized",
+          "C": "Data is stored in a text file format",
+          "D": "Data is organized into a single table"
+        },
+        "correct_option": "B",
+        "explanation": "Database normalization is the process of organizing data to minimize redundancy and dependency by dividing large tables into smaller related ones.",
+        "topic": "Databases"
       },
-      "correct_option": "B",
-      "explanation": "Database normalization is the process of organizing data to minimize redundancy and dependency by dividing large tables into smaller related ones."
-    },
-    {
-      "id": "obj_026",
-      "question": "Which of the following relationships is not associated with a relational database?",
-      "options": {
-        "A": "One-to-One",
-        "B": "Any-to-Any",
-        "C": "One-to-Many",
-        "D": "Many-to-Many"
+      {
+        "id": "obj_026",
+        "question": "Which of the following relationships is not associated with a relational database?",
+        "options": {
+          "A": "One-to-One",
+          "B": "Any-to-Any",
+          "C": "One-to-Many",
+          "D": "Many-to-Many"
+        },
+        "correct_option": "B",
+        "explanation": "Relational databases use One-to-One, One-to-Many, and Many-to-Many relationships. 'Any-to-Any' is not a standard relational database model term.",
+        "topic": "Databases"
       },
-      "correct_option": "B",
-      "explanation": "Relational databases use One-to-One, One-to-Many, and Many-to-Many relationships. 'Any-to-Any' is not a standard relational database model term."
-    },
-    {
-      "id": "obj_027",
-      "question": "The most effective strategy to incorporate ICT tools in education to access students' understanding in real-time is to",
-      "options": {
-        "A": "implement online polling and quiz platforms for instant feedback.",
-        "B": "implement manual quizzes for later grading and provide feedback.",
-        "C": "use an interactive whiteboard to display key concepts during lessons.",
-        "D": "replace classroom discussions with recorded videos for self-paced learning."
+      {
+        "id": "obj_027",
+        "question": "The most effective strategy to incorporate ICT tools in education to access students' understanding in real-time is to",
+        "options": {
+          "A": "implement online polling and quiz platforms for instant feedback.",
+          "B": "implement manual quizzes for later grading and provide feedback.",
+          "C": "use an interactive whiteboard to display key concepts during lessons.",
+          "D": "replace classroom discussions with recorded videos for self-paced learning."
+        },
+        "correct_option": "A",
+        "explanation": "Online polling and quiz platforms (like Kahoot or Mentimeter) allow educators to assess understanding and receive feedback instantly during a lesson.",
+        "topic": "Digital Culture"
       },
-      "correct_option": "A",
-      "explanation": "Online polling and quiz platforms (like Kahoot or Mentimeter) allow educators to assess understanding and receive feedback instantly during a lesson."
-    },
-    {
-      "id": "obj_028",
-      "question": "The hexadecimal representation of the binary number 11110000_2 is ...",
-      "options": {
-        "A": "C0",
-        "B": "D0",
-        "C": "E0",
-        "D": "F0"
+      {
+        "id": "obj_028",
+        "question": "The hexadecimal representation of the binary number 11110000_2 is ...",
+        "options": {
+          "A": "C0",
+          "B": "D0",
+          "C": "E0",
+          "D": "F0"
+        },
+        "correct_option": "D",
+        "explanation": "Grouping the binary number into 4-bit sections: 1111 = F and 0000 = 0 in hexadecimal. Therefore, it is F0.",
+        "topic": "Data Representation"
       },
-      "correct_option": "D",
-      "explanation": "Grouping the binary number into 4-bit sections: 1111 = F and 0000 = 0 in hexadecimal. Therefore, it is F0."
-    },
-    {
-      "id": "obj_029",
-      "question": "Which of the following binary numbers converts to the hexadecimal number A7?",
-      "options": {
-        "A": "10000011",
-        "B": "10100111",
-        "C": "11000011",
-        "D": "10010111"
+      {
+        "id": "obj_029",
+        "question": "Which of the following binary numbers converts to the hexadecimal number A7?",
+        "options": {
+          "A": "10000011",
+          "B": "10100111",
+          "C": "11000011",
+          "D": "10010111"
+        },
+        "correct_option": "B",
+        "explanation": "In hex, A = 1010 in binary, and 7 = 0111 in binary. Combining them gives 10100111.",
+        "topic": "Data Representation"
       },
-      "correct_option": "B",
-      "explanation": "In hex, A = 1010 in binary, and 7 = 0111 in binary. Combining them gives 10100111."
-    },
-    {
-      "id": "obj_030",
-      "question": "Which of the following factors is the most important consideration when designing a multi-page document for commercial printing?",
-      "options": {
-        "A": "Setting up proper bleed and margins to avoid cutting off content",
-        "B": "Using the highest resolution images available, regardless of file size",
-        "C": "Ensuring that all images are in RGB colour mode for better vibrancy",
-        "D": "Using a wide variety of fonts to make the document visually appealing"
+      {
+        "id": "obj_030",
+        "question": "Which of the following factors is the most important consideration when designing a multi-page document for commercial printing?",
+        "options": {
+          "A": "Setting up proper bleed and margins to avoid cutting off content",
+          "B": "Using the highest resolution images available, regardless of file size",
+          "C": "Ensuring that all images are in RGB colour mode for better vibrancy",
+          "D": "Using a wide variety of fonts to make the document visually appealing"
+        },
+        "correct_option": "A",
+        "explanation": "Proper bleeds and margins are critical in commercial printing to ensure no essential content is trimmed off when the paper is cut.",
+        "topic": "Application Software"
       },
-      "correct_option": "A",
-      "explanation": "Proper bleeds and margins are critical in commercial printing to ensure no essential content is trimmed off when the paper is cut."
-    },
-    {
-      "id": "obj_031",
-      "question": "Given a dataset with columns: Product, Region, and Sales. A user wants to create a PivotTable to show the total sales for each product by region. What fields should the user place in the Rows and Columns area?",
-      "options": {
-        "A": "Rows: Region, Columns: Product, Values: Sales",
-        "B": "Rows: Sales, Columns: Product, Values: Region",
-        "C": "Rows: Product, Columns: Sales, Values: Region",
-        "D": "Rows: Product, Columns: Region, Values: Sales"
+      {
+        "id": "obj_031",
+        "question": "Given a dataset with columns: Product, Region, and Sales. A user wants to create a PivotTable to show the total sales for each product by region. What fields should the user place in the Rows and Columns area?",
+        "options": {
+          "A": "Rows: Region, Columns: Product, Values: Sales",
+          "B": "Rows: Sales, Columns: Product, Values: Region",
+          "C": "Rows: Product, Columns: Sales, Values: Region",
+          "D": "Rows: Product, Columns: Region, Values: Sales"
+        },
+        "correct_option": "D",
+        "explanation": "To show sales for each product by region, Product should go to Rows (or Columns), Region to Columns (or Rows), and Sales to the Values area to aggregate them.",
+        "topic": "Application Software"
       },
-      "correct_option": "D",
-      "explanation": "To show sales for each product by region, Product should go to Rows (or Columns), Region to Columns (or Rows), and Sales to the Values area to aggregate them."
-    },
-    {
-      "id": "obj_032",
-      "question": "The number of cells contained in the worksheet range of A1:D2 is ...",
-      "options": {
-        "A": "2",
-        "B": "4",
-        "C": "6",
-        "D": "8"
+      {
+        "id": "obj_032",
+        "question": "The number of cells contained in the worksheet range of A1:D2 is ...",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+        },
+        "correct_option": "D",
+        "explanation": "The range A1:D2 includes columns A, B, C, D (4 columns) and rows 1, 2 (2 rows). 4 x 2 = 8 cells.",
+        "topic": "Application Software"
       },
-      "correct_option": "D",
-      "explanation": "The range A1:D2 includes columns A, B, C, D (4 columns) and rows 1, 2 (2 rows). 4 x 2 = 8 cells."
-    },
-    {
-      "id": "obj_033",
-      "question": "A user is working with a large dataset in a Spreadsheet and needs to highlight rows where sales exceeded GHC 50,000.00. Which of the following activities is the most efficient method?",
-      "options": {
-        "A": "Use the IF function to check each row manually.",
-        "B": "Sort the dataset in descending order and colour the high-value rows.",
-        "C": "Apply Conditional Formatting with a rule based on the sales column.",
-        "D": "Filter the dataset and use Find and Replace to highlight values over GHC 50,000.00."
+      {
+        "id": "obj_033",
+        "question": "A user is working with a large dataset in a Spreadsheet and needs to highlight rows where sales exceeded GHC 50,000.00. Which of the following activities is the most efficient method?",
+        "options": {
+          "A": "Use the IF function to check each row manually.",
+          "B": "Sort the dataset in descending order and colour the high-value rows.",
+          "C": "Apply Conditional Formatting with a rule based on the sales column.",
+          "D": "Filter the dataset and use Find and Replace to highlight values over GHC 50,000.00."
+        },
+        "correct_option": "C",
+        "explanation": "Conditional Formatting allows users to set automatic rules to change the appearance of cells based on their values efficiently.",
+        "topic": "Application Software"
       },
-      "correct_option": "C",
-      "explanation": "Conditional Formatting allows users to set automatic rules to change the appearance of cells based on their values efficiently."
-    },
-    {
-      "id": "obj_034",
-      "question": "The best way to prevent damaging a personal computer with static electricity is to",
-      "options": {
-        "A": "wear an electrostatic discharge wrist strap.",
-        "B": "wear a rubber shoe when using the computer.",
-        "C": "always place the personal computer on a table.",
-        "D": "periodically touch the personal computer to discharge electrons."
+      {
+        "id": "obj_034",
+        "question": "The best way to prevent damaging a personal computer with static electricity is to",
+        "options": {
+          "A": "wear an electrostatic discharge wrist strap.",
+          "B": "wear a rubber shoe when using the computer.",
+          "C": "always place the personal computer on a table.",
+          "D": "periodically touch the personal computer to discharge electrons."
+        },
+        "correct_option": "A",
+        "explanation": "An anti-static (ESD) wrist strap safely grounds a person working on sensitive electronic equipment, preventing the buildup of static electricity.",
+        "topic": "Hardware"
       },
-      "correct_option": "A",
-      "explanation": "An anti-static (ESD) wrist strap safely grounds a person working on sensitive electronic equipment, preventing the buildup of static electricity."
-    },
-    {
-      "id": "obj_035",
-      "question": "The main advantage of using Error-Correcting Code memory in a workstation or server is that it",
-      "options": {
-        "A": "reduces power consumption significantly.",
-        "B": "allows the RAM to be overclocked without risk.",
-        "C": "increases the clock speed of RAM beyond standard limits.",
-        "D": "detects and corrects memory errors to improve system stability."
+      {
+        "id": "obj_035",
+        "question": "The main advantage of using Error-Correcting Code memory in a workstation or server is that it",
+        "options": {
+          "A": "reduces power consumption significantly.",
+          "B": "allows the RAM to be overclocked without risk.",
+          "C": "increases the clock speed of RAM beyond standard limits.",
+          "D": "detects and corrects memory errors to improve system stability."
+        },
+        "correct_option": "D",
+        "explanation": "ECC (Error-Correcting Code) memory can detect and automatically correct the most common kinds of internal data corruption, maintaining high system stability.",
+        "topic": "Hardware"
       },
-      "correct_option": "D",
-      "explanation": "ECC (Error-Correcting Code) memory can detect and automatically correct the most common kinds of internal data corruption, maintaining high system stability."
-    },
-    {
-      "id": "obj_036",
-      "question": "Which of the following signs depicts that a CMOS battery is running out of power in the computer?",
-      "options": {
-        "A": "Fails to boot properly",
-        "B": "Gives a long beep sound",
-        "C": "Starts losing information in memory",
-        "D": "Starts showing incorrect date and time"
+      {
+        "id": "obj_036",
+        "question": "Which of the following signs depicts that a CMOS battery is running out of power in the computer?",
+        "options": {
+          "A": "Fails to boot properly",
+          "B": "Gives a long beep sound",
+          "C": "Starts losing information in memory",
+          "D": "Starts showing incorrect date and time"
+        },
+        "correct_option": "D",
+        "explanation": "The CMOS battery maintains the system clock when powered off. A dying CMOS battery typically causes the system time and date to reset.",
+        "topic": "Hardware"
       },
-      "correct_option": "D",
-      "explanation": "The CMOS battery maintains the system clock when powered off. A dying CMOS battery typically causes the system time and date to reset."
-    },
-    {
-      "id": "obj_037",
-      "question": "When building a high-performance computer, which factor is the most important when selecting a power supply unit?",
-      "options": {
-        "A": "The physical size of the computer",
-        "B": "Total wattage and efficiency rating",
-        "C": "The number of USB ports available",
-        "D": "The colour of the power supply unit casting"
+      {
+        "id": "obj_037",
+        "question": "When building a high-performance computer, which factor is the most important when selecting a power supply unit?",
+        "options": {
+          "A": "The physical size of the computer",
+          "B": "Total wattage and efficiency rating",
+          "C": "The number of USB ports available",
+          "D": "The colour of the power supply unit casting"
+        },
+        "correct_option": "B",
+        "explanation": "High-performance components draw more power. Ensuring the PSU has sufficient total wattage and a good efficiency rating is crucial for stable operation.",
+        "topic": "Hardware"
       },
-      "correct_option": "B",
-      "explanation": "High-performance components draw more power. Ensuring the PSU has sufficient total wattage and a good efficiency rating is crucial for stable operation."
-    },
-    {
-      "id": "obj_038",
-      "question": "The backup method that only stores files that have been modified since the last backup, thereby optimizing storage space is referred to as",
-      "options": {
-        "A": "full backup.",
-        "B": "cloud backup.",
-        "C": "differential backup.",
-        "D": "incremental backup."
+      {
+        "id": "obj_038",
+        "question": "The backup method that only stores files that have been modified since the last backup, thereby optimizing storage space is referred to as",
+        "options": {
+          "A": "full backup.",
+          "B": "cloud backup.",
+          "C": "differential backup.",
+          "D": "incremental backup."
+        },
+        "correct_option": "D",
+        "explanation": "An incremental backup only copies data that has changed since the last backup of any type, saving the most storage space.",
+        "topic": "Operating Systems"
       },
-      "correct_option": "D",
-      "explanation": "An incremental backup only copies data that has changed since the last backup of any type, saving the most storage space."
-    },
-    {
-      "id": "obj_039",
-      "question": "A user notices that their system is running slower than usual due to high RAM consumption. Which utility software can help them identify and close resource-intensive applications?",
-      "options": {
-        "A": "Task Manager",
-        "B": "Registry Editor",
-        "C": "System Restore",
-        "D": "Device Manager"
+      {
+        "id": "obj_039",
+        "question": "A user notices that their system is running slower than usual due to high RAM consumption. Which utility software can help them identify and close resource-intensive applications?",
+        "options": {
+          "A": "Task Manager",
+          "B": "Registry Editor",
+          "C": "System Restore",
+          "D": "Device Manager"
+        },
+        "correct_option": "A",
+        "explanation": "Task Manager provides details about programs and processes running on the computer and allows users to terminate those consuming too many resources.",
+        "topic": "Operating Systems"
       },
-      "correct_option": "A",
-      "explanation": "Task Manager provides details about programs and processes running on the computer and allows users to terminate those consuming too many resources."
-    },
-    {
-      "id": "obj_040",
-      "question": "The QBASIC statement PRINT 5*2+3 will output the result on the screen as ...",
-      "options": {
-        "A": "10",
-        "B": "13",
-        "C": "25",
-        "D": "30"
+      {
+        "id": "obj_040",
+        "question": "The QBASIC statement PRINT 5*2+3 will output the result on the screen as ...",
+        "options": {
+          "A": "10",
+          "B": "13",
+          "C": "25",
+          "D": "30"
+        },
+        "correct_option": "B",
+        "explanation": "Following the order of operations (BODMAS/PEMDAS), multiplication is performed before addition: (5 * 2) + 3 = 10 + 3 = 13.",
+        "topic": "Programming"
       },
-      "correct_option": "B",
-      "explanation": "Following the order of operations (BODMAS/PEMDAS), multiplication is performed before addition: (5 * 2) + 3 = 10 + 3 = 13."
-    },
-    {
-      "id": "obj_041",
-      "question": "Study the following QBASIC code snippet:\nINPUT \"Enter a number: \", N\nPRINT \"The square of the number entered is; \" N^2\nWhat will be the output if a user input the number 5?",
-      "options": {
-        "A": "The square of the number entered is 5",
-        "B": "The square of the number entered is 10",
-        "C": "The square of the number entered is 25",
-        "D": "The square of the number entered is 125"
+      {
+        "id": "obj_041",
+        "question": "Study the following QBASIC code snippet:\nINPUT \"Enter a number: \", N\nPRINT \"The square of the number entered is; \" N^2\nWhat will be the output if a user input the number 5?",
+        "options": {
+          "A": "The square of the number entered is 5",
+          "B": "The square of the number entered is 10",
+          "C": "The square of the number entered is 25",
+          "D": "The square of the number entered is 125"
+        },
+        "correct_option": "C",
+        "explanation": "The code calculates N raised to the power of 2 (N^2). If N=5, 5^2 = 25. The output will be 'The square of the number entered is 25'.",
+        "topic": "Programming"
       },
-      "correct_option": "C",
-      "explanation": "The code calculates N raised to the power of 2 (N^2). If N=5, 5^2 = 25. The output will be 'The square of the number entered is 25'."
-    },
-    {
-      "id": "obj_042",
-      "question": "Which of the following statements is the correct syntax for using the WHILE loop in QBASIC?",
-      "options": {
-        "A": "WHILE X>2",
-        "B": "DO WHILE X>2",
-        "C": "LOOP WHILE X>2",
-        "D": "REPEAT WHILE X>2"
+      {
+        "id": "obj_042",
+        "question": "Which of the following statements is the correct syntax for using the WHILE loop in QBASIC?",
+        "options": {
+          "A": "WHILE X>2",
+          "B": "DO WHILE X>2",
+          "C": "LOOP WHILE X>2",
+          "D": "REPEAT WHILE X>2"
+        },
+        "correct_option": "B",
+        "explanation": "In QBASIC, 'DO WHILE [condition]' is a valid and commonly used syntax for initiating a while loop structure.",
+        "topic": "Programming"
       },
-      "correct_option": "B",
-      "explanation": "In QBASIC, 'DO WHILE [condition]' is a valid and commonly used syntax for initiating a while loop structure."
-    },
-    {
-      "id": "obj_043",
-      "question": "Study the following QBASIC code snippet:\nINPUT \"Enter a number: \", X\nIF X MOD 2 = 0 THEN\nPRINT \"The number is Even\"\nELSE\nPRINT \"The number is Odd\"\nENDIF\nWhat will be the output if a user input the number 8?",
-      "options": {
-        "A": "The number is X",
-        "B": "The number is 8",
-        "C": "The number is Odd",
-        "D": "The number is Even"
+      {
+        "id": "obj_043",
+        "question": "Study the following QBASIC code snippet:\nINPUT \"Enter a number: \", X\nIF X MOD 2 = 0 THEN\nPRINT \"The number is Even\"\nELSE\nPRINT \"The number is Odd\"\nENDIF\nWhat will be the output if a user input the number 8?",
+        "options": {
+          "A": "The number is X",
+          "B": "The number is 8",
+          "C": "The number is Odd",
+          "D": "The number is Even"
+        },
+        "correct_option": "D",
+        "explanation": "The MOD operator returns the remainder of division. 8 MOD 2 = 0, which satisfies the IF condition, causing the program to print 'The number is Even'.",
+        "topic": "Programming"
       },
-      "correct_option": "D",
-      "explanation": "The MOD operator returns the remainder of division. 8 MOD 2 = 0, which satisfies the IF condition, causing the program to print 'The number is Even'."
-    },
-    {
-      "id": "obj_044",
-      "question": "Which of the following security protocols is used for wireless networks?",
-      "options": {
-        "A": "SSH",
-        "B": "SSL",
-        "C": "WPA2",
-        "D": "IPSEC"
+      {
+        "id": "obj_044",
+        "question": "Which of the following security protocols is used for wireless networks?",
+        "options": {
+          "A": "SSH",
+          "B": "SSL",
+          "C": "WPA2",
+          "D": "IPSEC"
+        },
+        "correct_option": "C",
+        "explanation": "WPA2 (Wi-Fi Protected Access 2) is a standard security protocol used to secure wireless computer networks.",
+        "topic": "Networking"
       },
-      "correct_option": "C",
-      "explanation": "WPA2 (Wi-Fi Protected Access 2) is a standard security protocol used to secure wireless computer networks."
-    },
-    {
-      "id": "obj_045",
-      "question": "Which of the following subnet masks is invalid?",
-      "options": {
-        "A": "255.255.224.0",
-        "B": "255.255.252.0",
-        "C": "255.255.255.240",
-        "D": "255.255.128.255"
+      {
+        "id": "obj_045",
+        "question": "Which of the following subnet masks is invalid?",
+        "options": {
+          "A": "255.255.224.0",
+          "B": "255.255.252.0",
+          "C": "255.255.255.240",
+          "D": "255.255.128.255"
+        },
+        "correct_option": "D",
+        "explanation": "A valid subnet mask consists of a continuous sequence of 1s followed by 0s in binary. 255.255.128.255 breaks this continuity.",
+        "topic": "Networking"
       },
-      "correct_option": "D",
-      "explanation": "A valid subnet mask consists of a continuous sequence of 1s followed by 0s in binary. 255.255.128.255 breaks this continuity."
-    },
-    {
-      "id": "obj_046",
-      "question": "In an IPv4 addressing scheme, the total number of bits is ...",
-      "options": {
-        "A": "32",
-        "B": "48",
-        "C": "64",
-        "D": "128"
+      {
+        "id": "obj_046",
+        "question": "In an IPv4 addressing scheme, the total number of bits is ...",
+        "options": {
+          "A": "32",
+          "B": "48",
+          "C": "64",
+          "D": "128"
+        },
+        "correct_option": "A",
+        "explanation": "An IPv4 address is a 32-bit number that uniquely identifies a network interface on a machine.",
+        "topic": "Networking"
       },
-      "correct_option": "A",
-      "explanation": "An IPv4 address is a 32-bit number that uniquely identifies a network interface on a machine."
-    },
-    {
-      "id": "obj_047",
-      "question": "A key advantage of using a relational database management system over a flat-file system is",
-      "options": {
-        "A": "reduced data redundancy.",
-        "B": "faster data access for small datasets.",
-        "C": "simplicity in design and implementation.",
-        "D": "no need to use structured query language."
+      {
+        "id": "obj_047",
+        "question": "A key advantage of using a relational database management system over a flat-file system is",
+        "options": {
+          "A": "reduced data redundancy.",
+          "B": "faster data access for small datasets.",
+          "C": "simplicity in design and implementation.",
+          "D": "no need to use structured query language."
+        },
+        "correct_option": "A",
+        "explanation": "Relational databases use normalization to divide data into related tables, significantly reducing data duplication (redundancy) compared to flat-file systems.",
+        "topic": "Databases"
       },
-      "correct_option": "A",
-      "explanation": "Relational databases use normalization to divide data into related tables, significantly reducing data duplication (redundancy) compared to flat-file systems."
-    },
-    {
-      "id": "obj_048",
-      "question": "Which of the following characteristics is not an ACID property of a transaction in a database management system?",
-      "options": {
-        "A": "Atomicity",
-        "B": "Durability",
-        "C": "Consistency",
-        "D": "Independence"
+      {
+        "id": "obj_048",
+        "question": "Which of the following characteristics is not an ACID property of a transaction in a database management system?",
+        "options": {
+          "A": "Atomicity",
+          "B": "Durability",
+          "C": "Consistency",
+          "D": "Independence"
+        },
+        "correct_option": "D",
+        "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Independence is not one of the ACID properties (Isolation is the 'I').",
+        "topic": "Databases"
       },
-      "correct_option": "D",
-      "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Independence is not one of the ACID properties (Isolation is the 'I')."
-    },
-    {
-      "id": "obj_049",
-      "question": "Which of the following types of database indexes is most commonly used to search for each specific value in a column?",
-      "options": {
-        "A": "Hash index",
-        "B": "B-tree index",
-        "C": "Bitmap index",
-        "D": "Clustered index"
+      {
+        "id": "obj_049",
+        "question": "Which of the following types of database indexes is most commonly used to search for each specific value in a column?",
+        "options": {
+          "A": "Hash index",
+          "B": "B-tree index",
+          "C": "Bitmap index",
+          "D": "Clustered index"
+        },
+        "correct_option": "A",
+        "explanation": "A hash index is highly efficient and commonly used for exact-match lookups (finding a specific value).",
+        "topic": "Databases"
       },
-      "correct_option": "A",
-      "explanation": "A hash index is highly efficient and commonly used for exact-match lookups (finding a specific value)."
-    },
-    {
-      "id": "obj_050",
-      "question": "Which of the following statements is a major benefit of using cloud computing in education?",
-      "options": {
-        "A": "Lack of data security in the cloud system",
-        "B": "Real-time access to resources and documents",
-        "C": "Reduced collaboration among teachers and learners",
-        "D": "Increased hardware costs to educational institutions"
+      {
+        "id": "obj_050",
+        "question": "Which of the following statements is a major benefit of using cloud computing in education?",
+        "options": {
+          "A": "Lack of data security in the cloud system",
+          "B": "Real-time access to resources and documents",
+          "C": "Reduced collaboration among teachers and learners",
+          "D": "Increased hardware costs to educational institutions"
+        },
+        "correct_option": "B",
+        "explanation": "Cloud computing allows students and educators to access learning materials and collaborate on documents anytime and anywhere over the internet.",
+        "topic": "Networking"
+      }
+    ],
+    "theory": [
+      {
+        "id": "th_001",
+        "main_context": "Question 1",
+        "sub_questions": [
+          {
+            "sub_id": "th_001_a",
+            "label": "1(a)",
+            "question": "Differentiate between ASCII and Unicode data representation formats as they are used in computers.",
+            "rubric": "ASCII (American Standard Code for Information Interchange): It is a 7-bit or 8-bit character encoding scheme that can represent up to 128 or 256 characters. It primarily covers English letters, numbers, and basic symbols. \nUnicode: It is a universal character encoding standard (often using 16 or 32 bits) designed to represent characters from all writing systems in the world, including emojis and ancient scripts. It can represent over 1.1 million unique characters. \nAward 2 marks for each accurate differentiation point (Max 4 marks).",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_001_b",
+            "label": "1(b)",
+            "question": "State three functions of Information Systems in organization.",
+            "rubric": "1. Data Processing: Converting raw data into meaningful information for daily operations. \n2. Decision Support: Providing management with accurate reports and trends to make informed strategic choices. \n3. Storage and Retrieval: Safely storing large volumes of organizational records and allowing quick access when needed. \nAward 2 marks for each correct function stated and explained (Max 6 marks).",
+            "max_marks": 6
+          }
+        ],
+        "topic": "Data & Info Systems"
       },
-      "correct_option": "B",
-      "explanation": "Cloud computing allows students and educators to access learning materials and collaborate on documents anytime and anywhere over the internet."
-    }
-  ],
-  "theory": [
-    {
-      "id": "th_001",
-      "main_context": "Question 1",
-      "sub_questions": [
-        {
-          "sub_id": "th_001_a",
-          "label": "1(a)",
-          "question": "Differentiate between ASCII and Unicode data representation formats as they are used in computers.",
-          "rubric": "ASCII (American Standard Code for Information Interchange): It is a 7-bit or 8-bit character encoding scheme that can represent up to 128 or 256 characters. It primarily covers English letters, numbers, and basic symbols. \nUnicode: It is a universal character encoding standard (often using 16 or 32 bits) designed to represent characters from all writing systems in the world, including emojis and ancient scripts. It can represent over 1.1 million unique characters. \nAward 2 marks for each accurate differentiation point (Max 4 marks).",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_001_b",
-          "label": "1(b)",
-          "question": "State three functions of Information Systems in organization.",
-          "rubric": "1. Data Processing: Converting raw data into meaningful information for daily operations. \n2. Decision Support: Providing management with accurate reports and trends to make informed strategic choices. \n3. Storage and Retrieval: Safely storing large volumes of organizational records and allowing quick access when needed. \nAward 2 marks for each correct function stated and explained (Max 6 marks).",
-          "max_marks": 6
-        }
-      ]
-    },
-    {
-      "id": "th_002",
-      "main_context": "Question 2",
-      "sub_questions": [
-        {
-          "sub_id": "th_002_a",
-          "label": "2(a)",
-          "question": "Explain two ethical challenges of digital culture in the workplace.",
-          "rubric": "1. Privacy Concerns: The monitoring of employee digital activity (emails, screen time) can lead to a breach of personal privacy and trust. \n2. Plagiarism/Intellectual Property Theft: The ease of \"copy-pasting\" digital content makes it easier for employees to use others' work without authorization or credit. \nAward 3 marks for each valid challenge clearly explained (Max 6 marks).",
-          "max_marks": 6
-        },
-        {
-          "sub_id": "th_002_b",
-          "label": "2(b)",
-          "question": "Outline two measures to mitigate the ethical challenges explained in 2(a).",
-          "rubric": "1. Policy Formulation: Establishing clear Acceptable Use Policies (AUP) that define what is ethical and what is prohibited. \n2. Digital Literacy/Ethics Training: Regularly educating staff on the importance of data privacy and the legalities of intellectual property. \nAward 2 marks for each valid measure outlined (Max 4 marks).",
-          "max_marks": 4
-        }
-      ]
-    },
-    {
-      "id": "th_003",
-      "main_context": "Question 3",
-      "sub_questions": [
-        {
-          "sub_id": "th_003_a",
-          "label": "3(a)",
-          "question": "State two importance of hardware devices in a computer system.",
-          "rubric": "1. Enabling Interaction: Input devices (like keyboards) allow the user to communicate commands to the system. \n2. Physical Execution: Hardware like the CPU and RAM provide the physical power and space required to run software and process data. \nAward 2 marks for each correct point stated (Max 4 marks).",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_003_b",
-          "label": "3(b)",
-          "question": "Explain two functions of IP addresses in networking.",
-          "rubric": "1. Host Identification: It provides a unique identity to a specific device on a network so it can be distinguished from others. \n2. Location Addressing: It serves as a digital \"address\" that allows routers to find the correct path to deliver data packets to the intended destination. \nAward 3 marks for each correctly explained function (Max 6 marks).",
-          "max_marks": 6
-        }
-      ]
-    },
-    {
-      "id": "th_004",
-      "main_context": "Question 4",
-      "sub_questions": [
-        {
-          "sub_id": "th_004_a",
-          "label": "4(a)",
-          "question": "List three ways to edit a picture in Microsoft Publisher application.",
-          "rubric": "1. Cropping: Removing unwanted outer areas of an image. \n2. Resizing: Adjusting the height and width of the picture to fit the layout. \n3. Adjusting Brightness/Contrast: Modifying the light levels and color depth of the image. \nAward 1 mark for each valid method listed (Max 3 marks).",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_004_b",
-          "label": "4(b)",
-          "question": "What are Macros as used in Spreadsheet applications?",
-          "rubric": "A Macro is a recorded sequence of instructions or actions that can be played back to automate repetitive tasks in a spreadsheet (like formatting or complex calculations). \nAward up to 3 marks for a comprehensive definition.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_004_c",
-          "label": "4(c)",
-          "question": "State the function of the SQL command SELECT.",
-          "rubric": "The SELECT command is used to fetch or retrieve specific data from one or more tables in a database. \nAward 2 marks for a correct statement.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_004_d",
-          "label": "4(d)",
-          "question": "Write the syntax of the SQL command SELECT.",
-          "rubric": "Syntax: SELECT column1, column2 FROM table_name; \nAward 2 marks for correct syntax.",
-          "max_marks": 2
-        }
-      ]
-    },
-    {
-      "id": "th_005",
-      "main_context": "Question 5",
-      "sub_questions": [
-        {
-          "sub_id": "th_005_a",
-          "label": "5(a)",
-          "question": "Explain the term variable as used in programming.",
-          "rubric": "A variable is a symbolic name (identifier) given to a memory location used to store data that can be changed or updated during the execution of a program. \nAward up to 3 marks for a clear explanation.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_005_b",
-          "label": "5(b)",
-          "question": "Write the syntax of how a variable is declared in QBASIC programming language.",
-          "rubric": "Syntax: DIM variableName AS DataType (Example: DIM age AS INTEGER). \nAward 2 marks for the correct syntax format.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_c_i",
-          "label": "5(c)(i)",
-          "question": "An HTML page uses the field name Full Name to collect information from users. State the input type for the Full Name field.",
-          "rubric": "Input type for the Full Name field: text. \nAward 2 marks.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_c_ii",
-          "label": "5(c)(ii)",
-          "question": "Write the HTML tag for the input type; id and field name for the Full Name field.",
-          "rubric": "HTML tag: <input type=\"text\" id=\"full_name\" name=\"Full Name\">. \nAward up to 3 marks for the correctly constructed HTML tag.",
-          "max_marks": 3
-        }
-      ]
-    }
-  ]
-},
-{
-  "subject": "Digital Tech v2",
-  "obj": [],
-  "theory": [
-    {
-      "id": "th_001",
-      "main_context": "QUESTION 1: NETWORKING, PRESENTATIONS & ROBOTICS",
-      "sub_questions": [
-        {
-          "sub_id": "th_001_a_i",
-          "label": "1(a)(i)",
-          "question": "Name the type of computer network suitable for sharing files between three classrooms.",
-          "rubric": "Golden Answer: Local Area Network (LAN). Note: Examiners should not award marks for just writing 'Network'. A network within a single building or campus is always a LAN. (Do not accept WAN or PAN).",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_001_a_ii",
-          "label": "1(a)(ii)",
-          "question": "List hardware components required to set up this network.",
-          "rubric": "Award marks for any of the following components: Network cables / Ethernet cables (Twisted Pair, Fiber Optic), Switch, Router, Network Interface Card (NIC), Wireless Access Point (WAP), Hub (accepted in theory though outdated), and Modem.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_001_b",
-          "label": "1(b)",
-          "question": "List features to make a PowerPoint presentation engaging.",
-          "rubric": "Award marks for any of the following: Animations (adding movement to individual text/objects), Transitions (visual effect moving from slide to slide), Multimedia (pictures, graphics, videos, sound effects), Hyperlinks/Action Buttons (interactive clicking), SmartArt (visually representing data).",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_001_c",
-          "label": "1(c)",
-          "question": "Suggest visual elements that would make a Publisher flyer attractive.",
-          "rubric": "Award marks for any of the following: High-quality pictures / images / clip arts; Bold, catchy headings / WordArt; Attractive and contrasting color schemes; Use of shapes and borders; Callouts / Text boxes with drop shadows.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_001_f",
-          "label": "1(f)",
-          "question": "State one function of the following robot components: Gears, Grippers, and Motors.",
-          "rubric": "Gears: Help to control the speed, direction, and movement/torque of the robot. Grippers (End Effectors): Used to hold, pick up, manipulate, or release objects. Motors (Actuators): Provide the physical electrical power/motion for robot parts to move.",
-          "max_marks": 3
-        }
-      ]
-    },
-    {
-      "id": "th_002",
-      "main_context": "QUESTION 2: GENERATIONS, FILE MANAGEMENT & HEALTH",
-      "sub_questions": [
-        {
-          "sub_id": "th_002_a",
-          "label": "2(a)",
-          "question": "Describe the term 'generation of computers'.",
-          "rubric": "Generation of computers refers to the classification or historical stages of computers according to the core electronic technology/hardware components used in their design and operation over time. Mandatory keywords for full marks: 'technology used' or 'hardware component' (e.g., 1st Gen = Vacuum Tubes).",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_002_b",
-          "label": "2(b)",
-          "question": "List file management practices to organize work better.",
-          "rubric": "Award marks for: Creating distinct folders and sub-folders for different file types; Using meaningful, descriptive file names; Deleting unwanted or obsolete files regularly; Backing up important files to external drives or the cloud; Sorting files by date, type, or name for easy retrieval.",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_002_c",
-          "label": "2(c)(i & ii)",
-          "question": "A student plays a game for 5 hours and gets headache, dry, and blurry eyes. What is this disorder and explain it?",
-          "rubric": "The Disorder: Computer Vision Syndrome (CVS) OR Digital Eye Strain. The Explanation: It is a physical condition caused by staring at a computer screen, tablet, or phone for long, uninterrupted hours, leading to symptoms like headaches, dry eyes, blurred vision, and neck/shoulder pain. Bonus prevention fixes: use anti-glare screen, blink more, use 20-20-20 Rule.",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_002_d",
-          "label": "2(d)",
-          "question": "State the most appropriate output device for: Printing a detailed architectural blueprint, Presenting a movie to the entire class, and Sharing a short animation clip with 8 friends during lunch.",
-          "rubric": "Blueprint: Plotter (Do NOT accept Printer; Plotters use pens for massive high-precision vectors). Movie: Projector (or Multimedia Projector). Animation clip: Tablet screen / Monitor / Display screen.",
-          "max_marks": 3
-        }
-      ]
-    },
-    {
-      "id": "th_003",
-      "main_context": "QUESTION 3: WORD PROCESSING & SPREAD SHEET SECRETS",
-      "sub_questions": [
-        {
-          "sub_id": "th_003_a",
-          "label": "3(a)",
-          "question": "The student typed 'BASIC EDUCATION CERTIFICATE EXAMINATION' and wants to fix it without retyping. Which feature and steps should they use?",
-          "rubric": "The Feature: Change Case. The Steps: 1. Highlight/Select the entire typed title. 2. Click on the Home tab on the ribbon. 3. Locate and click the Change Case icon (Aa). 4. Choose Title Case (or 'Capitalize Each Word') from the drop-down menu. Examiner note: Ensure the sequence of steps is accurate.",
-          "max_marks": 5
-        },
-        {
-          "sub_id": "th_003_b",
-          "label": "3(b) (Spreadsheet Concepts)",
-          "question": "Provide the appropriate formulas or functions to add cells A2, B2, and C2 together, and to find the mean of these cells.",
-          "rubric": "To add: =A2+B2+C2 OR the function =SUM(A2:C2). To find the mean: =AVERAGE(A2:C2). Golden Rule Penalty: EVERY single formula or function MUST begin with the Equals sign (=). If the '=' is omitted, award ZERO marks.",
-          "max_marks": 2
-        }
-      ]
-    },
-    {
-      "id": "th_004",
-      "main_context": "QUESTION 4: SOCIAL MEDIA, CYBERSECURITY & SEARCHING",
-      "sub_questions": [
-        {
-          "sub_id": "th_004_b",
-          "label": "4(b)",
-          "question": "An Art club wants to share photos, have a discussion forum, and an event page. Which platform is best and why?",
-          "rubric": "The Platform: Facebook Group (best theoretical answer), WhatsApp Group, or a dedicated School Website Forum. The Reasons: Allows uploading/sharing massive photo albums; supports threaded discussions and comment sections; has a built-in 'Events' feature for scheduling; easily accessible on smartphones.",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_004_c",
-          "label": "4(c)",
-          "question": "List methods of protecting data against threats.",
-          "rubric": "Award marks for: Using strong, alphanumeric passwords (and changing them regularly); Installing and regularly updating Antivirus / Anti-malware software; Performing regular data backups (cloud/external hard drives); Using Data Encryption; Enabling Two-Factor Authentication (2FA); Using Firewalls to block unauthorized network access.",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_004_d",
-          "label": "4(d)",
-          "question": "A student searched 'sharks' and got too many random results (movies, toys, attacks). How do they improve the search?",
-          "rubric": "Award marks for: Use specific keywords (e.g., 'Great White Shark biology habitat'); Use quotation marks to force exact phrase matching; Use search filters (e.g., Educational sites .edu, or specific dates); Use Boolean Operators (e.g., minus sign to exclude words like Sharks -toys -movies).",
-          "max_marks": 4
-        }
-      ]
-    },
-    {
-      "id": "th_005",
-      "main_context": "QUESTION 5: PROGRAMMING & COMPUTATIONAL MATH",
-      "sub_questions": [
-        {
-          "sub_id": "th_005_a",
-          "label": "5(a)",
-          "question": "repeat (2) move (5) steps end. What is the correct programming term for this?",
-          "rubric": "Golden Answers: Loop OR Repetition OR Iteration. (Award full mark for any of these three terms).",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_005_b",
-          "label": "5(b)",
-          "question": "Calculate the expenses using operator precedence: Total = 12 * 200.00 + 150.00 + 7 * 23.00",
-          "rubric": "Examiner expects BODMAS/PEMDAS. Step 1 (Multiply first): (12 × 200) = 2400. Step 2 (Multiply second): (7 × 23) = 161. Step 3 (Add them all up): 2400 + 150 + 161. Final Answer: GH¢ 2,711.00. Examiner penalty: Student must include the currency symbol for full marks.",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_005_c",
-          "label": "5(c)",
-          "question": "A robotic arm is crushing delicate light bulbs. What two components need to be improved?",
-          "rubric": "Component 1: Pressure/Force Sensors (The robot needs to 'feel' how hard it is squeezing to know when to stop). Component 2: A Better Gripper / Soft Gripper (Replacing hard metal claws with rubber, silicone, or suction-based soft control systems).",
-          "max_marks": 2
-        }
-      ]
-    }
-  ]
-},
-{
-  "subject": "Digital Tech - v3 (main)",
-  "obj": [],
-  "theory": [
-    {
-      "id": "th_001",
-      "main_context": "SECTION A: SHORT-STRUCTURED QUESTIONS - Question 1: Data Processing",
-      "sub_questions": [
-        {
-          "sub_id": "th_001_a_i",
-          "label": "1(a)(i)",
-          "question": "Explain the following term: Data processing;",
-          "rubric": "**Answer:** Data processing is the collection, manipulation, and transformation of raw, unorganized facts (data) into meaningful and useful information.\n\n👨‍🏫 **Teacher's Trap:** You MUST use the keywords \"raw data\" and \"meaningful information\". If you just say \"working on data,\" you will lose the mark!",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_001_a_ii",
-          "label": "1(a)(ii)",
-          "question": "Explain the following term: Data collation;",
-          "rubric": "**Answer:** This is the process of gathering, arranging, and assembling data from different sources into a standard, logical order or structured format before it is processed.\n\n✅ **Acceptable WAEC Alternatives:** Bringing data together, sorting data into groups, merging raw data.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_001_b",
-          "label": "1(b)",
-          "question": "Describe Data Processing Cycle.",
-          "rubric": "**Answer:** The data processing cycle is the sequence of steps involved in converting raw data into information.\n\n**The Steps (Describe them briefly for full marks):**\n1. **Data Collection/Gathering:** Acquiring the raw data.\n2. **Data Input:** Entering the data into the computer system.\n3. **Processing:** Manipulating the data (calculating, sorting, etc.).\n4. **Output:** Displaying the processed information.\n5. **Storage:** Saving the output for future use.\n\n👨‍🏫 **Teacher's Secret:** Because the question says \"Describe\" and carries marks, do not just list the words! Give a tiny one-sentence explanation of the flow.",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_001_c",
-          "label": "1(c)",
-          "question": "State four benefits of the computer as a tool for processing data.",
-          "rubric": "✅ **Acceptable WAEC Alternatives (Pick any 4, but memorize them all!):**\n* **Speed:** Computations are done in fractions of a second.\n* **Accuracy:** It eliminates human error if programmed correctly (GIGO principle).\n* **Storage Capacity:** Can hold massive amounts of data in small physical spaces.\n* **Efficiency:** Can work continuously without fatigue.\n* **Versatility:** Can be used for a wide variety of tasks (text, numbers, graphics).\n* **Reliability:** Gives consistent results for the same inputs.",
-          "max_marks": 4
-        }
-      ]
-    },
-    {
-      "id": "th_002",
-      "main_context": "Question 2: Computer Hardware & Setup",
-      "sub_questions": [
-        {
-          "sub_id": "th_002_a",
-          "label": "2(a)",
-          "question": "Identify the part labelled in Figure 1: (i) A (ii) B (iii) C (iv) D",
-          "rubric": "**(i) A:** Monitor ✅ *(Alternative: Visual Display Unit / VDU)*\n**(ii) B:** Printer ✅\n**(iii) C:** Mouse ✅\n**(iv) D:** Keyboard ✅ *(Trap: Make sure you follow the exact arrow line! D points to the flat board, not the system unit box).* ",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_002_b",
-          "label": "2(b)",
-          "question": "For each device, tick if it is an Input or Output device (A, B, C, D).",
-          "rubric": "**A (Monitor):** Output Device\n**B (Printer):** Output Device\n**C (Mouse):** Input Device\n**D (Keyboard):** Input Device",
-          "max_marks": 4
-        },
-        {
-          "sub_id": "th_002_c",
-          "label": "2(c)",
-          "question": "Name two devices that can be used for both input and output operations.",
-          "rubric": "✅ **Acceptable WAEC Alternatives (The Examiner's Buffet):**\n* Touchscreen\n* Modem\n* Digital Camera\n* Interactive Whiteboard\n* Headset (with microphone)\n* Storage devices (Flash drive, Hard drive - as they read and write)\n* Fax Machine (Facsimile)",
-          "max_marks": 2
-        }
-      ]
-    },
-    {
-      "id": "th_003",
-      "main_context": "Question 3: Modes of Information Transmission",
-      "sub_questions": [
-        {
-          "sub_id": "th_003_a_i",
-          "label": "3(a)(i)",
-          "question": "With the aid of a well-labelled diagram, explain the following: Simplex",
-          "rubric": "**Simplex:** Data transmission occurs in **only one direction**.\n*Diagram:* [Sender] ➔➔➔➔ [Receiver]\n\n👨‍🏫 **Teacher's Trap:** Forget the diagrams, and you lose half the marks! Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_003_a_ii",
-          "label": "3(a)(ii)",
-          "question": "With the aid of a well-labelled diagram, explain the following: Half duplex",
-          "rubric": "**Half duplex:** Data transmission occurs in **both directions, but only ONE AT A TIME**.\n*Diagram:* [Device A] ➔➔ (Wait) ➔➔ [Device B] AND THEN [Device A] ⬅️⬅️ (Wait) ⬅️⬅️ [Device B]. *(Label it: Two-way, but not at the same time).* \n\n👨‍🏫 **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_003_a_iii",
-          "label": "3(a)(iii)",
-          "question": "With the aid of a well-labelled diagram, explain the following: Full duplex",
-          "rubric": "**Full duplex:** Data transmission occurs in **both directions SIMULTANEOUSLY** (at the same time).\n*Diagram:* [Device A] ⇄ [Device B] *(Draw two distinct arrows pointing in opposite directions).*\n\n👨‍🏫 **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_003_b_i",
-          "label": "3(b)(i)",
-          "question": "State one example of: Simplex",
-          "rubric": "✅ Radio broadcast, Television broadcast, Keyboard to Computer.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_003_b_ii",
-          "label": "3(b)(ii)",
-          "question": "State one example of: Half duplex",
-          "rubric": "✅ Walkie-talkie, Police radio, CB Radio.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_003_b_iii",
-          "label": "3(b)(iii)",
-          "question": "State one example of: Full duplex",
-          "rubric": "✅ Telephone conversation, Mobile phone call, Video conferencing.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_003_c",
-          "label": "3(c)",
-          "question": "Name one component of a data communication system.",
-          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Sender (or Source)\n* Receiver (or Destination)\n* Transmission Medium (or Communication Channel)\n* Message (or Data)\n* Protocol",
-          "max_marks": 1
-        }
-      ]
-    },
-    {
-      "id": "th_004",
-      "main_context": "Question 4: Computing Terms",
-      "sub_questions": [
-        {
-          "sub_id": "th_004_a",
-          "label": "4(a)",
-          "question": "Differentiate between hackers and spammers.",
-          "rubric": "**Answer:** A **hacker** is an individual who gains unauthorized access to computer systems or networks (either to steal/destroy data or test security), WHEREAS a **spammer** is someone who sends unsolicited, bulk junk messages (usually emails) for advertising, phishing, or spreading malware.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_004_b",
-          "label": "4(b)",
-          "question": "State one importance of add-in in MS Excel.",
-          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* It provides additional custom commands and features not available in the default Excel setup.\n* It automates complex mathematical or statistical tasks (e.g., Solver or Data Analysis ToolPak).\n* It allows integration with third-party software.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_004_c_i",
-          "label": "4(c)(i)",
-          "question": "Explain the following term: cookies",
-          "rubric": "Small text files saved on a user's computer by a web browser that store user preferences, login details, and browsing history.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_004_c_ii",
-          "label": "4(c)(ii)",
-          "question": "Explain the following term: plugin",
-          "rubric": "A software add-on that is installed onto a web browser or program to give it a specific extra functionality (e.g., an ad-blocker or a PDF viewer).",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_004_c_iii",
-          "label": "4(c)(iii)",
-          "question": "Explain the following term: web crawlers",
-          "rubric": "(Also known as spiders or bots) These are automated internet programs used by search engines to systematically browse the World Wide Web and index website content so it can be searched.",
-          "max_marks": 2
-        }
-      ]
-    },
-    {
-      "id": "th_005",
-      "main_context": "SECTION B: TEST OF PRACTICAL WORK - Question 5: Presentation Software Interface",
-      "sub_questions": [
-        {
-          "sub_id": "th_005_a",
-          "label": "5(a)",
-          "question": "Identify the type of application whose interface is shown in Figure 2.",
-          "rubric": "**Answer:** Presentation Software ✅ *(Acceptable alternative: Microsoft PowerPoint)*.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_005_b_i",
-          "label": "5(b)(i)",
-          "question": "Outline the steps to insert a new slide to the interface.",
-          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Go to the **Home** tab ➔ Click on **New Slide**.\n* *Method 2:* Right-click on the slide navigation pane on the left ➔ Select **New Slide**.\n* *Method 3:* Use the keyboard shortcut **Ctrl + M**.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_b_ii",
-          "label": "5(b)(ii)",
-          "question": "Outline the steps to delete a slide from the interface.",
-          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Click/Select the slide in the navigation pane ➔ Press the **Delete** or **Backspace** key on the keyboard.\n* *Method 2:* Right-click the slide in the navigation pane ➔ Click **Delete Slide**.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_c",
-          "label": "5(c)",
-          "question": "State two examples of the application in Figure 2.",
-          "rubric": "✅ **Acceptable WAEC Alternatives:** Microsoft PowerPoint, Google Slides, Apple Keynote, LibreOffice Impress, Prezi, WPS Presentation.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_d_i",
-          "label": "5(d)(i)",
-          "question": "Give two uses of the application in Figure 2.",
-          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Delivering educational lectures or teaching.\n* Making business proposals or corporate pitches.\n* Creating automated informational kiosks/digital signage.\n* Creating multimedia photo/video slideshows.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_d_ii",
-          "label": "5(d)(ii)",
-          "question": "Give two differences between transitions and animations.",
-          "rubric": "**Answer:** **Transitions** are the visual effects that occur when moving from *one entire slide to the next* during a presentation, WHEREAS **Animations** are the visual effects applied to *individual elements* (like text, images, or shapes) on a single, specific slide.\n\n👨‍🏫 **Teacher's Secret:** The words **\"Slide-to-slide\"** versus **\"Elements ON a slide\"** are the exact keywords the examiner is hunting for!",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_e_i",
-          "label": "5(e)(i)",
-          "question": "Highlight the steps to run slideshow.",
-          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Click on the **Slide Show** tab ➔ Click **From Beginning** (or From Current Slide).\n* *Method 2:* Press **F5** (to start from the beginning) or **Shift + F5** (to start from current slide).\n* *Method 3:* Click the small **Slide Show icon** at the bottom right of the screen.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_005_e_ii",
-          "label": "5(e)(ii)",
-          "question": "Highlight the steps to print a handout of 6 slides on a page.",
-          "rubric": "**Step-by-step:** Click the **File** tab ➔ Select **Print** ➔ Under settings, click on the \"Full Page Slides\" drop-down menu ➔ Look under the \"Handouts\" section and select **\"6 Slides\"** ➔ Click **Print**.",
-          "max_marks": 3
-        }
-      ]
-    },
-    {
-      "id": "th_006",
-      "main_context": "Question 6: Mail Merge",
-      "sub_questions": [
-        {
-          "sub_id": "th_006_a",
-          "label": "6(a)",
-          "question": "Describe in detail the step-by-step approach to create (a mail merge document):",
-          "rubric": "**Step-by-step:**\n1. Open Microsoft Word and click on the **Mailings** tab.\n2. Click **Start Mail Merge** and choose your document type (e.g., Letters or Email Messages).\n3. Click **Select Recipients** ➔ Choose **Use an Existing List**.\n4. Browse your computer to locate and open the provided database (contacts list).\n5. Place your cursor in the document and click **Insert Merge Field** to add the contact details (like Name, Address) into the document.",
-          "max_marks": 5
-        },
-        {
-          "sub_id": "th_006_b",
-          "label": "6(b)",
-          "question": "Preview and complete a mail merge using a template in MS Word:",
-          "rubric": "**Step-by-step:**\n1. Still on the **Mailings** tab, click **Preview Results** to see how the actual names look in the template.\n2. Check for any spacing or formatting errors.\n3. Click **Finish & Merge**.\n4. Choose either **Print Documents** (to send to a printer) or **Edit Individual Documents** (to save them as a new combined Word file).",
-          "max_marks": 4
-        }
-      ]
-    },
-    {
-      "id": "th_007",
-      "main_context": "EXTRA PAGE QUESTIONS (ROBOTICS & ERGONOMICS)",
-      "sub_questions": [
-        {
-          "sub_id": "th_007_f_i",
-          "label": "(f)(i)",
-          "question": "State the function of components used in constructing a robot: Gears",
-          "rubric": "Used to transmit rotational power, change the speed, or alter the direction of force within the robot's mechanical joints.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_007_f_ii",
-          "label": "(f)(ii)",
-          "question": "State the function of components used in constructing a robot: Grippers",
-          "rubric": "Also known as end-effectors, they act as the robot's \"hands\" to grasp, lift, hold, and manipulate objects.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_007_f_iii",
-          "label": "(f)(iii)",
-          "question": "State the function of components used in constructing a robot: Motors",
-          "rubric": "Actuators that convert electrical energy into mechanical movement/rotation to drive the robot's wheels or joints.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_007_a",
-          "label": "(a)",
-          "question": "Describe the term \"generation of computers\":",
-          "rubric": "**Answer:** This refers to the historical developmental stages of computer technology. Each \"generation\" is characterized by a major technological leap in the primary electronic components used to build the computer (e.g., moving from vacuum tubes to transistors, to microprocessors), resulting in smaller, faster, and more efficient machines.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_007_b",
-          "label": "(b)",
-          "question": "List three file management practices to organize work better:",
-          "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Create logically named folders and subfolders to categorize files.\n* Use descriptive, clear, and consistent file naming conventions.\n* Regularly back up important files to an external drive or cloud.\n* Delete duplicated or obsolete (unwanted) files.\n* Sort files by date, type, or name to find them easily.",
-          "max_marks": 3
-        },
-        {
-          "sub_id": "th_007_c_i",
-          "label": "(c)(i)",
-          "question": "What computing-related disorder is the student likely experiencing?",
-          "rubric": "**Answer:** Computer Vision Syndrome (CVS) ✅ *(Acceptable alternative: Digital Eye Strain)*.",
-          "max_marks": 1
-        },
-        {
-          "sub_id": "th_007_c_ii",
-          "label": "(c)(ii)",
-          "question": "Explain the identified disorder:",
-          "rubric": "**Answer:** It is a group of eye and vision-related problems (like dry eyes, headaches, blurred vision, and eye fatigue) caused by prolonged, uninterrupted viewing of digital screens, poor lighting, screen glare, and reduced blinking.",
-          "max_marks": 2
-        }
-      ]
-    }
-  ]
-},
-{
-  "subject": "Digital Tech v4 (with sus watermark)",
-  "obj": [],
-  "theory": [
-    {
-      "id": "th_001",
-      "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 1",
-      "sub_questions": [
-        {
-          "sub_id": "th_001_a",
-          "label": "1(a)",
-          "question": "Define \"Cybersecurity\" and explain two methods of preventing unauthorized access.",
-          "rubric": "**Definition:** Cybersecurity is the practice of protecting computer systems, networks, devices, and data from digital attacks, unauthorized access, and damage.\n**Methods of Prevention (Any two):** \n1. **Passwords/Authentication:** Using strong, complex passwords or Multi-Factor Authentication (MFA) to verify user identity.\n2. **Firewalls:** Implementing hardware or software firewalls to monitor and block malicious incoming/outgoing network traffic.\n3. **Encryption:** Scrambling data so that it can only be read by authorized parties with the correct decryption key.\n4. **Biometrics:** Using physical characteristics (fingerprints, facial recognition) to grant access.",
-          "max_marks": 5
-        },
-        {
-          "sub_id": "th_001_b",
-          "label": "1(b)",
-          "question": "List seven common types of malware found in modern computer systems.",
-          "rubric": "Award 0.5 marks each for any of the following (up to 7):\n1. Viruses\n2. Worms\n3. Trojan Horses\n4. Ransomware\n5. Spyware\n6. Adware\n7. Rootkits\n8. Keyloggers\n9. Botnets",
-          "max_marks": 3.5
-        },
-        {
-          "sub_id": "th_001_c",
-          "label": "1(c)",
-          "question": "State four differences between Cloud Storage and Local Hardware Storage.",
-          "rubric": "**Differences (Any four):**\n1. **Location:** Cloud storage is hosted on remote internet servers, while local storage is on physical devices (hard drives, flash drives) nearby.\n2. **Accessibility:** Cloud storage requires an internet connection to access data, whereas local storage does not.\n3. **Cost:** Cloud storage usually involves recurring subscription fees, whereas local storage is a one-time upfront hardware cost.\n4. **Scalability:** Cloud storage can be easily expanded by upgrading a plan, while local storage requires buying and installing new physical drives.\n5. **Maintenance:** Cloud providers handle maintenance, backups, and security, whereas local storage maintenance is solely the user's responsibility.\n6. **Data Sharing:** Cloud storage makes it much easier to share files collaboratively across multiple locations compared to local storage.",
-          "max_marks": 4
-        }
-      ]
-    },
-    {
-      "id": "th_002",
-      "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 2",
-      "sub_questions": [
-        {
-          "sub_id": "th_002_a",
-          "label": "2(a)",
-          "question": "What is a \"Generative AI\" model?",
-          "rubric": "A Generative AI model is a type of artificial intelligence system capable of generating new, original content (such as text, images, code, or audio) by learning patterns and structures from existing training data.",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_002_b",
-          "label": "2(b)",
-          "question": "List and explain five types of network topologies used in modern LAN setups.",
-          "rubric": "Award 1.5 marks for each type listed and correctly explained (up to 5):\n1. **Star Topology:** All devices are connected to a central hub or switch. If a cable fails, only that node is affected.\n2. **Bus Topology:** All devices share a single communication cable (the backbone). Data travels in both directions to all nodes.\n3. **Ring Topology:** Devices are connected in a closed-loop circle. Data travels in one direction from node to node.\n4. **Mesh Topology:** Every device is connected to every other device, providing high redundancy and fault tolerance.\n5. **Tree (Hierarchical) Topology:** A hybrid combining characteristics of star and bus topologies, arranged in a parent-child hierarchy.\n6. **Hybrid Topology:** A combination of two or more different topologies (e.g., Star-Ring) used together.",
-          "max_marks": 7.5
-        },
-        {
-          "sub_id": "th_002_c",
-          "label": "2(c)",
-          "question": "Mention six ethical concerns regarding the use of data mining.",
-          "rubric": "Award 0.5 marks for each valid concern (up to 6):\n1. Invasion of user privacy.\n2. Unauthorized collection and sharing of personal data without informed consent.\n3. Data security and the risk of massive data breaches.\n4. Algorithmic bias and discrimination based on mined profiling.\n5. Lack of transparency in how data is utilized (the \"black box\" problem).\n6. Misuse of data for manipulative targeting or surveillance.\n7. Inaccuracy of data leading to false assumptions.",
-          "max_marks": 3
-        }
-      ]
-    },
-    {
-      "id": "th_003",
-      "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 3",
-      "sub_questions": [
-        {
-          "sub_id": "th_003_a_i",
-          "label": "3(a)(i)",
-          "question": "Explain the following data transmission modes: Simplex",
-          "rubric": "**Simplex:** A mode of communication where data travels in only one direction. The sender can only send, and the receiver can only receive (e.g., a keyboard to a computer or television broadcast).",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_003_a_ii",
-          "label": "3(a)(ii)",
-          "question": "Explain the following data transmission modes: Half-Duplex",
-          "rubric": "**Half-Duplex:** A mode of communication where data can flow in both directions, but not at the same time. Devices must take turns sending and receiving (e.g., a walkie-talkie).",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_003_a_iii",
-          "label": "3(a)(iii)",
-          "question": "Explain the following data transmission modes: Full-Duplex",
-          "rubric": "**Full-Duplex:** A mode of communication where data can be transmitted in both directions simultaneously, allowing real-time two-way communication (e.g., a telephone call).",
-          "max_marks": 2
-        },
-        {
-          "sub_id": "th_003_b",
-          "label": "3(b)",
-          "question": "List seven input devices used in specialized digital design.",
-          "rubric": "Award 0.5 marks each (up to 7):\n1. Graphics tablet (Digitizer)\n2. Stylus / Digital pen\n3. 3D Mouse\n4. Trackball\n5. Touchscreen monitor\n6. High-resolution scanner\n7. Digital camera\n8. Colorimeter\n9. MIDI keyboard (for sound design)",
-          "max_marks": 3.5
-        },
-        {
-          "sub_id": "th_003_c",
-          "label": "3(c)",
-          "question": "Mention six standard file extensions for high-definition video.",
-          "rubric": "Award 0.5 marks each (up to 6):\n1. .mp4 (MPEG-4)\n2. .mkv (Matroska)\n3. .mov (Apple QuickTime)\n4. .avi (Audio Video Interleave)\n5. .webm\n6. .hevc (High-Efficiency Video Coding) / .h265\n7. .wmv\n8. .flv",
-          "max_marks": 3
-        }
-      ]
-    },
-    {
-      "id": "th_004",
-      "main_context": "SECTION B (Application of Digital Technology) - Question 4",
-      "sub_questions": [
-        {
-          "sub_id": "th_004_a",
-          "label": "4(a)",
-          "question": "State and explain three different user interface (UI) patterns commonly used in mobile application navigation (e.g., Tab Bar, Hamburger Menu, Gesture Navigation).",
-          "rubric": "Award 2 marks each for stating and correctly explaining (up to 3):\n1. **Hamburger Menu:** A hidden side menu revealed by tapping an icon with three horizontal lines, keeping the main screen uncluttered while housing secondary navigation links.\n2. **Tab Bar (Bottom Navigation):** A persistent row of icons at the bottom (or top) of the screen allowing users to quickly switch between top-level core views of the app.\n3. **Gesture Navigation:** Using screen swipes (e.g., swiping left to go back, swiping up to go home) instead of visible buttons to navigate through the interface.",
-          "max_marks": 6
-        },
-        {
-          "sub_id": "th_004_b",
-          "label": "4(b)",
-          "question": "Discuss the distinction between \"Native\" and \"Hybrid\" mobile application development approaches, and provide one advantage of each.",
-          "rubric": "**Distinction:** Native apps are built specifically for a single platform (like iOS or Android) using platform-specific languages (e.g., Swift for iOS, Kotlin for Android). Hybrid apps are built using cross-platform web technologies (HTML, CSS, JavaScript) and wrapped in a native container to run on multiple platforms.\n**Advantages:**\n*   **Native Advantage:** Delivers the highest performance, smoother animations, and best access to device hardware/APIs.\n*   **Hybrid Advantage:** Allows for a single codebase to be deployed across multiple platforms, significantly saving development time and costs.",
-          "max_marks": 6
-        },
-        {
-          "sub_id": "th_004_c",
-          "label": "4(c)",
-          "question": "Define the role of a Mobile Application Programming Interface (API).",
-          "rubric": "An API acts as a software intermediary that allows a mobile application to communicate with backend servers, databases, or third-party services. It enables the app to fetch real-time data, authenticate users, or utilize external functionalities (like Google Maps or payment gateways) without building them from scratch.",
-          "max_marks": 3
-        }
-      ]
-    },
-    {
-      "id": "th_005",
-      "main_context": "SECTION B (Application of Digital Technology) - Question 5",
-      "sub_questions": [
-        {
-          "sub_id": "th_005_a",
-          "label": "5(a)",
-          "question": "Clearly distinguish between a Public Blockchain and a Private Blockchain, with examples of each.",
-          "rubric": "**Public Blockchain:** A decentralized, permissionless network where anyone can join, read, write, and participate in the consensus process. Example: Bitcoin, Ethereum.\n**Private Blockchain:** A centralized or permissioned network controlled by a single organization or consortium, where access and participation are restricted to authorized users. Example: Hyperledger Fabric, Ripple.",
-          "max_marks": 5
-        },
-        {
-          "sub_id": "th_005_b",
-          "label": "5(b)",
-          "question": "Describe how a \"Consensus Mechanism\" functions in a decentralized network, and explain the key difference between Proof of Work (PoW) and Proof of Stake (PoS).",
-          "rubric": "**Consensus Mechanism:** It is a fault-tolerant set of rules and algorithms used by computer nodes in a decentralized network to agree on the single state of the network and validate the authenticity of transactions without a central authority.\n**Difference:**\n*   **Proof of Work (PoW):** Requires participants (miners) to expend massive amounts of computational power and energy to solve complex mathematical puzzles to validate blocks.\n*   **Proof of Stake (PoS):** Requires participants (validators) to lock up or \"stake\" a certain amount of their cryptocurrency to validate blocks, which is highly energy-efficient compared to PoW.",
-          "max_marks": 7
-        },
-        {
-          "sub_id": "th_005_c",
-          "label": "5(c)",
-          "question": "State three common use cases for cryptocurrency beyond as a store of value.",
-          "rubric": "Award 1 mark each (Any 3):\n1. Executing Smart Contracts.\n2. Decentralized Finance (DeFi) applications (lending, borrowing).\n3. Creating and trading Non-Fungible Tokens (NFTs).\n4. Cross-border remittances and fast payments.\n5. Supply chain tracking and tokenization of real-world assets.\n6. Voting and governance in Decentralized Autonomous Organizations (DAOs).",
-          "max_marks": 3
-        }
-      ]
-    },
-    {
-      "id": "th_006",
-      "main_context": "SECTION B (Application of Digital Technology) - Question 6",
-      "sub_questions": [
-        {
-          "sub_id": "th_006_a",
-          "label": "6(a)",
-          "question": "In the context of database management, explain the concepts of 'Data Integrity' and 'Data Consistency'.",
-          "rubric": "**Data Integrity:** Refers to the overall accuracy, completeness, and reliability of data throughout its lifecycle, ensuring it is safeguarded from unauthorized modification or corruption.\n**Data Consistency:** Refers to the requirement that any database transaction must change affected data only in allowed ways, ensuring that all copies or instances of the data across the database are uniform and do not contradict each other.",
-          "max_marks": 5
-        },
-        {
-          "sub_id": "th_006_b",
-          "label": "6(b)",
-          "question": "Define a 'Structured Query Language' (SQL) and provide a basic SQL command to: i. Retrieve all records from a table named 'Users'. ii. Update the email of a user with ID 101.",
-          "rubric": "**Definition:** SQL is a standardized programming language used for managing, maintaining, and querying relational databases.\n**Commands:**\n**i.** `SELECT * FROM Users;`\n**ii.** `UPDATE Users SET email = 'newemail@example.com' WHERE ID = 101;` *(Note: Specific email value can vary, but syntax must be correct)*",
-          "max_marks": 6
-        },
-        {
-          "sub_id": "th_006_c",
-          "label": "6(c)",
-          "question": "Illustrate, with a simple diagram, the relationship between 'Schema' and 'Data Instance'.",
-          "rubric": "Award marks for a logical explanation or descriptive representation of a diagram.\n**Expected concept:** \n*   **Schema:** The logical structure or blueprint of the database (e.g., Table Name, Columns: ID, Name, Age).\n*   **Data Instance (or State):** The actual data/rows populated inside that schema at a specific moment in time (e.g., Row 1: 101, John, 25).\n*   *(Diagram should show an empty table framework pointing to Schema, and the filled table pointing to Instance).* ",
-          "max_marks": 4
-        }
-      ]
-    }
-  ]
-}
+      {
+        "id": "th_002",
+        "main_context": "Question 2",
+        "sub_questions": [
+          {
+            "sub_id": "th_002_a",
+            "label": "2(a)",
+            "question": "Explain two ethical challenges of digital culture in the workplace.",
+            "rubric": "1. Privacy Concerns: The monitoring of employee digital activity (emails, screen time) can lead to a breach of personal privacy and trust. \n2. Plagiarism/Intellectual Property Theft: The ease of \"copy-pasting\" digital content makes it easier for employees to use others' work without authorization or credit. \nAward 3 marks for each valid challenge clearly explained (Max 6 marks).",
+            "max_marks": 6
+          },
+          {
+            "sub_id": "th_002_b",
+            "label": "2(b)",
+            "question": "Outline two measures to mitigate the ethical challenges explained in 2(a).",
+            "rubric": "1. Policy Formulation: Establishing clear Acceptable Use Policies (AUP) that define what is ethical and what is prohibited. \n2. Digital Literacy/Ethics Training: Regularly educating staff on the importance of data privacy and the legalities of intellectual property. \nAward 2 marks for each valid measure outlined (Max 4 marks).",
+            "max_marks": 4
+          }
+        ],
+        "topic": "Digital Culture"
+      },
+      {
+        "id": "th_003",
+        "main_context": "Question 3",
+        "sub_questions": [
+          {
+            "sub_id": "th_003_a",
+            "label": "3(a)",
+            "question": "State two importance of hardware devices in a computer system.",
+            "rubric": "1. Enabling Interaction: Input devices (like keyboards) allow the user to communicate commands to the system. \n2. Physical Execution: Hardware like the CPU and RAM provide the physical power and space required to run software and process data. \nAward 2 marks for each correct point stated (Max 4 marks).",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_003_b",
+            "label": "3(b)",
+            "question": "Explain two functions of IP addresses in networking.",
+            "rubric": "1. Host Identification: It provides a unique identity to a specific device on a network so it can be distinguished from others. \n2. Location Addressing: It serves as a digital \"address\" that allows routers to find the correct path to deliver data packets to the intended destination. \nAward 3 marks for each correctly explained function (Max 6 marks).",
+            "max_marks": 6
+          }
+        ],
+        "topic": "Hardware & Networking"
+      },
+      {
+        "id": "th_004",
+        "main_context": "Question 4",
+        "sub_questions": [
+          {
+            "sub_id": "th_004_a",
+            "label": "4(a)",
+            "question": "List three ways to edit a picture in Microsoft Publisher application.",
+            "rubric": "1. Cropping: Removing unwanted outer areas of an image. \n2. Resizing: Adjusting the height and width of the picture to fit the layout. \n3. Adjusting Brightness/Contrast: Modifying the light levels and color depth of the image. \nAward 1 mark for each valid method listed (Max 3 marks).",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_004_b",
+            "label": "4(b)",
+            "question": "What are Macros as used in Spreadsheet applications?",
+            "rubric": "A Macro is a recorded sequence of instructions or actions that can be played back to automate repetitive tasks in a spreadsheet (like formatting or complex calculations). \nAward up to 3 marks for a comprehensive definition.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_004_c",
+            "label": "4(c)",
+            "question": "State the function of the SQL command SELECT.",
+            "rubric": "The SELECT command is used to fetch or retrieve specific data from one or more tables in a database. \nAward 2 marks for a correct statement.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_004_d",
+            "label": "4(d)",
+            "question": "Write the syntax of the SQL command SELECT.",
+            "rubric": "Syntax: SELECT column1, column2 FROM table_name; \nAward 2 marks for correct syntax.",
+            "max_marks": 2
+          }
+        ],
+        "topic": "Application Software & SQL"
+      },
+      {
+        "id": "th_005",
+        "main_context": "Question 5",
+        "sub_questions": [
+          {
+            "sub_id": "th_005_a",
+            "label": "5(a)",
+            "question": "Explain the term variable as used in programming.",
+            "rubric": "A variable is a symbolic name (identifier) given to a memory location used to store data that can be changed or updated during the execution of a program. \nAward up to 3 marks for a clear explanation.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_005_b",
+            "label": "5(b)",
+            "question": "Write the syntax of how a variable is declared in QBASIC programming language.",
+            "rubric": "Syntax: DIM variableName AS DataType (Example: DIM age AS INTEGER). \nAward 2 marks for the correct syntax format.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_c_i",
+            "label": "5(c)(i)",
+            "question": "An HTML page uses the field name Full Name to collect information from users. State the input type for the Full Name field.",
+            "rubric": "Input type for the Full Name field: text. \nAward 2 marks.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_c_ii",
+            "label": "5(c)(ii)",
+            "question": "Write the HTML tag for the input type; id and field name for the Full Name field.",
+            "rubric": "HTML tag: <input type=\"text\" id=\"full_name\" name=\"Full Name\">. \nAward up to 3 marks for the correctly constructed HTML tag.",
+            "max_marks": 3
+          }
+        ],
+        "topic": "Programming & Web"
+      }
+    ]
+  },
+  {
+    "subject": "Digital Tech v2",
+    "obj": [],
+    "theory": [
+      {
+        "id": "th_001",
+        "main_context": "QUESTION 1: NETWORKING, PRESENTATIONS & ROBOTICS",
+        "sub_questions": [
+          {
+            "sub_id": "th_001_a_i",
+            "label": "1(a)(i)",
+            "question": "Name the type of computer network suitable for sharing files between three classrooms.",
+            "rubric": "Golden Answer: Local Area Network (LAN). Note: Examiners should not award marks for just writing 'Network'. A network within a single building or campus is always a LAN. (Do not accept WAN or PAN).",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_001_a_ii",
+            "label": "1(a)(ii)",
+            "question": "List hardware components required to set up this network.",
+            "rubric": "Award marks for any of the following components: Network cables / Ethernet cables (Twisted Pair, Fiber Optic), Switch, Router, Network Interface Card (NIC), Wireless Access Point (WAP), Hub (accepted in theory though outdated), and Modem.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_001_b",
+            "label": "1(b)",
+            "question": "List features to make a PowerPoint presentation engaging.",
+            "rubric": "Award marks for any of the following: Animations (adding movement to individual text/objects), Transitions (visual effect moving from slide to slide), Multimedia (pictures, graphics, videos, sound effects), Hyperlinks/Action Buttons (interactive clicking), SmartArt (visually representing data).",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_001_c",
+            "label": "1(c)",
+            "question": "Suggest visual elements that would make a Publisher flyer attractive.",
+            "rubric": "Award marks for any of the following: High-quality pictures / images / clip arts; Bold, catchy headings / WordArt; Attractive and contrasting color schemes; Use of shapes and borders; Callouts / Text boxes with drop shadows.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_001_f",
+            "label": "1(f)",
+            "question": "State one function of the following robot components: Gears, Grippers, and Motors.",
+            "rubric": "Gears: Help to control the speed, direction, and movement/torque of the robot. Grippers (End Effectors): Used to hold, pick up, manipulate, or release objects. Motors (Actuators): Provide the physical electrical power/motion for robot parts to move.",
+            "max_marks": 3
+          }
+        ]
+      },
+      {
+        "id": "th_002",
+        "main_context": "QUESTION 2: GENERATIONS, FILE MANAGEMENT & HEALTH",
+        "sub_questions": [
+          {
+            "sub_id": "th_002_a",
+            "label": "2(a)",
+            "question": "Describe the term 'generation of computers'.",
+            "rubric": "Generation of computers refers to the classification or historical stages of computers according to the core electronic technology/hardware components used in their design and operation over time. Mandatory keywords for full marks: 'technology used' or 'hardware component' (e.g., 1st Gen = Vacuum Tubes).",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_002_b",
+            "label": "2(b)",
+            "question": "List file management practices to organize work better.",
+            "rubric": "Award marks for: Creating distinct folders and sub-folders for different file types; Using meaningful, descriptive file names; Deleting unwanted or obsolete files regularly; Backing up important files to external drives or the cloud; Sorting files by date, type, or name for easy retrieval.",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_002_c",
+            "label": "2(c)(i & ii)",
+            "question": "A student plays a game for 5 hours and gets headache, dry, and blurry eyes. What is this disorder and explain it?",
+            "rubric": "The Disorder: Computer Vision Syndrome (CVS) OR Digital Eye Strain. The Explanation: It is a physical condition caused by staring at a computer screen, tablet, or phone for long, uninterrupted hours, leading to symptoms like headaches, dry eyes, blurred vision, and neck/shoulder pain. Bonus prevention fixes: use anti-glare screen, blink more, use 20-20-20 Rule.",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_002_d",
+            "label": "2(d)",
+            "question": "State the most appropriate output device for: Printing a detailed architectural blueprint, Presenting a movie to the entire class, and Sharing a short animation clip with 8 friends during lunch.",
+            "rubric": "Blueprint: Plotter (Do NOT accept Printer; Plotters use pens for massive high-precision vectors). Movie: Projector (or Multimedia Projector). Animation clip: Tablet screen / Monitor / Display screen.",
+            "max_marks": 3
+          }
+        ]
+      },
+      {
+        "id": "th_003",
+        "main_context": "QUESTION 3: WORD PROCESSING & SPREAD SHEET SECRETS",
+        "sub_questions": [
+          {
+            "sub_id": "th_003_a",
+            "label": "3(a)",
+            "question": "The student typed 'BASIC EDUCATION CERTIFICATE EXAMINATION' and wants to fix it without retyping. Which feature and steps should they use?",
+            "rubric": "The Feature: Change Case. The Steps: 1. Highlight/Select the entire typed title. 2. Click on the Home tab on the ribbon. 3. Locate and click the Change Case icon (Aa). 4. Choose Title Case (or 'Capitalize Each Word') from the drop-down menu. Examiner note: Ensure the sequence of steps is accurate.",
+            "max_marks": 5
+          },
+          {
+            "sub_id": "th_003_b",
+            "label": "3(b) (Spreadsheet Concepts)",
+            "question": "Provide the appropriate formulas or functions to add cells A2, B2, and C2 together, and to find the mean of these cells.",
+            "rubric": "To add: =A2+B2+C2 OR the function =SUM(A2:C2). To find the mean: =AVERAGE(A2:C2). Golden Rule Penalty: EVERY single formula or function MUST begin with the Equals sign (=). If the '=' is omitted, award ZERO marks.",
+            "max_marks": 2
+          }
+        ]
+      },
+      {
+        "id": "th_004",
+        "main_context": "QUESTION 4: SOCIAL MEDIA, CYBERSECURITY & SEARCHING",
+        "sub_questions": [
+          {
+            "sub_id": "th_004_b",
+            "label": "4(b)",
+            "question": "An Art club wants to share photos, have a discussion forum, and an event page. Which platform is best and why?",
+            "rubric": "The Platform: Facebook Group (best theoretical answer), WhatsApp Group, or a dedicated School Website Forum. The Reasons: Allows uploading/sharing massive photo albums; supports threaded discussions and comment sections; has a built-in 'Events' feature for scheduling; easily accessible on smartphones.",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_004_c",
+            "label": "4(c)",
+            "question": "List methods of protecting data against threats.",
+            "rubric": "Award marks for: Using strong, alphanumeric passwords (and changing them regularly); Installing and regularly updating Antivirus / Anti-malware software; Performing regular data backups (cloud/external hard drives); Using Data Encryption; Enabling Two-Factor Authentication (2FA); Using Firewalls to block unauthorized network access.",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_004_d",
+            "label": "4(d)",
+            "question": "A student searched 'sharks' and got too many random results (movies, toys, attacks). How do they improve the search?",
+            "rubric": "Award marks for: Use specific keywords (e.g., 'Great White Shark biology habitat'); Use quotation marks to force exact phrase matching; Use search filters (e.g., Educational sites .edu, or specific dates); Use Boolean Operators (e.g., minus sign to exclude words like Sharks -toys -movies).",
+            "max_marks": 4
+          }
+        ]
+      },
+      {
+        "id": "th_005",
+        "main_context": "QUESTION 5: PROGRAMMING & COMPUTATIONAL MATH",
+        "sub_questions": [
+          {
+            "sub_id": "th_005_a",
+            "label": "5(a)",
+            "question": "repeat (2) move (5) steps end. What is the correct programming term for this?",
+            "rubric": "Golden Answers: Loop OR Repetition OR Iteration. (Award full mark for any of these three terms).",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_005_b",
+            "label": "5(b)",
+            "question": "Calculate the expenses using operator precedence: Total = 12 * 200.00 + 150.00 + 7 * 23.00",
+            "rubric": "Examiner expects BODMAS/PEMDAS. Step 1 (Multiply first): (12 \u00d7 200) = 2400. Step 2 (Multiply second): (7 \u00d7 23) = 161. Step 3 (Add them all up): 2400 + 150 + 161. Final Answer: GH\u00a2 2,711.00. Examiner penalty: Student must include the currency symbol for full marks.",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_005_c",
+            "label": "5(c)",
+            "question": "A robotic arm is crushing delicate light bulbs. What two components need to be improved?",
+            "rubric": "Component 1: Pressure/Force Sensors (The robot needs to 'feel' how hard it is squeezing to know when to stop). Component 2: A Better Gripper / Soft Gripper (Replacing hard metal claws with rubber, silicone, or suction-based soft control systems).",
+            "max_marks": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subject": "Digital Tech - v3 (main)",
+    "obj": [],
+    "theory": [
+      {
+        "id": "th_001",
+        "main_context": "SECTION A: SHORT-STRUCTURED QUESTIONS - Question 1: Data Processing",
+        "sub_questions": [
+          {
+            "sub_id": "th_001_a_i",
+            "label": "1(a)(i)",
+            "question": "Explain the following term: Data processing;",
+            "rubric": "**Answer:** Data processing is the collection, manipulation, and transformation of raw, unorganized facts (data) into meaningful and useful information.\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** You MUST use the keywords \"raw data\" and \"meaningful information\". If you just say \"working on data,\" you will lose the mark!",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_001_a_ii",
+            "label": "1(a)(ii)",
+            "question": "Explain the following term: Data collation;",
+            "rubric": "**Answer:** This is the process of gathering, arranging, and assembling data from different sources into a standard, logical order or structured format before it is processed.\n\n\u2705 **Acceptable WAEC Alternatives:** Bringing data together, sorting data into groups, merging raw data.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_001_b",
+            "label": "1(b)",
+            "question": "Describe Data Processing Cycle.",
+            "rubric": "**Answer:** The data processing cycle is the sequence of steps involved in converting raw data into information.\n\n**The Steps (Describe them briefly for full marks):**\n1. **Data Collection/Gathering:** Acquiring the raw data.\n2. **Data Input:** Entering the data into the computer system.\n3. **Processing:** Manipulating the data (calculating, sorting, etc.).\n4. **Output:** Displaying the processed information.\n5. **Storage:** Saving the output for future use.\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Secret:** Because the question says \"Describe\" and carries marks, do not just list the words! Give a tiny one-sentence explanation of the flow.",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_001_c",
+            "label": "1(c)",
+            "question": "State four benefits of the computer as a tool for processing data.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives (Pick any 4, but memorize them all!):**\n* **Speed:** Computations are done in fractions of a second.\n* **Accuracy:** It eliminates human error if programmed correctly (GIGO principle).\n* **Storage Capacity:** Can hold massive amounts of data in small physical spaces.\n* **Efficiency:** Can work continuously without fatigue.\n* **Versatility:** Can be used for a wide variety of tasks (text, numbers, graphics).\n* **Reliability:** Gives consistent results for the same inputs.",
+            "max_marks": 4
+          }
+        ]
+      },
+      {
+        "id": "th_002",
+        "main_context": "Question 2: Computer Hardware & Setup",
+        "sub_questions": [
+          {
+            "sub_id": "th_002_a",
+            "label": "2(a)",
+            "question": "Identify the part labelled in Figure 1: (i) A (ii) B (iii) C (iv) D",
+            "rubric": "**(i) A:** Monitor \u2705 *(Alternative: Visual Display Unit / VDU)*\n**(ii) B:** Printer \u2705\n**(iii) C:** Mouse \u2705\n**(iv) D:** Keyboard \u2705 *(Trap: Make sure you follow the exact arrow line! D points to the flat board, not the system unit box).* ",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_002_b",
+            "label": "2(b)",
+            "question": "For each device, tick if it is an Input or Output device (A, B, C, D).",
+            "rubric": "**A (Monitor):** Output Device\n**B (Printer):** Output Device\n**C (Mouse):** Input Device\n**D (Keyboard):** Input Device",
+            "max_marks": 4
+          },
+          {
+            "sub_id": "th_002_c",
+            "label": "2(c)",
+            "question": "Name two devices that can be used for both input and output operations.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives (The Examiner's Buffet):**\n* Touchscreen\n* Modem\n* Digital Camera\n* Interactive Whiteboard\n* Headset (with microphone)\n* Storage devices (Flash drive, Hard drive - as they read and write)\n* Fax Machine (Facsimile)",
+            "max_marks": 2
+          }
+        ]
+      },
+      {
+        "id": "th_003",
+        "main_context": "Question 3: Modes of Information Transmission",
+        "sub_questions": [
+          {
+            "sub_id": "th_003_a_i",
+            "label": "3(a)(i)",
+            "question": "With the aid of a well-labelled diagram, explain the following: Simplex",
+            "rubric": "**Simplex:** Data transmission occurs in **only one direction**.\n*Diagram:* [Sender] \u2794\u2794\u2794\u2794 [Receiver]\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** Forget the diagrams, and you lose half the marks! Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_003_a_ii",
+            "label": "3(a)(ii)",
+            "question": "With the aid of a well-labelled diagram, explain the following: Half duplex",
+            "rubric": "**Half duplex:** Data transmission occurs in **both directions, but only ONE AT A TIME**.\n*Diagram:* [Device A] \u2794\u2794 (Wait) \u2794\u2794 [Device B] AND THEN [Device A] \u2b05\ufe0f\u2b05\ufe0f (Wait) \u2b05\ufe0f\u2b05\ufe0f [Device B]. *(Label it: Two-way, but not at the same time).* \n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_003_a_iii",
+            "label": "3(a)(iii)",
+            "question": "With the aid of a well-labelled diagram, explain the following: Full duplex",
+            "rubric": "**Full duplex:** Data transmission occurs in **both directions SIMULTANEOUSLY** (at the same time).\n*Diagram:* [Device A] \u21c4 [Device B] *(Draw two distinct arrows pointing in opposite directions).*\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_003_b_i",
+            "label": "3(b)(i)",
+            "question": "State one example of: Simplex",
+            "rubric": "\u2705 Radio broadcast, Television broadcast, Keyboard to Computer.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_003_b_ii",
+            "label": "3(b)(ii)",
+            "question": "State one example of: Half duplex",
+            "rubric": "\u2705 Walkie-talkie, Police radio, CB Radio.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_003_b_iii",
+            "label": "3(b)(iii)",
+            "question": "State one example of: Full duplex",
+            "rubric": "\u2705 Telephone conversation, Mobile phone call, Video conferencing.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_003_c",
+            "label": "3(c)",
+            "question": "Name one component of a data communication system.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* Sender (or Source)\n* Receiver (or Destination)\n* Transmission Medium (or Communication Channel)\n* Message (or Data)\n* Protocol",
+            "max_marks": 1
+          }
+        ]
+      },
+      {
+        "id": "th_004",
+        "main_context": "Question 4: Computing Terms",
+        "sub_questions": [
+          {
+            "sub_id": "th_004_a",
+            "label": "4(a)",
+            "question": "Differentiate between hackers and spammers.",
+            "rubric": "**Answer:** A **hacker** is an individual who gains unauthorized access to computer systems or networks (either to steal/destroy data or test security), WHEREAS a **spammer** is someone who sends unsolicited, bulk junk messages (usually emails) for advertising, phishing, or spreading malware.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_004_b",
+            "label": "4(b)",
+            "question": "State one importance of add-in in MS Excel.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* It provides additional custom commands and features not available in the default Excel setup.\n* It automates complex mathematical or statistical tasks (e.g., Solver or Data Analysis ToolPak).\n* It allows integration with third-party software.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_004_c_i",
+            "label": "4(c)(i)",
+            "question": "Explain the following term: cookies",
+            "rubric": "Small text files saved on a user's computer by a web browser that store user preferences, login details, and browsing history.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_004_c_ii",
+            "label": "4(c)(ii)",
+            "question": "Explain the following term: plugin",
+            "rubric": "A software add-on that is installed onto a web browser or program to give it a specific extra functionality (e.g., an ad-blocker or a PDF viewer).",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_004_c_iii",
+            "label": "4(c)(iii)",
+            "question": "Explain the following term: web crawlers",
+            "rubric": "(Also known as spiders or bots) These are automated internet programs used by search engines to systematically browse the World Wide Web and index website content so it can be searched.",
+            "max_marks": 2
+          }
+        ]
+      },
+      {
+        "id": "th_005",
+        "main_context": "SECTION B: TEST OF PRACTICAL WORK - Question 5: Presentation Software Interface",
+        "sub_questions": [
+          {
+            "sub_id": "th_005_a",
+            "label": "5(a)",
+            "question": "Identify the type of application whose interface is shown in Figure 2.",
+            "rubric": "**Answer:** Presentation Software \u2705 *(Acceptable alternative: Microsoft PowerPoint)*.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_005_b_i",
+            "label": "5(b)(i)",
+            "question": "Outline the steps to insert a new slide to the interface.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* *Method 1:* Go to the **Home** tab \u2794 Click on **New Slide**.\n* *Method 2:* Right-click on the slide navigation pane on the left \u2794 Select **New Slide**.\n* *Method 3:* Use the keyboard shortcut **Ctrl + M**.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_b_ii",
+            "label": "5(b)(ii)",
+            "question": "Outline the steps to delete a slide from the interface.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* *Method 1:* Click/Select the slide in the navigation pane \u2794 Press the **Delete** or **Backspace** key on the keyboard.\n* *Method 2:* Right-click the slide in the navigation pane \u2794 Click **Delete Slide**.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_c",
+            "label": "5(c)",
+            "question": "State two examples of the application in Figure 2.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:** Microsoft PowerPoint, Google Slides, Apple Keynote, LibreOffice Impress, Prezi, WPS Presentation.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_d_i",
+            "label": "5(d)(i)",
+            "question": "Give two uses of the application in Figure 2.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* Delivering educational lectures or teaching.\n* Making business proposals or corporate pitches.\n* Creating automated informational kiosks/digital signage.\n* Creating multimedia photo/video slideshows.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_d_ii",
+            "label": "5(d)(ii)",
+            "question": "Give two differences between transitions and animations.",
+            "rubric": "**Answer:** **Transitions** are the visual effects that occur when moving from *one entire slide to the next* during a presentation, WHEREAS **Animations** are the visual effects applied to *individual elements* (like text, images, or shapes) on a single, specific slide.\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Secret:** The words **\"Slide-to-slide\"** versus **\"Elements ON a slide\"** are the exact keywords the examiner is hunting for!",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_e_i",
+            "label": "5(e)(i)",
+            "question": "Highlight the steps to run slideshow.",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* *Method 1:* Click on the **Slide Show** tab \u2794 Click **From Beginning** (or From Current Slide).\n* *Method 2:* Press **F5** (to start from the beginning) or **Shift + F5** (to start from current slide).\n* *Method 3:* Click the small **Slide Show icon** at the bottom right of the screen.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_005_e_ii",
+            "label": "5(e)(ii)",
+            "question": "Highlight the steps to print a handout of 6 slides on a page.",
+            "rubric": "**Step-by-step:** Click the **File** tab \u2794 Select **Print** \u2794 Under settings, click on the \"Full Page Slides\" drop-down menu \u2794 Look under the \"Handouts\" section and select **\"6 Slides\"** \u2794 Click **Print**.",
+            "max_marks": 3
+          }
+        ]
+      },
+      {
+        "id": "th_006",
+        "main_context": "Question 6: Mail Merge",
+        "sub_questions": [
+          {
+            "sub_id": "th_006_a",
+            "label": "6(a)",
+            "question": "Describe in detail the step-by-step approach to create (a mail merge document):",
+            "rubric": "**Step-by-step:**\n1. Open Microsoft Word and click on the **Mailings** tab.\n2. Click **Start Mail Merge** and choose your document type (e.g., Letters or Email Messages).\n3. Click **Select Recipients** \u2794 Choose **Use an Existing List**.\n4. Browse your computer to locate and open the provided database (contacts list).\n5. Place your cursor in the document and click **Insert Merge Field** to add the contact details (like Name, Address) into the document.",
+            "max_marks": 5
+          },
+          {
+            "sub_id": "th_006_b",
+            "label": "6(b)",
+            "question": "Preview and complete a mail merge using a template in MS Word:",
+            "rubric": "**Step-by-step:**\n1. Still on the **Mailings** tab, click **Preview Results** to see how the actual names look in the template.\n2. Check for any spacing or formatting errors.\n3. Click **Finish & Merge**.\n4. Choose either **Print Documents** (to send to a printer) or **Edit Individual Documents** (to save them as a new combined Word file).",
+            "max_marks": 4
+          }
+        ]
+      },
+      {
+        "id": "th_007",
+        "main_context": "EXTRA PAGE QUESTIONS (ROBOTICS & ERGONOMICS)",
+        "sub_questions": [
+          {
+            "sub_id": "th_007_f_i",
+            "label": "(f)(i)",
+            "question": "State the function of components used in constructing a robot: Gears",
+            "rubric": "Used to transmit rotational power, change the speed, or alter the direction of force within the robot's mechanical joints.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_007_f_ii",
+            "label": "(f)(ii)",
+            "question": "State the function of components used in constructing a robot: Grippers",
+            "rubric": "Also known as end-effectors, they act as the robot's \"hands\" to grasp, lift, hold, and manipulate objects.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_007_f_iii",
+            "label": "(f)(iii)",
+            "question": "State the function of components used in constructing a robot: Motors",
+            "rubric": "Actuators that convert electrical energy into mechanical movement/rotation to drive the robot's wheels or joints.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_007_a",
+            "label": "(a)",
+            "question": "Describe the term \"generation of computers\":",
+            "rubric": "**Answer:** This refers to the historical developmental stages of computer technology. Each \"generation\" is characterized by a major technological leap in the primary electronic components used to build the computer (e.g., moving from vacuum tubes to transistors, to microprocessors), resulting in smaller, faster, and more efficient machines.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_007_b",
+            "label": "(b)",
+            "question": "List three file management practices to organize work better:",
+            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* Create logically named folders and subfolders to categorize files.\n* Use descriptive, clear, and consistent file naming conventions.\n* Regularly back up important files to an external drive or cloud.\n* Delete duplicated or obsolete (unwanted) files.\n* Sort files by date, type, or name to find them easily.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_007_c_i",
+            "label": "(c)(i)",
+            "question": "What computing-related disorder is the student likely experiencing?",
+            "rubric": "**Answer:** Computer Vision Syndrome (CVS) \u2705 *(Acceptable alternative: Digital Eye Strain)*.",
+            "max_marks": 1
+          },
+          {
+            "sub_id": "th_007_c_ii",
+            "label": "(c)(ii)",
+            "question": "Explain the identified disorder:",
+            "rubric": "**Answer:** It is a group of eye and vision-related problems (like dry eyes, headaches, blurred vision, and eye fatigue) caused by prolonged, uninterrupted viewing of digital screens, poor lighting, screen glare, and reduced blinking.",
+            "max_marks": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subject": "Digital Tech v4 (with sus watermark)",
+    "obj": [],
+    "theory": [
+      {
+        "id": "th_001",
+        "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 1",
+        "sub_questions": [
+          {
+            "sub_id": "th_001_a",
+            "label": "1(a)",
+            "question": "Define \"Cybersecurity\" and explain two methods of preventing unauthorized access.",
+            "rubric": "**Definition:** Cybersecurity is the practice of protecting computer systems, networks, devices, and data from digital attacks, unauthorized access, and damage.\n**Methods of Prevention (Any two):** \n1. **Passwords/Authentication:** Using strong, complex passwords or Multi-Factor Authentication (MFA) to verify user identity.\n2. **Firewalls:** Implementing hardware or software firewalls to monitor and block malicious incoming/outgoing network traffic.\n3. **Encryption:** Scrambling data so that it can only be read by authorized parties with the correct decryption key.\n4. **Biometrics:** Using physical characteristics (fingerprints, facial recognition) to grant access.",
+            "max_marks": 5
+          },
+          {
+            "sub_id": "th_001_b",
+            "label": "1(b)",
+            "question": "List seven common types of malware found in modern computer systems.",
+            "rubric": "Award 0.5 marks each for any of the following (up to 7):\n1. Viruses\n2. Worms\n3. Trojan Horses\n4. Ransomware\n5. Spyware\n6. Adware\n7. Rootkits\n8. Keyloggers\n9. Botnets",
+            "max_marks": 3.5
+          },
+          {
+            "sub_id": "th_001_c",
+            "label": "1(c)",
+            "question": "State four differences between Cloud Storage and Local Hardware Storage.",
+            "rubric": "**Differences (Any four):**\n1. **Location:** Cloud storage is hosted on remote internet servers, while local storage is on physical devices (hard drives, flash drives) nearby.\n2. **Accessibility:** Cloud storage requires an internet connection to access data, whereas local storage does not.\n3. **Cost:** Cloud storage usually involves recurring subscription fees, whereas local storage is a one-time upfront hardware cost.\n4. **Scalability:** Cloud storage can be easily expanded by upgrading a plan, while local storage requires buying and installing new physical drives.\n5. **Maintenance:** Cloud providers handle maintenance, backups, and security, whereas local storage maintenance is solely the user's responsibility.\n6. **Data Sharing:** Cloud storage makes it much easier to share files collaboratively across multiple locations compared to local storage.",
+            "max_marks": 4
+          }
+        ]
+      },
+      {
+        "id": "th_002",
+        "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 2",
+        "sub_questions": [
+          {
+            "sub_id": "th_002_a",
+            "label": "2(a)",
+            "question": "What is a \"Generative AI\" model?",
+            "rubric": "A Generative AI model is a type of artificial intelligence system capable of generating new, original content (such as text, images, code, or audio) by learning patterns and structures from existing training data.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_002_b",
+            "label": "2(b)",
+            "question": "List and explain five types of network topologies used in modern LAN setups.",
+            "rubric": "Award 1.5 marks for each type listed and correctly explained (up to 5):\n1. **Star Topology:** All devices are connected to a central hub or switch. If a cable fails, only that node is affected.\n2. **Bus Topology:** All devices share a single communication cable (the backbone). Data travels in both directions to all nodes.\n3. **Ring Topology:** Devices are connected in a closed-loop circle. Data travels in one direction from node to node.\n4. **Mesh Topology:** Every device is connected to every other device, providing high redundancy and fault tolerance.\n5. **Tree (Hierarchical) Topology:** A hybrid combining characteristics of star and bus topologies, arranged in a parent-child hierarchy.\n6. **Hybrid Topology:** A combination of two or more different topologies (e.g., Star-Ring) used together.",
+            "max_marks": 7.5
+          },
+          {
+            "sub_id": "th_002_c",
+            "label": "2(c)",
+            "question": "Mention six ethical concerns regarding the use of data mining.",
+            "rubric": "Award 0.5 marks for each valid concern (up to 6):\n1. Invasion of user privacy.\n2. Unauthorized collection and sharing of personal data without informed consent.\n3. Data security and the risk of massive data breaches.\n4. Algorithmic bias and discrimination based on mined profiling.\n5. Lack of transparency in how data is utilized (the \"black box\" problem).\n6. Misuse of data for manipulative targeting or surveillance.\n7. Inaccuracy of data leading to false assumptions.",
+            "max_marks": 3
+          }
+        ]
+      },
+      {
+        "id": "th_003",
+        "main_context": "PAPER II - SECTION A (Theory of Digital Technology) - Question 3",
+        "sub_questions": [
+          {
+            "sub_id": "th_003_a_i",
+            "label": "3(a)(i)",
+            "question": "Explain the following data transmission modes: Simplex",
+            "rubric": "**Simplex:** A mode of communication where data travels in only one direction. The sender can only send, and the receiver can only receive (e.g., a keyboard to a computer or television broadcast).",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_003_a_ii",
+            "label": "3(a)(ii)",
+            "question": "Explain the following data transmission modes: Half-Duplex",
+            "rubric": "**Half-Duplex:** A mode of communication where data can flow in both directions, but not at the same time. Devices must take turns sending and receiving (e.g., a walkie-talkie).",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_003_a_iii",
+            "label": "3(a)(iii)",
+            "question": "Explain the following data transmission modes: Full-Duplex",
+            "rubric": "**Full-Duplex:** A mode of communication where data can be transmitted in both directions simultaneously, allowing real-time two-way communication (e.g., a telephone call).",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_003_b",
+            "label": "3(b)",
+            "question": "List seven input devices used in specialized digital design.",
+            "rubric": "Award 0.5 marks each (up to 7):\n1. Graphics tablet (Digitizer)\n2. Stylus / Digital pen\n3. 3D Mouse\n4. Trackball\n5. Touchscreen monitor\n6. High-resolution scanner\n7. Digital camera\n8. Colorimeter\n9. MIDI keyboard (for sound design)",
+            "max_marks": 3.5
+          },
+          {
+            "sub_id": "th_003_c",
+            "label": "3(c)",
+            "question": "Mention six standard file extensions for high-definition video.",
+            "rubric": "Award 0.5 marks each (up to 6):\n1. .mp4 (MPEG-4)\n2. .mkv (Matroska)\n3. .mov (Apple QuickTime)\n4. .avi (Audio Video Interleave)\n5. .webm\n6. .hevc (High-Efficiency Video Coding) / .h265\n7. .wmv\n8. .flv",
+            "max_marks": 3
+          }
+        ]
+      },
+      {
+        "id": "th_004",
+        "main_context": "SECTION B (Application of Digital Technology) - Question 4",
+        "sub_questions": [
+          {
+            "sub_id": "th_004_a",
+            "label": "4(a)",
+            "question": "State and explain three different user interface (UI) patterns commonly used in mobile application navigation (e.g., Tab Bar, Hamburger Menu, Gesture Navigation).",
+            "rubric": "Award 2 marks each for stating and correctly explaining (up to 3):\n1. **Hamburger Menu:** A hidden side menu revealed by tapping an icon with three horizontal lines, keeping the main screen uncluttered while housing secondary navigation links.\n2. **Tab Bar (Bottom Navigation):** A persistent row of icons at the bottom (or top) of the screen allowing users to quickly switch between top-level core views of the app.\n3. **Gesture Navigation:** Using screen swipes (e.g., swiping left to go back, swiping up to go home) instead of visible buttons to navigate through the interface.",
+            "max_marks": 6
+          },
+          {
+            "sub_id": "th_004_b",
+            "label": "4(b)",
+            "question": "Discuss the distinction between \"Native\" and \"Hybrid\" mobile application development approaches, and provide one advantage of each.",
+            "rubric": "**Distinction:** Native apps are built specifically for a single platform (like iOS or Android) using platform-specific languages (e.g., Swift for iOS, Kotlin for Android). Hybrid apps are built using cross-platform web technologies (HTML, CSS, JavaScript) and wrapped in a native container to run on multiple platforms.\n**Advantages:**\n*   **Native Advantage:** Delivers the highest performance, smoother animations, and best access to device hardware/APIs.\n*   **Hybrid Advantage:** Allows for a single codebase to be deployed across multiple platforms, significantly saving development time and costs.",
+            "max_marks": 6
+          },
+          {
+            "sub_id": "th_004_c",
+            "label": "4(c)",
+            "question": "Define the role of a Mobile Application Programming Interface (API).",
+            "rubric": "An API acts as a software intermediary that allows a mobile application to communicate with backend servers, databases, or third-party services. It enables the app to fetch real-time data, authenticate users, or utilize external functionalities (like Google Maps or payment gateways) without building them from scratch.",
+            "max_marks": 3
+          }
+        ]
+      },
+      {
+        "id": "th_005",
+        "main_context": "SECTION B (Application of Digital Technology) - Question 5",
+        "sub_questions": [
+          {
+            "sub_id": "th_005_a",
+            "label": "5(a)",
+            "question": "Clearly distinguish between a Public Blockchain and a Private Blockchain, with examples of each.",
+            "rubric": "**Public Blockchain:** A decentralized, permissionless network where anyone can join, read, write, and participate in the consensus process. Example: Bitcoin, Ethereum.\n**Private Blockchain:** A centralized or permissioned network controlled by a single organization or consortium, where access and participation are restricted to authorized users. Example: Hyperledger Fabric, Ripple.",
+            "max_marks": 5
+          },
+          {
+            "sub_id": "th_005_b",
+            "label": "5(b)",
+            "question": "Describe how a \"Consensus Mechanism\" functions in a decentralized network, and explain the key difference between Proof of Work (PoW) and Proof of Stake (PoS).",
+            "rubric": "**Consensus Mechanism:** It is a fault-tolerant set of rules and algorithms used by computer nodes in a decentralized network to agree on the single state of the network and validate the authenticity of transactions without a central authority.\n**Difference:**\n*   **Proof of Work (PoW):** Requires participants (miners) to expend massive amounts of computational power and energy to solve complex mathematical puzzles to validate blocks.\n*   **Proof of Stake (PoS):** Requires participants (validators) to lock up or \"stake\" a certain amount of their cryptocurrency to validate blocks, which is highly energy-efficient compared to PoW.",
+            "max_marks": 7
+          },
+          {
+            "sub_id": "th_005_c",
+            "label": "5(c)",
+            "question": "State three common use cases for cryptocurrency beyond as a store of value.",
+            "rubric": "Award 1 mark each (Any 3):\n1. Executing Smart Contracts.\n2. Decentralized Finance (DeFi) applications (lending, borrowing).\n3. Creating and trading Non-Fungible Tokens (NFTs).\n4. Cross-border remittances and fast payments.\n5. Supply chain tracking and tokenization of real-world assets.\n6. Voting and governance in Decentralized Autonomous Organizations (DAOs).",
+            "max_marks": 3
+          }
+        ]
+      },
+      {
+        "id": "th_006",
+        "main_context": "SECTION B (Application of Digital Technology) - Question 6",
+        "sub_questions": [
+          {
+            "sub_id": "th_006_a",
+            "label": "6(a)",
+            "question": "In the context of database management, explain the concepts of 'Data Integrity' and 'Data Consistency'.",
+            "rubric": "**Data Integrity:** Refers to the overall accuracy, completeness, and reliability of data throughout its lifecycle, ensuring it is safeguarded from unauthorized modification or corruption.\n**Data Consistency:** Refers to the requirement that any database transaction must change affected data only in allowed ways, ensuring that all copies or instances of the data across the database are uniform and do not contradict each other.",
+            "max_marks": 5
+          },
+          {
+            "sub_id": "th_006_b",
+            "label": "6(b)",
+            "question": "Define a 'Structured Query Language' (SQL) and provide a basic SQL command to: i. Retrieve all records from a table named 'Users'. ii. Update the email of a user with ID 101.",
+            "rubric": "**Definition:** SQL is a standardized programming language used for managing, maintaining, and querying relational databases.\n**Commands:**\n**i.** `SELECT * FROM Users;`\n**ii.** `UPDATE Users SET email = 'newemail@example.com' WHERE ID = 101;` *(Note: Specific email value can vary, but syntax must be correct)*",
+            "max_marks": 6
+          },
+          {
+            "sub_id": "th_006_c",
+            "label": "6(c)",
+            "question": "Illustrate, with a simple diagram, the relationship between 'Schema' and 'Data Instance'.",
+            "rubric": "Award marks for a logical explanation or descriptive representation of a diagram.\n**Expected concept:** \n*   **Schema:** The logical structure or blueprint of the database (e.g., Table Name, Columns: ID, Name, Age).\n*   **Data Instance (or State):** The actual data/rows populated inside that schema at a specific moment in time (e.g., Row 1: 101, John, 25).\n*   *(Diagram should show an empty table framework pointing to Schema, and the filled table pointing to Instance).* ",
+            "max_marks": 4
+          }
+        ]
+      }
+    ]
+  }
 ]
