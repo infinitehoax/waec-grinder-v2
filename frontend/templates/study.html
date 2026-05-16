@@ -54,10 +54,11 @@
 
     if (!batch || batch.length === 0) {
       // Build a new batch
+      let subjectData;
       try {
         const allQuestions = await API.getQuestions();
         const currentSubject = Storage.getSubject();
-        const subjectData = allQuestions.find(s => s.subject === currentSubject) || allQuestions[0];
+        subjectData = allQuestions.find(s => s.subject === currentSubject) || allQuestions[0];
 
         Storage.initSession(subjectData, mode);
       } catch (e) {
@@ -75,11 +76,32 @@
       batch = Engine.buildBatch(mode);
 
       if (batch.length === 0) {
+        const hasObj = (subjectData?.obj || []).length > 0;
+        const hasTheory = (subjectData?.theory || []).length > 0;
+
+        let title = "Nothing left to study!";
+        let desc = "You've mastered all the questions in this mode. Go back and start a new session.";
+        let icon = "🏆";
+
+        if (mode === 'obj' && !hasObj) {
+          title = "No OBJ questions!";
+          desc = "Sorry, no OBJ questions for this one!";
+          icon = "😞";
+        } else if (mode === 'theory' && !hasTheory) {
+          title = "No Theory questions!";
+          desc = "Sorry, no Theory questions for this one!";
+          icon = "😞";
+        } else if (mode === 'both' && !hasObj && !hasTheory) {
+          title = "No questions found!";
+          desc = "Sorry, no OBJ or Theory questions for this one!";
+          icon = "😞";
+        }
+
         document.getElementById('question-wrapper').innerHTML = `
           <div class="empty-state">
-            <span class="empty-state__icon">🏆</span>
-            <h2>Nothing left to study!</h2>
-            <p>You've mastered all the questions in this mode. Go back and start a new session.</p>
+            <span class="empty-state__icon">${icon}</span>
+            <h2>${title}</h2>
+            <p>${desc}</p>
             <a href="/" class="btn btn--primary">← Back to Dashboard</a>
           </div>
         `;
