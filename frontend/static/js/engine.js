@@ -120,6 +120,13 @@ const Engine = {
       // Passed: remove from failed if it was there, do not re-add
       Storage.removeFailedObj(q.id, q._subject);
       Storage.incrementMastered(1, q._subject);
+    q._passed = passed;
+    Storage.updateTopicStats(q.topic, passed);
+    if (passed) {
+      // Passed: remove from failed if it was there, do not re-add
+      Storage.removeFailedObj(q.id);
+      Storage.incrementMastered(1);
+      Storage.incrementGlobalStat('mastered_obj', 1);
     } else {
       // Failed: push to failed queue
       Storage.pushFailedObj(q);
@@ -140,6 +147,12 @@ const Engine = {
     if (passed) {
       Storage.removeFailedTheory(q.id, q._subject);
       Storage.incrementMastered(1, q._subject);
+    q._passed = passed;
+    Storage.updateTopicStats(q.topic, passed);
+    if (passed) {
+      Storage.removeFailedTheory(q.id);
+      Storage.incrementMastered(1);
+      Storage.incrementGlobalStat('mastered_theory', 1);
     } else {
       Storage.pushFailedTheory(q);
       Storage.incrementFailed(1, q._subject);
