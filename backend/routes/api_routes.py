@@ -56,6 +56,9 @@ def grade_answer():
         return jsonify(result), 200
     except GradingError as e:
         return jsonify({"error": str(e)}), 500
+    except Exception as e:
+        # Catch any other unexpected errors and return as JSON
+        return jsonify({"error": f"An unexpected error occurred during grading: {str(e)}"}), 500
 
 
 @api_bp.route('/config', methods=['GET'])
