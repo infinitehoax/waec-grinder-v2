@@ -51,12 +51,12 @@ function renderObjQuestion(q, idx, total) {
         <span class="badge badge--accent">OBJ</span>
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
       </div>
-      <p class="question-text">${escapeHtml(q.question)}</p>
+      <div class="question-text">${formatText(q.question)}</div>
       <div class="options-grid" id="options-grid" data-correct="${escapeHtml(q.correct_option)}" data-explanation="${escapeAttr(q.explanation || '')}">
         ${Object.entries(q.options).map(([letter, text]) => `
           <button class="option-btn" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}')">
             <span class="option-letter">${letter}</span>
-            <span class="option-text">${escapeHtml(text)}</span>
+            <span class="option-text">${formatText(text)}</span>
           </button>
         `).join('')}
       </div>
@@ -97,7 +97,7 @@ function renderTheoryQuestion(q, idx, total) {
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
         <span class="badge badge--accent">${totalMaxMarks} marks</span>
       </div>
-      <div class="question-context">${escapeHtml(q.main_context)}</div>
+      <div class="question-context">${formatText(q.main_context)}</div>
       <div class="theory-section" id="theory-section">
         ${q.sub_questions.map(sub => renderSubQuestion(sub)).join('')}
       </div>
@@ -138,7 +138,7 @@ function renderSubQuestion(sub) {
       <div class="sub-question-header">
         <div style="flex:1">
           <div class="sub-label">${escapeHtml(sub.label)}</div>
-          <div class="sub-question-text">${escapeHtml(sub.question)}</div>
+          <div class="sub-question-text">${formatText(sub.question)}</div>
         </div>
         <div class="sub-marks-badge">${sub.max_marks} mark${sub.max_marks !== 1 ? 's' : ''}</div>
       </div>
@@ -158,6 +158,76 @@ function renderSubQuestion(sub) {
 }
 
 // ---- Helpers ----
+function formatText(str) {
+  if (!str) return '';
+
+  // 1. Handle LaTeX (inline and block)
+  // We do this BEFORE marked to avoid conflict with markdown characters inside LaTeX
+  // Use a placeholder strategy to protect LaTeX content from marked
+  const latexBlocks = [];
+  let processed = str.replace(/\$\$([\s\S]+?)\$\$/g, (match, tex) => {
+    const id = `LATEXBLOCK${latexBlocks.length}ID`;
+    try {
+      latexBlocks.push(katex.renderToString(tex, { displayMode: true, throwOnError: false }));
+    } catch (e) {
+      latexBlocks.push(`<span class="error">${escapeHtml(match)}</span>`);
+    }
+    return id;
+  });
+
+  processed = processed.replace(/\$([\s\S]+?)\$/g, (match, tex) => {
+    const id = `LATEXBLOCK${latexBlocks.length}ID`;
+    try {
+      latexBlocks.push(katex.renderToString(tex, { displayMode: false, throwOnError: false }));
+    } catch (e) {
+      latexBlocks.push(`<span class="error">${escapeHtml(match)}</span>`);
+    }
+    return id;
+  });
+
+  // 2. Configure marked for GFM and custom image with subtitle
+  const renderer = new marked.Renderer();
+  // Support both older and newer marked versions
+  const originalImageRenderer = renderer.image.bind(renderer);
+  renderer.image = (arg1, title, text) => {
+    let href = arg1;
+    let subtitleText = text;
+    let imgTitle = title;
+
+    if (typeof arg1 === 'object' && arg1 !== null) {
+      href = arg1.href;
+      subtitleText = arg1.text;
+      imgTitle = arg1.title;
+    }
+
+    const subtitle = subtitleText ? `<figcaption class="img-subtitle">${subtitleText}</figcaption>` : '';
+    return `
+      <figure class="q-image-figure">
+        <img src="${href}" alt="${subtitleText || ''}" title="${imgTitle || ''}" class="q-image">
+        ${subtitle}
+      </figure>
+    `;
+  };
+
+  marked.setOptions({
+    gfm: true,
+    breaks: true, // support \n (newline)
+    renderer: renderer,
+    headerIds: false,
+    mangle: false
+  });
+
+  // 3. Parse Markdown
+  let html = marked.parse(processed);
+
+  // 4. Restore LaTeX blocks
+  latexBlocks.forEach((renderedTex, i) => {
+    html = html.replace(`LATEXBLOCK${i}ID`, renderedTex);
+  });
+
+  return html;
+}
+
 function escapeHtml(str) {
   if (!str) return '';
   return String(str)
