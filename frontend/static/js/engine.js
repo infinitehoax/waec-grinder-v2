@@ -15,7 +15,8 @@ const Engine = {
    */
   buildBatch(mode) {
     const batch = [];
-    const limit = APP_CONFIG.BATCH_SIZE;
+    const isTimed = !!Storage.getTimeLimit();
+    const limit = isTimed ? APP_CONFIG.TIMED_BATCH_SIZE : APP_CONFIG.BATCH_SIZE;
 
     // Helper to tag and push
     const push = (q, type, fromFailed) => {

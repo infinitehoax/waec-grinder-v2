@@ -247,6 +247,7 @@ const UI = {
   batch: [],
   currentIdx: 0,
   _gradingActive: false,
+  _timerInterval: null,
 
   init(batch) {
     this.batch = batch;
@@ -254,6 +255,12 @@ const UI = {
     this.renderCurrent();
     this.updateProgress();
     updateNavStats();
+
+    // Check for timed session
+    const timeLimit = Storage.getTimeLimit();
+    if (timeLimit) {
+      this.startTimer(timeLimit);
+    }
   },
 
   renderCurrent() {
@@ -280,11 +287,20 @@ const UI = {
   updateProgress() {
     const bar = document.getElementById('progress-fill');
     const label = document.getElementById('progress-label');
+    const isTimed = !!Storage.getTimeLimit();
+
     const pct = this.batch.length > 0
       ? Math.round((this.currentIdx / this.batch.length) * 100)
       : 0;
+
     if (bar) bar.style.width = `${pct}%`;
-    if (label) label.textContent = `${this.currentIdx} / ${this.batch.length}`;
+    if (label) {
+      if (isTimed) {
+        label.textContent = `${this.currentIdx} solved`;
+      } else {
+        label.textContent = `${this.currentIdx} / ${this.batch.length}`;
+      }
+    }
   },
 
   updateStepDots() {
@@ -474,16 +490,45 @@ const UI = {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   },
 
-  showBatchComplete() {
+  showBatchComplete(timedOut = false) {
     const wrapper = document.getElementById('question-wrapper');
     if (!wrapper) return;
+
+    if (this._timerInterval) {
+      clearInterval(this._timerInterval);
+      this._timerInterval = null;
+    }
+
     Storage.clearBatch();
+    Storage.clearTimer();
 
     const mode = Storage.getMode();
     const allDone = Storage.isAllDone(mode);
     const summary = Storage.getSessionSummary();
 
-    if (allDone) {
+    if (timedOut) {
+      wrapper.innerHTML = `
+        <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
+          <div style="font-size:3.5rem;margin-bottom:16px">⏰</div>
+          <h2 style="margin-bottom:8px">Time's Up!</h2>
+          <p style="margin-bottom:28px">Your timed session has ended. Here's how you did:</p>
+          <div class="stats-grid" style="max-width:500px;margin:0 auto 32px">
+            <div class="stat-card stat--accent">
+              <div class="stat-card__value">${this.currentIdx}</div>
+              <div class="stat-card__label">Solved</div>
+            </div>
+            <div class="stat-card stat--neutral">
+              <div class="stat-card__value">${summary.stats.mastered}</div>
+              <div class="stat-card__label">Total Mastered</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <button class="btn btn--primary btn--lg" onclick="location.reload()">🔄 New Session</button>
+            <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
+          </div>
+        </div>
+      `;
+    } else if (allDone) {
       wrapper.innerHTML = `
         <div class="mastery-screen animate-bounce-in">
           <span class="mastery-screen__trophy">🏆</span>
@@ -564,6 +609,46 @@ const UI = {
         this.init(batch);
       }).catch(() => showToast('Could not reload questions.', 'error'));
     });
+  },
+
+  startTimer(minutes) {
+    const display = document.getElementById('timer-display');
+    const valEl = document.getElementById('timer-val');
+    if (!display || !valEl) return;
+
+    display.style.display = 'flex';
+
+    let endTime = Storage.getTimerEnd();
+    if (!endTime) {
+      endTime = Date.now() + minutes * 60 * 1000;
+      Storage.setTimerEnd(endTime);
+    }
+
+    const update = () => {
+      const now = Date.now();
+      const diff = endTime - now;
+
+      if (diff <= 0) {
+        clearInterval(this._timerInterval);
+        this.handleTimeUp();
+        return;
+      }
+
+      const m = Math.floor(diff / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      valEl.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+
+      if (diff < 30000) {
+        display.classList.add('low-time');
+      }
+    };
+
+    update();
+    this._timerInterval = setInterval(update, 1000);
+  },
+
+  handleTimeUp() {
+    this.showBatchComplete(true);
   },
 };
 
