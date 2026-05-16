@@ -17,16 +17,16 @@ const Engine = {
     const batch = [];
     const isTimed = !!Storage.getTimeLimit();
     const limit = isTimed ? APP_CONFIG.TIMED_BATCH_SIZE : APP_CONFIG.BATCH_SIZE;
-    const limit = APP_CONFIG.BATCH_SIZE;
     const focusTopic = Storage.getFocusTopic();
+    const subjects = Storage.getSubjects();
 
     // Helper to tag and push
-    const push = (q, type, fromFailed) => {
+    const push = (q, type, fromFailed, subject) => {
       if (batch.length < limit) {
         // Filter by focus topic if active
         if (focusTopic && q.topic !== focusTopic) return false;
 
-        batch.push({ ...q, _type: type, _from_failed: fromFailed });
+        batch.push({ ...q, _type: type, _from_failed: fromFailed, _subject: subject });
         return true;
       }
       return false;
@@ -34,32 +34,50 @@ const Engine = {
 
     // 1. Failed OBJ
     if (mode === 'obj' || mode === 'both') {
-      for (const q of Storage.getFailedObj()) {
-        push(q, 'obj', true);
+      for (const sub of subjects) {
+        for (const q of Storage.getFailedObj(sub)) {
+          push(q, 'obj', true, sub);
+          if (batch.length >= limit) break;
+        }
         if (batch.length >= limit) break;
       }
     }
     // 2. Failed Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
-      for (const q of Storage.getFailedTheory()) {
-        push(q, 'theory', true);
+      for (const sub of subjects) {
+        for (const q of Storage.getFailedTheory(sub)) {
+          push(q, 'theory', true, sub);
+          if (batch.length >= limit) break;
+        }
         if (batch.length >= limit) break;
       }
     }
     // 3. Unseen OBJ
     if ((mode === 'obj' || mode === 'both') && batch.length < limit) {
-      const unseenObj = Storage.getUnseenObj();
-      for (const q of unseenObj) {
-        push(q, 'obj', false);
+      for (const sub of subjects) {
+        for (const q of Storage.getUnseenObj(sub)) {
+          push(q, 'obj', false, sub);
+          if (batch.length >= limit) break;
+        }
         if (batch.length >= limit) break;
       }
     }
     // 4. Unseen Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
-      const unseenTheory = Storage.getUnseenTheory();
-      for (const q of unseenTheory) {
-        push(q, 'theory', false);
+      for (const sub of subjects) {
+        for (const q of Storage.getUnseenTheory(sub)) {
+          push(q, 'theory', false, sub);
+          if (batch.length >= limit) break;
+        }
         if (batch.length >= limit) break;
+      }
+    }
+
+    if (Storage.isRandomized()) {
+      // Fisher-Yates shuffle
+      for (let i = batch.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [batch[i], batch[j]] = [batch[j], batch[i]];
       }
     }
 
@@ -71,20 +89,23 @@ const Engine = {
    * Remove items pulled from unseen queues so they aren't double-counted.
    */
   consumeBatch(batch) {
-    const sub = Storage.getSubject();
-    const batchIds = {
-      obj: batch.filter(q => q._type === 'obj' && !q._from_failed).map(q => q.id),
-      theory: batch.filter(q => q._type === 'theory' && !q._from_failed).map(q => q.id),
-    };
+    // Group batch by subject to drain correctly
+    const bySubject = {};
+    batch.forEach(q => {
+      if (q._from_failed) return;
+      if (!bySubject[q._subject]) bySubject[q._subject] = { obj: [], theory: [] };
+      bySubject[q._subject][q._type].push(q.id);
+    });
 
-    // Drain unseen queues of batch items
-    if (batchIds.obj.length > 0) {
-      const unseen = Storage.getUnseenObj(sub).filter(q => !batchIds.obj.includes(q.id));
-      Storage._setScoped(sub, 'unseen_obj', unseen);
-    }
-    if (batchIds.theory.length > 0) {
-      const unseen = Storage.getUnseenTheory(sub).filter(q => !batchIds.theory.includes(q.id));
-      Storage._setScoped(sub, 'unseen_theory', unseen);
+    for (const [sub, ids] of Object.entries(bySubject)) {
+      if (ids.obj.length > 0) {
+        const unseen = Storage.getUnseenObj(sub).filter(q => !ids.obj.includes(q.id));
+        Storage._setScoped(sub, 'unseen_obj', unseen);
+      }
+      if (ids.theory.length > 0) {
+        const unseen = Storage.getUnseenTheory(sub).filter(q => !ids.theory.includes(q.id));
+        Storage._setScoped(sub, 'unseen_theory', unseen);
+      }
     }
   },
 
@@ -94,15 +115,15 @@ const Engine = {
    * @param {boolean} passed
    */
   markObjResult(q, passed) {
-    Storage.updateTopicStats(q.topic, passed);
+    Storage.updateTopicStats(q.topic, passed, q._subject);
     if (passed) {
       // Passed: remove from failed if it was there, do not re-add
-      Storage.removeFailedObj(q.id);
-      Storage.incrementMastered(1);
+      Storage.removeFailedObj(q.id, q._subject);
+      Storage.incrementMastered(1, q._subject);
     } else {
       // Failed: push to failed queue
       Storage.pushFailedObj(q);
-      Storage.incrementFailed(1);
+      Storage.incrementFailed(1, q._subject);
     }
   },
 
@@ -115,13 +136,13 @@ const Engine = {
   markTheoryResult(q, totalScore, maxScore) {
     const pct = maxScore > 0 ? totalScore / maxScore : 0;
     const passed = pct >= APP_CONFIG.PASS_THRESHOLD;
-    Storage.updateTopicStats(q.topic, passed);
+    Storage.updateTopicStats(q.topic, passed, q._subject);
     if (passed) {
-      Storage.removeFailedTheory(q.id);
-      Storage.incrementMastered(1);
+      Storage.removeFailedTheory(q.id, q._subject);
+      Storage.incrementMastered(1, q._subject);
     } else {
       Storage.pushFailedTheory(q);
-      Storage.incrementFailed(1);
+      Storage.incrementFailed(1, q._subject);
     }
     return passed;
   },

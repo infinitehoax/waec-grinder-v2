@@ -44,11 +44,13 @@ function updateNavStats() {
 // ---- Render a single OBJ question ----
 function renderObjQuestion(q, idx, total) {
   const fromFailed = q._from_failed;
+  const showSubject = Storage.getSubjects().length > 1;
   return `
     <div class="question-card card animate-fade-in ${fromFailed ? 'type--failed' : ''}">
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
         <span class="badge badge--accent">OBJ</span>
+        ${showSubject ? `<span class="badge badge--neutral">${escapeHtml(q._subject)}</span>` : ''}
         ${q.topic ? `<span class="badge badge--neutral">${escapeHtml(q.topic)}</span>` : ''}
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
       </div>
@@ -89,12 +91,14 @@ function renderObjQuestion(q, idx, total) {
 // ---- Render a single Theory question ----
 function renderTheoryQuestion(q, idx, total) {
   const fromFailed = q._from_failed;
+  const showSubject = Storage.getSubjects().length > 1;
   const totalMaxMarks = q.sub_questions.reduce((s, sq) => s + sq.max_marks, 0);
   return `
     <div class="question-card card type--theory animate-fade-in ${fromFailed ? 'type--failed' : ''}">
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
         <span class="badge badge--neutral">THEORY</span>
+        ${showSubject ? `<span class="badge badge--neutral">${escapeHtml(q._subject)}</span>` : ''}
         ${q.topic ? `<span class="badge badge--neutral">${escapeHtml(q.topic)}</span>` : ''}
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
         <span class="badge badge--accent">${totalMaxMarks} marks</span>
