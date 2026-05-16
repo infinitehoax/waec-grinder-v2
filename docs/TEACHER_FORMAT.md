@@ -129,6 +129,27 @@ Standard Markdown tables are supported:
 | Symbols | 256   | 1.1M+   |
 ```
 
+JSON example of how to implement a table within a question in waec_questions.json. You can use standard Markdown table syntax, and even combine it with bold text and LaTeX:
+```
+{
+  "id": "obj_ict_001",
+  "question": "Study the following comparison table between Data and Information:\n\n| Feature | Data | Information |\n| :--- | :--- | :--- |\n| **Form** | Raw facts | Processed data |\n| **Context** | Meaningless on its own | Meaningful |\n| **Example** | Test scores (e.g., 85) | Class average |\n\nWhich of the following best describes the role of **Information**?",
+  "options": {
+    "A": "It is unorganized and raw.",
+    "B": "It has no context or meaning.",
+    "C": "It is processed and provides meaning.",
+    "D": "It is the primary input for a computer."
+  },
+  "correct_option": "C",
+  "explanation": "Information is data that has been processed into a meaningful form for the user."
+}
+```
+Formatting Tips:
+Newlines: Use \n\n before the table to ensure it starts on a new line.
+Alignment: You can use :--- for left-aligned, :---: for centered, and ---: for right-aligned columns.
+Rich Text: You can use **bold**, *italics*, or even LaTeX (e.g., $x^2$) directly inside the table cells.
+Visuals: The table will be rendered with professional borders, padding, and subtle zebra stripes automatically.
+
 ### 3. LaTeX (Math/Science)
 - **Inline**: Use single $, e.g., `$E = mc^2$`
 - **Block**: Use double $$, e.g.,
