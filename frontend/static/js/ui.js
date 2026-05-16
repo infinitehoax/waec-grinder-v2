@@ -79,6 +79,9 @@ function renderObjQuestion(q, idx, total) {
       <div class="explanation-block" id="explanation-block">
         <div class="explanation-block__label">📖 Explanation</div>
         <div class="explanation-block__text"></div>
+        <button class="btn-explain" id="explain-btn" onclick="UI.explainSimpler()">
+          💡 Explain It Simpler
+        </button>
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
@@ -162,8 +165,13 @@ function renderSubQuestion(sub) {
         ></textarea>
       </div>
       <div class="sub-feedback" id="feedback-${sub.sub_id}">
-        <span class="sub-feedback-score" id="fscore-${sub.sub_id}"></span>
-        <span class="sub-feedback-text" id="ftext-${sub.sub_id}"></span>
+        <div style="flex: 1;">
+          <span class="sub-feedback-score" id="fscore-${sub.sub_id}"></span>
+          <span class="sub-feedback-text" id="ftext-${sub.sub_id}"></span>
+        </div>
+        <button class="btn-explain" onclick="UI.explainSimpler('${sub.sub_id}')">
+          💡 Explain Simpler
+        </button>
       </div>
     </div>
   `;
@@ -707,6 +715,71 @@ const UI = {
   handleTimeUp() {
     this.showBatchComplete(true);
   },
+
+  async explainSimpler(subId = null) {
+    const q = this.batch[this.currentIdx];
+    let payload = {};
+
+    if (q._type === 'obj') {
+      payload = {
+        question: q.question,
+        options: q.options,
+        correct_option: q.correct_option,
+        explanation: q.explanation
+      };
+    } else {
+      const sub = subId
+        ? q.sub_questions.find(s => s.sub_id === subId)
+        : q.sub_questions[0]; // Fallback
+
+      payload = {
+        question: sub.question,
+        rubric: sub.rubric
+      };
+    }
+
+    // Find the button to show loading state
+    let btn;
+    if (subId) {
+      btn = document.querySelector(`#feedback-${subId} .btn-explain`);
+    } else {
+      btn = document.getElementById('explain-btn');
+    }
+
+    const originalHTML = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = `<div class="spinner"></div> Thinking...`;
+
+    try {
+      const { default: API } = await import('./api.js');
+      const result = await API.explainConcept(payload);
+      this.showExplanationModal(result.explanation);
+    } catch (err) {
+      showToast(`Could not get explanation: ${err.message}`, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+    }
+  },
+
+  showExplanationModal(markdown) {
+    const modal = document.getElementById('explanation-modal');
+    const body = document.getElementById('modal-explanation-body');
+    if (!modal || !body) return;
+
+    // Use formatText to handle markdown and latex
+    body.innerHTML = formatText(markdown);
+    modal.classList.add('visible');
+    document.body.style.overflow = 'hidden'; // Prevent scroll
+  },
+
+  closeExplanationModal() {
+    const modal = document.getElementById('explanation-modal');
+    if (modal) {
+      modal.classList.remove('visible');
+      document.body.style.overflow = '';
+    }
+  }
 };
 
 // Expose UI globally so inline onclick handlers work

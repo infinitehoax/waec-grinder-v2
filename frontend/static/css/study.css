@@ -706,3 +706,125 @@
   padding: 2px 4px;
   border-radius: 4px;
 }
+
+/* ---- Explanation Modal ---- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.visible {
+  display: flex;
+}
+
+.modal__content {
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal__header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: var(--bg-card);
+  z-index: 10;
+}
+
+.modal__title {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.modal__close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.modal__close:hover {
+  color: var(--text-primary);
+}
+
+.modal__body {
+  padding: 24px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.modal__body h1, .modal__body h2, .modal__body h3 {
+  color: var(--text-primary);
+  margin: 1.5rem 0 0.75rem;
+}
+
+.modal__body h1:first-child, .modal__body h2:first-child, .modal__body h3:first-child {
+  margin-top: 0;
+}
+
+.modal__body p {
+  margin-bottom: 1rem;
+}
+
+.modal__body ul, .modal__body ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.modal__footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: flex-end;
+  background: var(--bg-input);
+}
+
+/* ---- Explain Simpler Button ---- */
+.btn-explain {
+  margin-top: 12px;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border: 1px solid rgba(240, 165, 0, 0.2);
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-explain:hover {
+  background: rgba(240, 165, 0, 0.15);
+  border-color: var(--accent);
+}
+
+.btn-explain .spinner {
+  width: 12px;
+  height: 12px;
+  border-width: 1px;
+}
