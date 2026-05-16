@@ -26,6 +26,8 @@ const SUB_KEYS = {
   UNSEEN_THEORY: 'unseen_theory',
   FAILED_OBJ:    'failed_obj',
   FAILED_THEORY: 'failed_theory',
+  MASTERED_OBJ:  'mastered_obj',
+  MASTERED_THEORY: 'mastered_theory',
   STATS:         'stats',
 };
 
@@ -78,6 +80,8 @@ const Storage = {
 
       if (!this._getScoped(subject, SUB_KEYS.FAILED_OBJ))    this._setScoped(subject, SUB_KEYS.FAILED_OBJ, []);
       if (!this._getScoped(subject, SUB_KEYS.FAILED_THEORY)) this._setScoped(subject, SUB_KEYS.FAILED_THEORY, []);
+      if (!this._getScoped(subject, SUB_KEYS.MASTERED_OBJ))  this._setScoped(subject, SUB_KEYS.MASTERED_OBJ, []);
+      if (!this._getScoped(subject, SUB_KEYS.MASTERED_THEORY)) this._setScoped(subject, SUB_KEYS.MASTERED_THEORY, []);
 
       if (!this._getScoped(subject, SUB_KEYS.STATS)) {
         this._setScoped(subject, SUB_KEYS.STATS, { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} });
@@ -147,6 +151,18 @@ const Storage = {
     const subjects = this.getSubjects();
     if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.FAILED_THEORY) || [];
     return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.FAILED_THEORY) || []), []);
+  },
+  getMasteredObj(sub) {
+    if (sub) return this._getScoped(sub, SUB_KEYS.MASTERED_OBJ) || [];
+    const subjects = this.getSubjects();
+    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.MASTERED_OBJ) || [];
+    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.MASTERED_OBJ) || []), []);
+  },
+  getMasteredTheory(sub) {
+    if (sub) return this._getScoped(sub, SUB_KEYS.MASTERED_THEORY) || [];
+    const subjects = this.getSubjects();
+    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.MASTERED_THEORY) || [];
+    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.MASTERED_THEORY) || []), []);
   },
 
   getMode()    { return this._get(KEYS.STUDY_MODE) || 'both'; },
@@ -221,6 +237,20 @@ const Storage = {
     const arr = this.getUnseenTheory(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
     this._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
+  },
+  pushMasteredObj(q) {
+    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    if (!sub) return;
+    const arr = this.getMasteredObj(sub);
+    if (!arr.find(x => x.id === q.id)) arr.push(q);
+    this._setScoped(sub, SUB_KEYS.MASTERED_OBJ, arr);
+  },
+  pushMasteredTheory(q) {
+    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    if (!sub) return;
+    const arr = this.getMasteredTheory(sub);
+    if (!arr.find(x => x.id === q.id)) arr.push(q);
+    this._setScoped(sub, SUB_KEYS.MASTERED_THEORY, arr);
   },
   removeFailedObj(id, subject) {
     const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());

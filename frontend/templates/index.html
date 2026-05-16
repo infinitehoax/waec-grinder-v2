@@ -148,6 +148,12 @@
         <div style="font-size:0.85rem; color:var(--text-secondary);">Mixed session covering all question types.</div>
       </div>
 
+      <div class="card mode-card" id="review-mode-card" data-mode="review" onclick="selectMode('review')" style="display:none; cursor:pointer; border-color: var(--border-subtle); border-style: dashed; transition: all 0.2s;">
+        <div style="font-size:2rem; margin-bottom:10px;">🔄</div>
+        <div style="font-weight:700; margin-bottom:6px;">Review Mastered</div>
+        <div style="font-size:0.85rem; color:var(--text-secondary);">Revisit questions you've already mastered.</div>
+      </div>
+
     </div>
 
     <div class="card" style="margin-bottom: 28px; border-color: var(--accent); background: rgba(0, 240, 165, 0.05);">
@@ -366,6 +372,20 @@
     document.getElementById('obj-count').textContent = totalObj;
     document.getElementById('theory-count').textContent = totalTheory;
 
+    // Show/Hide Review Mode based on mastered count
+    const totalMastered = selectedSubjects.reduce((acc, s) => {
+        const stats = Storage.getStats(s.subject);
+        return acc + (stats.mastered || 0);
+    }, 0);
+
+    const reviewCard = document.getElementById('review-mode-card');
+    if (totalMastered > 0) {
+        reviewCard.style.display = 'block';
+    } else {
+        reviewCard.style.display = 'none';
+        if (selectedMode === 'review') selectMode('both');
+    }
+
     // Refresh resume card
     refreshResumeCard();
     updateNavDisplay();
@@ -421,6 +441,13 @@
       active.classList.add('selected-mode');
       active.style.borderColor = 'var(--accent)';
       active.style.background = 'var(--accent-glow)';
+    }
+
+    const startBtn = document.getElementById('start-btn');
+    if (mode === 'review') {
+        startBtn.textContent = 'Start Reviewing →';
+    } else {
+        startBtn.textContent = 'Start Study Session →';
     }
   }
 

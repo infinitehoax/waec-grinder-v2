@@ -513,6 +513,34 @@ const UI = {
     const wrapper = document.getElementById('question-wrapper');
     if (!wrapper) return;
 
+    if (Storage.getMode() === 'review') {
+        if (this._timerInterval) {
+            clearInterval(this._timerInterval);
+            this._timerInterval = null;
+        }
+        Storage.clearBatch();
+        Storage.clearTimer();
+
+        wrapper.innerHTML = `
+            <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
+                <div style="font-size:3.5rem;margin-bottom:16px">📚</div>
+                <h2 style="margin-bottom:8px">Review Complete!</h2>
+                <p style="margin-bottom:28px">Great job keeping your knowledge fresh. Retention is the key to mastery.</p>
+                <div class="stats-grid" style="max-width:300px;margin:0 auto 32px">
+                    <div class="stat-card stat--accent">
+                        <div class="stat-card__value">${this.currentIdx}</div>
+                        <div class="stat-card__label">Reviewed</div>
+                    </div>
+                </div>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                    <button class="btn btn--primary btn--lg" onclick="UI.nextBatch()">🔄 Another Round</button>
+                    <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
     // Check for perfect batch
     const allPassed = this.batch.every(q => q._passed === true);
     if (allPassed) {

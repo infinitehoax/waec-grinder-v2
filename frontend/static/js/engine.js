@@ -23,6 +23,26 @@ const Engine = {
     const focusTopic = Storage.getFocusTopic();
     const subjects = Storage.getSubjects();
 
+    // Review Mode: Pull exclusively from mastered queues
+    if (mode === 'review') {
+      const masteredObj = Storage.getMasteredObj(); // Aggregates for all subjects
+      const masteredTheory = Storage.getMasteredTheory();
+
+      // Shuffle mastered first to pick a random subset
+      const allMastered = [
+        ...masteredObj.map(q => ({ ...q, _type: 'obj', _from_failed: false, _is_review: true, _subject: q._subject || subjects[0] })),
+        ...masteredTheory.map(q => ({ ...q, _type: 'theory', _from_failed: false, _is_review: true, _subject: q._subject || subjects[0] }))
+      ];
+
+      // Fisher-Yates shuffle
+      for (let i = allMastered.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [allMastered[i], allMastered[j]] = [allMastered[j], allMastered[i]];
+      }
+
+      return allMastered.slice(0, limit);
+    }
+
     // Helper to tag and push
     const push = (q, type, fromFailed, subject) => {
       if (batch.length < limit) {
@@ -119,10 +139,14 @@ const Engine = {
    */
   markObjResult(q, passed) {
     q._passed = passed;
+    // Review mode is low-stakes: no stats or queue changes
+    if (q._is_review || Storage.getMode() === 'review') return;
+
     Storage.updateTopicStats(q.topic, passed, q._subject);
     if (passed) {
-      // Passed: remove from failed if it was there, do not re-add
+      // Passed: remove from failed if it was there, and ARCHIVE to mastered
       Storage.removeFailedObj(q.id, q._subject);
+      Storage.pushMasteredObj(q);
       Storage.incrementMastered(1, q._subject);
       Storage.incrementGlobalStat('mastered_obj', 1);
     } else {
@@ -142,9 +166,13 @@ const Engine = {
     const pct = maxScore > 0 ? totalScore / maxScore : 0;
     const passed = pct >= APP_CONFIG.PASS_THRESHOLD;
     q._passed = passed;
+
+    if (q._is_review || Storage.getMode() === 'review') return passed;
+
     Storage.updateTopicStats(q.topic, passed, q._subject);
     if (passed) {
       Storage.removeFailedTheory(q.id, q._subject);
+      Storage.pushMasteredTheory(q);
       Storage.incrementMastered(1, q._subject);
       Storage.incrementGlobalStat('mastered_theory', 1);
     } else {
