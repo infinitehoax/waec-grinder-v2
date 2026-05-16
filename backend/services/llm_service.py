@@ -131,3 +131,104 @@ Now grade the student's answer:"""
         raise
     except Exception as e:
         raise GradingError(f"An unexpected error occurred: {str(e)[:60]}")
+
+
+def explain_concept(question_data: dict) -> str:
+    """
+    Sends a question and its metadata to OpenRouter for a simplified explanation.
+    question_data can contain:
+    - question (str)
+    - options (dict, optional)
+    - correct_option (str, optional)
+    - explanation (str, optional)
+    - rubric (str, optional) - for theory questions
+    """
+    if not Config.OPENROUTER_API_KEY:
+        raise GradingError("No API key configured. Please add your OPENROUTER_API_KEY to the .env file.")
+
+    q_text = question_data.get("question", "")
+    options = question_data.get("options")
+    correct_option = question_data.get("correct_option")
+    official_explanation = question_data.get("explanation")
+    rubric = question_data.get("rubric")
+
+    if options:
+        # OBJ Question
+        options_text = "\n".join([f"{k}: {v}" for k, v in options.items()])
+        prompt = f"""You are a friendly and helpful tutor for a student preparing for WAEC exams.
+The student is confused by this multiple-choice question:
+
+QUESTION:
+{q_text}
+
+OPTIONS:
+{options_text}
+
+CORRECT OPTION: {correct_option}
+
+OFFICIAL EXPLANATION:
+{official_explanation}
+
+Your task:
+1. Re-explain the core concept in a much simpler, more intuitive way. Use an analogy if possible to make it stick.
+2. Explain briefly why the correct option is right.
+3. Explain briefly why EACH of the other options is incorrect.
+
+Keep your tone encouraging and your language simple. Use Markdown for formatting."""
+    else:
+        # Theory Question
+        prompt = f"""You are a friendly and helpful tutor for a student preparing for WAEC exams.
+The student is struggling with this theory question:
+
+QUESTION:
+{q_text}
+
+MARKING RUBRIC/EXPECTED ANSWER:
+{rubric}
+
+Your task:
+1. Re-explain the core concept behind this question in a much simpler, more intuitive way.
+2. Use a relatable analogy to help the student understand the fundamental principle.
+3. Break down the key points they should remember for this topic.
+
+Keep your tone encouraging and your language simple. Use Markdown for formatting."""
+
+    headers = {
+        "Authorization": f"Bearer {Config.OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://waec-grinder.local",
+        "X-Title": "WAEC Grinder Study Tool"
+    }
+
+    payload = {
+        "model": Config.LLM_MODEL,
+        "messages": [
+            {"role": "system", "content": "You are a friendly, expert tutor who explains complex concepts simply."},
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.7
+    }
+
+    try:
+        response = requests.post(
+            Config.OPENROUTER_BASE_URL,
+            headers=headers,
+            json=payload,
+            timeout=45
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        if "choices" not in data or not data["choices"]:
+            raise GradingError("The AI returned no choices. Please try again.")
+
+        content = data["choices"][0]["message"].get("content")
+        if content is None:
+            raise GradingError("The AI returned an empty response. Please try again.")
+
+        return content.strip()
+
+    except requests.exceptions.Timeout:
+        raise GradingError("AI explanation timed out. Check your internet connection and try again.")
+    except Exception as e:
+        raise GradingError(f"An error occurred while getting the AI explanation: {str(e)[:100]}")
