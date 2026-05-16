@@ -57,14 +57,12 @@
 
     <!-- Subject Selection -->
     <div class="card" style="margin-bottom: 20px;">
-      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
-        <div>
-          <div style="font-weight:600; margin-bottom:4px;">Select Subject</div>
-          <div style="font-size:0.85rem; color:var(--text-secondary);">Choose the subject you want to grind today.</div>
-        </div>
-        <select id="subject-selector" class="btn btn--ghost" style="padding-right: 32px; appearance: auto;" onchange="updateSubjectSelection()">
-          <option value="" disabled selected>Loading subjects...</option>
-        </select>
+      <div style="margin-bottom: 12px;">
+        <div style="font-weight:600; margin-bottom:4px;">Select Subjects</div>
+        <div style="font-size:0.85rem; color:var(--text-secondary);">Choose one or more subjects to merge into your session.</div>
+      </div>
+      <div id="subject-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; max-height: 240px; overflow-y: auto; padding: 4px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-input);">
+        <!-- Generated via JS -->
       </div>
     </div>
 
@@ -72,7 +70,7 @@
     <div class="card" style="margin-bottom: 20px; display:none;" id="subject-card">
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
         <div>
-          <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; font-family:var(--font-mono);">Selected Subject</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; font-family:var(--font-mono);">Selected Configuration</div>
           <div style="font-size:1.2rem; font-weight:700;" id="subject-name">–</div>
         </div>
         <div style="display:flex; gap:16px; font-size:0.8rem; font-family:var(--font-mono); color:var(--text-muted);">
@@ -82,8 +80,8 @@
       </div>
     </div>
 
-    <!-- Batch size selector / Timed session -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 20px;">
+    <!-- Batch size selector / Timed session / Randomization -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 20px;">
       <div class="card" id="batch-config-card">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
           <div>
@@ -109,6 +107,16 @@
             <button class="btn btn--ghost timed-btn" data-time="10">10m</button>
             <button class="btn btn--ghost timed-btn" data-time="15">15m</button>
           </div>
+        </div>
+      </div>
+
+      <div class="card" id="random-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomization()">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-weight:600; margin-bottom:4px;">Randomize Questions</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Shuffle the batch order.</div>
+          </div>
+          <div id="random-status-badge" class="badge badge--neutral">OFF</div>
         </div>
       </div>
     </div>
@@ -191,7 +199,8 @@
   let selectedBatchSize = 5;
   let selectedTimeLimit = null; // in minutes
   let allQuestions = null;
-  let selectedSubjectData = null;
+  let selectedSubjects = [];
+  let isRandomized = false;
 
   // Make functions available globally for onclick handlers
   window.selectMode = selectMode;
@@ -200,6 +209,7 @@
   window.clearSession = clearSession;
   window.updateSubjectSelection = updateSubjectSelection;
   window.startWeaknessSession = startWeaknessSession;
+  window.toggleRandomization = toggleRandomization;
 
   async function init() {
     // Update nav stats immediately from local storage
@@ -211,7 +221,7 @@
       populateSubjects();
     } catch (e) {
       console.error(e);
-      document.getElementById('subject-selector').innerHTML = '<option disabled>Error loading subjects</option>';
+      document.getElementById('subject-list').innerHTML = '<div style="padding:10px; color:var(--fail)">Error loading subjects</div>';
     }
 
     // Check for existing session
@@ -302,50 +312,91 @@
   }
 
   function populateSubjects() {
-    const selector = document.getElementById('subject-selector');
-    selector.innerHTML = '';
+    const list = document.getElementById('subject-list');
+    list.innerHTML = '';
+
+    const lastSubjects = Storage.getSubject();
+    const lastList = Array.isArray(lastSubjects) ? lastSubjects : (lastSubjects ? [lastSubjects] : []);
 
     allQuestions.forEach((s, idx) => {
-      const opt = document.createElement('option');
-      opt.value = idx;
-      opt.textContent = s.subject;
-      selector.appendChild(opt);
+      const isChecked = lastList.includes(s.subject) || (lastList.length === 0 && idx === 0);
+      const item = document.createElement('label');
+      item.style.cssText = 'display:flex; align-items:center; gap:10px; padding:8px 12px; cursor:pointer; transition:background 0.2s; border-radius:var(--radius-sm);';
+      item.onmouseover = () => item.style.background = 'var(--bg-card-hover)';
+      item.onmouseout = () => item.style.background = '';
+
+      item.innerHTML = `
+        <input type="checkbox" class="subject-checkbox" value="${idx}" ${isChecked ? 'checked' : ''} onchange="updateSubjectSelection()" style="width:18px; height:18px; accent-color:var(--accent);">
+        <span style="font-size:0.9rem; font-weight:500;">${s.subject}</span>
+      `;
+      list.appendChild(item);
     });
 
-    // Try to restore last selected subject or first one
-    const lastSubject = Storage.getSubject();
-    const lastIdx = allQuestions.findIndex(s => s.subject === lastSubject);
-    if (lastIdx !== -1) {
-      selector.value = lastIdx;
-    } else {
-      selector.value = 0;
-    }
     updateSubjectSelection();
   }
 
   function updateSubjectSelection() {
-    const idx = document.getElementById('subject-selector').value;
-    selectedSubjectData = allQuestions[idx];
+    const checked = Array.from(document.querySelectorAll('.subject-checkbox:checked')).map(cb => allQuestions[parseInt(cb.value)]);
+    selectedSubjects = checked;
 
+    if (selectedSubjects.length === 0) {
+      document.getElementById('subject-card').style.display = 'none';
+      document.getElementById('start-btn').disabled = true;
+      return;
+    }
+
+    document.getElementById('start-btn').disabled = false;
     document.getElementById('subject-card').style.display = 'block';
-    document.getElementById('subject-name').textContent = selectedSubjectData.subject;
-    document.getElementById('obj-count').textContent = (selectedSubjectData.obj || []).length;
-    document.getElementById('theory-count').textContent = (selectedSubjectData.theory || []).length;
 
-    // Refresh resume card for this specific subject
+    if (selectedSubjects.length === 1) {
+      document.getElementById('subject-name').textContent = selectedSubjects[0].subject;
+    } else {
+      document.getElementById('subject-name').textContent = `${selectedSubjects.length} Subjects Merged`;
+    }
+
+    const totalObj = selectedSubjects.reduce((acc, s) => acc + (s.obj || []).length, 0);
+    const totalTheory = selectedSubjects.reduce((acc, s) => acc + (s.theory || []).length, 0);
+
+    document.getElementById('obj-count').textContent = totalObj;
+    document.getElementById('theory-count').textContent = totalTheory;
+
+    // Refresh resume card
     refreshResumeCard();
     updateNavDisplay();
   }
 
+  function toggleRandomization() {
+    isRandomized = !isRandomized;
+    const card = document.getElementById('random-config-card');
+    const badge = document.getElementById('random-status-badge');
+
+    if (isRandomized) {
+      card.style.borderColor = 'var(--accent)';
+      card.style.opacity = '1';
+      badge.textContent = 'ON';
+      badge.className = 'badge badge--accent';
+    } else {
+      card.style.borderColor = 'var(--border-subtle)';
+      card.style.opacity = '0.7';
+      badge.textContent = 'OFF';
+      badge.className = 'badge badge--neutral';
+    }
+  }
+
   function refreshResumeCard() {
     const resumeCard = document.getElementById('resume-card');
-    if (Storage.hasExistingSession() && Storage.getSubject() === selectedSubjectData.subject) {
+    const currentActiveSubject = Storage.getSubject();
+
+    // For now, only show resume if the exact set of subjects matches or if it's a single subject
+    // Actually, let's keep it simple: if there's any session, show it.
+    if (Storage.hasExistingSession()) {
       const summary = Storage.getSessionSummary();
       const total = summary.unseen_obj + summary.unseen_theory + summary.failed_obj + summary.failed_theory;
       if (total > 0) {
         const desc = document.getElementById('resume-desc');
         resumeCard.style.display = 'block';
-        desc.textContent = `Subject: ${summary.subject} | ${summary.failed_obj + summary.failed_theory} failed, ${summary.unseen_obj + summary.unseen_theory} unseen, ${summary.stats.mastered} mastered.`;
+        const subDisplay = Array.isArray(summary.subject) ? `${summary.subject.length} subjects` : summary.subject;
+        desc.textContent = `Subject: ${subDisplay} | ${summary.failed_obj + summary.failed_theory} failed, ${summary.unseen_obj + summary.unseen_theory} unseen, ${summary.stats.mastered} mastered.`;
         return;
       }
     }
@@ -368,8 +419,8 @@
   }
 
   async function startSession() {
-    if (!selectedSubjectData) {
-      alert('Please select a subject first.');
+    if (selectedSubjects.length === 0) {
+      alert('Please select at least one subject.');
       return;
     }
 
@@ -380,6 +431,7 @@
     // Ensure we start with a fresh batch for the new session
     Storage.clearBatch();
     Storage.clearTimer();
+    Storage.setRandomized(isRandomized);
 
     if (selectedTimeLimit) {
       Storage.setTimeLimit(selectedTimeLimit);
@@ -388,12 +440,13 @@
     }
     Storage.setFocusTopic(null);
 
+    Storage.initSession(selectedSubjects, selectedMode);
     Storage.initSession(selectedSubjectData, selectedMode);
     Storage.trackSubjectStarted(selectedSubjectData.subject);
 
     // If all already done, soft-reset
     if (Storage.isAllDone(selectedMode)) {
-      Storage.softReset(selectedSubjectData, selectedMode);
+      Storage.softReset(selectedSubjects, selectedMode);
     }
 
     // Navigate to study page
@@ -406,16 +459,18 @@
   }
 
   function startWeaknessSession(topic) {
-    if (!selectedSubjectData) return;
+    if (selectedSubjects.length === 0) return;
     Storage.clearBatch();
     Storage.setFocusTopic(topic);
-    Storage.initSession(selectedSubjectData, 'both');
+    // Focus topic sessions usually happen on a single subject but here we use whatever is selected
+    Storage.initSession(selectedSubjects, 'both');
     window.location.href = '/study?mode=both';
   }
 
   function clearSession() {
-    if (confirm(`This will clear all your progress for "${selectedSubjectData.subject}". Are you sure?`)) {
-      Storage.clearSubjectProgress(selectedSubjectData.subject);
+    const subjectDisplay = selectedSubjects.length === 1 ? selectedSubjects[0].subject : `${selectedSubjects.length} subjects`;
+    if (confirm(`This will clear all your progress for ${subjectDisplay}. Are you sure?`)) {
+      selectedSubjects.forEach(s => Storage.clearSubjectProgress(s.subject));
       refreshResumeCard();
       updateNavDisplay();
     }
