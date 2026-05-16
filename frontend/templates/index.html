@@ -202,6 +202,9 @@
   window.startWeaknessSession = startWeaknessSession;
 
   async function init() {
+    // Update nav stats immediately from local storage
+    updateNavDisplay();
+
     // Load questions + config
     try {
       [allQuestions] = await Promise.all([API.getQuestions(), loadServerConfig()]);
@@ -242,9 +245,12 @@
     const navMastered = document.getElementById('nav-mastered');
     const navFailed = document.getElementById('nav-failed');
     const navUnseen = document.getElementById('nav-unseen');
+    const navStreak = document.getElementById('nav-streak');
+
     if (navMastered) navMastered.textContent = summary.stats.mastered;
     if (navFailed) navFailed.textContent = summary.failed_obj + summary.failed_theory;
     if (navUnseen) navUnseen.textContent = summary.unseen_obj + summary.unseen_theory;
+    if (navStreak) navStreak.textContent = Storage.getStreak();
 
     updateWeakTopics();
   }
@@ -383,6 +389,7 @@
     Storage.setFocusTopic(null);
 
     Storage.initSession(selectedSubjectData, selectedMode);
+    Storage.trackSubjectStarted(selectedSubjectData.subject);
 
     // If all already done, soft-reset
     if (Storage.isAllDone(selectedMode)) {
