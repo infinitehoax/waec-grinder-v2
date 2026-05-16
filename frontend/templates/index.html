@@ -295,6 +295,9 @@
     btn.disabled = true;
     btn.textContent = 'Building session...';
 
+    // Ensure we start with a fresh batch for the new session
+    Storage.clearBatch();
+
     APP_CONFIG.BATCH_SIZE = selectedBatchSize;
     Storage.initSession(selectedSubjectData, selectedMode);
 
