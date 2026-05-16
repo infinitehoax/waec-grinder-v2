@@ -449,8 +449,7 @@
     Storage.setFocusTopic(null);
 
     Storage.initSession(selectedSubjects, selectedMode);
-    Storage.initSession(selectedSubjectData, selectedMode);
-    Storage.trackSubjectStarted(selectedSubjectData.subject);
+    selectedSubjects.forEach(sub => Storage.trackSubjectStarted(sub.subject));
 
     // If all already done, soft-reset
     if (Storage.isAllDone(selectedMode)) {

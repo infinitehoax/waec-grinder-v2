@@ -517,6 +517,7 @@ const UI = {
     const allPassed = this.batch.every(q => q._passed === true);
     if (allPassed) {
       this.checkAchievements({ perfectBatchSize: this.batch.length });
+    }
     if (this._timerInterval) {
       clearInterval(this._timerInterval);
       this._timerInterval = null;
