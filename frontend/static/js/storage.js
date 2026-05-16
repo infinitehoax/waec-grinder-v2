@@ -19,6 +19,7 @@ const KEYS = {
   BATCH_SIZE:      'wg_batch_size',
   FOCUS_TOPIC:     'wg_focus_topic',
   RANDOMIZE:       'wg_randomize',
+  BATCH_START_TIME: 'wg_batch_start_time',
 };
 
 const SUB_KEYS = {
@@ -190,6 +191,10 @@ const Storage = {
     localStorage.removeItem(KEYS.TIMER_END);
   },
 
+  getBatchStartTime() { return this._get(KEYS.BATCH_START_TIME); },
+  setBatchStartTime(v) { this._set(KEYS.BATCH_START_TIME, v); },
+  clearBatchStartTime() { localStorage.removeItem(KEYS.BATCH_START_TIME); },
+
   isRandomized() { return !!this._get(KEYS.RANDOMIZE); },
   setRandomized(v) { this._set(KEYS.RANDOMIZE, !!v); },
 
@@ -295,6 +300,7 @@ const Storage = {
   clearBatch() {
     localStorage.removeItem(KEYS.CURRENT_BATCH);
     localStorage.removeItem(KEYS.CURRENT_IDX);
+    this.clearBatchStartTime();
   },
   saveIdx(idx) {
     this._set(KEYS.CURRENT_IDX, idx);
