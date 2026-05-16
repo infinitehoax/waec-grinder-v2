@@ -106,3 +106,35 @@ If there are errors, the most common causes are:
 - Missing comma between items
 - Missing closing `}` or `]`
 - Smart quotes (`"`) instead of straight quotes (`"`)
+
+---
+
+## Rich Formatting (Markdown, LaTeX, Tables, Images)
+
+You can now use rich formatting in both **Questions** and **Options**.
+
+### 1. Rich Text
+Use standard Markdown:
+- **Bold**: `**text**`
+- *Italics*: `*text*`
+- __Underline__: `<u>text</u>`
+- Line breaks: Use `\n` or just press Enter.
+
+### 2. Tables
+Standard Markdown tables are supported:
+```
+| Feature | ASCII | Unicode |
+|---------|-------|---------|
+| Bits    | 7/8   | 16/32   |
+| Symbols | 256   | 1.1M+   |
+```
+
+### 3. LaTeX (Math/Science)
+- **Inline**: Use single $, e.g., `$E = mc^2$`
+- **Block**: Use double $$, e.g.,
+  `$$ \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} $$`
+
+### 4. Images with Subtitles
+Use the Markdown image syntax: `![Subtitle](URL)`
+- The text in `[]` will appear as a **subtitle** below the image.
+- Example: `![Figure 1: A Logic Gate Circuit](https://example.com/logic.png)`

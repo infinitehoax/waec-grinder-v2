@@ -153,3 +153,10 @@ These work great for grading:
 - `meta-llama/llama-3.2-3b-instruct:free`
 
 Change the model in `backend/config.py`.
+
+## Recent Updates: Rich Formatting
+Teachers can now add:
+- **Markdown Support**: Bold, italics, lists, and tables.
+- **LaTeX Math**: Use `$ $` for math formulas (e.g. $H_2O$).
+- **Images**: Add images to questions and options with optional subtitles.
+- **Newlines**: Better support for multi-line questions.

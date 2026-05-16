@@ -612,3 +612,69 @@
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .question-text { font-size: 1rem; }
 }
+
+/* ---- Markdown Content Styles ---- */
+.question-text table, .sub-question-text table, .option-text table, .question-context table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.9rem;
+}
+
+.question-text th, .sub-question-text th, .option-text th, .question-context th,
+.question-text td, .sub-question-text td, .option-text td, .question-context td {
+  border: 1px solid var(--border-strong);
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.question-text th, .sub-question-text th, .option-text th, .question-context th {
+  background: var(--bg-input);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.question-text tr:nth-child(even), .sub-question-text tr:nth-child(even),
+.option-text tr:nth-child(even), .question-context tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ---- Images and Figures ---- */
+.q-image-figure {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.q-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.img-subtitle {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---- KaTeX Customization ---- */
+.katex-display {
+  margin: 1.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex {
+  font-size: 1.1em;
+}
+
+.error {
+  color: var(--fail);
+  font-family: var(--font-mono);
+  background: var(--fail-bg);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
