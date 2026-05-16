@@ -16,10 +16,14 @@ const Engine = {
   buildBatch(mode) {
     const batch = [];
     const limit = APP_CONFIG.BATCH_SIZE;
+    const focusTopic = Storage.getFocusTopic();
 
     // Helper to tag and push
     const push = (q, type, fromFailed) => {
       if (batch.length < limit) {
+        // Filter by focus topic if active
+        if (focusTopic && q.topic !== focusTopic) return false;
+
         batch.push({ ...q, _type: type, _from_failed: fromFailed });
         return true;
       }
@@ -29,27 +33,31 @@ const Engine = {
     // 1. Failed OBJ
     if (mode === 'obj' || mode === 'both') {
       for (const q of Storage.getFailedObj()) {
-        if (!push(q, 'obj', true)) break;
+        push(q, 'obj', true);
+        if (batch.length >= limit) break;
       }
     }
     // 2. Failed Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
       for (const q of Storage.getFailedTheory()) {
-        if (!push(q, 'theory', true)) break;
+        push(q, 'theory', true);
+        if (batch.length >= limit) break;
       }
     }
     // 3. Unseen OBJ
     if ((mode === 'obj' || mode === 'both') && batch.length < limit) {
       const unseenObj = Storage.getUnseenObj();
       for (const q of unseenObj) {
-        if (!push(q, 'obj', false)) break;
+        push(q, 'obj', false);
+        if (batch.length >= limit) break;
       }
     }
     // 4. Unseen Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
       const unseenTheory = Storage.getUnseenTheory();
       for (const q of unseenTheory) {
-        if (!push(q, 'theory', false)) break;
+        push(q, 'theory', false);
+        if (batch.length >= limit) break;
       }
     }
 
@@ -84,6 +92,7 @@ const Engine = {
    * @param {boolean} passed
    */
   markObjResult(q, passed) {
+    Storage.updateTopicStats(q.topic, passed);
     if (passed) {
       // Passed: remove from failed if it was there, do not re-add
       Storage.removeFailedObj(q.id);
@@ -104,6 +113,7 @@ const Engine = {
   markTheoryResult(q, totalScore, maxScore) {
     const pct = maxScore > 0 ? totalScore / maxScore : 0;
     const passed = pct >= APP_CONFIG.PASS_THRESHOLD;
+    Storage.updateTopicStats(q.topic, passed);
     if (passed) {
       Storage.removeFailedTheory(q.id);
       Storage.incrementMastered(1);
