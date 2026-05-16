@@ -264,6 +264,12 @@ const UI = {
   init(batch) {
     this.batch = batch;
     this.currentIdx = Storage.loadIdx();
+
+    // Initialize batch start time if starting fresh
+    if (this.currentIdx === 0 && !Storage.getBatchStartTime()) {
+      Storage.setBatchStartTime(Date.now());
+    }
+
     Storage.updateStreak();
     this.renderCurrent();
     this.updateProgress();
@@ -370,6 +376,9 @@ const UI = {
     // Record result
     const q = this.batch[this.currentIdx];
     Engine.markObjResult(q, passed);
+
+    // Persist batch state (including _passed status)
+    Storage.saveBatch(this.batch);
 
     // Check for comeback
     const isComeback = q._from_failed && passed;
@@ -481,6 +490,10 @@ const UI = {
     }
 
     this.checkAchievements({ isComeback: q._from_failed && passed });
+
+    // Persist batch state
+    Storage.saveBatch(this.batch);
+
     updateNavStats();
     this._gradingActive = false;
 
@@ -513,16 +526,39 @@ const UI = {
     const wrapper = document.getElementById('question-wrapper');
     if (!wrapper) return;
 
-    // Check for perfect batch
-    const allPassed = this.batch.every(q => q._passed === true);
+    // Performance Calculations
+    const answeredBatch = this.batch.slice(0, this.currentIdx);
+    const correctCount = answeredBatch.filter(q => q._passed === true).length;
+    const totalCount = answeredBatch.length;
+
+    const startTime = Storage.getBatchStartTime();
+    const durationMs = startTime ? Date.now() - startTime : 0;
+    const durationMins = Math.floor(durationMs / 60000);
+    const durationSecs = Math.floor((durationMs % 60000) / 1000);
+    const timeStr = `${durationMins}m ${durationSecs}s`;
+
+    const topicStats = {};
+    answeredBatch.forEach(q => {
+      const topic = q.topic || 'General';
+      if (!topicStats[topic]) topicStats[topic] = { correct: 0, total: 0 };
+      topicStats[topic].total++;
+      if (q._passed === true) topicStats[topic].correct++;
+    });
+
+    const failedQuestions = answeredBatch.filter(q => q._passed === false);
+
+    // Achievement Checks
+    const allPassed = totalCount > 0 && correctCount === totalCount;
     if (allPassed) {
-      this.checkAchievements({ perfectBatchSize: this.batch.length });
+      this.checkAchievements({ perfectBatchSize: totalCount });
     }
+
     if (this._timerInterval) {
       clearInterval(this._timerInterval);
       this._timerInterval = null;
     }
 
+    // Cleanup storage after gathering metrics
     Storage.clearBatch();
     Storage.clearTimer();
 
@@ -530,79 +566,116 @@ const UI = {
     const allDone = Storage.isAllDone(mode);
     const summary = Storage.getSessionSummary();
 
+    // Render Report Card
+    let content = '';
+
     if (timedOut) {
-      wrapper.innerHTML = `
-        <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
-          <div style="font-size:3.5rem;margin-bottom:16px">⏰</div>
-          <h2 style="margin-bottom:8px">Time's Up!</h2>
-          <p style="margin-bottom:28px">Your timed session has ended. Here's how you did:</p>
-          <div class="stats-grid" style="max-width:500px;margin:0 auto 32px">
-            <div class="stat-card stat--accent">
-              <div class="stat-card__value">${this.currentIdx}</div>
-              <div class="stat-card__label">Solved</div>
-            </div>
-            <div class="stat-card stat--neutral">
-              <div class="stat-card__value">${summary.stats.mastered}</div>
-              <div class="stat-card__label">Total Mastered</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-            <button class="btn btn--primary btn--lg" onclick="location.reload()">🔄 New Session</button>
-            <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
-          </div>
+      content += `
+        <div class="report-header animate-bounce-in">
+          <div class="report-header__icon">⏰</div>
+          <h1>Time's Up!</h1>
+          <p>Your timed session has ended. Here's your report card.</p>
         </div>
       `;
     } else if (allDone) {
-      wrapper.innerHTML = `
-        <div class="mastery-screen animate-bounce-in">
-          <span class="mastery-screen__trophy">🏆</span>
+      content += `
+        <div class="report-header animate-bounce-in">
+          <div class="report-header__icon">🏆</div>
           <h1>Mastery Achieved!</h1>
-          <p>You have worked through every question in both the unseen and failed queues.
-             Your consistency is exactly what separates WAEC candidates who pass from those who don't.</p>
-          <div class="stats-grid" style="max-width:500px;margin:0 auto 32px">
-            <div class="stat-card stat--accent">
-              <div class="stat-card__value">${summary.stats.mastered}</div>
-              <div class="stat-card__label">Mastered</div>
-            </div>
-            <div class="stat-card stat--fail">
-              <div class="stat-card__value">${summary.stats.failed_total}</div>
-              <div class="stat-card__label">Total Attempts</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-            <button class="btn btn--primary btn--lg" onclick="UI.restartSession()">🔄 Study Again</button>
-            <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
-          </div>
+          <p>Every single question has been conquered. You are ready!</p>
         </div>
       `;
     } else {
-      const failed = summary.failed_obj + summary.failed_theory;
-      const unseen = summary.unseen_obj + summary.unseen_theory;
-      wrapper.innerHTML = `
-        <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
-          <div style="font-size:3.5rem;margin-bottom:16px">🎯</div>
-          <h2 style="margin-bottom:8px">Batch Complete!</h2>
-          <p style="margin-bottom:28px">Good work grinding through that batch. Keep the momentum going.</p>
-          <div class="stats-grid" style="max-width:500px;margin:0 auto 32px">
-            <div class="stat-card stat--fail">
-              <div class="stat-card__value">${failed}</div>
-              <div class="stat-card__label">In Failed Queue</div>
-            </div>
-            <div class="stat-card stat--neutral">
-              <div class="stat-card__value">${unseen}</div>
-              <div class="stat-card__label">Unseen Left</div>
-            </div>
-            <div class="stat-card stat--accent">
-              <div class="stat-card__value">${summary.stats.mastered}</div>
-              <div class="stat-card__label">Mastered</div>
-            </div>
-          </div>
-          <button class="btn btn--primary btn--lg" onclick="UI.nextBatch()">Next Batch &rarr;</button>
-          <br><br>
-          <a href="/" class="btn btn--ghost">← Dashboard</a>
+      content += `
+        <div class="report-header animate-bounce-in">
+          <div class="report-header__icon">🎯</div>
+          <h1>Batch Complete!</h1>
+          <p>Reflection is the key to mastery. Review your performance below.</p>
         </div>
       `;
     }
+
+    content += `
+      <div class="report-card card animate-fade-in">
+        <div class="report-stats-grid">
+          <div class="report-stat">
+            <div class="report-stat__label">Batch Score</div>
+            <div class="report-stat__value ${correctCount === totalCount ? 'text-pass' : ''}">${correctCount} / ${totalCount}</div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat__label">Time Taken</div>
+            <div class="report-stat__value">${timeStr}</div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat__label">Mastered (Global)</div>
+            <div class="report-stat__value text-accent">${summary.stats.mastered}</div>
+          </div>
+        </div>
+
+        <div class="report-section">
+          <div class="report-section__title">Topic Performance</div>
+          <div class="topic-breakdown">
+            ${Object.entries(topicStats).map(([topic, stats]) => `
+              <div class="topic-row">
+                <span class="topic-name">${escapeHtml(topic)}</span>
+                <div class="topic-bar-wrapper">
+                  <div class="topic-bar">
+                    <div class="topic-bar__fill" style="width: ${(stats.correct / stats.total) * 100}%"></div>
+                  </div>
+                  <span class="topic-score">${stats.correct}/${stats.total}</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        ${failedQuestions.length > 0 ? `
+          <div class="report-section">
+            <div class="report-section__title">Review Failed Questions (${failedQuestions.length})</div>
+            <div class="failed-review-list">
+              ${failedQuestions.map(q => {
+                let explanationHtml = '';
+                if (q._type === 'obj') {
+                  explanationHtml = formatText(q.explanation || 'No explanation provided.');
+                } else {
+                  explanationHtml = q.sub_questions.map(sq => `
+                    <div class="sq-review">
+                      <strong>${escapeHtml(sq.label)}:</strong>
+                      <div class="rubric-text">${formatText(sq.rubric)}</div>
+                    </div>
+                  `).join('');
+                }
+
+                return `
+                  <div class="failed-item">
+                    <div class="failed-item__q">${formatText(q.question || q.main_context)}</div>
+                    <div class="failed-item__explanation">
+                      <div class="explanation-label">📖 Review & Explanation</div>
+                      <div class="explanation-content">${explanationHtml}</div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : `
+          <div class="report-section" style="text-align:center; padding: 20px;">
+            <div class="text-pass" style="font-size: 1.2rem; font-weight: 700;">✨ Perfect Batch! No mistakes to review.</div>
+          </div>
+        `}
+
+        <div class="report-actions">
+          ${allDone ? `
+            <button class="btn btn--primary btn--lg" onclick="UI.restartSession()">🔄 Study Again</button>
+          ` : `
+            <button class="btn btn--primary btn--lg" onclick="UI.nextBatch()">Next Batch &rarr;</button>
+          `}
+          <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
+        </div>
+      </div>
+    `;
+
+    wrapper.innerHTML = content;
   },
 
   async nextBatch() {
