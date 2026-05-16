@@ -6,6 +6,7 @@
 import Storage from './storage.js';
 import Engine from './engine.js';
 import APP_CONFIG from './config.js';
+import AchievementEngine from './achievements.js';
 
 // ---- Toast system ----
 function showToast(msg, type = 'info', duration = 3500) {
@@ -28,6 +29,8 @@ function updateNavStats() {
   const failedEl = document.getElementById('nav-failed');
   const unseenEl = document.getElementById('nav-unseen');
   const masteredEl = document.getElementById('nav-mastered');
+  const streakEl = document.getElementById('nav-streak');
+
   if (failedEl) {
     const failed = Storage.getFailedObj().length + Storage.getFailedTheory().length;
     failedEl.textContent = failed;
@@ -38,6 +41,9 @@ function updateNavStats() {
   }
   if (masteredEl) {
     masteredEl.textContent = Storage.getStats().mastered;
+  }
+  if (streakEl) {
+    streakEl.textContent = Storage.getStreak();
   }
 }
 
@@ -251,6 +257,7 @@ const UI = {
   init(batch) {
     this.batch = batch;
     this.currentIdx = Storage.loadIdx();
+    Storage.updateStreak();
     this.renderCurrent();
     this.updateProgress();
     updateNavStats();
@@ -341,6 +348,11 @@ const UI = {
     // Record result
     const q = this.batch[this.currentIdx];
     Engine.markObjResult(q, passed);
+
+    // Check for comeback
+    const isComeback = q._from_failed && passed;
+    this.checkAchievements({ isComeback });
+
     updateNavStats();
 
     // Show next button
@@ -446,6 +458,7 @@ const UI = {
         : `Below ${Math.round(APP_CONFIG.PASS_THRESHOLD * 100)}% — this question will repeat next batch.`;
     }
 
+    this.checkAchievements({ isComeback: q._from_failed && passed });
     updateNavStats();
     this._gradingActive = false;
 
@@ -477,6 +490,13 @@ const UI = {
   showBatchComplete() {
     const wrapper = document.getElementById('question-wrapper');
     if (!wrapper) return;
+
+    // Check for perfect batch
+    const allPassed = this.batch.every(q => q._passed === true);
+    if (allPassed) {
+      this.checkAchievements({ perfectBatchSize: this.batch.length });
+    }
+
     Storage.clearBatch();
 
     const mode = Storage.getMode();
@@ -549,6 +569,39 @@ const UI = {
     Storage.saveBatch(batch);
     Storage.saveIdx(0);
     this.init(batch);
+  },
+
+  checkAchievements(sessionFlags = {}) {
+    const globalStats = Storage.getGlobalStats();
+    const streak = Storage.getStreak();
+    const earnedIds = Storage.getAchievements();
+    const now = new Date();
+    const hour = now.getHours();
+    const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+
+    const currentSub = Storage.getSubject();
+    const subStats = Storage.getStats(currentSub);
+
+    const checkStats = {
+      streak: streak,
+      mastered_obj: globalStats.mastered_obj,
+      mastered_theory: globalStats.mastered_theory,
+      subject_done: Storage.isAllDone('both'),
+      isEarlyBird: hour < 8,
+      isNightOwl: hour >= 22,
+      isWeekend: day === 0 || day === 6,
+      perfectBatchSize: sessionFlags.perfectBatchSize || 0,
+      isComeback: sessionFlags.isComeback || false,
+      subject_mastered_count: subStats.mastered,
+      subjects_started: Storage.getSubjectsStartedCount(),
+      isMultiplayer: Storage.isMultiplayerDone()
+    };
+
+    const newlyUnlocked = AchievementEngine.checkNew(checkStats, earnedIds);
+    newlyUnlocked.forEach(ach => {
+      Storage.saveAchievement(ach.id);
+      showToast(`🏆 Achievement Unlocked: ${ach.title}!`, 'success', 5000);
+    });
   },
 
   restartSession() {

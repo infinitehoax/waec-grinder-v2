@@ -84,10 +84,12 @@ const Engine = {
    * @param {boolean} passed
    */
   markObjResult(q, passed) {
+    q._passed = passed;
     if (passed) {
       // Passed: remove from failed if it was there, do not re-add
       Storage.removeFailedObj(q.id);
       Storage.incrementMastered(1);
+      Storage.incrementGlobalStat('mastered_obj', 1);
     } else {
       // Failed: push to failed queue
       Storage.pushFailedObj(q);
@@ -104,9 +106,11 @@ const Engine = {
   markTheoryResult(q, totalScore, maxScore) {
     const pct = maxScore > 0 ? totalScore / maxScore : 0;
     const passed = pct >= APP_CONFIG.PASS_THRESHOLD;
+    q._passed = passed;
     if (passed) {
       Storage.removeFailedTheory(q.id);
       Storage.incrementMastered(1);
+      Storage.incrementGlobalStat('mastered_theory', 1);
     } else {
       Storage.pushFailedTheory(q);
       Storage.incrementFailed(1);

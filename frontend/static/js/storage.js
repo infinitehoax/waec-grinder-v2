@@ -8,6 +8,12 @@ const KEYS = {
   CURRENT_BATCH:   'wg_current_batch',
   CURRENT_IDX:     'wg_current_idx',
   STUDY_MODE:      'wg_study_mode',
+  STREAK:          'wg_streak',
+  LAST_STUDY_DATE: 'wg_last_study_date',
+  GLOBAL_STATS:    'wg_global_stats',
+  ACHIEVEMENTS:    'wg_achievements',
+  SUBJECTS_STARTED: 'wg_subjects_started',
+  MULTIPLAYER_DONE: 'wg_multiplayer_done',
 };
 
 const SUB_KEYS = {
@@ -214,6 +220,83 @@ const Storage = {
       failed_theory: this.getFailedTheory().length,
       stats: this.getStats(),
     };
+  },
+
+  // ---- Gamification ----
+  getStreak() {
+    const s = this._get(KEYS.STREAK);
+    return (s !== null && !isNaN(s)) ? Number(s) : 0;
+  },
+
+  updateStreak() {
+    const today = new Date().toDateString();
+    const lastDate = this._get(KEYS.LAST_STUDY_DATE);
+
+    // Already updated today
+    if (lastDate === today) return this.getStreak();
+
+    let streak = this.getStreak();
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toDateString();
+
+    if (lastDate === yesterdayStr) {
+      // Continued streak from yesterday
+      streak += 1;
+    } else {
+      // First time ever or broke the chain
+      streak = 1;
+    }
+
+    this._set(KEYS.STREAK, streak);
+    this._set(KEYS.LAST_STUDY_DATE, today);
+    return streak;
+  },
+
+  getGlobalStats() {
+    return this._get(KEYS.GLOBAL_STATS) || { mastered_obj: 0, mastered_theory: 0 };
+  },
+
+  incrementGlobalStat(key, count = 1) {
+    const stats = this.getGlobalStats();
+    stats[key] = (stats[key] || 0) + count;
+    this._set(KEYS.GLOBAL_STATS, stats);
+    return stats;
+  },
+
+  trackSubjectStarted(subject) {
+    let subjects = this._get(KEYS.SUBJECTS_STARTED) || [];
+    if (!subjects.includes(subject)) {
+      subjects.push(subject);
+      this._set(KEYS.SUBJECTS_STARTED, subjects);
+    }
+    return subjects.length;
+  },
+
+  getSubjectsStartedCount() {
+    return (this._get(KEYS.SUBJECTS_STARTED) || []).length;
+  },
+
+  setMultiplayerDone() {
+    this._set(KEYS.MULTIPLAYER_DONE, true);
+  },
+
+  isMultiplayerDone() {
+    return !!this._get(KEYS.MULTIPLAYER_DONE);
+  },
+
+  getAchievements() {
+    return this._get(KEYS.ACHIEVEMENTS) || [];
+  },
+
+  saveAchievement(id) {
+    const achievements = this.getAchievements();
+    if (!achievements.includes(id)) {
+      achievements.push(id);
+      this._set(KEYS.ACHIEVEMENTS, achievements);
+      return true;
+    }
+    return false;
   },
 };
 
