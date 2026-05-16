@@ -39,6 +39,16 @@
     </div>
   </div>
 
+  <!-- Weakest Topics -->
+  <div id="weak-topics-section" style="margin-bottom: 32px; display: none;">
+    <h2 style="font-size: 1.1rem; margin-bottom: 16px; color: var(--text-secondary); font-weight: 500;">
+      Your Weakest Areas
+    </h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;" id="weak-topics-grid">
+      <!-- Generated via JS -->
+    </div>
+  </div>
+
   <!-- Mode Selection + Subject display -->
   <div style="margin-bottom: 32px;" id="start-section">
     <h2 style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-secondary); font-weight: 500;">
@@ -72,17 +82,33 @@
       </div>
     </div>
 
-    <!-- Batch size selector -->
-    <div class="card" style="margin-bottom: 20px;">
-      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
-        <div>
-          <div style="font-weight:600; margin-bottom:4px;">Batch Size</div>
-          <div style="font-size:0.85rem; color:var(--text-secondary);">Questions per round. Smaller = less overwhelming.</div>
+    <!-- Batch size selector / Timed session -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 20px;">
+      <div class="card" id="batch-config-card">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-weight:600; margin-bottom:4px;">Batch Size</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Questions per round.</div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn btn--ghost batch-size-btn" data-size="3">3</button>
+            <button class="btn btn--ghost batch-size-btn active-size" data-size="5">5</button>
+            <button class="btn btn--ghost batch-size-btn" data-size="10">10</button>
+          </div>
         </div>
-        <div style="display:flex; gap:8px;">
-          <button class="btn btn--ghost batch-size-btn" data-size="3">3</button>
-          <button class="btn btn--ghost batch-size-btn active-size" data-size="5">5</button>
-          <button class="btn btn--ghost batch-size-btn" data-size="10">10</button>
+      </div>
+
+      <div class="card" id="timed-config-card" style="border-color: var(--border-subtle); opacity: 0.7;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-weight:600; margin-bottom:4px;">Timed Session</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Grind for a set duration.</div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn btn--ghost timed-btn" data-time="5">5m</button>
+            <button class="btn btn--ghost timed-btn" data-time="10">10m</button>
+            <button class="btn btn--ghost timed-btn" data-time="15">15m</button>
+          </div>
         </div>
       </div>
     </div>
@@ -163,6 +189,7 @@
 
   let selectedMode = 'both';
   let selectedBatchSize = 5;
+  let selectedTimeLimit = null; // in minutes
   let allQuestions = null;
   let selectedSubjectData = null;
 
@@ -172,6 +199,7 @@
   window.resumeSession = resumeSession;
   window.clearSession = clearSession;
   window.updateSubjectSelection = updateSubjectSelection;
+  window.startWeaknessSession = startWeaknessSession;
 
   async function init() {
     // Update nav stats immediately from local storage
@@ -223,6 +251,54 @@
     if (navFailed) navFailed.textContent = summary.failed_obj + summary.failed_theory;
     if (navUnseen) navUnseen.textContent = summary.unseen_obj + summary.unseen_theory;
     if (navStreak) navStreak.textContent = Storage.getStreak();
+
+    updateWeakTopics();
+  }
+
+  function updateWeakTopics() {
+    const section = document.getElementById('weak-topics-section');
+    const grid = document.getElementById('weak-topics-grid');
+    if (!section || !grid) return;
+
+    const stats = Storage.getStats();
+    if (!stats.topic_stats || Object.keys(stats.topic_stats).length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+
+    const topics = Object.entries(stats.topic_stats)
+      .map(([name, s]) => ({
+        name,
+        successRate: s.total > 0 ? (s.correct / s.total) * 100 : 0,
+        total: s.total
+      }))
+      .filter(t => t.total > 0)
+      .sort((a, b) => a.successRate - b.successRate)
+      .slice(0, 3);
+
+    if (topics.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+
+    section.style.display = 'block';
+    grid.innerHTML = topics.map(t => {
+      const escapedTopic = t.name.replace(/'/g, "\\'");
+      return `
+      <div class="card" style="border-left: 4px solid ${t.successRate < 50 ? 'var(--fail)' : 'var(--accent)'};">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+          <div>
+            <div style="font-weight:700; margin-bottom:2px;">${t.name}</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">${Math.round(t.successRate)}% Success rate</div>
+          </div>
+          <button class="btn btn--ghost btn--sm" onclick="startWeaknessSession('${escapedTopic}')">Focus ➔</button>
+        </div>
+        <div style="height:6px; background:var(--border-subtle); border-radius:3px; overflow:hidden;">
+          <div style="height:100%; width:${t.successRate}%; background:${t.successRate < 50 ? 'var(--fail)' : 'var(--accent)'}; transition:width 0.5s ease-out;"></div>
+        </div>
+      </div>
+    `;
+    }).join('');
   }
 
   function populateSubjects() {
@@ -303,8 +379,15 @@
 
     // Ensure we start with a fresh batch for the new session
     Storage.clearBatch();
+    Storage.clearTimer();
 
-    APP_CONFIG.BATCH_SIZE = selectedBatchSize;
+    if (selectedTimeLimit) {
+      Storage.setTimeLimit(selectedTimeLimit);
+    } else {
+      APP_CONFIG.BATCH_SIZE = selectedBatchSize;
+    }
+    Storage.setFocusTopic(null);
+
     Storage.initSession(selectedSubjectData, selectedMode);
     Storage.trackSubjectStarted(selectedSubjectData.subject);
 
@@ -322,6 +405,14 @@
     window.location.href = `/study?mode=${mode}`;
   }
 
+  function startWeaknessSession(topic) {
+    if (!selectedSubjectData) return;
+    Storage.clearBatch();
+    Storage.setFocusTopic(topic);
+    Storage.initSession(selectedSubjectData, 'both');
+    window.location.href = '/study?mode=both';
+  }
+
   function clearSession() {
     if (confirm(`This will clear all your progress for "${selectedSubjectData.subject}". Are you sure?`)) {
       Storage.clearSubjectProgress(selectedSubjectData.subject);
@@ -333,10 +424,33 @@
   // Batch size buttons
   document.querySelectorAll('.batch-size-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      selectedTimeLimit = null;
+      document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+      document.getElementById('timed-config-card').style.borderColor = 'var(--border-subtle)';
+      document.getElementById('timed-config-card').style.opacity = '0.7';
+
       document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
       btn.classList.add('active-size');
       selectedBatchSize = parseInt(btn.dataset.size);
       APP_CONFIG.BATCH_SIZE = selectedBatchSize;
+      document.getElementById('batch-config-card').style.borderColor = 'var(--accent)';
+      document.getElementById('batch-config-card').style.opacity = '1';
+    });
+  });
+
+  // Timed session buttons
+  document.querySelectorAll('.timed-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedBatchSize = 5; // default back
+      document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+      document.getElementById('batch-config-card').style.borderColor = 'var(--border-subtle)';
+      document.getElementById('batch-config-card').style.opacity = '0.7';
+
+      document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+      btn.classList.add('active-size');
+      selectedTimeLimit = parseInt(btn.dataset.time);
+      document.getElementById('timed-config-card').style.borderColor = 'var(--accent)';
+      document.getElementById('timed-config-card').style.opacity = '1';
     });
   });
 
