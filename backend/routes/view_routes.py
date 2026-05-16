@@ -26,3 +26,8 @@ def multiplayer_lobby():
 @view_bp.route('/multiplayer/study')
 def multiplayer_study():
     return render_template('multiplayer_study.html')
+
+
+@view_bp.route('/achievements')
+def achievements():
+    return render_template('achievements.html')
