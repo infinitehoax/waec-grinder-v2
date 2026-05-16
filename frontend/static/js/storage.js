@@ -10,6 +10,7 @@ const KEYS = {
   STUDY_MODE:      'wg_study_mode',
   TIME_LIMIT:      'wg_time_limit', // in minutes
   TIMER_END:       'wg_timer_end',   // timestamp
+  BATCH_SIZE:      'wg_batch_size',
   FOCUS_TOPIC:     'wg_focus_topic',
 };
 
@@ -108,6 +109,8 @@ const Storage = {
 
   getTimeLimit() { return this._get(KEYS.TIME_LIMIT); },
   setTimeLimit(v) { this._set(KEYS.TIME_LIMIT, v); },
+  getBatchSize() { return this._get(KEYS.BATCH_SIZE); },
+  setBatchSize(v) { this._set(KEYS.BATCH_SIZE, v); },
   getTimerEnd() { return this._get(KEYS.TIMER_END); },
   setTimerEnd(v) { this._set(KEYS.TIMER_END, v); },
   clearTimer() {
