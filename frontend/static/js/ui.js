@@ -49,6 +49,7 @@ function renderObjQuestion(q, idx, total) {
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
         <span class="badge badge--accent">OBJ</span>
+        ${q.topic ? `<span class="badge badge--neutral">${escapeHtml(q.topic)}</span>` : ''}
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
       </div>
       <div class="question-text">${formatText(q.question)}</div>
@@ -94,6 +95,7 @@ function renderTheoryQuestion(q, idx, total) {
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
         <span class="badge badge--neutral">THEORY</span>
+        ${q.topic ? `<span class="badge badge--neutral">${escapeHtml(q.topic)}</span>` : ''}
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
         <span class="badge badge--accent">${totalMaxMarks} marks</span>
       </div>

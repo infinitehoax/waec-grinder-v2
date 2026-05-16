@@ -10,6 +10,7 @@ const KEYS = {
   STUDY_MODE:      'wg_study_mode',
   TIME_LIMIT:      'wg_time_limit', // in minutes
   TIMER_END:       'wg_timer_end',   // timestamp
+  FOCUS_TOPIC:     'wg_focus_topic',
 };
 
 const SUB_KEYS = {
@@ -61,7 +62,7 @@ const Storage = {
     if (!this._getScoped(subject, SUB_KEYS.FAILED_THEORY)) this._setScoped(subject, SUB_KEYS.FAILED_THEORY, []);
 
     if (!this._getScoped(subject, SUB_KEYS.STATS)) {
-      this._setScoped(subject, SUB_KEYS.STATS, { mastered: 0, failed_total: 0, sessions: 0 });
+      this._setScoped(subject, SUB_KEYS.STATS, { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} });
     }
   },
 
@@ -103,7 +104,7 @@ const Storage = {
 
   getMode()    { return this._get(KEYS.STUDY_MODE) || 'both'; },
   getSubject() { return this._get(KEYS.CURRENT_SUBJECT) || 'Unknown Subject'; },
-  getStats(sub)   { return this._getScoped(sub || this.getSubject(), SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0 }; },
+  getStats(sub)   { return this._getScoped(sub || this.getSubject(), SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} }; },
 
   getTimeLimit() { return this._get(KEYS.TIME_LIMIT); },
   setTimeLimit(v) { this._set(KEYS.TIME_LIMIT, v); },
@@ -174,6 +175,25 @@ const Storage = {
     const s = this.getStats(sub);
     s.failed_total += count;
     this._setScoped(sub, SUB_KEYS.STATS, s);
+  },
+
+  updateTopicStats(topic, passed) {
+    if (!topic) return;
+    const sub = this.getSubject();
+    const s = this.getStats(sub);
+    if (!s.topic_stats) s.topic_stats = {};
+    if (!s.topic_stats[topic]) s.topic_stats[topic] = { correct: 0, total: 0 };
+    s.topic_stats[topic].total += 1;
+    if (passed) s.topic_stats[topic].correct += 1;
+    this._setScoped(sub, SUB_KEYS.STATS, s);
+  },
+
+  // ---- Focus Topic (Weakness sessions) ----
+  setFocusTopic(topic) {
+    this._set(KEYS.FOCUS_TOPIC, topic);
+  },
+  getFocusTopic() {
+    return this._get(KEYS.FOCUS_TOPIC) || null;
   },
 
   // ---- Batch state ----
