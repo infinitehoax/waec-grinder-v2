@@ -87,16 +87,24 @@ Now grade the student's answer:"""
 
         raw_text = raw_content.strip()
 
-        # More robust JSON extraction using regex
-        json_match = re.search(r'\{.*\}', raw_text, re.DOTALL)
-        if json_match:
-            raw_text = json_match.group(0)
+        # Try to find JSON in markdown fences first
+        fence_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', raw_text, re.DOTALL)
+        if fence_match:
+            raw_text = fence_match.group(1)
         else:
-            # Fallback to stripping fences if regex fails (though re.DOTALL {.*} should be very broad)
-            if raw_text.startswith("```"):
-                raw_text = raw_text.strip("`").strip()
-                if raw_text.startswith("json"):
-                    raw_text = raw_text[4:].strip()
+            # Fallback: Find the outermost braces
+            # We use a greedy match for the content between the first { and last }
+            # to support nested objects, but we must ensure we actually find braces.
+            start_idx = raw_text.find('{')
+            end_idx = raw_text.rfind('}')
+            if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
+                raw_text = raw_text[start_idx:end_idx+1]
+            else:
+                # Fallback to stripping fences if above fails
+                if raw_text.startswith("```"):
+                    raw_text = raw_text.strip("`").strip()
+                    if raw_text.startswith("json"):
+                        raw_text = raw_text[4:].strip()
 
         try:
             result = json.loads(raw_text)

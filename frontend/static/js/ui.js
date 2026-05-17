@@ -192,7 +192,8 @@ function formatText(str) {
     } catch (e) {
       latexBlocks.push(`<span class="error">${escapeHtml(match)}</span>`);
     }
-    return id;
+    // Wrap block IDs in div so marked.js ignores putting <p> tags around it
+    return `\n<div class="math-block-wrapper">${id}</div>\n`;
   });
 
   processed = processed.replace(/\$([\s\S]+?)\$/g, (match, tex) => {
@@ -518,7 +519,24 @@ const UI = {
       if (q._type === 'obj') Storage.pushUnseenObj(q);
       else Storage.pushUnseenTheory(q);
     }
-    this.nextQuestion();
+    // Remove it from the current batch so it doesn't affect grading/stats
+    this.batch.splice(this.currentIdx, 1);
+    Storage.saveBatch(this.batch);
+
+    // If we were at the last question and skipped it, we might be out of bounds now
+    if (this.currentIdx >= this.batch.length && this.batch.length > 0) {
+        // We can't stay at this index if it doesn't exist anymore
+        // Unless it was the last one, in which case we should probably finish the batch
+        this.showBatchComplete();
+    } else if (this.batch.length === 0) {
+        this.showBatchComplete();
+    } else {
+        // Do NOT increment currentIdx, just re-render current index
+        this.renderCurrent();
+        this.updateProgress();
+        updateNavStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   },
 
   nextQuestion() {
@@ -554,8 +572,7 @@ const UI = {
                     </div>
                 </div>
                 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-                    <button class="btn btn--primary btn--lg" onclick="UI.nextBatch()">🔄 Another Round</button>
-                    <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
+                    <button class="btn btn--primary btn--lg" onclick="window.location.href='/'">Finish Review</button>
                 </div>
             </div>
         `;

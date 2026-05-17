@@ -37,6 +37,12 @@ const lobby = {
         SocketClient.on('playerLeft', (data) => {
             this.currentRoomState = data.room_state;
             this.updatePlayerList(data.room_state);
+
+            // Check if I am the new host
+            const isHost = (data.room_state.host_id === SocketClient.player_uuid);
+            if (isHost && document.getElementById('host-controls').classList.contains('hidden')) {
+                this.showWaitingRoom(this.currentRoomId, this.currentRoomState, true);
+            }
         });
 
         SocketClient.on('newMessage', (data) => {

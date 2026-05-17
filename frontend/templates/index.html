@@ -529,6 +529,11 @@
       document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
       document.getElementById('batch-config-card').style.borderColor = 'var(--accent)';
       document.getElementById('batch-config-card').style.opacity = '1';
+    } else {
+      // Revert to default 5 if cleared
+      selectedBatchSize = 5;
+      document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+      document.querySelector('.batch-size-btn[data-size="5"]').classList.add('active-size');
     }
   });
 
@@ -562,6 +567,7 @@
       document.getElementById('timed-config-card').style.opacity = '1';
     } else {
       selectedTimeLimit = null;
+      document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
       document.getElementById('timed-config-card').style.borderColor = 'var(--border-subtle)';
       document.getElementById('timed-config-card').style.opacity = '0.7';
     }

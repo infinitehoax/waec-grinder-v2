@@ -3,6 +3,9 @@ from flask_socketio import join_room, leave_room, emit
 from backend.app import socketio
 from backend.services import room_service
 
+# Add a global mapping at the top of the file:
+sid_to_player = {}
+
 @socketio.on('create_room')
 def handle_create_room(data):
     host_name = data.get('name', 'Player 1')
@@ -13,6 +16,8 @@ def handle_create_room(data):
         return emit('error', {'message': 'Missing player_uuid'})
 
     room_id = room_service.create_room(player_uuid, request.sid, host_name, mode, subject)
+    # Register the sid:
+    sid_to_player[request.sid] = {'room_id': room_id, 'player_uuid': player_uuid}
     join_room(room_id)
     emit('room_created', {'room_id': room_id, 'room_state': room_service.get_room_state(room_id)})
 
@@ -27,6 +32,8 @@ def handle_join_room(data):
     success, result = room_service.join_room(room_id, player_uuid, request.sid, player_name)
 
     if success:
+        # Register the sid:
+        sid_to_player[request.sid] = {'room_id': room_id, 'player_uuid': player_uuid}
         join_room(room_id)
         emit('room_joined', {'room_id': room_id, 'room_state': result})
         emit('player_joined', {'player_id': player_uuid, 'player_name': player_name, 'room_state': result}, to=room_id)
@@ -81,6 +88,8 @@ def handle_send_message(data):
 def handle_leave_room(data):
     room_id = data.get('room_id')
     player_uuid = data.get('player_uuid')
+    if request.sid in sid_to_player:
+        del sid_to_player[request.sid]
     if room_service.leave_room(room_id, player_uuid):
         leave_room(room_id)
         state = room_service.get_room_state(room_id)
@@ -99,6 +108,7 @@ def handle_leave_room(data):
 
 @socketio.on('disconnect')
 def handle_disconnect():
-    # We don't remove players on disconnect anymore to allow re-joining
-    # But we could broadcast that they are "away" if we wanted.
-    pass
+    player_info = sid_to_player.get(request.sid)
+    if player_info:
+        # Force them to leave the room so the game can finish for others
+        handle_leave_room(player_info)

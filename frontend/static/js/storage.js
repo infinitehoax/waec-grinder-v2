@@ -175,7 +175,8 @@ const Storage = {
   getStats(sub)   {
     if (sub) return this._getScoped(sub, SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
 
-    const subjects = this.getSubjects();
+    const subjects = this.getSubjects().filter(s => s !== null);
+    if (subjects.length === 0) return { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
     if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
 
     // Aggregate stats for multiple subjects
