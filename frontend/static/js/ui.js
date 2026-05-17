@@ -377,8 +377,8 @@ const UI = {
       const expBlock = document.getElementById('explanation-block');
       if (expBlock) {
         expBlock.classList.add('visible');
-        expBlock.querySelector('.explanation-block__text').textContent =
-          explanation.replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+        expBlock.querySelector('.explanation-block__text').innerHTML =
+          formatText(explanation.replace(/&#39;/g, "'").replace(/&quot;/g, '"'));
       }
     }
 
@@ -449,7 +449,7 @@ const UI = {
           block.classList.remove('grading');
         }
         if (fScore) fScore.textContent = `${result.score}/${result.max_marks}`;
-        if (fText) fText.textContent = result.feedback;
+        if (fText) fText.innerHTML = formatText(result.feedback);
         if (feedback) {
           feedback.classList.add('visible', subPassed ? 'pass' : 'fail');
         }
