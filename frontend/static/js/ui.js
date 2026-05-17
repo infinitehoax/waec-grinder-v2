@@ -395,6 +395,9 @@ const UI = {
 
     updateNavStats();
 
+    // Pause timer for explanation
+    this.pauseTimer();
+
     // Show next button
     const nextBtn = document.getElementById('next-btn');
     if (nextBtn) nextBtn.style.display = 'flex';
@@ -513,6 +516,7 @@ const UI = {
   },
 
   skipQuestion() {
+    this.resumeTimer();
     const q = this.batch[this.currentIdx];
     // Push skipped unseen questions back to unseen queue (don't count as failed)
     if (!q._from_failed) {
@@ -540,6 +544,7 @@ const UI = {
   },
 
   nextQuestion() {
+    this.resumeTimer();
     this.currentIdx++;
     Storage.saveIdx(this.currentIdx);
     this.renderCurrent();
@@ -794,12 +799,44 @@ const UI = {
     });
   },
 
+  pauseTimer() {
+    if (this._timerInterval) {
+      const endTime = Storage.getTimerEnd();
+      const remaining = endTime - Date.now();
+      if (remaining > 0) {
+        Storage.setTimerRemaining(remaining);
+      }
+      clearInterval(this._timerInterval);
+      this._timerInterval = null;
+    }
+  },
+
+  resumeTimer() {
+    const remaining = Storage.getTimerRemaining();
+    if (remaining !== null) {
+      const newEndTime = Date.now() + remaining;
+      Storage.setTimerEnd(newEndTime);
+      Storage.clearTimerRemaining();
+      this.startTimer();
+    }
+  },
+
   startTimer(minutes) {
     const display = document.getElementById('timer-display');
     const valEl = document.getElementById('timer-val');
     if (!display || !valEl) return;
 
     display.style.display = 'flex';
+
+    // Handle paused state
+    const remaining = Storage.getTimerRemaining();
+    if (remaining !== null) {
+      const m = Math.floor(remaining / 60000);
+      const s = Math.floor((remaining % 60000) / 1000);
+      valEl.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+      if (remaining < 30000) display.classList.add('low-time');
+      return;
+    }
 
     let endTime = Storage.getTimerEnd();
     if (!endTime) {
