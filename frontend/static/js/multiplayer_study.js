@@ -22,7 +22,6 @@ const multiplayer_study = {
             return;
         }
 
-        SocketClient.init();
         const myUuid = Storage.getPlayerUuid();
 
         // Restore score if re-joining
@@ -37,19 +36,21 @@ const multiplayer_study = {
             SocketClient.joinRoom(this.roomId, myName);
         };
 
-        if (SocketClient.socket && SocketClient.socket.connected) {
-            join();
-        }
-        SocketClient.on('connect', join);
+        SocketClient.onConnect = join;
 
-        SocketClient.on('playerJoined', (data) => {
-            console.log('Player joined room:', data.player_name);
+        SocketClient.onRoomJoined = (data) => {
             this.roomState = data.room_state;
             sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
             this.renderSidebar();
-        });
+        };
 
-        SocketClient.on('progressUpdated', (data) => {
+        SocketClient.onPlayerJoined = (data) => {
+            this.roomState = data.room_state;
+            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+            this.renderSidebar();
+        };
+
+        SocketClient.onProgressUpdated = (data) => {
             this.roomState = data.room_state;
             sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
 
@@ -62,24 +63,25 @@ const multiplayer_study = {
             if (this.roomState.status === 'finished') {
                 this.showFinalScoreboard();
             }
-        });
+        };
 
-        SocketClient.on('playerLeft', (data) => {
+        SocketClient.onPlayerLeft = (data) => {
             this.roomState = data.room_state;
             sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
             this.renderSidebar();
-        });
+        };
 
-        SocketClient.on('newMessage', (data) => {
+        SocketClient.onMessage = (data) => {
             this.appendMessage(data);
-        });
+        };
 
-        SocketClient.on('gameFinished', (data) => {
-            console.log('gameFinished event received');
+        SocketClient.onGameFinished = (data) => {
             this.roomState = data.room_state;
             sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
             this.showFinalScoreboard();
-        });
+        };
+
+        SocketClient.connect();
 
         // Initialize UI with room questions
         const questions = this.roomState.questions;

@@ -31,7 +31,8 @@ async def run():
                 print(f"CONSOLE: {msg.text}")
 
             # Player 1 (Host)
-            page1 = await browser.new_page()
+            context1 = await browser.new_context()
+            page1 = await context1.new_page()
             page1.on("console", handle_console)
             await page1.goto('http://localhost:5000/multiplayer')
             await page1.fill('#create-name', 'Alice')
@@ -42,7 +43,8 @@ async def run():
             print(f"Room created: {room_id}")
 
             # Player 2 (Guest)
-            page2 = await browser.new_page()
+            context2 = await browser.new_context()
+            page2 = await context2.new_page()
             page2.on("console", handle_console)
             await page2.goto('http://localhost:5000/multiplayer')
             await page2.fill('#join-name', 'Bob')

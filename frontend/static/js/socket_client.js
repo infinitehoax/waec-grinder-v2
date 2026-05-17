@@ -17,12 +17,17 @@ class SocketClient {
         this.onProgressUpdated = null;
         this.onGameFinished = null;
         this.onMessage = null;
+        this.onConnect = null;
         this.onError = null;
     }
 
     connect() {
         if (this.socket) return;
         this.socket = io();
+
+        this.socket.on('connect', () => {
+            if (this.onConnect) this.onConnect();
+        });
 
         this.socket.on('room_created', (data) => {
             this.roomState = data.room_state;

@@ -12,7 +12,6 @@ const Lobby = {
     allQuestions: [],
     roomId: null,
     isHost: false,
-    randomize_questions: false,
     randomize_options: false,
 
     async init() {
@@ -81,14 +80,11 @@ const Lobby = {
         };
 
         socket.onGameStarted = (data) => {
-            // Save state to storage for the study page to pick up
-            Storage._set('multiplayer_room_id', this.roomId);
-            Storage._set('multiplayer_is_host', this.isHost);
-            Storage._set('multiplayer_questions', data.room_state.questions);
-            Storage._set('multiplayer_time_limit', data.room_state.time_limit);
+            // Save state to sessionStorage for the study page to pick up
+            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(data.room_state));
+            sessionStorage.setItem('wg_multiplayer_room_id', this.roomId);
 
             // Sync randomization flags to storage
-            Storage.setRandomized(data.room_state.randomize_questions || false);
             Storage.setRandomizedOptions(data.room_state.randomize_options || false);
 
             window.location.href = '/multiplayer/study';
@@ -110,6 +106,7 @@ const Lobby = {
         const subjects = Array.from(document.querySelectorAll('.subject-checkbox:checked')).map(cb => cb.value);
         if (subjects.length === 0) return showToast('Select at least one subject', 'error');
 
+        sessionStorage.setItem('wg_multiplayer_name', name);
         socket.createRoom(name, this.selectedMode, subjects);
     },
 
@@ -120,13 +117,14 @@ const Lobby = {
         if (!name) return showToast('Please enter your name', 'error');
         if (!roomId) return showToast('Please enter Room ID', 'error');
 
+        sessionStorage.setItem('wg_multiplayer_name', name);
         socket.joinRoom(roomId, name);
     },
 
     showWaitingRoom(state) {
         document.getElementById('lobby-setup').classList.add('hidden');
         document.getElementById('waiting-room').classList.remove('hidden');
-        document.getElementById('display-room-id').textContent = this.roomId;
+        document.getElementById('display-room-id').textContent = `ROOM ID: ${this.roomId}`;
 
         if (this.isHost) {
             document.getElementById('host-controls').classList.remove('hidden');
@@ -161,11 +159,12 @@ const Lobby = {
         }).join('');
     },
 
-    toggleSetting(key) {
+    toggleSetting(key, badgeId) {
         if (!this.isHost) return;
         this[key] = !this[key];
-        const badgeId = key === 'randomize_questions' ? 'random-q-badge' : 'random-o-badge';
         const badge = document.getElementById(badgeId);
+        if (!badge) return;
+
         if (this[key]) {
             badge.textContent = 'ON';
             badge.className = 'badge badge--accent';
@@ -184,7 +183,7 @@ const Lobby = {
             this.roomId,
             total,
             timeLimit,
-            this.randomize_questions,
+            true, // randomize_questions is now mandatory
             this.randomize_options
         );
     },

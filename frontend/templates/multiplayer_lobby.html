@@ -88,13 +88,9 @@
       </div>
 
       <!-- ADD THIS inside the host-controls div before the 'Start Competition' button -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto;">
-        <div class="card" style="padding: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="lobby.toggleSetting('randomize_questions')">
-            <span style="font-size:0.85rem; color:var(--text-primary);">Randomize Qs</span>
-            <div id="random-q-badge" class="badge badge--neutral">OFF</div>
-        </div>
-        <div class="card" style="padding: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="lobby.toggleSetting('randomize_options')">
-            <span style="font-size:0.85rem; color:var(--text-primary);">Randomize Opts</span>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <div class="card" style="padding: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="lobby.toggleSetting('randomize_options', 'random-o-badge')">
+            <span style="font-size:0.85rem; color:var(--text-primary);">Randomize Options</span>
             <div id="random-o-badge" class="badge badge--neutral">OFF</div>
         </div>
       </div>
