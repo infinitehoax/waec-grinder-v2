@@ -7,7 +7,7 @@ import os
 # Add the project root to sys.path to import backend modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from backend.services.llm_service import grade_sub_question, GradingError
+from backend.services.llm_service import grade_sub_question, explain_concept, GradingError
 
 class TestLLMGrading(unittest.TestCase):
 
@@ -158,6 +158,48 @@ class TestLLMGrading(unittest.TestCase):
 
         self.assertEqual(result['score'], 2)
         self.assertEqual(result['feedback'], "Use the formula {a+b}.")
+
+    @patch('backend.services.llm_service.Config')
+    @patch('backend.services.llm_service._http_session.post')
+    def test_explain_concept_obj(self, mock_post, mock_config):
+        mock_config.OPENROUTER_API_KEY = "test_key"
+
+        mock_response = MagicMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "choices": [{"message": {"content": "This is an explanation."}}]
+        }
+        mock_post.return_value = mock_response
+
+        question_data = {
+            "question": "What is 1+1?",
+            "options": {"A": "1", "B": "2"},
+            "correct_option": "B",
+            "explanation": "Math."
+        }
+
+        result = explain_concept(question_data)
+        self.assertEqual(result, "This is an explanation.")
+
+    @patch('backend.services.llm_service.Config')
+    @patch('backend.services.llm_service._http_session.post')
+    def test_explain_concept_theory(self, mock_post, mock_config):
+        mock_config.OPENROUTER_API_KEY = "test_key"
+
+        mock_response = MagicMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "choices": [{"message": {"content": "Theory explanation."}}]
+        }
+        mock_post.return_value = mock_response
+
+        question_data = {
+            "question": "Explain math.",
+            "rubric": "It is numbers."
+        }
+
+        result = explain_concept(question_data)
+        self.assertEqual(result, "Theory explanation.")
 
 if __name__ == '__main__':
     unittest.main()
