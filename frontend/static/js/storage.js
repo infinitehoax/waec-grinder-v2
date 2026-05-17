@@ -16,6 +16,7 @@ const KEYS = {
   MULTIPLAYER_DONE: 'wg_multiplayer_done',
   TIME_LIMIT:      'wg_time_limit', // in minutes
   TIMER_END:       'wg_timer_end',   // timestamp
+  TIMER_REMAINING: 'wg_timer_remaining', // remaining ms
   BATCH_SIZE:      'wg_batch_size',
   FOCUS_TOPIC:     'wg_focus_topic',
   RANDOMIZE:       'wg_randomize',
@@ -203,9 +204,13 @@ const Storage = {
   setBatchSize(v) { this._set(KEYS.BATCH_SIZE, v); },
   getTimerEnd() { return this._get(KEYS.TIMER_END); },
   setTimerEnd(v) { this._set(KEYS.TIMER_END, v); },
+  getTimerRemaining() { return this._get(KEYS.TIMER_REMAINING); },
+  setTimerRemaining(v) { this._set(KEYS.TIMER_REMAINING, v); },
+  clearTimerRemaining() { localStorage.removeItem(KEYS.TIMER_REMAINING); },
   clearTimer() {
     localStorage.removeItem(KEYS.TIME_LIMIT);
     localStorage.removeItem(KEYS.TIMER_END);
+    localStorage.removeItem(KEYS.TIMER_REMAINING);
   },
 
   getBatchStartTime() { return this._get(KEYS.BATCH_START_TIME); },
