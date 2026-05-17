@@ -579,8 +579,6 @@ const UI = {
         return;
     }
 
-    // Check for perfect batch
-    const allPassed = this.batch.every(q => q._passed === true);
     // Performance Calculations
     const answeredBatch = this.batch.slice(0, this.currentIdx);
     const correctCount = answeredBatch.filter(q => q._passed === true).length;
