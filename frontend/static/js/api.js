@@ -36,6 +36,21 @@ const API = {
     if (!res.ok) throw new Error(`Grading request failed (${res.status})`);
     return res.json();
   },
+
+  /**
+   * Fetches a simplified AI explanation for a question.
+   * @param {object} questionData
+   * @returns {Promise<{explanation: string}>}
+   */
+  async explainConcept(questionData) {
+    const res = await fetch(`${APP_CONFIG.API_BASE}/explain`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(questionData),
+    });
+    if (!res.ok) throw new Error(`Explanation request failed (${res.status})`);
+    return res.json();
+  },
 };
 
 export default API;

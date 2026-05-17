@@ -48,6 +48,22 @@
   <!-- Page Content -->
   {% block content %}{% endblock %}
 
+  <!-- AI Explanation Modal -->
+  <div id="explanation-modal" class="modal">
+    <div class="modal__content card animate-bounce-in">
+      <div class="modal__header">
+        <h3 class="modal__title">💡 AI Simplified Explanation</h3>
+        <button class="modal__close" onclick="UI.closeExplanationModal()">&times;</button>
+      </div>
+      <div class="modal__body" id="modal-explanation-body">
+        <!-- Content injected by JS -->
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--primary" onclick="UI.closeExplanationModal()">Got it, thanks!</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Container -->
   <div id="toast-container"></div>
 

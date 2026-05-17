@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from backend.services.data_service import load_questions
-from backend.services.llm_service import grade_sub_question, GradingError
+from backend.services.llm_service import grade_sub_question, explain_concept, GradingError
 from backend.config import Config
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
@@ -14,6 +14,25 @@ def get_questions():
         return jsonify(result["data"]), 200
     else:
         return jsonify({"error": result["error"]}), 500
+
+
+@api_bp.route('/explain', methods=['POST'])
+def explain():
+    """
+    Provides a simplified AI explanation for a question.
+    Expects JSON body with question details.
+    """
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No JSON body provided"}), 400
+
+    try:
+        explanation = explain_concept(data)
+        return jsonify({"explanation": explanation}), 200
+    except GradingError as e:
+        return jsonify({"error": str(e)}), 500
+    except Exception as e:
+        return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500
 
 
 @api_bp.route('/grade', methods=['POST'])
