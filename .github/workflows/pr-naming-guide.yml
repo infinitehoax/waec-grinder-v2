@@ -1,0 +1,43 @@
+name: PR Naming Guide
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  post-guide:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Post Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = `### 📚 Release Naming Convention
+            To ensure our auto-generated release notes are organized correctly, please ensure your commits follow these prefixes:
+
+            #### 🚀 For Features:
+            * \`feat:\` (e.g., \`feat: added AI caching for faster theory grading\`)
+            * \`add:\` (e.g., \`add: new math rendering support\`)
+            * \`New:\` (e.g., \`New: multiplayer mode lobby\`)
+
+            #### 🐛 For Bugs:
+            * \`fix:\` (e.g., \`fix: resolved issue where failed queue duplicated questions\`)
+            * \`bug:\` (e.g., \`bug: corrected syntax error in JSON loader\`)
+            * \`patch:\` (e.g., \`patch: fixed timer not resetting\`)
+
+            #### 📝 For Other/Maintenance:
+            * \`docs:\` (e.g., \`docs: updated README with new API instructions\`)
+            * \`chore:\` (e.g., \`chore: refactored CSS styling\`)
+            * \`test:\` (e.g., \`test: added playwright UI tests\`)
+
+            *These prefixes allow the Auto-Release bot to categorize your work automatically!*`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            })
