@@ -19,9 +19,9 @@
       </div>
       <div style="margin-bottom: 16px;">
         <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Subject</label>
-        <select id="create-subject" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
-          <option value="" disabled selected>Loading subjects...</option>
-        </select>
+        <div id="subject-list" style="display: grid; grid-template-columns: 1fr; gap: 8px; max-height: 150px; overflow-y: auto; padding: 10px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:8px;">
+            <!-- Subjects rendered here by JS -->
+        </div>
       </div>
       <div style="margin-bottom: 20px;">
         <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Study Mode</label>
@@ -86,6 +86,19 @@
           </select>
         </div>
       </div>
+
+      <!-- ADD THIS inside the host-controls div before the 'Start Competition' button -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <div class="card" style="padding: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="lobby.toggleSetting('randomize_questions')">
+            <span style="font-size:0.85rem; color:var(--text-primary);">Randomize Qs</span>
+            <div id="random-q-badge" class="badge badge--neutral">OFF</div>
+        </div>
+        <div class="card" style="padding: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="lobby.toggleSetting('randomize_options')">
+            <span style="font-size:0.85rem; color:var(--text-primary);">Randomize Opts</span>
+            <div id="random-o-badge" class="badge badge--neutral">OFF</div>
+        </div>
+      </div>
+
       <button class="btn btn--primary btn--lg" onclick="lobby.startGame()">Start Competition</button>
     </div>
     <div id="guest-waiting">

@@ -4,6 +4,7 @@
 
 import SocketClient from './socket_client.js';
 import { UI, updateNavStats } from './ui.js';
+import Storage from './storage.js';
 
 const multiplayer_study = {
     roomState: null,
@@ -22,10 +23,11 @@ const multiplayer_study = {
         }
 
         SocketClient.init();
+        const myUuid = Storage.getPlayerUuid();
 
         // Restore score if re-joining
-        if (this.roomState.players && SocketClient.player_uuid) {
-            const me = this.roomState.players[SocketClient.player_uuid];
+        if (this.roomState.players && myUuid) {
+            const me = this.roomState.players[myUuid];
             if (me) this.myScore = me.score || 0;
         }
 
@@ -82,7 +84,7 @@ const multiplayer_study = {
         // Initialize UI with room questions
         const questions = this.roomState.questions;
 
-        const myData = this.roomState.players[SocketClient.player_uuid];
+        const myData = this.roomState.players[myUuid];
         if (myData) {
             this.myScore = myData.score || 0;
             UI.currentIdx = myData.progress || 0;
@@ -202,8 +204,10 @@ const multiplayer_study = {
         if (!list) return;
         list.innerHTML = '';
 
+        const myUuid = Storage.getPlayerUuid();
+
         Object.entries(this.roomState.players).forEach(([sid, player]) => {
-            const isYou = sid === SocketClient.player_uuid;
+            const isYou = sid === myUuid;
             const pct = player.total > 0 ? (player.progress / player.total) * 100 : 0;
 
             const item = document.createElement('div');
@@ -335,9 +339,10 @@ const multiplayer_study = {
         `;
 
         const board = document.getElementById('final-leaderboard');
+        const myUuid = Storage.getPlayerUuid();
         sortedPlayers.forEach(([sid, p], idx) => {
             const div = document.createElement('div');
-            div.className = `player-tag ${sid === SocketClient.player_uuid ? 'is-you' : ''}`;
+            div.className = `player-tag ${sid === myUuid ? 'is-you' : ''}`;
             div.style.marginBottom = '8px';
 
             const span = document.createElement('span');

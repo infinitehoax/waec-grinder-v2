@@ -46,6 +46,15 @@ const Storage = {
     localStorage.setItem(key, JSON.stringify(val));
   },
 
+  getPlayerUuid() {
+    let uuid = this._get('wg_player_uuid');
+    if (!uuid) {
+      uuid = 'p_' + Math.random().toString(36).substr(2, 9);
+      this._set('wg_player_uuid', uuid);
+    }
+    return uuid;
+  },
+
   // ---- Subject-scoped helpers ----
   _getScoped(subject, key) {
     const data = this._get(`wg_sub_${subject}`) || {};
