@@ -399,7 +399,13 @@ code, pre, .mono {
 
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
-  .nav__stats { display: none; }
+  .nav__stats {
+    display: flex;
+    gap: 12px;
+  }
+  .nav__stats div.nav__stat {
+    display: none;
+  }
   .container, .container--wide { padding: 0 16px; }
   .card { padding: 20px; }
   .btn--lg { padding: 14px 24px; font-size: 0.95rem; }
