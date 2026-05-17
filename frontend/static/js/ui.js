@@ -51,6 +51,26 @@ function updateNavStats() {
 function renderObjQuestion(q, idx, total) {
   const fromFailed = q._from_failed;
   const showSubject = Storage.getSubjects().length > 1;
+
+  let optionsToRender = Object.entries(q.options);
+  let correctOption = q.correct_option;
+
+  if (Storage.isRandomizedOptions()) {
+    const correctText = q.options[q.correct_option];
+    const entries = Object.entries(q.options);
+    // Shuffle
+    for (let i = entries.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [entries[i], entries[j]] = [entries[j], entries[i]];
+    }
+    // Re-assign letters to keep A, B, C, D order
+    const letters = Object.keys(q.options).sort();
+    optionsToRender = entries.map((entry, i) => [letters[i], entry[1]]);
+    // Find new correct letter
+    const found = optionsToRender.find(e => e[1] === correctText);
+    if (found) correctOption = found[0];
+  }
+
   return `
     <div class="question-card card animate-fade-in ${fromFailed ? 'type--failed' : ''}">
       <div class="question-meta">
@@ -61,8 +81,8 @@ function renderObjQuestion(q, idx, total) {
         ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
       </div>
       <div class="question-text">${formatText(q.question)}</div>
-      <div class="options-grid" id="options-grid" data-correct="${escapeHtml(q.correct_option)}" data-explanation="${escapeAttr(q.explanation || '')}">
-        ${Object.entries(q.options).map(([letter, text]) => `
+      <div class="options-grid" id="options-grid" data-correct="${escapeHtml(correctOption)}" data-explanation="${escapeAttr(q.explanation || '')}">
+        ${optionsToRender.map(([letter, text]) => `
           <button class="option-btn" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}')">
             <span class="option-letter">${letter}</span>
             <span class="option-text">${formatText(text)}</span>

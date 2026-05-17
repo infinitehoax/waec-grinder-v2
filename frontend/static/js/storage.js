@@ -20,6 +20,7 @@ const KEYS = {
   BATCH_SIZE:      'wg_batch_size',
   FOCUS_TOPIC:     'wg_focus_topic',
   RANDOMIZE:       'wg_randomize',
+  RANDOMIZE_OPTIONS: 'wg_randomize_options',
   BATCH_START_TIME: 'wg_batch_start_time',
 };
 
@@ -219,6 +220,9 @@ const Storage = {
 
   isRandomized() { return !!this._get(KEYS.RANDOMIZE); },
   setRandomized(v) { this._set(KEYS.RANDOMIZE, !!v); },
+
+  isRandomizedOptions() { return !!this._get(KEYS.RANDOMIZE_OPTIONS); },
+  setRandomizedOptions(v) { this._set(KEYS.RANDOMIZE_OPTIONS, !!v); },
 
   // ---- Queue mutators ----
   pushFailedObj(q) {

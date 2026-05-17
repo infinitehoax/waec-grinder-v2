@@ -127,6 +127,16 @@
           <div id="random-status-badge" class="badge badge--neutral">OFF</div>
         </div>
       </div>
+
+      <div class="card" id="random-options-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomizeOptions()">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-weight:600; margin-bottom:4px;">Randomize Options</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Shuffle A, B, C, D order.</div>
+          </div>
+          <div id="random-options-status-badge" class="badge badge--neutral">OFF</div>
+        </div>
+      </div>
     </div>
 
     <!-- Mode selection cards -->
@@ -215,6 +225,7 @@
   let allQuestions = null;
   let selectedSubjects = [];
   let isRandomized = false;
+  let isRandomizedOptions = false;
 
   // Make functions available globally for onclick handlers
   window.selectMode = selectMode;
@@ -224,6 +235,7 @@
   window.updateSubjectSelection = updateSubjectSelection;
   window.startWeaknessSession = startWeaknessSession;
   window.toggleRandomization = toggleRandomization;
+  window.toggleRandomizeOptions = toggleRandomizeOptions;
 
   async function init() {
     // Update nav stats immediately from local storage
@@ -411,6 +423,24 @@
     }
   }
 
+  function toggleRandomizeOptions() {
+    isRandomizedOptions = !isRandomizedOptions;
+    const card = document.getElementById('random-options-config-card');
+    const badge = document.getElementById('random-options-status-badge');
+
+    if (isRandomizedOptions) {
+      card.style.borderColor = 'var(--accent)';
+      card.style.opacity = '1';
+      badge.textContent = 'ON';
+      badge.className = 'badge badge--accent';
+    } else {
+      card.style.borderColor = 'var(--border-subtle)';
+      card.style.opacity = '0.7';
+      badge.textContent = 'OFF';
+      badge.className = 'badge badge--neutral';
+    }
+  }
+
   function refreshResumeCard() {
     const resumeCard = document.getElementById('resume-card');
     const currentActiveSubject = Storage.getSubject();
@@ -467,6 +497,7 @@
     Storage.clearBatch();
     Storage.clearTimer();
     Storage.setRandomized(isRandomized);
+    Storage.setRandomizedOptions(isRandomizedOptions);
 
     if (selectedTimeLimit) {
       Storage.setTimeLimit(selectedTimeLimit);
