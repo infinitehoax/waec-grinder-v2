@@ -69,8 +69,7 @@ const API = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(questionData),
     });
-    if (!res.ok) throw new Error(`Explanation request failed (${res.status})`);
-    return res.json();
+    return this._handleResponse(res, 'Explanation request failed');
   },
 };
 

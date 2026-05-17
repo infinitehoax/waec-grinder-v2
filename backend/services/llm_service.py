@@ -238,5 +238,14 @@ Keep your tone encouraging and your language simple. Use Markdown for formatting
 
     except requests.exceptions.Timeout:
         raise GradingError("AI explanation timed out. Check your internet connection and try again.")
+    except requests.exceptions.HTTPError as e:
+        body = ""
+        try:
+            body = e.response.text
+        except Exception:
+            body = "<unavailable>"
+        if e.response.status_code == 401:
+            raise GradingError("Invalid API key. Please check your OPENROUTER_API_KEY in the .env file.")
+        raise GradingError(f"API error: {e.response.status_code}. Response: {body[:200]}")
     except Exception as e:
         raise GradingError(f"An error occurred while getting the AI explanation: {str(e)[:100]}")
