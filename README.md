@@ -64,51 +64,50 @@ waec-grinder/
 
 ## 👩‍🏫 For Teachers: How to Add Questions
 
-Edit `backend/data/waec_questions.json`. The file has two sections: `obj` and `theory`.
+Edit `backend/data/waec_questions.json`. The file is a **list of subjects**, where each subject contains its own `obj` and `theory` questions.
 
-### OBJ Format
-
-```json
-{
-  "id": "obj_001",
-  "question": "Which organelle is the site of energy production?",
-  "options": {
-    "A": "Nucleus",
-    "B": "Mitochondrion",
-    "C": "Ribosome",
-    "D": "Golgi body"
-  },
-  "correct_option": "B",
-  "explanation": "The mitochondrion produces ATP through cellular respiration."
-}
-```
-
-### Theory Format (with sub-questions)
+### Multi-Subject Structure
 
 ```json
-{
-  "id": "th_001",
-  "main_context": "Question 1: Cellular Respiration (Total: 10 Marks)",
-  "sub_questions": [
-    {
-      "sub_id": "th_001_a",
-      "label": "1(a)",
-      "question": "Define cellular respiration.",
-      "rubric": "Process by which glucose is broken down to release energy (ATP). Award 2 marks for complete definition.",
-      "max_marks": 2
-    },
-    {
-      "sub_id": "th_001_b",
-      "label": "1(b)",
-      "question": "State two differences between aerobic and anaerobic respiration.",
-      "rubric": "1 mark each: (1) Aerobic needs O2, anaerobic doesn't. (2) Aerobic produces more ATP. Max 2 marks.",
-      "max_marks": 2
-    }
-  ]
-}
+[
+  {
+    "subject": "Biology",
+    "obj": [
+      {
+        "id": "obj_001",
+        "question": "Which organelle is the site of energy production?",
+        "options": {
+          "A": "Nucleus",
+          "B": "Mitochondrion",
+          "C": "Ribosome",
+          "D": "Golgi body"
+        },
+        "correct_option": "B",
+        "explanation": "The mitochondrion produces ATP through cellular respiration.",
+        "topic": "Cell Biology"
+      }
+    ],
+    "theory": [
+      {
+        "id": "th_001",
+        "main_context": "Question 1: Cellular Respiration (Total: 10 Marks)",
+        "topic": "Cell Biology",
+        "sub_questions": [
+          {
+            "sub_id": "th_001_a",
+            "label": "1(a)",
+            "question": "Define cellular respiration.",
+            "rubric": "Process by which glucose is broken down to release energy (ATP). Award 2 marks for complete definition.",
+            "max_marks": 2
+          }
+        ]
+      }
+    ]
+  }
+]
 ```
 
-> **Tip:** The more detailed and specific your rubric, the more accurately the AI will grade the student.
+> **Tip:** Detailed rubrics lead to more accurate AI grading. Use the `topic` field to help the engine track your weak areas!
 
 ---
 
@@ -154,9 +153,14 @@ These work great for grading:
 
 Change the model in `backend/config.py`.
 
-## Recent Updates: Rich Formatting
-Teachers can now add:
-- **Markdown Support**: Bold, italics, lists, and tables.
-- **LaTeX Math**: Use `$ $` for math formulas (e.g. $H_2O$).
-- **Images**: Add images to questions and options with optional subtitles.
-- **Newlines**: Better support for multi-line questions.
+## ✨ Rich Formatting Standards
+
+The Grinder supports advanced formatting in all `question`, `options`, and `explanation` fields:
+
+- **Markdown**: Use `**bold**`, `*italics*`, and `<u>underline</u>`.
+- **LaTeX Math**: Use `$E = mc^2$` for inline or `$$ \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$` for block math.
+- **Tables**: Standard Markdown tables are rendered with professional styling.
+- **Images**: Use `![Subtitle](URL)` syntax to embed images with automatic captioning.
+- **Newlines**: Use `\n` for newlines in your JSON strings.
+
+For a complete guide on formatting, see [docs/TEACHER_FORMAT.md](docs/TEACHER_FORMAT.md).
