@@ -39,7 +39,17 @@ async def run():
             await page1.select_option('#create-mode', 'obj')
             await page1.click('button:has-text("Create Room")')
             await page1.wait_for_selector('#display-room-id')
-            room_id = (await page1.inner_text('#display-room-id')).split(': ')[1]
+
+            # Wait for Room ID to be populated (not "------")
+            for _ in range(50):
+                room_text = await page1.inner_text('#display-room-id')
+                if 'ROOM ID: ' in room_text and '------' not in room_text:
+                    room_id = room_text.split(': ')[1].strip()
+                    break
+                await asyncio.sleep(0.1)
+            else:
+                raise Exception("Room ID not populated in time")
+
             print(f"Room created: {room_id}")
 
             # Player 2 (Guest)

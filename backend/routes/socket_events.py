@@ -1,10 +1,13 @@
+import eventlet
 from flask import request
 from flask_socketio import join_room, leave_room, emit
 from backend.app import socketio
 from backend.services import room_service
 
-# Add a global mapping at the top of the file:
+# SID -> {room_id, player_uuid}
 sid_to_player = {}
+# player_uuid -> current_sid
+player_to_sid = {}
 
 @socketio.on('create_room')
 def handle_create_room(data):
@@ -18,6 +21,7 @@ def handle_create_room(data):
     room_id = room_service.create_room(player_uuid, request.sid, host_name, mode, subjects)
     # Register the sid:
     sid_to_player[request.sid] = {'room_id': room_id, 'player_uuid': player_uuid}
+    player_to_sid[player_uuid] = request.sid
     join_room(room_id)
     emit('room_created', {'room_id': room_id, 'room_state': room_service.get_room_state(room_id)})
 
@@ -34,6 +38,7 @@ def handle_join_room(data):
     if success:
         # Register the sid:
         sid_to_player[request.sid] = {'room_id': room_id, 'player_uuid': player_uuid}
+        player_to_sid[player_uuid] = request.sid
         join_room(room_id)
         emit('room_joined', {'room_id': room_id, 'room_state': result})
         emit('player_joined', {'player_id': player_uuid, 'player_name': player_name, 'room_state': result}, to=room_id)
@@ -117,9 +122,40 @@ def handle_leave_room(data):
                     state['status'] = 'finished'
                     emit('game_finished', {'room_state': state}, to=room_id)
 
+def delayed_disconnect_cleanup(room_id, player_uuid, old_sid):
+    # Wait 5 seconds for reconnection
+    eventlet.sleep(5)
+    # If the player hasn't reconnected with a new SID, perform cleanup
+    if player_to_sid.get(player_uuid) == old_sid:
+        if player_uuid in player_to_sid:
+            del player_to_sid[player_uuid]
+
+        # Perform standard leave room logic
+        if room_service.leave_room(room_id, player_uuid):
+            state = room_service.get_room_state(room_id)
+            if state:
+                socketio.emit('player_left', {'player_id': player_uuid, 'room_state': state}, to=room_id)
+                # Check if this exit finished the game for others
+                if state['status'] == 'playing':
+                    all_finished = True
+                    for p_data in state['players'].values():
+                        if not p_data.get('finished'):
+                            all_finished = False
+                            break
+                    if all_finished:
+                        state['status'] = 'finished'
+                        socketio.emit('game_finished', {'room_state': state}, to=room_id)
+
 @socketio.on('disconnect')
 def handle_disconnect():
     player_info = sid_to_player.get(request.sid)
     if player_info:
-        # Force them to leave the room so the game can finish for others
-        handle_leave_room(player_info)
+        room_id = player_info['room_id']
+        player_uuid = player_info['player_uuid']
+        old_sid = request.sid
+
+        # Clean up SID mapping
+        del sid_to_player[request.sid]
+
+        # Start delayed cleanup
+        eventlet.spawn(delayed_disconnect_cleanup, room_id, player_uuid, old_sid)
