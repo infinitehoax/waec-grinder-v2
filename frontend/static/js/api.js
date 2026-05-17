@@ -6,16 +6,38 @@
 import APP_CONFIG from './config.js';
 
 const API = {
+  /**
+   * Internal helper to handle fetch responses and log errors.
+   */
+  async _handleResponse(res, context) {
+    if (res.ok) return res.json();
+
+    let errorData = null;
+    try {
+      errorData = await res.json();
+    } catch (e) {
+      // Body might not be JSON
+    }
+
+    console.error(`[API Error] ${context}:`, {
+      status: res.status,
+      statusText: res.statusText,
+      url: res.url,
+      serverError: errorData
+    });
+
+    const msg = errorData?.error || `Status ${res.status}`;
+    throw new Error(`${context}: ${msg}`);
+  },
+
   async getQuestions() {
     const res = await fetch(`${APP_CONFIG.API_BASE}/questions`);
-    if (!res.ok) throw new Error(`Failed to load questions (${res.status})`);
-    return res.json();
+    return this._handleResponse(res, 'Failed to load questions');
   },
 
   async getConfig() {
     const res = await fetch(`${APP_CONFIG.API_BASE}/config`);
-    if (!res.ok) throw new Error('Failed to load config');
-    return res.json();
+    return this._handleResponse(res, 'Failed to load config');
   },
 
   /**
@@ -33,8 +55,7 @@ const API = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ sub_question, student_answer, rubric, max_marks }),
     });
-    if (!res.ok) throw new Error(`Grading request failed (${res.status})`);
-    return res.json();
+    return this._handleResponse(res, 'Grading request failed');
   },
 
   /**
