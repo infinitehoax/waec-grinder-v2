@@ -922,10 +922,16 @@ const UI = {
     const body = document.getElementById('modal-explanation-body');
     if (!modal || !body) return;
 
+    this._lastActiveElement = document.activeElement;
+
     // Use formatText to handle markdown and latex
     body.innerHTML = formatText(markdown);
     modal.classList.add('visible');
     document.body.style.overflow = 'hidden'; // Prevent scroll
+
+    // Focus the close button for accessibility
+    const closeBtn = modal.querySelector('.modal__close');
+    if (closeBtn) closeBtn.focus();
   },
 
   closeExplanationModal() {
@@ -933,11 +939,23 @@ const UI = {
     if (modal) {
       modal.classList.remove('visible');
       document.body.style.overflow = '';
+
+      if (this._lastActiveElement) {
+        this._lastActiveElement.focus();
+        this._lastActiveElement = null;
+      }
     }
   }
 };
 
 // Expose UI globally so inline onclick handlers work
 window.UI = UI;
+
+// Global Escape key listener for modals
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    UI.closeExplanationModal();
+  }
+});
 
 export { UI, updateNavStats, showToast };
