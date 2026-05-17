@@ -168,7 +168,6 @@ For a complete guide on formatting, see [docs/TEACHER_FORMAT.md](docs/TEACHER_FO
 ---
 
 ### 📚 Release Naming Convention
-
 To ensure our auto-generated release notes are organized correctly, please ensure your commits follow these prefixes:
 
 #### 🚀 For Features:
