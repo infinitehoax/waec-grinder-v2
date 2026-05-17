@@ -88,7 +88,7 @@ const Lobby = {
             Storage._set('multiplayer_time_limit', data.room_state.time_limit);
 
             // Sync randomization flags to storage
-            Storage.setRandomized(data.room_state.randomize_questions || false);
+            Storage.setRandomizedQuestions(data.room_state.randomize_questions || false);
             Storage.setRandomizedOptions(data.room_state.randomize_options || false);
 
             window.location.href = '/multiplayer/study';
