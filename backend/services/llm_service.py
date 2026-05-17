@@ -11,6 +11,36 @@ class GradingError(Exception):
     pass
 
 
+def _extract_json(text: str) -> str:
+    """
+    Extracts the first JSON object found in the text.
+    Handles markdown fences and arbitrary preamble/postamble.
+    """
+    if not text:
+        return ""
+
+    raw_text = text.strip()
+
+    # 1. Try to find JSON in markdown fences
+    fence_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', raw_text, re.DOTALL)
+    if fence_match:
+        return fence_match.group(1).strip()
+
+    # 2. Fallback: Find the outermost braces
+    start_idx = raw_text.find('{')
+    end_idx = raw_text.rfind('}')
+    if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
+        return raw_text[start_idx:end_idx+1].strip()
+
+    # 3. Last resort: try to strip any remaining fences
+    if raw_text.startswith("```"):
+        raw_text = raw_text.strip("`").strip()
+        if raw_text.startswith("json"):
+            raw_text = raw_text[4:].strip()
+
+    return raw_text
+
+
 def grade_sub_question(sub_question: str, student_answer: str, rubric: str, max_marks: int) -> dict:
     """
     Sends a single sub-question answer to OpenRouter for AI grading.
@@ -25,9 +55,9 @@ def grade_sub_question(sub_question: str, student_answer: str, rubric: str, max_
             "feedback": "No answer was provided for this sub-question."
         }
 
-    prompt = f"""You are a strict but fair WAEC (West African Examinations Council) examiner for Nigeria.
+    system_prompt = "You are a strict but fair WAEC (West African Examinations Council) examiner for Nigeria."
 
-Your task is to grade ONE specific sub-question answer.
+    user_prompt = f"""Your task is to grade ONE specific sub-question answer.
 
 SUB-QUESTION:
 {sub_question}
@@ -44,15 +74,14 @@ Instructions:
 - Grade ONLY the answer to this specific sub-question.
 - NOTE: The provided MARKING RUBRIC may be INCOMPLETE. If the student's answer is factually correct based on your internal knowledge but missing from the rubric, you SHOULD still award marks. Use the rubric as a guide, but rely on your internal expertise to ensure fair and accurate grading.
 - Apply these standards strictly. Do not give marks for vague or irrelevant statements.
-- Your response MUST be a valid JSON object and NOTHING ELSE. No preamble, no explanation outside the JSON.
-- The JSON must have exactly two keys:
+- Your response MUST include a JSON object with exactly two keys:
   - "score": an integer from 0 to {max_marks}
   - "feedback": a single, concise sentence (max 25 words) explaining what the student got right or wrong.
 
-Example valid response:
+Example valid JSON response:
 {{"score": 2, "feedback": "Correct definition of cellular respiration including ATP production and breakdown of glucose."}}
 
-Now grade the student's answer:"""
+Now grade the student's answer and output the scoring JSON:"""
 
     headers = {
         "Authorization": f"Bearer {Config.OPENROUTER_API_KEY}",
@@ -64,9 +93,10 @@ Now grade the student's answer:"""
     payload = {
         "model": Config.LLM_MODEL,
         "messages": [
-            {"role": "user", "content": prompt}
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
         ],
-        "max_tokens": 150,
+        "max_tokens": 250,  # Increased slightly to allow for some preamble if AI ignores instructions
         "temperature": 0.1
     }
 
@@ -87,26 +117,7 @@ Now grade the student's answer:"""
         if raw_content is None:
             raise GradingError("The AI returned an empty response. Please try again.")
 
-        raw_text = raw_content.strip()
-
-        # Try to find JSON in markdown fences first
-        fence_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', raw_text, re.DOTALL)
-        if fence_match:
-            raw_text = fence_match.group(1)
-        else:
-            # Fallback: Find the outermost braces
-            # We use a greedy match for the content between the first { and last }
-            # to support nested objects, but we must ensure we actually find braces.
-            start_idx = raw_text.find('{')
-            end_idx = raw_text.rfind('}')
-            if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
-                raw_text = raw_text[start_idx:end_idx+1]
-            else:
-                # Fallback to stripping fences if above fails
-                if raw_text.startswith("```"):
-                    raw_text = raw_text.strip("`").strip()
-                    if raw_text.startswith("json"):
-                        raw_text = raw_text[4:].strip()
+        raw_text = _extract_json(raw_content)
 
         try:
             result = json.loads(raw_text)

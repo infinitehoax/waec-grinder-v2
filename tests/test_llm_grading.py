@@ -134,5 +134,30 @@ class TestLLMGrading(unittest.TestCase):
         self.assertEqual(result['score'], 4)
         self.assertEqual(result['feedback'], "Good job!")
 
+    @patch('backend.services.llm_service.Config')
+    @patch('backend.services.llm_service._http_session.post')
+    def test_grade_sub_question_with_nested_braces_in_feedback(self, mock_post, mock_config):
+        # Setup mock config
+        mock_config.OPENROUTER_API_KEY = "test_key"
+
+        # Setup mock response with nested braces in feedback
+        mock_response = MagicMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "choices": [
+                {
+                    "message": {
+                        "content": '{"score": 2, "feedback": "Use the formula {a+b}."}'
+                    }
+                }
+            ]
+        }
+        mock_post.return_value = mock_response
+
+        result = grade_sub_question("What is 1+1?", "2", "1+1 is 2", 5)
+
+        self.assertEqual(result['score'], 2)
+        self.assertEqual(result['feedback'], "Use the formula {a+b}.")
+
 if __name__ == '__main__':
     unittest.main()
