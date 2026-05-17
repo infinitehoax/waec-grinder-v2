@@ -118,6 +118,16 @@
         </div>
       </div>
 
+      <div class="card" id="random-questions-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomizeQuestions()">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-weight:600; margin-bottom:4px;">Randomize Questions</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Shuffle question order.</div>
+          </div>
+          <div id="random-questions-status-badge" class="badge badge--neutral">OFF</div>
+        </div>
+      </div>
+
       <div class="card" id="random-options-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomizeOptions()">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
           <div>
@@ -214,6 +224,7 @@
   let selectedTimeLimit = null; // in minutes
   let allQuestions = null;
   let selectedSubjects = [];
+  let isRandomizedQuestions = false;
   let isRandomizedOptions = false;
 
   // Make functions available globally for onclick handlers
@@ -223,6 +234,7 @@
   window.clearSession = clearSession;
   window.updateSubjectSelection = updateSubjectSelection;
   window.startWeaknessSession = startWeaknessSession;
+  window.toggleRandomizeQuestions = toggleRandomizeQuestions;
   window.toggleRandomizeOptions = toggleRandomizeOptions;
 
   async function init() {
@@ -391,14 +403,23 @@
     // Refresh resume card
     refreshResumeCard();
     updateNavDisplay();
+    // Initialize toggles from storage
+    initToggles();
   }
 
-  function toggleRandomizeOptions() {
-    isRandomizedOptions = !isRandomizedOptions;
-    const card = document.getElementById('random-options-config-card');
-    const badge = document.getElementById('random-options-status-badge');
+  function initToggles() {
+    // We don't persist these across refreshes intentionally as per memory,
+    // but we should ensure they match the local variables.
+    updateToggleUI('random-questions', isRandomizedQuestions);
+    updateToggleUI('random-options', isRandomizedOptions);
+  }
 
-    if (isRandomizedOptions) {
+  function updateToggleUI(prefix, state) {
+    const card = document.getElementById(`${prefix}-config-card`);
+    const badge = document.getElementById(`${prefix}-status-badge`);
+    if (!card || !badge) return;
+
+    if (state) {
       card.style.borderColor = 'var(--accent)';
       card.style.opacity = '1';
       badge.textContent = 'ON';
@@ -409,6 +430,16 @@
       badge.textContent = 'OFF';
       badge.className = 'badge badge--neutral';
     }
+  }
+
+  function toggleRandomizeQuestions() {
+    isRandomizedQuestions = !isRandomizedQuestions;
+    updateToggleUI('random-questions', isRandomizedQuestions);
+  }
+
+  function toggleRandomizeOptions() {
+    isRandomizedOptions = !isRandomizedOptions;
+    updateToggleUI('random-options', isRandomizedOptions);
   }
 
   function refreshResumeCard() {
@@ -466,6 +497,7 @@
     // Ensure we start with a fresh batch for the new session
     Storage.clearBatch();
     Storage.clearTimer();
+    Storage.setRandomizedQuestions(isRandomizedQuestions);
     Storage.setRandomizedOptions(isRandomizedOptions);
 
     if (selectedTimeLimit) {

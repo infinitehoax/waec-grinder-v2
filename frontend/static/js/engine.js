@@ -96,11 +96,13 @@ const Engine = {
       }
     }
 
-    // Always shuffle to ensure failed questions appear at random positions
-    // Fisher-Yates shuffle
-    for (let i = batch.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [batch[i], batch[j]] = [batch[j], batch[i]];
+    // Only shuffle if randomization is enabled to ensure failed questions appear at random positions
+    if (Storage.isRandomizedQuestions()) {
+      // Fisher-Yates shuffle
+      for (let i = batch.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [batch[i], batch[j]] = [batch[j], batch[i]];
+      }
     }
 
     return batch;
