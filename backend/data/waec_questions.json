@@ -1425,5 +1425,622 @@
         ]
       }
     ]
+  },
+  {
+    "subject": "Chemistry Practical Prediction Note",
+    "obj": [
+      {
+        "id": "obj_chem_001",
+        "question": "According to the notes, what is the identity of the impure sample in Solution A?",
+        "options": {
+          "A": "Hydrochloric acid",
+          "B": "Tetraoxosulphate (VI) acid",
+          "C": "Trioxonitrate (V) acid",
+          "D": "Sodium hydroxide"
+        },
+        "correct_option": "B",
+        "explanation": "Page 1 states: 'A is a solution containing 3.9g of an Impure sample of tetraoxosulphate (VI) acid'."
+      },
+      {
+        "id": "obj_chem_002",
+        "question": "What is the initial volume of the solution in which the 3.9g of the impure acid sample is dissolved?",
+        "options": {
+          "A": "$20.0 cm^3$",
+          "B": "$25.0 cm^3$",
+          "C": "$250 cm^3$",
+          "D": "$400 cm^3$"
+        },
+        "correct_option": "D",
+        "explanation": "The notes state the sample is contained 'per $400 cm^3$ of solution'."
+      },
+      {
+        "id": "obj_chem_003",
+        "question": "What is the specified concentration of Sodium hydroxide in Solution B before any calculations are performed?",
+        "options": {
+          "A": "$0.100 mol/dm^3$",
+          "B": "$3.9 g/dm^3$",
+          "C": "$4.0 g/dm^3$",
+          "D": "$9.75 g/dm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "The instruction reads: 'B is a solution containing $4.0 g/dm^3$ of Sodium hydroxide'."
+      },
+      {
+        "id": "obj_chem_004",
+        "question": "Which indicator is prescribed for the titration of A against B?",
+        "options": {
+          "A": "Phenolphthalein",
+          "B": "Methyl orange",
+          "C": "Universal indicator",
+          "D": "Bromothymol blue"
+        },
+        "correct_option": "B",
+        "explanation": "The instruction explicitly says 'using methyl orange as indicator'."
+      },
+      {
+        "id": "obj_chem_005",
+        "question": "According to the procedure, what volume portions of Solution B are recommended for the titration?",
+        "options": {
+          "A": "$10.0 cm^3$ or $15.0 cm^3$",
+          "B": "$20.0 cm^3$ or $25.0 cm^3$",
+          "C": "$25.0 cm^3$ or $50.0 cm^3$",
+          "D": "$400 cm^3$ or $1000 cm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "The text reads: 'Titrate A against $20.0 cm^3$ or $25.0 cm^3$ portions of B'."
+      },
+      {
+        "id": "obj_chem_006",
+        "question": "Based on the balanced equation provided:\n$$H_2SO_4(aq) + 2NaOH(aq) \\rightarrow Na_2SO_4(aq) + 2H_2O(l)$$\nWhat is the state symbol given for $H_2O$?",
+        "options": {
+          "A": "$(s)$",
+          "B": "$(l)$",
+          "C": "$(g)$",
+          "D": "$(aq)$"
+        },
+        "correct_option": "B",
+        "explanation": "In the written equation at the bottom of page 1, $2H_2O$ is followed by the state symbol $(l)$ for liquid."
+      },
+      {
+        "id": "obj_chem_007",
+        "question": "Study the snippet from the notes below:\n\n| Titre | Volume ($cm^3$) |\n| :--- | :--- |\n| 1st Titre | **X** |\n| 2nd Titre | 12.30 |\n| 3rd Titre | 12.20 |\n\nWhat value replaces **X** based on the written average titre calculation?",
+        "options": {
+          "A": "12.20",
+          "B": "12.25",
+          "C": "12.27",
+          "D": "12.30"
+        },
+        "correct_option": "D",
+        "explanation": "The average titre calculation shows $(12.30 + 12.30 + 12.20) / 3$. Therefore, the 1st Titre was $12.30 cm^3$."
+      },
+      {
+        "id": "obj_chem_008",
+        "question": "What formula is used in the notes to find the average titre?",
+        "options": {
+          "A": "(1st + 2nd) / 2",
+          "B": "(1st + 3rd) / 2",
+          "C": "(1st + 2nd + 3rd) / 3",
+          "D": "(2nd + 3rd) / 2"
+        },
+        "correct_option": "C",
+        "explanation": "The notes show: `(1st titre + 2nd Titre + 3rd Titre) / 3`."
+      },
+      {
+        "id": "obj_chem_009",
+        "question": "What is the final calculated value for the 'Average titre'?",
+        "options": {
+          "A": "$12.20 cm^3$",
+          "B": "$12.25 cm^3$",
+          "C": "$12.27 cm^3$",
+          "D": "$12.30 cm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "The math $(12.30 + 12.30 + 12.20) / 3$ yields $12.27 cm^3$, as recorded on page 3."
+      },
+      {
+        "id": "obj_chem_010",
+        "question": "To calculate the concentration of B in $mol/dm^3$, the notes divide the mass concentration ($g/dm^3$) by which property?",
+        "options": {
+          "A": "Volume of solution",
+          "B": "Molar mass ($g/mol$)",
+          "C": "Average titre",
+          "D": "Mole ratio"
+        },
+        "correct_option": "B",
+        "explanation": "The formula explicitly written is: `Concentration of B in mol/dm³ = mass concentration (g/dm³) / molar mass (g/mol)`."
+      },
+      {
+        "id": "obj_chem_011",
+        "question": "How is the molar mass of B ($NaOH$) calculated in the notes?",
+        "options": {
+          "A": "23 + 16",
+          "B": "23 + 1",
+          "C": "16 + 1",
+          "D": "23 + 16 + 1"
+        },
+        "correct_option": "D",
+        "explanation": "The calculation is shown as: `23 + 16 + 1 = 40g/mol`."
+      },
+      {
+        "id": "obj_chem_012",
+        "question": "What is the resulting molar concentration of Solution B calculated in the text?",
+        "options": {
+          "A": "$0.010 mol/dm^3$",
+          "B": "$0.100 mol/dm^3$",
+          "C": "$1.000 mol/dm^3$",
+          "D": "$4.000 mol/dm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "The math is $4.0 g/dm^3 / 40 g/mol = 0.100 mol/dm^3$."
+      },
+      {
+        "id": "obj_chem_013",
+        "question": "Which of the following volumetric formulas is stated in the notes for finding the concentration of A?",
+        "options": {
+          "A": "$C_A V_A = C_B V_B$",
+          "B": "$\\frac{C_A V_A}{C_B V_B} = \\frac{n_A}{n_B}$",
+          "C": "$C_A = \\frac{n_A}{V_A}$",
+          "D": "$M_A V_A = M_B V_B$"
+        },
+        "correct_option": "B",
+        "explanation": "The notes clearly state 'Using the formula: $C_A V_A / C_B V_B = n_A / n_B$'."
+      },
+      {
+        "id": "obj_chem_014",
+        "question": "According to the parameter list on page 3, what is the value of $V_A$?",
+        "options": {
+          "A": "$20.0 cm^3$",
+          "B": "$25.0 cm^3$",
+          "C": "$12.27 cm^3$",
+          "D": "$400 cm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "$V_A$ represents the volume of acid used, which corresponds to the average titre calculated as $12.27 cm^3$."
+      },
+      {
+        "id": "obj_chem_015",
+        "question": "According to the parameter list on page 3, what is the value of $V_B$ chosen for the calculation?",
+        "options": {
+          "A": "$12.27 cm^3$",
+          "B": "$20.0 cm^3$",
+          "C": "$25.0 cm^3$",
+          "D": "$40.0 cm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "The notes show $V_B = 25.0 cm^3$ in the left column list of variables."
+      },
+      {
+        "id": "obj_chem_016",
+        "question": "From the balanced chemical equation, what are the values of $n_A$ and $n_B$ respectively?",
+        "options": {
+          "A": "1 and 1",
+          "B": "2 and 1",
+          "C": "1 and 2",
+          "D": "2 and 2"
+        },
+        "correct_option": "C",
+        "explanation": "The reaction is $H_2SO_4 + 2NaOH$. Therefore, 1 mole of acid ($n_A=1$) reacts with 2 moles of base ($n_B=2$)."
+      },
+      {
+        "id": "obj_chem_017",
+        "question": "When substituting values into the titration formula, the notes show: $\\frac{C_A \\times 12.27}{0.100 \\times 25.0} = \\frac{1}{2}$. What is the next rearranged step to isolate $C_A$?",
+        "options": {
+          "A": "$C_A = \\frac{0.100 \\times 25.0 \\times 1}{12.27 \\times 2}$",
+          "B": "$C_A = \\frac{12.27 \\times 2}{0.100 \\times 25.0 \\times 1}$",
+          "C": "$C_A = \\frac{0.100 \\times 25.0 \\times 2}{12.27 \\times 1}$",
+          "D": "$C_A = 0.100 \\times 25.0 \\times 12.27 \\times 2$"
+        },
+        "correct_option": "A",
+        "explanation": "Cross-multiplying gives $C_A = (0.100 \\times 25.0 \\times 1) / (12.27 \\times 2)$, matching exactly what is written in the notes."
+      },
+      {
+        "id": "obj_chem_018",
+        "question": "In the calculation of $C_A$, the numerator evaluates to $2.5$. What does the denominator ($12.27 \\times 2$) evaluate to in the notes?",
+        "options": {
+          "A": "24.00",
+          "B": "24.54",
+          "C": "25.00",
+          "D": "25.54"
+        },
+        "correct_option": "B",
+        "explanation": "The notes show the step: $C_A = 2.5 / 24.54$."
+      },
+      {
+        "id": "obj_chem_019",
+        "question": "What is the final calculated concentration of A ($C_A$) in $mol/dm^3$?",
+        "options": {
+          "A": "$0.100 mol/dm^3$",
+          "B": "$0.102 mol/dm^3$",
+          "C": "$0.204 mol/dm^3$",
+          "D": "$9.75 mol/dm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "The result of $2.5 / 24.54$ is written as $0.102 mol/dm^3$."
+      },
+      {
+        "id": "obj_chem_020",
+        "question": "On page 3, what formula is used to find the 'Mass Concentration of pure $H_2SO_4$ in $g/dm^3$'?",
+        "options": {
+          "A": "Molar conc. of A / Molar mass of $H_2SO_4$",
+          "B": "Molar conc. of A $\\times$ Molar mass of $H_2SO_4$",
+          "C": "Mass of A / Volume of A",
+          "D": "Molar mass of $H_2SO_4$ / Molar conc. of A"
+        },
+        "correct_option": "B",
+        "explanation": "The text reads: `Mass Concentration of pure H2SO4 in g/dm³ = Molar conc. of A x Molar mass of H2SO4`."
+      },
+      {
+        "id": "obj_chem_021",
+        "question": "What is the molar mass of $H_2SO_4$ given in the calculation section?",
+        "options": {
+          "A": "$40 g/mol$",
+          "B": "$49 g/mol$",
+          "C": "$98 g/mol$",
+          "D": "$100 g/mol$"
+        },
+        "correct_option": "C",
+        "explanation": "The note explicitly states: `Molar mass of H2SO4 = 98g/mol`."
+      },
+      {
+        "id": "obj_chem_022",
+        "question": "At the bottom of page 3, the calculation $0.102 \\times 98$ is evaluated. What is the value shown at the bottom of the page? (Note: check page 2 for corresponding value)",
+        "options": {
+          "A": "$9.75 g/dm^3$",
+          "B": "$9.996 g/dm^3$",
+          "C": "$10.00 g/dm^3$",
+          "D": "$10.09 g/dm^3$"
+        },
+        "correct_option": "D",
+        "explanation": "Although the student uses $9.996$ on page 2, the bottom right of page 3 shows the specific calculation evaluating to `= 10.09 g/dm³ //` (an apparent calculation error in the notes itself, but it is what is written)."
+      },
+      {
+        "id": "obj_chem_023",
+        "question": "On page 2, under '(iv) Mass Concentration of pure acid in $g/dm^3$', what calculation is performed?",
+        "options": {
+          "A": "$\\frac{3.9 \\times 400}{1000}$",
+          "B": "$\\frac{400 \\times 1000}{3.9}$",
+          "C": "$\\frac{3.9 \\times 1000}{400}$",
+          "D": "$3.9 \\times 400 \\times 1000$"
+        },
+        "correct_option": "C",
+        "explanation": "The notes show the step exactly as: `(3.9 x 1000) / 400`."
+      },
+      {
+        "id": "obj_chem_024",
+        "question": "What is the result of the calculation $\\frac{3.9 \\times 1000}{400}$ as written on page 2?",
+        "options": {
+          "A": "$0.975 g/dm^3$",
+          "B": "$3.90 g/dm^3$",
+          "C": "$9.75 g/dm^3$",
+          "D": "$97.5 g/dm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "The calculation yields `= 9.75 g/dm³`."
+      },
+      {
+        "id": "obj_chem_025",
+        "question": "**According to the specific labels the student wrote on page 2**, what value is assigned to the 'Mass concentration of pure acid' in the percentage purity block?",
+        "options": {
+          "A": "$3.9 g/dm^3$",
+          "B": "$9.75 g/dm^3$",
+          "C": "$9.996 g/dm^3$",
+          "D": "$98 g/dm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "The student specifically wrote: `Mass concentration of pure acid = 9.75 g/dm³`."
+      },
+      {
+        "id": "obj_chem_026",
+        "question": "**According to the specific labels the student wrote on page 2**, what value is assigned to the 'Mass concentration of Impure acid' in the percentage purity block?",
+        "options": {
+          "A": "$3.9 g/dm^3$",
+          "B": "$9.75 g/dm^3$",
+          "C": "$9.996 g/dm^3$",
+          "D": "$10.09 g/dm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "The student specifically wrote: `Mass concentration of Impure acid = 0.102 x 98 = 9.996 g/dm³`."
+      },
+      {
+        "id": "obj_chem_027",
+        "question": "What formula is written for calculating the percentage purity of the acid sample?",
+        "options": {
+          "A": "$\\frac{\\text{Mass Conc. of Impure}}{\\text{Mass Conc. of Pure}} \\times 100$",
+          "B": "$\\frac{\\text{Mass Conc. of Pure}}{\\text{Mass Conc. of Impure}} \\times 100$",
+          "C": "$\\frac{\\text{Mass Conc. of Pure}}{\\text{Molar Mass}} \\times 100$",
+          "D": "$\\frac{\\text{Molar Conc.}}{\\text{Mass Conc.}} \\times 100$"
+        },
+        "correct_option": "B",
+        "explanation": "The notes show: `= Mass Concentration of pure acid / Mass Concentration of Impure acid`."
+      },
+      {
+        "id": "obj_chem_028",
+        "question": "In the final percentage purity calculation, what values are divided?",
+        "options": {
+          "A": "$\\frac{9.996}{9.75} \\times 100$",
+          "B": "$\\frac{3.9}{9.996} \\times 100$",
+          "C": "$\\frac{9.75}{9.996} \\times 100$",
+          "D": "$\\frac{9.75}{3.9} \\times 100$"
+        },
+        "correct_option": "C",
+        "explanation": "The substituted numbers are: `∴ % purity = (9.75 / 9.996) x 100`."
+      },
+      {
+        "id": "obj_chem_029",
+        "question": "What is the final answer recorded for the percentage purity of the acid sample?",
+        "options": {
+          "A": "85%",
+          "B": "92%",
+          "C": "98%",
+          "D": "100%"
+        },
+        "correct_option": "C",
+        "explanation": "The very last line of the volumetric analysis section reads: `% purity = 98%//`."
+      },
+      {
+        "id": "obj_chem_030",
+        "question": "Moving to Question (2), what is the title of the topic covered?",
+        "options": {
+          "A": "Organic Analysis",
+          "B": "Volumetric Analysis",
+          "C": "Salt Analysis",
+          "D": "Thermochemistry"
+        },
+        "correct_option": "C",
+        "explanation": "Page 4 is clearly titled `(2) SALT ANALYSIS`."
+      },
+      {
+        "id": "obj_chem_031",
+        "question": "What are the components of the 'Specimen' listed at the top right of the Salt Analysis table?",
+        "options": {
+          "A": "$CuCO_3$ + starch",
+          "B": "$PbCO_3$ + starch",
+          "C": "$ZnCO_3$ + glucose",
+          "D": "$CaCO_3$ + starch"
+        },
+        "correct_option": "B",
+        "explanation": "The specimen box reads `[Specimen: PbCO3 + starch] 1 : 1`."
+      },
+      {
+        "id": "obj_chem_032",
+        "question": "What is the ratio of the components in the Specimen provided?",
+        "options": {
+          "A": "1 : 2",
+          "B": "2 : 1",
+          "C": "1 : 1",
+          "D": "3 : 1"
+        },
+        "correct_option": "C",
+        "explanation": "Directly under the specimen identity, the ratio `1 : 1` is written."
+      },
+      {
+        "id": "obj_chem_033",
+        "question": "In Test (a), what reagent is added to Specimen C?",
+        "options": {
+          "A": "Dilute HCl",
+          "B": "Distilled water",
+          "C": "Aqueous ammonia",
+          "D": "Iodine solution"
+        },
+        "correct_option": "B",
+        "explanation": "The first test is written as `C + distilled water`."
+      },
+      {
+        "id": "obj_chem_034",
+        "question": "Based on the table excerpt below:\n| Test | Observation |\n| :--- | :--- |\n| (a) C + distilled water | C is **[GAP]** in water and a white precipitate is formed. |\nWhat completes the gap?",
+        "options": {
+          "A": "soluble",
+          "B": "insoluble",
+          "C": "partially soluble",
+          "D": "miscible"
+        },
+        "correct_option": "B",
+        "explanation": "The observation explicitly states `C is insoluble in water`."
+      },
+      {
+        "id": "obj_chem_035",
+        "question": "What is the inference drawn from adding distilled water to Specimen C?",
+        "options": {
+          "A": "C is a pure compound",
+          "B": "C is a soluble salt",
+          "C": "C is a mixture of insoluble substance",
+          "D": "C contains water of crystallization"
+        },
+        "correct_option": "C",
+        "explanation": "The corresponding inference is `C is a mixture of insoluble substance`."
+      },
+      {
+        "id": "obj_chem_036",
+        "question": "In Test (bi), what reagent is added to C before filtering?",
+        "options": {
+          "A": "Distilled water",
+          "B": "Dilute $HNO_3$",
+          "C": "Dilute $H_2SO_4$",
+          "D": "Dilute HCl"
+        },
+        "correct_option": "D",
+        "explanation": "The test column reads `C + dilute HCl + filter`."
+      },
+      {
+        "id": "obj_chem_037",
+        "question": "Which of the following is NOT an observation listed when dilute HCl is added to C?",
+        "options": {
+          "A": "Effervescence is observed",
+          "B": "A brown gas is evolved",
+          "C": "Colourless, odourless gas evolved",
+          "D": "Gas turns limewater milky"
+        },
+        "correct_option": "B",
+        "explanation": "The observation says `Effervescence is observed, Colourless Odourless gas evolved. Gas turns limewater milky`. It does not mention a brown gas."
+      },
+      {
+        "id": "obj_chem_038",
+        "question": "The observation 'Effervescence is observed...' leads to which immediate primary inference?",
+        "options": {
+          "A": "$SO_4^{2-}$ present",
+          "B": "$CO_3^{2-}$ present",
+          "C": "$Cl^-$ present",
+          "D": "$NO_3^-$ present"
+        },
+        "correct_option": "B",
+        "explanation": "Opposite the effervescence observation, the inference is `$CO_3^{2-}$ present`."
+      },
+      {
+        "id": "obj_chem_039",
+        "question": "The observation that the gas evolved 'turns limewater milky' leads to what specific inference in the notes?",
+        "options": {
+          "A": "$SO_2$ gas from $SO_3^{2-}$",
+          "B": "$CO_2$ from $CO_3^{2-}$ present",
+          "C": "$NH_3$ gas from $NH_4^+$",
+          "D": "$H_2S$ gas from $S^{2-}$"
+        },
+        "correct_option": "B",
+        "explanation": "The inference column clearly states `$CO_2$ from $CO_3^{2-}$ present`."
+      },
+      {
+        "id": "obj_chem_040",
+        "question": "In Test (ii), what is added in drops to a portion of the filtrate?",
+        "options": {
+          "A": "$NaOH(aq)$",
+          "B": "$NH_3(aq)$",
+          "C": "$BaCl_2(aq)$",
+          "D": "$AgNO_3(aq)$"
+        },
+        "correct_option": "B",
+        "explanation": "The test says `A portion of filtrate + NH3 (aq) in drops`."
+      },
+      {
+        "id": "obj_chem_041",
+        "question": "When $NH_3(aq)$ is added in drops to the filtrate, what is the observation?",
+        "options": {
+          "A": "Blue precipitate formed",
+          "B": "Yellow precipitate formed",
+          "C": "White precipitate formed",
+          "D": "No precipitate formed"
+        },
+        "correct_option": "C",
+        "explanation": "The observation column reads `White precipitate formed`."
+      },
+      {
+        "id": "obj_chem_042",
+        "question": "What is the initial inference when the white precipitate forms upon adding $NH_3(aq)$ in drops?",
+        "options": {
+          "A": "$Zn^{2+}$ present",
+          "B": "$Al^{3+}$ present",
+          "C": "$Pb^{2+}$ present",
+          "D": "$Ca^{2+}$ present"
+        },
+        "correct_option": "C",
+        "explanation": "The inference recorded is `$Pb^{2+}$ present`."
+      },
+      {
+        "id": "obj_chem_043",
+        "question": "What happens when $NH_3(aq)$ is added 'then in excess' to the precipitate?",
+        "options": {
+          "A": "Precipitate dissolves",
+          "B": "Precipitate soluble",
+          "C": "Precipitate insoluble",
+          "D": "Solution turns deep blue"
+        },
+        "correct_option": "C",
+        "explanation": "The observation is `precipitate insoluble`."
+      },
+      {
+        "id": "obj_chem_044",
+        "question": "What inference is drawn when the precipitate remains insoluble in excess $NH_3(aq)$?",
+        "options": {
+          "A": "$Cu^{2+}$ present",
+          "B": "$Zn^{2+}$ present",
+          "C": "$Pb^{2+}$ present",
+          "D": "$Fe^{2+}$ present"
+        },
+        "correct_option": "C",
+        "explanation": "The corresponding inference remains `$Pb^{2+}$ present`."
+      },
+      {
+        "id": "obj_chem_045",
+        "question": "In Test (iii), what reagent is added to a fresh portion of the filtrate?",
+        "options": {
+          "A": "$NH_3(aq)$",
+          "B": "Dilute $HNO_3$",
+          "C": "$NaOH(aq)$",
+          "D": "Potassium iodide"
+        },
+        "correct_option": "C",
+        "explanation": "The test specifies `A portion of filtrate + NaOH (aq) in drops`."
+      },
+      {
+        "id": "obj_chem_046",
+        "question": "When $NaOH(aq)$ is added in drops, a white precipitate forms. What inference is written for this step?",
+        "options": {
+          "A": "$Pb^{2+}$ present",
+          "B": "$Ca^{2+}$ suspected",
+          "C": "$Pb^{2+}$ or $Ca^{2+}$ suspected",
+          "D": "$Zn^{2+}$ or $Al^{3+}$ suspected"
+        },
+        "correct_option": "C",
+        "explanation": "The exact wording in the inference column is `$Pb^{2+}$ or $Ca^{2+}$ suspected`."
+      },
+      {
+        "id": "obj_chem_047",
+        "question": "What happens when $NaOH(aq)$ is added 'Then in excess'?",
+        "options": {
+          "A": "Precipitate insoluble",
+          "B": "Precipitate soluble",
+          "C": "Solution turns green",
+          "D": "Gas is evolved"
+        },
+        "correct_option": "B",
+        "explanation": "The observation is written as `Precipitate soluble`."
+      },
+      {
+        "id": "obj_chem_048",
+        "question": "Based on the table excerpt below:\n| Test | Observation | Inference |\n| :--- | :--- | :--- |\n| Then in excess | Precipitate soluble | **[GAP]** |\nWhat fills the **[GAP]** for the $NaOH(aq)$ test?",
+        "options": {
+          "A": "$Ca^{2+}$ confirmed",
+          "B": "$Zn^{2+}$ present",
+          "C": "$Pb^{2+}$ present",
+          "D": "$Al^{3+}$ present"
+        },
+        "correct_option": "C",
+        "explanation": "The inference for the precipitate being soluble in excess NaOH is `$Pb^{2+}$ present`."
+      },
+      {
+        "id": "obj_chem_049",
+        "question": "In Test (c), what reagent is added to a portion of solid Specimen C?",
+        "options": {
+          "A": "Benedict's solution",
+          "B": "Ethanol",
+          "C": "Iodine",
+          "D": "Biuret reagent"
+        },
+        "correct_option": "C",
+        "explanation": "The final test is `portion of C + Iodine`."
+      },
+      {
+        "id": "obj_chem_050",
+        "question": "What is the visual observation when Iodine is added to a portion of Specimen C?",
+        "options": {
+          "A": "Brick red precipitate",
+          "B": "Dark blue colouration",
+          "C": "Purple ring formed",
+          "D": "White fumes"
+        },
+        "correct_option": "B",
+        "explanation": "The observation column states `Dark blue colouration is observed`."
+      },
+      {
+        "id": "obj_chem_051",
+        "question": "What inference concludes the Salt Analysis based on the dark blue colouration with Iodine?",
+        "options": {
+          "A": "Reducing sugar is present",
+          "B": "Protein is present",
+          "C": "Lipid is present",
+          "D": "Starch is present"
+        },
+        "correct_option": "D",
+        "explanation": "The final inference states `Starch is present`, verifying the specimen composition listed at the top."
+      }
+    ]
   }
 ]
