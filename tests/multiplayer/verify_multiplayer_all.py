@@ -36,7 +36,7 @@ async def run():
             page1.on("console", handle_console)
             await page1.goto('http://localhost:5000/multiplayer')
             await page1.fill('#create-name', 'Alice')
-            await page1.select_option('#create-mode', 'obj')
+            await page1.click('.mode-card[data-mode="obj"]')
             await page1.click('button:has-text("Create Room")')
             await page1.wait_for_selector('#display-room-id')
 
@@ -87,9 +87,10 @@ async def run():
             await asyncio.sleep(2)
 
             # Test Chat in Study
+            await page2.wait_for_selector('#chat-input', timeout=15000)
             await page2.fill('#chat-input', 'Good luck Alice!')
             await page2.click('#chat-send')
-            await page1.wait_for_selector('text=Good luck Alice!')
+            await page1.wait_for_selector('text=Good luck Alice!', timeout=15000)
             print("Study chat working")
 
             # Alice answers

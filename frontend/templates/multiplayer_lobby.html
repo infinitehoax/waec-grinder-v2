@@ -18,18 +18,42 @@
         <input type="text" id="create-name" placeholder="Enter your name" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
       </div>
       <div style="margin-bottom: 16px;">
-        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Subject</label>
-        <div id="subject-list" style="display: grid; grid-template-columns: 1fr; gap: 8px; max-height: 150px; overflow-y: auto; padding: 10px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:8px;">
+        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Select Subjects</label>
+        <div id="subject-list" style="display: grid; grid-template-columns: 1fr; gap: 10px; max-height: 240px; overflow-y: auto; padding: 4px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-input);">
             <!-- Subjects rendered here by JS -->
         </div>
       </div>
       <div style="margin-bottom: 20px;">
         <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Study Mode</label>
-        <select id="create-mode" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
-          <option value="both">Both (Mixed)</option>
-          <option value="obj">OBJ Only</option>
-          <option value="theory">Theory Only</option>
-        </select>
+        <div style="display:grid; grid-template-columns: 1fr; gap:12px;">
+          <div class="card mode-card" data-mode="obj" onclick="lobby.selectMode('obj')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s; padding: 12px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="font-size:1.5rem;">🔤</div>
+              <div>
+                <div style="font-weight:700; font-size:0.9rem;">OBJ Only</div>
+                <div style="font-size:0.75rem; color:var(--text-secondary);">Multiple choice questions.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card mode-card" data-mode="theory" onclick="lobby.selectMode('theory')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s; padding: 12px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="font-size:1.5rem;">✍️</div>
+              <div>
+                <div style="font-weight:700; font-size:0.9rem;">Theory Only</div>
+                <div style="font-size:0.75rem; color:var(--text-secondary);">Essay questions.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card mode-card selected-mode" data-mode="both" onclick="lobby.selectMode('both')" style="cursor:pointer; border-color: var(--accent); background: var(--accent-glow); transition: all 0.2s; padding: 12px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="font-size:1.5rem;">⚡</div>
+              <div>
+                <div style="font-weight:700; font-size:0.9rem;">Both (Recommended)</div>
+                <div style="font-size:0.75rem; color:var(--text-secondary);">Mixed session.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <button class="btn btn--primary" style="width:100%;" onclick="lobby.createRoom()">Create Room</button>
     </div>
@@ -64,34 +88,63 @@
     </div>
 
     <div id="host-controls" class="hidden">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; max-width: 400px; margin-left: auto; margin-right: auto;">
-        <div>
-          <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Questions</label>
-          <select id="total-questions" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
-            <option value="10">10 (Default)</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="50">50</option>
-            <option value="all">ALL</option>
-          </select>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 20px; text-align: left;">
+        <div class="card" id="batch-config-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Total Questions</div>
+              <div style="font-size:0.85rem; color:var(--text-secondary);">Questions for the match.</div>
+            </div>
+            <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
+              <div style="display:flex; gap:8px;">
+                <button class="btn btn--ghost btn--sm batch-size-btn active-size" data-size="10">10</button>
+                <button class="btn btn--ghost btn--sm batch-size-btn" data-size="20">20</button>
+                <button class="btn btn--ghost btn--sm batch-size-btn" data-size="all">All</button>
+              </div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
+              <input type="number" id="custom-batch-size" placeholder="Custom" class="input-custom" style="width: 80px;">
+            </div>
+          </div>
         </div>
-        <div>
-          <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Time Limit</label>
-          <select id="time-limit" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
-            <option value="0">No Limit</option>
-            <option value="5">5 Mins</option>
-            <option value="10">10 Mins</option>
-            <option value="20">20 Mins</option>
-            <option value="30">30 Mins</option>
-          </select>
-        </div>
-      </div>
 
-      <!-- ADD THIS inside the host-controls div before the 'Start Competition' button -->
-      <div style="display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto;">
-        <div class="card" style="padding: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="lobby.toggleSetting('randomize_options', 'random-o-badge')">
-            <span style="font-size:0.85rem; color:var(--text-primary);">Randomize Options</span>
-            <div id="random-o-badge" class="badge badge--neutral">OFF</div>
+        <div class="card" id="timed-config-card" style="border-color: var(--border-subtle); opacity: 0.7;">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Time Limit</div>
+              <div style="font-size:0.85rem; color:var(--text-secondary);">Set a duration in minutes.</div>
+            </div>
+            <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
+              <div style="display:flex; gap:8px;">
+                <button class="btn btn--ghost btn--sm timed-btn" data-time="5">5m</button>
+                <button class="btn btn--ghost btn--sm timed-btn" data-time="10">10m</button>
+                <button class="btn btn--ghost btn--sm timed-btn" data-time="20">20m</button>
+              </div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
+              <input type="number" id="custom-time-limit" placeholder="Mins" class="input-custom" style="width: 80px;">
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="card" id="random-questions-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('randomize_questions', 'random-q-badge')">
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+              <div>
+                <div style="font-weight:600; margin-bottom:4px;">Randomize Questions</div>
+                <div style="font-size:0.85rem; color:var(--text-secondary);">Shuffle question order.</div>
+              </div>
+              <div id="random-q-badge" class="badge badge--neutral">OFF</div>
+            </div>
+          </div>
+
+          <div class="card" id="random-options-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('randomize_options', 'random-o-badge')">
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+              <div>
+                <div style="font-weight:600; margin-bottom:4px;">Randomize Options</div>
+                <div style="font-size:0.85rem; color:var(--text-secondary);">Shuffle A, B, C, D order.</div>
+              </div>
+              <div id="random-o-badge" class="badge badge--neutral">OFF</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -145,6 +198,11 @@
     padding: 2px 6px;
     border-radius: 4px;
     font-weight: 700;
+}
+.active-size {
+    background: var(--accent) !important;
+    color: #000 !important;
+    border-color: var(--accent) !important;
 }
 </style>
 {% endblock %}

@@ -12,7 +12,10 @@ const Lobby = {
     allQuestions: [],
     roomId: null,
     isHost: false,
+    randomize_questions: false,
     randomize_options: false,
+    totalQuestions: 10,
+    timeLimit: 0,
 
     async init() {
         socket.connect();
@@ -37,6 +40,88 @@ const Lobby = {
 
         const exitBtn = document.getElementById('exit-waiting');
         if (exitBtn) exitBtn.onclick = () => this.leaveRoom();
+
+        this.setupControlListeners();
+
+        // Initialize mode UI
+        this.selectMode(this.selectedMode);
+    },
+
+    setupControlListeners() {
+        // Question count buttons
+        document.querySelectorAll('.batch-size-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+                btn.classList.add('active-size');
+                this.totalQuestions = btn.dataset.size === 'all' ? 'all' : parseInt(btn.dataset.size);
+                const customInput = document.getElementById('custom-batch-size');
+                if (customInput) customInput.value = '';
+                this.updateHostControlUI('batch-config-card', true);
+            };
+        });
+
+        const customBatch = document.getElementById('custom-batch-size');
+        if (customBatch) {
+            customBatch.oninput = (e) => {
+                const val = parseInt(e.target.value);
+                if (val > 0) {
+                    this.totalQuestions = val;
+                    document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+                    this.updateHostControlUI('batch-config-card', true);
+                } else {
+                    this.totalQuestions = 10;
+                    document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+                    const defaultBtn = document.querySelector('.batch-size-btn[data-size="10"]');
+                    if (defaultBtn) defaultBtn.classList.add('active-size');
+                }
+            };
+        }
+
+        // Time limit buttons
+        document.querySelectorAll('.timed-btn').forEach(btn => {
+            btn.onclick = () => {
+                if (btn.classList.contains('active-size')) {
+                    btn.classList.remove('active-size');
+                    this.timeLimit = 0;
+                    this.updateHostControlUI('timed-config-card', false);
+                    return;
+                }
+                document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+                btn.classList.add('active-size');
+                this.timeLimit = parseInt(btn.dataset.time);
+                const customInput = document.getElementById('custom-time-limit');
+                if (customInput) customInput.value = '';
+                this.updateHostControlUI('timed-config-card', true);
+            };
+        });
+
+        const customTime = document.getElementById('custom-time-limit');
+        if (customTime) {
+            customTime.oninput = (e) => {
+                const val = parseInt(e.target.value);
+                if (val > 0) {
+                    this.timeLimit = val;
+                    document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+                    this.updateHostControlUI('timed-config-card', true);
+                } else {
+                    this.timeLimit = 0;
+                    document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+                    this.updateHostControlUI('timed-config-card', false);
+                }
+            };
+        }
+    },
+
+    updateHostControlUI(cardId, active) {
+        const card = document.getElementById(cardId);
+        if (!card) return;
+        if (active) {
+            card.style.borderColor = 'var(--accent)';
+            card.style.opacity = '1';
+        } else {
+            card.style.borderColor = 'var(--border-subtle)';
+            card.style.opacity = '0.7';
+        }
     },
 
     renderSubjects() {
@@ -44,9 +129,9 @@ const Lobby = {
         if (!list) return;
 
         list.innerHTML = this.allQuestions.map((s, idx) => `
-            <label style="display:flex; align-items:center; gap:8px; padding:4px; cursor:pointer;">
-                <input type="checkbox" class="subject-checkbox" value="${s.subject}" ${idx === 0 ? 'checked' : ''}>
-                <span style="font-size:0.85rem;">${s.subject}</span>
+            <label style="display:flex; align-items:center; gap:10px; padding:8px 12px; cursor:pointer; transition:background 0.2s; border-radius:var(--radius-sm);">
+                <input type="checkbox" class="subject-checkbox" value="${s.subject}" ${idx === 0 ? 'checked' : ''} style="width:18px; height:18px; accent-color:var(--accent);">
+                <span style="font-size:0.9rem; font-weight:500;">${s.subject}</span>
             </label>
         `).join('');
     },
@@ -160,31 +245,58 @@ const Lobby = {
         }).join('');
     },
 
+    selectMode(mode) {
+        this.selectedMode = mode;
+        document.querySelectorAll('.mode-card').forEach(c => {
+            c.classList.remove('selected-mode');
+            c.style.borderColor = 'var(--border-subtle)';
+            c.style.background = '';
+        });
+        const active = document.querySelector(`.mode-card[data-mode="${mode}"]`);
+        if (active) {
+            active.classList.add('selected-mode');
+            active.style.borderColor = 'var(--accent)';
+            active.style.background = 'var(--accent-glow)';
+        }
+    },
+
     toggleSetting(key, badgeId) {
         if (!this.isHost) return;
         this[key] = !this[key];
+
+        const cardId = key === 'randomize_questions' ? 'random-questions-config-card' : 'random-options-config-card';
+        const card = document.getElementById(cardId);
         const badge = document.getElementById(badgeId);
-        if (!badge) return;
 
         if (this[key]) {
-            badge.textContent = 'ON';
-            badge.className = 'badge badge--accent';
+            if (badge) {
+                badge.textContent = 'ON';
+                badge.className = 'badge badge--accent';
+            }
+            if (card) {
+                card.style.borderColor = 'var(--accent)';
+                card.style.opacity = '1';
+            }
         } else {
-            badge.textContent = 'OFF';
-            badge.className = 'badge badge--neutral';
+            if (badge) {
+                badge.textContent = 'OFF';
+                badge.className = 'badge badge--neutral';
+            }
+            if (card) {
+                card.style.borderColor = 'var(--border-subtle)';
+                card.style.opacity = '0.7';
+            }
         }
     },
 
     startGame() {
         if (!this.isHost) return;
-        const total = document.getElementById('total-questions').value;
-        const timeLimit = document.getElementById('time-limit').value;
 
         socket.startGame(
             this.roomId,
-            total,
-            timeLimit,
-            true, // randomize_questions is now mandatory
+            this.totalQuestions,
+            this.timeLimit,
+            this.randomize_questions,
             this.randomize_options
         );
     },

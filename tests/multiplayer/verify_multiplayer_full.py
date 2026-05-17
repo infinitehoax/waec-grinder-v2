@@ -9,7 +9,7 @@ async def run():
         page1 = await browser.new_page()
         await page1.goto('http://localhost:5000/multiplayer')
         await page1.fill('#create-name', 'Alice')
-        await page1.select_option('#create-mode', 'obj')
+        await page1.click('.mode-card[data-mode="obj"]')
         await page1.click('button:has-text("Create Room")')
         await page1.wait_for_selector('#display-room-id')
         room_id = (await page1.inner_text('#display-room-id')).split(': ')[1]
