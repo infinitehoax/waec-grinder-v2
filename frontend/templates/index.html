@@ -88,13 +88,14 @@
             <div style="font-weight:600; margin-bottom:4px;">Batch Size</div>
             <div style="font-size:0.85rem; color:var(--text-secondary);">Questions per round.</div>
           </div>
-          <div style="display:flex; gap:8px; align-items: center;">
-            <button class="btn btn--ghost batch-size-btn" data-size="3">3</button>
-            <button class="btn btn--ghost batch-size-btn active-size" data-size="5">5</button>
-            <button class="btn btn--ghost batch-size-btn" data-size="10">10</button>
+          <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
+            <div style="display:flex; gap:8px;">
+              <button class="btn btn--ghost btn--sm batch-size-btn" data-size="3">3</button>
+              <button class="btn btn--ghost btn--sm batch-size-btn active-size" data-size="5">5</button>
+              <button class="btn btn--ghost btn--sm batch-size-btn" data-size="10">10</button>
+            </div>
             <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
-            <input type="number" id="custom-batch-size" placeholder="Custom"
-                   style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 4px 8px; color: var(--text-primary); font-size: 0.85rem;">
+            <input type="number" id="custom-batch-size" placeholder="Custom" class="input-custom" style="width: 80px;">
           </div>
         </div>
       </div>
@@ -105,13 +106,14 @@
             <div style="font-weight:600; margin-bottom:4px;">Timed Session</div>
             <div style="font-size:0.85rem; color:var(--text-secondary);">Grind for a set duration.</div>
           </div>
-          <div style="display:flex; gap:8px; align-items: center;">
-            <button class="btn btn--ghost timed-btn" data-time="5">5m</button>
-            <button class="btn btn--ghost timed-btn" data-time="10">10m</button>
-            <button class="btn btn--ghost timed-btn" data-time="15">15m</button>
+          <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
+            <div style="display:flex; gap:8px;">
+              <button class="btn btn--ghost btn--sm timed-btn" data-time="5">5m</button>
+              <button class="btn btn--ghost btn--sm timed-btn" data-time="10">10m</button>
+              <button class="btn btn--ghost btn--sm timed-btn" data-time="15">15m</button>
+            </div>
             <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
-            <input type="number" id="custom-time-limit" placeholder="Mins"
-                   style="width: 70px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 4px 8px; color: var(--text-primary); font-size: 0.85rem;">
+            <input type="number" id="custom-time-limit" placeholder="Mins" class="input-custom" style="width: 80px;">
           </div>
         </div>
       </div>
