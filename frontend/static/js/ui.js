@@ -198,6 +198,37 @@ function renderSubQuestion(sub) {
 }
 
 // ---- Helpers ----
+
+// Configure marked once for performance
+const _markedRenderer = new marked.Renderer();
+_markedRenderer.image = (arg1, title, text) => {
+  let href = arg1;
+  let subtitleText = text;
+  let imgTitle = title;
+
+  if (typeof arg1 === 'object' && arg1 !== null) {
+    href = arg1.href;
+    subtitleText = arg1.text;
+    imgTitle = arg1.title;
+  }
+
+  const subtitle = subtitleText ? `<figcaption class="img-subtitle">${subtitleText}</figcaption>` : '';
+  return `
+    <figure class="q-image-figure">
+      <img src="${href}" alt="${subtitleText || ''}" title="${imgTitle || ''}" class="q-image">
+      ${subtitle}
+    </figure>
+  `;
+};
+
+marked.setOptions({
+  gfm: true,
+  breaks: true, // support \n (newline)
+  renderer: _markedRenderer,
+  headerIds: false,
+  mangle: false
+});
+
 function formatText(str) {
   if (!str) return '';
 
@@ -226,39 +257,7 @@ function formatText(str) {
     return id;
   });
 
-  // 2. Configure marked for GFM and custom image with subtitle
-  const renderer = new marked.Renderer();
-  // Support both older and newer marked versions
-  const originalImageRenderer = renderer.image.bind(renderer);
-  renderer.image = (arg1, title, text) => {
-    let href = arg1;
-    let subtitleText = text;
-    let imgTitle = title;
-
-    if (typeof arg1 === 'object' && arg1 !== null) {
-      href = arg1.href;
-      subtitleText = arg1.text;
-      imgTitle = arg1.title;
-    }
-
-    const subtitle = subtitleText ? `<figcaption class="img-subtitle">${subtitleText}</figcaption>` : '';
-    return `
-      <figure class="q-image-figure">
-        <img src="${href}" alt="${subtitleText || ''}" title="${imgTitle || ''}" class="q-image">
-        ${subtitle}
-      </figure>
-    `;
-  };
-
-  marked.setOptions({
-    gfm: true,
-    breaks: true, // support \n (newline)
-    renderer: renderer,
-    headerIds: false,
-    mangle: false
-  });
-
-  // 3. Parse Markdown
+  // 2. Parse Markdown
   let html = marked.parse(processed);
 
   // 4. Restore LaTeX blocks

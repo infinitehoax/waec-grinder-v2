@@ -34,17 +34,34 @@ const SUB_KEYS = {
   STATS:         'stats',
 };
 
+// In-memory cache to reduce localStorage I/O and redundant JSON.parse calls
+const _cache = new Map();
+
+// Helper to deep clone objects to prevent accidental cache mutations and match JSON.parse behavior
+function deepClone(obj) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  return JSON.parse(JSON.stringify(obj));
+}
+
 const Storage = {
   // ---- Raw helpers ----
   _get(key) {
+    if (_cache.has(key)) return deepClone(_cache.get(key));
     try {
       const val = localStorage.getItem(key);
       if (val === null) return null;
-      return JSON.parse(val);
+      const parsed = JSON.parse(val);
+      _cache.set(key, parsed);
+      return deepClone(parsed);
     } catch { return null; }
   },
   _set(key, val) {
+    _cache.set(key, deepClone(val));
     localStorage.setItem(key, JSON.stringify(val));
+  },
+  _remove(key) {
+    _cache.delete(key);
+    localStorage.removeItem(key);
   },
 
   getPlayerUuid() {
@@ -103,20 +120,21 @@ const Storage = {
 
   // ---- Force reset (re-study all questions for a subject) ----
   clearSubjectProgress(subject) {
-    localStorage.removeItem(`wg_sub_${subject}`);
+    this._remove(`wg_sub_${subject}`);
     const current = this.getSubject();
     const isCurrent = Array.isArray(current) ? current.includes(subject) : current === subject;
 
     if (isCurrent) {
-      localStorage.removeItem(KEYS.CURRENT_BATCH);
-      localStorage.removeItem(KEYS.CURRENT_IDX);
-      localStorage.removeItem(KEYS.STUDY_MODE);
+      this._remove(KEYS.CURRENT_BATCH);
+      this._remove(KEYS.CURRENT_IDX);
+      this._remove(KEYS.STUDY_MODE);
       this.clearTimer();
     }
   },
 
   hardReset() {
     // This now clears EVERYTHING
+    _cache.clear();
     localStorage.clear();
   },
 
@@ -129,12 +147,12 @@ const Storage = {
       const stats = this.getStats(subject);
       stats.sessions += 1;
 
-      localStorage.removeItem(`wg_sub_${subject}`);
+      this._remove(`wg_sub_${subject}`);
       this._setScoped(subject, SUB_KEYS.STATS, stats);
     });
 
-    localStorage.removeItem(KEYS.CURRENT_BATCH);
-    localStorage.removeItem(KEYS.CURRENT_IDX);
+    this._remove(KEYS.CURRENT_BATCH);
+    this._remove(KEYS.CURRENT_IDX);
 
     this.initSession(data, mode);
   },
@@ -216,16 +234,16 @@ const Storage = {
   setTimerEnd(v) { this._set(KEYS.TIMER_END, v); },
   getTimerRemaining() { return this._get(KEYS.TIMER_REMAINING); },
   setTimerRemaining(v) { this._set(KEYS.TIMER_REMAINING, v); },
-  clearTimerRemaining() { localStorage.removeItem(KEYS.TIMER_REMAINING); },
+  clearTimerRemaining() { this._remove(KEYS.TIMER_REMAINING); },
   clearTimer() {
-    localStorage.removeItem(KEYS.TIME_LIMIT);
-    localStorage.removeItem(KEYS.TIMER_END);
-    localStorage.removeItem(KEYS.TIMER_REMAINING);
+    this._remove(KEYS.TIME_LIMIT);
+    this._remove(KEYS.TIMER_END);
+    this._remove(KEYS.TIMER_REMAINING);
   },
 
   getBatchStartTime() { return this._get(KEYS.BATCH_START_TIME); },
   setBatchStartTime(v) { this._set(KEYS.BATCH_START_TIME, v); },
-  clearBatchStartTime() { localStorage.removeItem(KEYS.BATCH_START_TIME); },
+  clearBatchStartTime() { this._remove(KEYS.BATCH_START_TIME); },
 
   isRandomizedQuestions() { return !!this._get(KEYS.RANDOMIZE_QUESTIONS); },
   setRandomizedQuestions(v) { this._set(KEYS.RANDOMIZE_QUESTIONS, !!v); },
@@ -347,8 +365,8 @@ const Storage = {
     return this._get(KEYS.CURRENT_BATCH) || null;
   },
   clearBatch() {
-    localStorage.removeItem(KEYS.CURRENT_BATCH);
-    localStorage.removeItem(KEYS.CURRENT_IDX);
+    this._remove(KEYS.CURRENT_BATCH);
+    this._remove(KEYS.CURRENT_IDX);
     this.clearBatchStartTime();
   },
   saveIdx(idx) {
@@ -472,5 +490,18 @@ const Storage = {
     return false;
   },
 };
+
+// Sync cache if localStorage is updated from another tab
+window.addEventListener('storage', (e) => {
+  if (e.newValue === null) {
+    _cache.delete(e.key);
+  } else {
+    try {
+      _cache.set(e.key, JSON.parse(e.newValue));
+    } catch {
+      _cache.delete(e.key);
+    }
+  }
+});
 
 export default Storage;
