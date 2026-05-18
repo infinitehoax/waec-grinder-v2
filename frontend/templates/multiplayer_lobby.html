@@ -76,7 +76,7 @@
   <!-- Waiting Room (Hidden by default) -->
   <div id="waiting-room" class="card hidden" style="text-align: center; padding: 40px;">
     <div style="margin-bottom: 24px;">
-      <span class="badge badge--accent" style="font-size: 1.2rem; padding: 8px 16px;" id="display-room-id">ROOM ID: ------</span>
+      <span class="badge badge--accent" style="font-size: 1.2rem; padding: 8px 16px; cursor: pointer;" id="display-room-id" role="button" tabindex="0" aria-label="Copy Room ID" onclick="lobby.copyRoomId()" onkeydown="if(event.key==='Enter'||event.key===' ') { lobby.copyRoomId(); event.preventDefault(); }">ROOM ID: ------ 📋</span>
       <p style="margin-top: 12px; color: var(--text-secondary);">Share this ID with your friends to join (Max 5 players)</p>
     </div>
 

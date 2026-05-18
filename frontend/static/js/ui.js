@@ -14,10 +14,13 @@ function showToast(msg, type = 'info', duration = 3500) {
   if (!container) {
     container = document.createElement('div');
     container.id = 'toast-container';
+    container.setAttribute('aria-live', 'polite');
+    container.setAttribute('aria-atomic', 'true');
     document.body.appendChild(container);
   }
   const toast = document.createElement('div');
   toast.className = `toast toast--${type}`;
+  toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
   toast.textContent = msg;
   container.appendChild(toast);
   setTimeout(() => toast.remove(), duration);

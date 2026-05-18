@@ -210,7 +210,10 @@ const Lobby = {
     showWaitingRoom(state) {
         document.getElementById('lobby-setup').classList.add('hidden');
         document.getElementById('waiting-room').classList.remove('hidden');
-        document.getElementById('display-room-id').textContent = `ROOM ID: ${this.roomId}`;
+        const displayEl = document.getElementById('display-room-id');
+        if (displayEl) {
+            displayEl.innerHTML = `ROOM ID: ${this.roomId} <span style="margin-left: 8px; opacity: 0.8;">📋</span>`;
+        }
 
         if (this.isHost) {
             document.getElementById('host-controls').classList.remove('hidden');
