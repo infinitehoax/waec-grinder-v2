@@ -2042,5 +2042,1310 @@
         "explanation": "The final inference states `Starch is present`, verifying the specimen composition listed at the top."
       }
     ]
-  }
+  },
+  {
+    "subject": "Agricultural Science",
+    "obj": [
+      {
+        "id": "obj_agric_001",
+        "topic": "Animal Improvement",
+        "question": "Selection of farm animals based on the performance of their ancestors is called:",
+        "options": {
+          "A": "mass selection",
+          "B": "family selection",
+          "C": "progeny selection",
+          "D": "pedigree selection"
+        },
+        "correct_option": "D",
+        "explanation": "Pedigree selection looks at the parents/grandparents' records to determine genetic value. Progeny selection looks at the offspring's performance."
+      },
+      {
+        "id": "obj_agric_002",
+        "topic": "Animal Improvement",
+        "question": "A limitation to the effective use of artificial insemination in animal improvement is:",
+        "options": {
+          "A": "the use of semen from exotic breeds",
+          "B": "the inability of the farmer to detect heat in female animals",
+          "C": "the fast growth rate of the offspring",
+          "D": "the prevention of venereal diseases"
+        },
+        "correct_option": "B",
+        "explanation": "If the farmer misses the exact time the female is on heat (oestrus), the insemination will fail because no egg will be available for fertilization."
+      },
+      {
+        "id": "obj_agric_003",
+        "topic": "Animal Improvement",
+        "question": "A major disadvantage of prolonged inbreeding in farm animals is that it leads to:",
+        "options": {
+          "A": "reduced vigour and poor growth among offspring",
+          "B": "increased vigour among offspring",
+          "C": "production of disease-resistant pure breeds",
+          "D": "production of animals with completely uniform characteristics"
+        },
+        "correct_option": "A",
+        "explanation": "Prolonged inbreeding causes \"inbreeding depression,\" which brings out hidden genetic defects and lowers overall performance and fertility."
+      },
+      {
+        "id": "obj_agric_004",
+        "topic": "Animal Improvement",
+        "question": "Progeny selection in farm animals is based on the performance of:",
+        "options": {
+          "A": "family",
+          "B": "parents",
+          "C": "offspring",
+          "D": "siblings"
+        },
+        "correct_option": "C",
+        "explanation": "The term 'Progeny' refers specifically to the children or offspring of the animal being evaluated."
+      },
+      {
+        "id": "obj_agric_005",
+        "topic": "Animal Improvement",
+        "question": "If a highly productive dairy cow from Kenya is brought to a farm in Nigeria to be reared, the animal is said to have been:",
+        "options": {
+          "A": "cross-bred",
+          "B": "introduced",
+          "C": "inbred",
+          "D": "selected"
+        },
+        "correct_option": "B",
+        "explanation": "Introduction is the process of bringing an animal into a new environment where it was not previously found."
+      },
+      {
+        "id": "obj_agric_006",
+        "topic": "Animal Improvement",
+        "question": "One of the main aims of animal improvement is to:",
+        "options": {
+          "A": "transfer desirable qualities from exotic breeds to local breeds",
+          "B": "produce animals that are susceptible to local pests and diseases",
+          "C": "produce animals with a high rate of infantile mortality",
+          "D": "produce animals whose parents perform better than the offspring"
+        },
+        "correct_option": "A",
+        "explanation": "Improvement aims to upgrade local breeds by incorporating superior traits (like fast growth or high milk yield) from exotic breeds."
+      },
+      {
+        "id": "obj_agric_007",
+        "topic": "Animal Improvement",
+        "question": "The selection of an animal from a group based strictly on its own physical appearance and performance is called:",
+        "options": {
+          "A": "family selection",
+          "B": "progeny selection",
+          "C": "pedigree selection",
+          "D": "mass selection"
+        },
+        "correct_option": "D",
+        "explanation": "Mass selection (also known as individual selection) focuses on the phenotype of the individual animal itself."
+      },
+      {
+        "id": "obj_agric_008",
+        "topic": "Animal Improvement",
+        "question": "One of the advantages of artificial insemination is that:",
+        "options": {
+          "A": "gestation period becomes much shorter",
+          "B": "it eliminates the need for feeding female animals",
+          "C": "it takes a longer time to make the animals come on heat",
+          "D": "the semen of a superior male animal can still be used after its death"
+        },
+        "correct_option": "D",
+        "explanation": "Because semen is frozen in liquid nitrogen, it can be preserved for many years, allowing a genetically superior bull to produce offspring long after it has died."
+      },
+      {
+        "id": "obj_agric_009",
+        "topic": "Animal Improvement",
+        "question": "Which of the following breeding practices would lead to reduced hybrid vigour?",
+        "options": {
+          "A": "Outbreeding",
+          "B": "Inbreeding",
+          "C": "Cross-breeding",
+          "D": "Line-breeding"
+        },
+        "correct_option": "B",
+        "explanation": "Cross-breeding increases hybrid vigour (heterosis), whereas inbreeding reduces it and can lead to inbreeding depression."
+      },
+      {
+        "id": "obj_agric_010",
+        "topic": "Animal Improvement",
+        "question": "An offspring resulting from the mating of two different breeds of animals (e.g., White Fulani x Holstein) is known as:",
+        "options": {
+          "A": "an inbred",
+          "B": "an outbred",
+          "C": "a crossbred",
+          "D": "a purebred"
+        },
+        "correct_option": "C",
+        "explanation": "Mating individuals from different breeds results in a crossbred offspring, which often displays heterosis."
+      },
+      {
+        "id": "obj_agric_011",
+        "topic": "Animal Improvement",
+        "question": "Artificial insemination can be successfully used in which of the following farm animals?\nI. Cattle\nII. Poultry\nIII. Pigs",
+        "options": {
+          "A": "I and II only",
+          "B": "I and III only",
+          "C": "II and III only",
+          "D": "I, II, and III"
+        },
+        "correct_option": "D",
+        "explanation": "AI is widely used in cattle, pigs, and poultry (especially turkeys) to maximize the use of superior males."
+      },
+      {
+        "id": "obj_agric_012",
+        "topic": "Animal Improvement",
+        "question": "The transfer of physical and production traits from parents to offspring is known as:",
+        "options": {
+          "A": "mitosis",
+          "B": "meiosis",
+          "C": "mutation",
+          "D": "heredity"
+        },
+        "correct_option": "D",
+        "explanation": "Heredity is the biological process where parents pass specific genes and traits onto their children or offspring."
+      },
+      {
+        "id": "obj_agric_013",
+        "topic": "Animal Improvement",
+        "question": "A farmer who wishes to rapidly improve the growth rate and meat quality of his local broilers should practice:",
+        "options": {
+          "A": "inbreeding",
+          "B": "out-crossing",
+          "C": "cross-breeding",
+          "D": "line-breeding"
+        },
+        "correct_option": "C",
+        "explanation": "Cross-breeding local animals with exotic, fast-growing breeds provides the fastest results through the introduction of new genes."
+      },
+      {
+        "id": "obj_agric_014",
+        "topic": "Animal Improvement",
+        "question": "The tendency of a cross-bred offspring to perform better than both of its parents is referred to as:",
+        "options": {
+          "A": "hybrid vigour (heterosis)",
+          "B": "high performance index",
+          "C": "complete dominance",
+          "D": "phenotypic margin"
+        },
+        "correct_option": "A",
+        "explanation": "Heterosis or Hybrid Vigour is the increased function of any biological quality in a hybrid offspring."
+      },
+      {
+        "id": "obj_agric_015",
+        "topic": "Animal Improvement",
+        "question": "Which of the following methods enables a lame (crippled) but genetically superior bull to reproduce?",
+        "options": {
+          "A": "Artificial insemination",
+          "B": "Pen mating",
+          "C": "Selection",
+          "D": "Flock mating"
+        },
+        "correct_option": "A",
+        "explanation": "Since a lame bull cannot mount a cow naturally, its semen can be collected and manually introduced into the cow via AI."
+      },
+      {
+        "id": "obj_agric_016",
+        "topic": "Animal Improvement",
+        "question": "In the preparation of semen for artificial insemination, egg yolk is added to the diluent to:",
+        "options": {
+          "A": "protect the semen from mixing with water",
+          "B": "provide food/nutrients for the spermatozoa",
+          "C": "protect the semen from sunlight",
+          "D": "kill bacteria in the semen"
+        },
+        "correct_option": "B",
+        "explanation": "Egg yolk acts as a source of nutrients for the sperm cells during storage."
+      },
+      {
+        "id": "obj_agric_017",
+        "topic": "Animal Improvement",
+        "question": "The function of an electro-ejaculator during artificial insemination is to:",
+        "options": {
+          "A": "collect semen from the female",
+          "B": "service the female animal electrically",
+          "C": "induce heat in the female animal",
+          "D": "induce semen release from the male animal"
+        },
+        "correct_option": "D",
+        "explanation": "An electro-ejaculator uses mild electrical pulses to stimulate the nerves of the male reproductive system to cause ejaculation."
+      },
+      {
+        "id": "obj_agric_018",
+        "topic": "Animal Improvement",
+        "question": "In artificial insemination, collected semen is frozen and stored in liquid:",
+        "options": {
+          "A": "ammonia",
+          "B": "chlorine",
+          "C": "nitrogen",
+          "D": "oxygen"
+        },
+        "correct_option": "C",
+        "explanation": "Liquid nitrogen maintains a temperature of -196°C, which halts all biological activity and preserves the sperm for years."
+      },
+      {
+        "id": "obj_agric_019",
+        "topic": "Animal Improvement",
+        "question": "Which of the following is NOT a recognized method of animal improvement?",
+        "options": {
+          "A": "Introduction",
+          "B": "Selection",
+          "C": "Breeding",
+          "D": "Castration"
+        },
+        "correct_option": "D",
+        "explanation": "Castration is a management practice used to prevent unwanted breeding, but it is not a direct method of genetic improvement."
+      },
+      {
+        "id": "obj_agric_020",
+        "topic": "Animal Improvement",
+        "question": "The fundamental principle underlying all animal breeding is based on:",
+        "options": {
+          "A": "management",
+          "B": "physiology",
+          "C": "genetics",
+          "D": "anatomy"
+        },
+        "correct_option": "C",
+        "explanation": "Breeding is the manipulation of the genetic makeup of an animal to produce desired traits."
+      },
+      {
+        "id": "obj_agric_021",
+        "topic": "Animal Improvement",
+        "question": "Which of the following materials is NOT used in the process of artificial insemination?",
+        "options": {
+          "A": "Burdizzo",
+          "B": "Diluents",
+          "C": "Catheter",
+          "D": "Liquid Nitrogen"
+        },
+        "correct_option": "A",
+        "explanation": "A Burdizzo is a tool used for bloodless castration, not for the AI process."
+      },
+      {
+        "id": "obj_agric_022",
+        "topic": "Animal Improvement",
+        "question": "In farm animals, inbreeding effects can manifest negatively in:",
+        "options": {
+          "A": "increased disease resistance",
+          "B": "high growth rate",
+          "C": "reduced infantile mortality",
+          "D": "reduced growth rate and fertility"
+        },
+        "correct_option": "D",
+        "explanation": "This is known as inbreeding depression, which typically lowers the overall survival and reproductive rates of the population."
+      },
+      {
+        "id": "obj_agric_023",
+        "topic": "Animal Improvement",
+        "question": "If a group of animals is picked from a herd to be parents of the next generation based on their fertility rate, growth rate, and size, the selection is said to be:",
+        "options": {
+          "A": "family selection",
+          "B": "mass selection",
+          "C": "pedigree selection",
+          "D": "progeny selection"
+        },
+        "correct_option": "B",
+        "explanation": "Mass selection picks individuals based on their own observable performance and traits."
+      },
+      {
+        "id": "obj_agric_024",
+        "topic": "Animal Improvement",
+        "question": "During artificial insemination, the large rubber tube used to introduce semen into the vagina of the female is called a:",
+        "options": {
+          "A": "catheter / inseminating gun",
+          "B": "ejaculator",
+          "C": "speculum",
+          "D": "burdizzo"
+        },
+        "correct_option": "A",
+        "explanation": "The catheter or inseminating gun is the tool used to deposit the semen past the cervix."
+      },
+      {
+        "id": "obj_agric_025",
+        "topic": "Animal Improvement",
+        "question": "A major disadvantage of \"Introduction\" as a method of animal improvement is that:",
+        "options": {
+          "A": "the animals grow too big for the farmer",
+          "B": "the animals may easily succumb to local diseases and pests",
+          "C": "it reduces the hybrid vigour of local animals",
+          "D": "it takes too many years to see results"
+        },
+        "correct_option": "B",
+        "explanation": "Exotic breeds are often not adapted to the local environment and may die from local diseases like Trypanosomiasis."
+      },
+      {
+        "id": "obj_agric_026",
+        "topic": "Animal Improvement",
+        "question": "To prevent the introduction of new diseases when bringing exotic breeds into a farm, the animals must first be:",
+        "options": {
+          "A": "vaccinated",
+          "B": "culled",
+          "C": "quarantined",
+          "D": "castrated"
+        },
+        "correct_option": "C",
+        "explanation": "Quarantine involves isolating new animals for a specific period to ensure they are free from contagious diseases before joining the main herd."
+      },
+      {
+        "id": "obj_agric_027",
+        "topic": "Animal Improvement",
+        "question": "The removal of sick, old, or genetically inferior animals from a breeding flock is known as:",
+        "options": {
+          "A": "docking",
+          "B": "weaning",
+          "C": "culling",
+          "D": "teasing"
+        },
+        "correct_option": "C",
+        "explanation": "Culling ensures that only the healthiest and most productive animals remain in the flock to breed."
+      },
+      {
+        "id": "obj_agric_028",
+        "topic": "Animal Improvement",
+        "question": "The mating of unrelated animals of the same breed (e.g., a White Fulani from Kano and a White Fulani from Oyo) is known as:",
+        "options": {
+          "A": "cross-breeding",
+          "B": "inbreeding",
+          "C": "out-crossing",
+          "D": "line-breeding"
+        },
+        "correct_option": "C",
+        "explanation": "Out-crossing involves mating animals of the same breed that have no common ancestors in the last 4-6 generations."
+      },
+      {
+        "id": "obj_agric_029",
+        "topic": "Animal Improvement",
+        "question": "Which of the following traits is NOT typically considered when selecting a dairy cow for breeding?",
+        "options": {
+          "A": "Milk yield",
+          "B": "Number of teats",
+          "C": "Thickness of wool",
+          "D": "Mothering ability"
+        },
+        "correct_option": "C",
+        "explanation": "Wool thickness is a trait relevant to sheep, not dairy cows."
+      },
+      {
+        "id": "obj_agric_030",
+        "topic": "Animal Improvement",
+        "question": "Before artificial insemination can be successful, the female animal must be:",
+        "options": {
+          "A": "pregnant",
+          "B": "on heat (in oestrus)",
+          "C": "lactating",
+          "D": "vaccinated"
+        },
+        "correct_option": "B",
+        "explanation": "AI must be timed to coincide with ovulation, which happens during the 'heat' period."
+      },
+      {
+        "id": "obj_agric_031",
+        "topic": "Animal Improvement",
+        "question": "The mating of sire to daughter, or brother to sister, is a strict form of:",
+        "options": {
+          "A": "cross-breeding",
+          "B": "inbreeding",
+          "C": "progeny testing",
+          "D": "introduction"
+        },
+        "correct_option": "B",
+        "explanation": "Mating close relatives is the definition of inbreeding."
+      },
+      {
+        "id": "obj_agric_032",
+        "topic": "Animal Improvement",
+        "question": "Mating of distant relatives, such as a male to its half-cousin or a grandfather to a granddaughter, is called:",
+        "options": {
+          "A": "line-breeding",
+          "B": "mass selection",
+          "C": "out-crossing",
+          "D": "hybridization"
+        },
+        "correct_option": "A",
+        "explanation": "Line-breeding is a form of inbreeding used to lock in the traits of a specific outstanding ancestor."
+      },
+      {
+        "id": "obj_agric_033",
+        "topic": "Animal Improvement",
+        "question": "An artificial vagina (AV) used for semen collection must stimulate the male animal using two main factors. These are:",
+        "options": {
+          "A": "light and sound",
+          "B": "temperature and pressure",
+          "C": "chemicals and hormones",
+          "D": "electricity and friction"
+        },
+        "correct_option": "B",
+        "explanation": "The AV must mimic the natural environment of the female reproductive tract (warm and snug)."
+      },
+      {
+        "id": "obj_agric_034",
+        "topic": "Animal Improvement",
+        "question": "The substance used to increase the volume of collected semen so it can be used for many females is called a:",
+        "options": {
+          "A": "coagulant",
+          "B": "buffer",
+          "C": "diluent / extender",
+          "D": "stimulant"
+        },
+        "correct_option": "C",
+        "explanation": "Diluents/extenders allow one ejaculate to be divided into hundreds of doses."
+      },
+      {
+        "id": "obj_agric_035",
+        "topic": "Animal Improvement",
+        "question": "Which of the following is an advantage of selecting local breeds for improvement rather than importing exotic breeds?",
+        "options": {
+          "A": "Local breeds grow much faster",
+          "B": "Local breeds produce more milk",
+          "C": "Local breeds are already adapted to the local environment and diseases",
+          "D": "Local breeds have higher hybrid vigour naturally"
+        },
+        "correct_option": "C",
+        "explanation": "Local breeds have high natural resistance to local pests and heat stress."
+      },
+      {
+        "id": "obj_agric_036",
+        "topic": "Animal Improvement",
+        "question": "A farmer has a cow that produces massive amounts of milk but is highly susceptible to ticks. He mates her with a bull that has high tick resistance but low milk traits. He is attempting to achieve:",
+        "options": {
+          "A": "culling",
+          "B": "pure line breeding",
+          "C": "combination of desirable traits",
+          "D": "inbreeding depression"
+        },
+        "correct_option": "C",
+        "explanation": "The goal is to get an offspring that inherits the best traits from both parents."
+      },
+      {
+        "id": "obj_agric_037",
+        "topic": "Animal Improvement",
+        "question": "The process of warming frozen semen to body temperature just before artificial insemination is called:",
+        "options": {
+          "A": "cooling",
+          "B": "extension",
+          "C": "thawing",
+          "D": "buffering"
+        },
+        "correct_option": "C",
+        "explanation": "Thawing must be done carefully (usually in a 37°C water bath) to revive the frozen sperm without damaging them."
+      },
+      {
+        "id": "obj_agric_038",
+        "topic": "Animal Improvement",
+        "question": "Which of the following is the most accurate but slowest method of selection?",
+        "options": {
+          "A": "Mass selection",
+          "B": "Pedigree selection",
+          "C": "Progeny selection",
+          "D": "Natural selection"
+        },
+        "correct_option": "C",
+        "explanation": "Progeny testing is accurate because it proves what genes the animal actually passes on, but it is slow because you must wait for the offspring to mature."
+      },
+      {
+        "id": "obj_agric_039",
+        "topic": "Animal Improvement",
+        "question": "Under the microscope, semen collected for AI is tested for:",
+        "options": {
+          "A": "color and taste",
+          "B": "weight and density",
+          "C": "motility and viability (percentage of live sperm)",
+          "D": "breed identification"
+        },
+        "correct_option": "C",
+        "explanation": "Motility (movement) and viability (living status) are critical for fertilization success."
+      },
+      {
+        "id": "obj_agric_040",
+        "topic": "Animal Improvement",
+        "question": "Why are heavy exotic bulls usually not allowed to mate naturally with small local cows?",
+        "options": {
+          "A": "The local cow will kill the exotic bull",
+          "B": "It causes severe dystocia (difficulty in birth) due to the large size of the calf",
+          "C": "The exotic bull will catch a cold",
+          "D": "The offspring will be infertile"
+        },
+        "correct_option": "B",
+        "explanation": "The large size of the crossbred fetus can lead to birthing complications (dystocia) for the smaller mother."
+      },
+      {
+        "id": "obj_agric_041",
+        "topic": "Animal Improvement",
+        "question": "The hormone primarily responsible for inducing signs of heat in female animals is:",
+        "options": {
+          "A": "Oxytocin",
+          "B": "Progesterone",
+          "C": "Oestrogen",
+          "D": "Testosterone"
+        },
+        "correct_option": "C",
+        "explanation": "Oestrogen is responsible for behavioral and physiological signs of heat."
+      },
+      {
+        "id": "obj_agric_042",
+        "topic": "Animal Improvement",
+        "question": "Which of the following tools is used to detect if a female farm animal is ready for mating?",
+        "options": {
+          "A": "Teaser male",
+          "B": "Emasculator",
+          "C": "Burdizzo",
+          "D": "Halter"
+        },
+        "correct_option": "A",
+        "explanation": "A teaser male is an infertile male used to identify females in oestrus."
+      },
+      {
+        "id": "obj_agric_043",
+        "topic": "Animal Improvement",
+        "question": "Which of the following is NOT a sign that a cow is on heat?",
+        "options": {
+          "A": "Swelling and reddening of the vulva",
+          "B": "Restlessness and bellowing",
+          "C": "Standing still to be mounted by other cows",
+          "D": "Aggressive feeding and deep sleep"
+        },
+        "correct_option": "D",
+        "explanation": "Animals on heat typically lose their appetite and become hyperactive."
+      },
+      {
+        "id": "obj_agric_044",
+        "topic": "Animal Improvement",
+        "question": "The term \"Heterosis\" is synonymous with:",
+        "options": {
+          "A": "Inbreeding depression",
+          "B": "Hybrid vigour",
+          "C": "Genetic mutation",
+          "D": "Natural selection"
+        },
+        "correct_option": "B",
+        "explanation": "Heterosis is the technical term for Hybrid Vigour."
+      },
+      {
+        "id": "obj_agric_045",
+        "topic": "Animal Improvement",
+        "question": "Which of the following statements about Artificial Insemination is FALSE?",
+        "options": {
+          "A": "It prevents the spread of venereal (sexually transmitted) diseases",
+          "B": "It requires highly trained personnel",
+          "C": "It is cheaper than natural mating because no equipment is needed",
+          "D": "It allows the semen of one male to serve hundreds of females"
+        },
+        "correct_option": "C",
+        "explanation": "AI is actually quite expensive initially due to the specialized equipment and storage required."
+      },
+      {
+        "id": "obj_agric_046",
+        "topic": "Animal Improvement",
+        "question": "Synchronization of oestrus is a practice done on a farm to ensure that:",
+        "options": {
+          "A": "all animals give birth on the exact same day",
+          "B": "a group of females come on heat at the same time",
+          "C": "male animals produce more semen",
+          "D": "offspring look exactly alike"
+        },
+        "correct_option": "B",
+        "explanation": "Synchronization allows for planned breeding sessions where multiple animals can be inseminated on the same day."
+      },
+      {
+        "id": "obj_agric_047",
+        "topic": "Animal Improvement",
+        "question": "The genetic makeup of a farm animal is referred to as its:",
+        "options": {
+          "A": "phenotype",
+          "B": "genotype",
+          "C": "conformation",
+          "D": "pedigree"
+        },
+        "correct_option": "B",
+        "explanation": "Genotype is the genetic code; Phenotype is the physical expression."
+      },
+      {
+        "id": "obj_agric_048",
+        "topic": "Animal Improvement",
+        "question": "Which of the following traits is highly heritable and easily improved through mass selection?",
+        "options": {
+          "A": "Litter size (number of piglets born)",
+          "B": "Disease resistance",
+          "C": "Carcass quality / Body weight",
+          "D": "Lifespan"
+        },
+        "correct_option": "C",
+        "explanation": "Physical growth traits like body weight have high heritability, meaning they are strongly controlled by genes that are easily passed on."
+      },
+      {
+        "id": "obj_agric_049",
+        "topic": "Animal Improvement",
+        "question": "An exotic breed of poultry commonly introduced into West Africa for commercial egg production is the:",
+        "options": {
+          "A": "N'Dama",
+          "B": "Rhode Island Red / White Leghorn",
+          "C": "Sokoto Gudali",
+          "D": "West African Dwarf"
+        },
+        "correct_option": "B",
+        "explanation": "White Leghorns are world-famous for high egg production."
+      },
+      {
+        "id": "obj_agric_050",
+        "topic": "Animal Improvement",
+        "question": "The ultimate goal of all animal improvement programs is to:",
+        "options": {
+          "A": "make animals look beautiful for exhibitions",
+          "B": "maximize profit for the farmer by increasing efficiency and yield",
+          "C": "increase the amount of manure produced",
+          "D": "reduce the size of the animals to save space"
+        },
+        "correct_option": "B",
+        "explanation": "Improvements are aimed at making animal production more economical and efficient."
+      },
+      {
+        "id": "obj_agric_051",
+        "topic": "Animal Pests and Diseases",
+        "question": "Micro-organisms which cause diseases in farm animals are generally called:",
+        "options": {
+          "A": "parasites",
+          "B": "pathogens",
+          "C": "pests",
+          "D": "vectors"
+        },
+        "correct_option": "B",
+        "explanation": "Pathogens are disease-causing organisms like bacteria, viruses, fungi, and protozoa."
+      },
+      {
+        "id": "obj_agric_052",
+        "topic": "Animal Pests and Diseases",
+        "question": "The vector that transmits Trypanosomiasis (sleeping sickness) in cattle is the:",
+        "options": {
+          "A": "roundworm",
+          "B": "tapeworm",
+          "C": "tsetse fly",
+          "D": "white fly"
+        },
+        "correct_option": "C",
+        "explanation": "The tsetse fly transmits the protozoan 'Trypanosoma', which is a major constraint to cattle production in sub-Saharan Africa."
+      },
+      {
+        "id": "obj_agric_053",
+        "topic": "Animal Pests and Diseases",
+        "question": "If a calf dies suddenly with dark, unclotted blood oozing from its natural openings, it most likely died of:",
+        "options": {
+          "A": "anthrax",
+          "B": "brucellosis",
+          "C": "rinderpest",
+          "D": "tuberculosis"
+        },
+        "correct_option": "A",
+        "explanation": "Anthrax is caused by *Bacillus anthracis*. Carcasses should never be opened as the bacteria form highly resistant spores."
+      },
+      {
+        "id": "obj_agric_054",
+        "topic": "Animal Pests and Diseases",
+        "question": "The secondary (intermediate) host in the life cycle of the liver fluke is the:",
+        "options": {
+          "A": "pig",
+          "B": "human",
+          "C": "water snail",
+          "D": "domestic fowl"
+        },
+        "correct_option": "C",
+        "explanation": "The liver fluke (*Fasciola spp.*) must pass through a water snail (Limnaea) to complete its development."
+      },
+      {
+        "id": "obj_agric_055",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following parasites is best controlled by dipping farm animals in acaricides?",
+        "options": {
+          "A": "Liver Fluke",
+          "B": "Louse / Tick",
+          "C": "Tapeworm",
+          "D": "Tsetse Fly"
+        },
+        "correct_option": "B",
+        "explanation": "Ticks and lice are ectoparasites that can be killed by dipping or spraying with acaricides."
+      },
+      {
+        "id": "obj_agric_056",
+        "topic": "Animal Pests and Diseases",
+        "question": "A symptom of Fowl Pox disease in poultry is:",
+        "options": {
+          "A": "galls/blisters on the comb and wattle",
+          "B": "twisting of the neck",
+          "C": "enlargement of the gizzard",
+          "D": "blood-stained diarrhoea"
+        },
+        "correct_option": "A",
+        "explanation": "Fowl pox is a viral disease causing warty lesions on unfeathered skin areas."
+      },
+      {
+        "id": "obj_agric_057",
+        "topic": "Animal Pests and Diseases",
+        "question": "A highly contagious poultry disease caused by a protozoan (Eimeria spp.) is:",
+        "options": {
+          "A": "aspergillosis",
+          "B": "coccidiosis",
+          "C": "bird flu",
+          "D": "fowl typhoid"
+        },
+        "correct_option": "B",
+        "explanation": "Coccidiosis is a major intestinal disease in poultry characterized by bloody droppings."
+      },
+      {
+        "id": "obj_agric_058",
+        "topic": "Animal Pests and Diseases",
+        "question": "Foot and mouth disease in sheep and cattle is caused by a:",
+        "options": {
+          "A": "bacterium",
+          "B": "fungus",
+          "C": "protozoan",
+          "D": "virus"
+        },
+        "correct_option": "D",
+        "explanation": "FMD is a viral disease that causes blisters on the mouth and feet, leading to lameness."
+      },
+      {
+        "id": "obj_agric_059",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following diseases is transmitted by ticks?",
+        "options": {
+          "A": "Babesiosis",
+          "B": "Coccidiosis",
+          "C": "Sleeping sickness",
+          "D": "Night blindness"
+        },
+        "correct_option": "A",
+        "explanation": "Babesiosis (redwater fever) is a tick-borne protozoan disease of ruminants."
+      },
+      {
+        "id": "obj_agric_060",
+        "topic": "Animal Pests and Diseases",
+        "question": "One of the major symptoms of Brucellosis (contagious abortion) in ewes and cows is:",
+        "options": {
+          "A": "lameness",
+          "B": "sudden death",
+          "C": "abortion in late pregnancy",
+          "D": "in-coordination"
+        },
+        "correct_option": "C",
+        "explanation": "Brucellosis is a zoonotic bacterial disease that specifically attacks the reproductive system."
+      },
+      {
+        "id": "obj_agric_061",
+        "topic": "Animal Pests and Diseases",
+        "question": "Rinderpest in cattle is caused by a:",
+        "options": {
+          "A": "bacterium",
+          "B": "fungus",
+          "C": "protozoan",
+          "D": "virus"
+        },
+        "correct_option": "D",
+        "explanation": "Rinderpest was a devastating viral disease that caused high mortality in cattle until it was eradicated."
+      },
+      {
+        "id": "obj_agric_062",
+        "topic": "Animal Pests and Diseases",
+        "question": "A respiratory disease that could result from giving farm animals mouldy feed is:",
+        "options": {
+          "A": "anaplasmosis",
+          "B": "aspergillosis",
+          "C": "babesiosis",
+          "D": "theileriosis"
+        },
+        "correct_option": "B",
+        "explanation": "Aspergillosis is a fungal infection of the lungs caused by breathing in spores from mouldy litter or feed."
+      },
+      {
+        "id": "obj_agric_063",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following diseases directly affects milk production and causes swelling of the udder in cows?",
+        "options": {
+          "A": "Mastitis",
+          "B": "Rinderpest",
+          "C": "Trypanosomiasis",
+          "D": "Tuberculosis"
+        },
+        "correct_option": "A",
+        "explanation": "Mastitis is the inflammation of the mammary gland, usually due to bacterial infection."
+      },
+      {
+        "id": "obj_agric_064",
+        "topic": "Animal Pests and Diseases",
+        "question": "In poultry, cyclic movement, gasping, and twisting of the neck (torticollis) are symptoms associated with:",
+        "options": {
+          "A": "coccidiosis",
+          "B": "fowl pox",
+          "C": "infectious coryza",
+          "D": "newcastle disease"
+        },
+        "correct_option": "D",
+        "explanation": "Newcastle disease is a viral infection that affects the respiratory, nervous, and digestive systems."
+      },
+      {
+        "id": "obj_agric_065",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following is an example of an ectoparasite?",
+        "options": {
+          "A": "Flea",
+          "B": "Liver Fluke",
+          "C": "Roundworm",
+          "D": "Tapeworm"
+        },
+        "correct_option": "A",
+        "explanation": "Ectoparasites live on the outside of the host; the others listed are internal (endoparasites)."
+      },
+      {
+        "id": "obj_agric_066",
+        "topic": "Animal Pests and Diseases",
+        "question": "One of the best ways of controlling tapeworm infection in humans is to:",
+        "options": {
+          "A": "drain stagnant water",
+          "B": "eliminate water snails",
+          "C": "properly cook meat before eating",
+          "D": "desist from the consumption of vegetables"
+        },
+        "correct_option": "C",
+        "explanation": "Cooking meat thoroughly kills the tapeworm cysts (bladder worms) found in the muscles."
+      },
+      {
+        "id": "obj_agric_067",
+        "topic": "Animal Pests and Diseases",
+        "question": "One of the easiest ways to identify a sick bird in a flock is when:",
+        "options": {
+          "A": "there is an increase in feed intake",
+          "B": "the comb and wattle are bright red",
+          "C": "the bird increases its intake of water",
+          "D": "the bird isolates itself from others and looks droopy"
+        },
+        "correct_option": "D",
+        "explanation": "Isolation and lethargy (drooping) are primary signs of ill health in poultry."
+      },
+      {
+        "id": "obj_agric_068",
+        "topic": "Animal Pests and Diseases",
+        "question": "Blood-stained diarrhoea in a flock of chicks is a major symptom of:",
+        "options": {
+          "A": "Newcastle disease",
+          "B": "Avian influenza",
+          "C": "Coccidiosis",
+          "D": "Marek's disease"
+        },
+        "correct_option": "C",
+        "explanation": "Coccidia damage the intestinal lining, leading to internal bleeding."
+      },
+      {
+        "id": "obj_agric_069",
+        "topic": "Animal Pests and Diseases",
+        "question": "The causative organism of contagious abortion in cattle is called:",
+        "options": {
+          "A": "Brucella abortus",
+          "B": "Brucella suis",
+          "C": "Bacillus anthracis",
+          "D": "Salmonella spp."
+        },
+        "correct_option": "A",
+        "explanation": "*Brucella abortus* is specific to cattle; *Brucella suis* affects pigs."
+      },
+      {
+        "id": "obj_agric_070",
+        "topic": "Animal Pests and Diseases",
+        "question": "Natural immunity in young farm animals is primarily acquired directly from:",
+        "options": {
+          "A": "vaccination",
+          "B": "colostrum",
+          "C": "antibiotics",
+          "D": "disinfection"
+        },
+        "correct_option": "B",
+        "explanation": "Colostrum is rich in maternal antibodies that provide passive immunity to newborns."
+      },
+      {
+        "id": "obj_agric_071",
+        "topic": "Animal Pests and Diseases",
+        "question": "What should a farmer do FIRST if a sick bird is identified in a flock?",
+        "options": {
+          "A": "Change the litter",
+          "B": "Isolate the sick bird",
+          "C": "Clean drinkers and feeders",
+          "D": "Call a veterinary personnel"
+        },
+        "correct_option": "B",
+        "explanation": "Immediate isolation (quarantine) prevents the spread of pathogens to healthy birds."
+      },
+      {
+        "id": "obj_agric_072",
+        "topic": "Animal Pests and Diseases",
+        "question": "The first stage at which a tick attaches itself to the body of a grazing farm animal is the:",
+        "options": {
+          "A": "adult",
+          "B": "egg",
+          "C": "larva",
+          "D": "nymph"
+        },
+        "correct_option": "C",
+        "explanation": "Tick eggs hatch into 6-legged larvae (seed ticks) which climb onto grass to find a host."
+      },
+      {
+        "id": "obj_agric_073",
+        "topic": "Animal Pests and Diseases",
+        "question": "Chronic Respiratory Disease (CRD) is most prevalent in:",
+        "options": {
+          "A": "cattle",
+          "B": "poultry",
+          "C": "rabbit",
+          "D": "swine"
+        },
+        "correct_option": "B",
+        "explanation": "CRD is caused by *Mycoplasma gallisepticum* and is a major issue in commercial poultry."
+      },
+      {
+        "id": "obj_agric_074",
+        "topic": "Animal Pests and Diseases",
+        "question": "The use of local herbs, shrubs, and roots to treat sick farm animals is described as:",
+        "options": {
+          "A": "orthodox veterinary practices",
+          "B": "trado-veterinary medicine / ethno-veterinary practices",
+          "C": "pathological practices",
+          "D": "homeopathic control"
+        },
+        "correct_option": "B",
+        "explanation": "Ethno-veterinary medicine refers to the traditional knowledge used to manage animal health."
+      },
+      {
+        "id": "obj_agric_075",
+        "topic": "Animal Pests and Diseases",
+        "question": "A disease of farm animals that can easily be transmitted to humans is referred to as:",
+        "options": {
+          "A": "an endemic disease",
+          "B": "a zoonotic disease",
+          "C": "an epidemic disease",
+          "D": "a pathogenic disease"
+        },
+        "correct_option": "B",
+        "explanation": "Zoonosis is the term for diseases that jump from animals to humans."
+      },
+      {
+        "id": "obj_agric_076",
+        "topic": "Animal Pests and Diseases",
+        "question": "The part of the tapeworm used for attaching itself to the lining of the host's intestine is called the:",
+        "options": {
+          "A": "proglottis",
+          "B": "rostellum / scolex",
+          "C": "sucker",
+          "D": "neck"
+        },
+        "correct_option": "B",
+        "explanation": "The scolex (head) features hooks and suckers for attachment."
+      },
+      {
+        "id": "obj_agric_077",
+        "topic": "Animal Pests and Diseases",
+        "question": "The intermediate host for the pork tapeworm (Taenia solium) is the:",
+        "options": {
+          "A": "human",
+          "B": "pig",
+          "C": "cow",
+          "D": "sheep"
+        },
+        "correct_option": "B",
+        "explanation": "Humans are the primary host, while pigs are the intermediate host where larvae develop in muscle."
+      },
+      {
+        "id": "obj_agric_078",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following farm practices breaks the life cycle of intestinal worms in grazing ruminants?",
+        "options": {
+          "A": "Fertilizer application",
+          "B": "Rotational grazing",
+          "C": "Artificial insemination",
+          "D": "Dehorning"
+        },
+        "correct_option": "B",
+        "explanation": "By moving animals, you prevent them from grazing on pasture where worm larvae have recently hatched."
+      },
+      {
+        "id": "obj_agric_079",
+        "topic": "Animal Pests and Diseases",
+        "question": "Ringworm in farm animals is a skin disease caused by:",
+        "options": {
+          "A": "Bacteria",
+          "B": "Viruses",
+          "C": "Fungi",
+          "D": "Nematodes"
+        },
+        "correct_option": "C",
+        "explanation": "Ringworm is a fungal infection, not a helminth (worm) infection."
+      },
+      {
+        "id": "obj_agric_080",
+        "topic": "Animal Pests and Diseases",
+        "question": "The liquid medication poured down the throat of a farm animal to treat internal parasites (worms) is called a:",
+        "options": {
+          "A": "dip",
+          "B": "drench",
+          "C": "vaccine",
+          "D": "bolus"
+        },
+        "correct_option": "B",
+        "explanation": "Drenching is the oral administration of liquid anthelmintics."
+      },
+      {
+        "id": "obj_agric_081",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following is NOT an economic importance of ticks on a farm?",
+        "options": {
+          "A": "They damage the hide and skin, reducing market value",
+          "B": "They suck blood, causing anaemia",
+          "C": "They transmit viral foot and mouth disease",
+          "D": "They cause tick paralysis through their toxic saliva"
+        },
+        "correct_option": "C",
+        "explanation": "FMD is a viral disease transmitted via contact/air; ticks transmit protozoan diseases like Babesiosis."
+      },
+      {
+        "id": "obj_agric_082",
+        "topic": "Animal Pests and Diseases",
+        "question": "The reproductive segments of a tapeworm that contain eggs and are passed out in the faeces are called:",
+        "options": {
+          "A": "固定 scolices",
+          "B": "cysts",
+          "C": "metacercariae",
+          "D": "proglottids"
+        },
+        "correct_option": "D",
+        "explanation": "Proglottids are the square segments that break off when mature."
+      },
+      {
+        "id": "obj_agric_083",
+        "topic": "Animal Pests and Diseases",
+        "question": "Mass culling and strict biosecurity are the only effective ways to control outbreaks of:",
+        "options": {
+          "A": "Coccidiosis",
+          "B": "Roundworm",
+          "C": "Avian Influenza (Bird Flu)",
+          "D": "Mastitis"
+        },
+        "correct_option": "C",
+        "explanation": "Due to the high contagion and zoonotic risk of Bird Flu, eradication of the flock is necessary."
+      },
+      {
+        "id": "obj_agric_084",
+        "topic": "Animal Pests and Diseases",
+        "question": "African Swine Fever is a deadly, highly contagious disease that specifically affects:",
+        "options": {
+          "A": "cattle",
+          "B": "sheep",
+          "C": "goats",
+          "D": "pigs"
+        },
+        "correct_option": "D",
+        "explanation": "ASF is a viral disease of pigs for which there is currently no vaccine."
+      },
+      {
+        "id": "obj_agric_085",
+        "topic": "Animal Pests and Diseases",
+        "question": "A chemical substance applied to animal housing and equipment to destroy disease-causing organisms is a:",
+        "options": {
+          "A": "vaccine",
+          "B": "disinfectant",
+          "C": "prophylactic",
+          "D": "antibiotic"
+        },
+        "correct_option": "B",
+        "explanation": "Disinfectants are for inanimate surfaces; antibiotics are for internal use."
+      },
+      {
+        "id": "obj_agric_086",
+        "topic": "Animal Pests and Diseases",
+        "question": "A biological method of controlling the liver fluke on a farm is to:",
+        "options": {
+          "A": "spray copper sulphate on the pasture",
+          "B": "introduce ducks to the pasture to eat the water snails",
+          "C": "dose the sheep with anthelmintics",
+          "D": "burn the pasture"
+        },
+        "correct_option": "B",
+        "explanation": "Biological control involves using one organism to control another."
+      },
+      {
+        "id": "obj_agric_087",
+        "topic": "Animal Pests and Diseases",
+        "question": "Scabies (Mange) in farm animals is characterized by intense itching and hair loss. It is caused by:",
+        "options": {
+          "A": "Ticks",
+          "B": "Fleas",
+          "C": "Mites",
+          "D": "Lice"
+        },
+        "correct_option": "C",
+        "explanation": "Sarcoptic and Psoroptic mange are caused by microscopic burrowing mites."
+      },
+      {
+        "id": "obj_agric_088",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following diseases is characterized by a high fever, swollen lymph nodes, and fluid around the heart in sheep/cattle?",
+        "options": {
+          "A": "Heartwater",
+          "B": "Anthrax",
+          "C": "Brucellosis",
+          "D": "Coccidiosis"
+        },
+        "correct_option": "A",
+        "explanation": "Heartwater is a rickettsial disease transmitted by the Bont tick (*Amblyomma*)."
+      },
+      {
+        "id": "obj_agric_089",
+        "topic": "Animal Pests and Diseases",
+        "question": "Routine vaccination of farm animals is an example of:",
+        "options": {
+          "A": "curative medicine",
+          "B": "prophylactic (preventive) medicine",
+          "C": "ethno-veterinary medicine",
+          "D": "diagnostic medicine"
+        },
+        "correct_option": "B",
+        "explanation": "Prophylaxis is treatment intended to prevent disease."
+      },
+      {
+        "id": "obj_agric_090",
+        "topic": "Animal Pests and Diseases",
+        "question": "The administration of drugs via drinking water to poultry is termed:",
+        "options": {
+          "A": "drenching",
+          "B": "dipping",
+          "C": "water medication",
+          "D": "inoculation"
+        },
+        "correct_option": "C",
+        "explanation": "Mass medication via water is the most efficient way to treat large flocks."
+      },
+      {
+        "id": "obj_agric_091",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following pairs of diseases is caused by viruses?",
+        "options": {
+          "A": "Anthrax and Brucellosis",
+          "B": "Coccidiosis and Trypanosomiasis",
+          "C": "Newcastle disease and Fowl pox",
+          "D": "Mastitis and Tuberculosis"
+        },
+        "correct_option": "C",
+        "explanation": "Anthrax, Brucellosis, Mastitis, and TB are bacterial. Coccidiosis and Trypanosomiasis are protozoan."
+      },
+      {
+        "id": "obj_agric_092",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following damages is NOT caused by rodents (rats/mice) on a poultry farm?",
+        "options": {
+          "A": "Eating and contaminating poultry feed",
+          "B": "Sucking blood from adult birds",
+          "C": "Eating eggs and killing young chicks",
+          "D": "Destroying feed bags and electrical wires"
+        },
+        "correct_option": "B",
+        "explanation": "Rodents are nuisance pests and predators, but they are not blood-sucking parasites."
+      },
+      {
+        "id": "obj_agric_093",
+        "topic": "Animal Pests and Diseases",
+        "question": "A drug used specifically to kill internal parasites like roundworms and tapeworms is called an:",
+        "options": {
+          "A": "acaricide",
+          "B": "antheminthic",
+          "C": "antibiotic",
+          "D": "analgesic"
+        },
+        "correct_option": "B",
+        "explanation": "Anthelmintics are drugs that expel or kill parasitic worms (helminths)."
+      },
+      {
+        "id": "obj_agric_094",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following management practices helps prevent navel infection in newly born calves/piglets?",
+        "options": {
+          "A": "Castration",
+          "B": "Dipping the navel cord in iodine",
+          "C": "Feeding them concentrate",
+          "D": "Creep feeding"
+        },
+        "correct_option": "B",
+        "explanation": "Iodine acts as an antiseptic to seal the open navel from bacteria."
+      },
+      {
+        "id": "obj_agric_095",
+        "topic": "Animal Pests and Diseases",
+        "question": "Ascaris lumbricoides is a common example of a:",
+        "options": {
+          "A": "Tapeworm",
+          "B": "Roundworm",
+          "C": "Flatworm",
+          "D": "Fluke"
+        },
+        "correct_option": "B",
+        "explanation": "Ascaris is a genus of parasitic nematode (roundworm)."
+      },
+      {
+        "id": "obj_agric_096",
+        "topic": "Animal Pests and Diseases",
+        "question": "Strict \"Biosecurity\" on a farm involves all of the following EXCEPT:",
+        "options": {
+          "A": "providing footbaths at the entrance of pens",
+          "B": "restricting visitors from entering the farm",
+          "C": "allowing free-range local birds to mix with commercial layers",
+          "D": "regular disinfection of farm vehicles"
+        },
+        "correct_option": "C",
+        "explanation": "Local birds often act as asymptomatic carriers of diseases that could devastate commercial stock."
+      },
+      {
+        "id": "obj_agric_097",
+        "topic": "Animal Pests and Diseases",
+        "question": "The larval stage of the tapeworm found inside the muscle of a pig is called the:",
+        "options": {
+          "A": "miracidium",
+          "B": "cercaria",
+          "C": "bladder worm (cysticercus)",
+          "D": "redia"
+        },
+        "correct_option": "C",
+        "explanation": "Cysticercus is the technical term for the bladder worm stage in meat."
+      },
+      {
+        "id": "obj_agric_098",
+        "topic": "Animal Pests and Diseases",
+        "question": "Why must dead birds infected with Bird Flu or Newcastle disease be buried deeply or burned?",
+        "options": {
+          "A": "To serve as organic manure",
+          "B": "To prevent predators and wind from spreading the pathogen",
+          "C": "To keep the farm looking neat",
+          "D": "To retrieve their feathers later"
+        },
+        "correct_option": "B",
+        "explanation": "Burning or deep burial destroys the virus and prevents vectors from carrying the disease further."
+      },
+      {
+        "id": "obj_agric_099",
+        "topic": "Animal Pests and Diseases",
+        "question": "An endemic disease is one that:",
+        "options": {
+          "A": "spreads across multiple continents",
+          "B": "is constantly present at a low level in a specific area or population",
+          "C": "kills animals very quickly",
+          "D": "affects only one specific organ"
+        },
+        "correct_option": "B",
+        "explanation": "Endemic diseases are the 'native' diseases that are always found in a specific region."
+      },
+      {
+        "id": "obj_agric_100",
+        "topic": "Animal Pests and Diseases",
+        "question": "Which of the following is a physical method of controlling tsetse flies in a cattle grazing area?",
+        "options": {
+          "A": "Spraying insecticides",
+          "B": "Using sterile male release technique",
+          "C": "Clearing surrounding bushes and low tree branches",
+          "D": "Vaccinating the cattle"
+        },
+        "correct_option": "C",
+        "explanation": "Bush clearing destroys the shady breeding and resting habitats of the tsetse fly."
+      }
+    ]
+}
 ]
