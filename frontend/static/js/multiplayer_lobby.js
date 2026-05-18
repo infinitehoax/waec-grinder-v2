@@ -14,6 +14,7 @@ const Lobby = {
     isHost: false,
     randomize_questions: false,
     randomize_options: false,
+    filter_mastered: false,
     totalQuestions: 10,
     timeLimit: 0,
 
@@ -264,7 +265,12 @@ const Lobby = {
         if (!this.isHost) return;
         this[key] = !this[key];
 
-        const cardId = key === 'randomize_questions' ? 'random-questions-config-card' : 'random-options-config-card';
+        const cardIdMap = {
+            'randomize_questions': 'random-questions-config-card',
+            'randomize_options': 'random-options-config-card',
+            'filter_mastered': 'filter-mastered-config-card'
+        };
+        const cardId = cardIdMap[key];
         const card = document.getElementById(cardId);
         const badge = document.getElementById(badgeId);
 
@@ -297,7 +303,8 @@ const Lobby = {
             this.totalQuestions,
             this.timeLimit,
             this.randomize_questions,
-            this.randomize_options
+            this.randomize_options,
+            this.filter_mastered
         );
     },
 

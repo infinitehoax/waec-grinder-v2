@@ -81,6 +81,33 @@ const multiplayer_study = {
             this.showFinalScoreboard();
         };
 
+        SocketClient.onGameStarted = (data) => {
+            this.roomState = data.room_state;
+            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+
+            // Sync randomization flags to storage
+            Storage.setRandomizedQuestions(data.room_state.randomize_questions || false);
+            Storage.setRandomizedOptions(data.room_state.randomize_options || false);
+
+            // Re-init UI with new questions
+            UI.batch = this.roomState.questions;
+            UI.currentIdx = 0;
+            this.myScore = 0;
+            this.isFinished = false;
+            Storage.saveIdx(0);
+            UI.renderCurrent();
+            UI.updateProgress();
+            this.renderSidebar();
+
+            // Handle timer if any
+            if (this._timerInterval) clearInterval(this._timerInterval);
+            if (this.roomState.time_limit > 0 && this.roomState.end_time) {
+                this.startTimer(this.roomState.end_time);
+            }
+
+            showToast("A new batch has started!", "success");
+        };
+
         SocketClient.connect();
 
         // Initialize UI with room questions
@@ -318,6 +345,18 @@ const multiplayer_study = {
         }
     },
 
+    startNextBatch() {
+        const total = this.roomState.questions.length;
+        SocketClient.startGame(
+            this.roomId,
+            total,
+            this.roomState.time_limit,
+            this.roomState.randomize_questions,
+            this.roomState.randomize_options,
+            this.roomState.filter_mastered
+        );
+    },
+
     showFinalScoreboard() {
         console.log('Showing final scoreboard');
         this.cleanup();
@@ -333,8 +372,12 @@ const multiplayer_study = {
                 <h2 style="margin-bottom:24px">Final Results</h2>
                 <div id="final-leaderboard" style="max-width:400px; margin: 0 auto 32px;">
                 </div>
-                <div style="display:flex;gap:12px;justify-content:center">
-                    <a href="/multiplayer" class="btn btn--primary">Play Again</a>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                    ${this.roomState.host_id === Storage.getPlayerUuid()
+                        ? `<button onclick="multiplayer_study.startNextBatch()" class="btn btn--primary">Start Next Batch</button>`
+                        : `<p style="color:var(--text-muted); width:100%">Waiting for host to start next batch...</p>`
+                    }
+                    <a href="/multiplayer" class="btn btn--secondary">New Room</a>
                     <a href="/" class="btn btn--ghost">Exit to Dashboard</a>
                 </div>
             </div>

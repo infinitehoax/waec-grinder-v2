@@ -75,15 +75,17 @@ class SocketClient {
 
     createRoom(name, mode, subjects) {
         const player_uuid = Storage.getPlayerUuid();
-        this.socket.emit('create_room', { name, mode, subjects, player_uuid });
+        const mastered_ids = Storage.getAllMasteredIds();
+        this.socket.emit('create_room', { name, mode, subjects, player_uuid, mastered_ids });
     }
 
     joinRoom(roomId, name) {
         const player_uuid = Storage.getPlayerUuid();
-        this.socket.emit('join_room', { room_id: roomId, name, player_uuid });
+        const mastered_ids = Storage.getAllMasteredIds();
+        this.socket.emit('join_room', { room_id: roomId, name, player_uuid, mastered_ids });
     }
 
-    startGame(roomId, total_questions, time_limit, randomize_questions = false, randomize_options = false) {
+    startGame(roomId, total_questions, time_limit, randomize_questions = false, randomize_options = false, filter_mastered = false) {
         const player_uuid = Storage.getPlayerUuid();
         this.socket.emit('start_game', {
             room_id: roomId,
@@ -91,7 +93,8 @@ class SocketClient {
             total_questions,
             time_limit,
             randomize_questions,
-            randomize_options
+            randomize_options,
+            filter_mastered
         });
     }
 
