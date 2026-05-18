@@ -84,6 +84,7 @@
   display: flex;
   gap: 6px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .step-dot {

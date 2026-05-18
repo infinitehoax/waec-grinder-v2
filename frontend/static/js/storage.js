@@ -471,6 +471,30 @@ const Storage = {
     }
     return false;
   },
+
+  getAllMasteredIds() {
+    const ids = new Set();
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('wg_sub_')) {
+        try {
+          const val = localStorage.getItem(key);
+          if (val) {
+            const data = JSON.parse(val);
+            if (data[SUB_KEYS.MASTERED_OBJ]) {
+              data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
+            }
+            if (data[SUB_KEYS.MASTERED_THEORY]) {
+              data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
+            }
+          }
+        } catch (e) {
+          console.error("Error parsing storage for mastered IDs", e);
+        }
+      }
+    }
+    return Array.from(ids);
+  },
 };
 
 export default Storage;

@@ -17,7 +17,7 @@ from backend.services.data_service import load_questions
 # }
 rooms = {}
 
-def create_room(player_uuid, sid, host_name, mode, subjects=None):
+def create_room(player_uuid, sid, host_name, mode, subjects=None, mastered_ids=None):
     room_id = str(uuid.uuid4())[:6].upper()
     while room_id in rooms:
         room_id = str(uuid.uuid4())[:6].upper()
@@ -31,7 +31,8 @@ def create_room(player_uuid, sid, host_name, mode, subjects=None):
                 "progress": 0,
                 "total": 0,
                 "score": 0,
-                "finished": False
+                "finished": False,
+                "mastered_ids": mastered_ids or []
             }
         },
         "questions": [],
@@ -44,7 +45,7 @@ def create_room(player_uuid, sid, host_name, mode, subjects=None):
     }
     return room_id
 
-def join_room(room_id, player_uuid, sid, player_name):
+def join_room(room_id, player_uuid, sid, player_name, mastered_ids=None):
     if room_id not in rooms:
         return False, "Room not found"
 
@@ -54,6 +55,8 @@ def join_room(room_id, player_uuid, sid, player_name):
     # Handle re-joining
     if player_uuid in rooms[room_id]["players"]:
         rooms[room_id]["players"][player_uuid]["sid"] = sid
+        if mastered_ids is not None:
+            rooms[room_id]["players"][player_uuid]["mastered_ids"] = mastered_ids
         return True, rooms[room_id]
 
     if len(rooms[room_id]["players"]) >= 5:
@@ -65,7 +68,8 @@ def join_room(room_id, player_uuid, sid, player_name):
         "progress": 0,
         "total": len(rooms[room_id]["questions"]),
         "score": 0,
-        "finished": False
+        "finished": False,
+        "mastered_ids": mastered_ids or []
     }
     return True, rooms[room_id]
 
@@ -91,7 +95,7 @@ def leave_room(room_id, player_uuid):
 
 import time
 
-def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_questions=False, randomize_options=False):
+def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_questions=False, randomize_options=False, filter_mastered=False):
     if room_id not in rooms:
         return False, "Room not found"
 
@@ -123,10 +127,25 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
 
     all_obj = []
     all_theory = []
+
+    # Aggregate mastered IDs from all players if filtering is requested
+    mastered_pool = set()
+    if filter_mastered:
+        for p_data in rooms[room_id]["players"].values():
+            mastered_pool.update(p_data.get("mastered_ids", []))
+
     for data in selected_data:
         sub_name = data.get("subject", "General")
-        all_obj.extend([{**q, "_type": "obj", "_subject": sub_name} for q in data.get("obj", [])])
-        all_theory.extend([{**q, "_type": "theory", "_subject": sub_name} for q in data.get("theory", [])])
+
+        obj_qs = data.get("obj", [])
+        theory_qs = data.get("theory", [])
+
+        if filter_mastered:
+            obj_qs = [q for q in obj_qs if q.get("id") not in mastered_pool]
+            theory_qs = [q for q in theory_qs if q.get("id") not in mastered_pool]
+
+        all_obj.extend([{**q, "_type": "obj", "_subject": sub_name} for q in obj_qs])
+        all_theory.extend([{**q, "_type": "theory", "_subject": sub_name} for q in theory_qs])
 
     # Determine how many questions to take
     available_count = (len(all_obj) if mode == "obj" else
@@ -170,6 +189,7 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
         random.shuffle(questions)
 
     rooms[room_id]["questions"] = questions
+    rooms[room_id]["filter_mastered"] = filter_mastered
     rooms[room_id]["status"] = "playing"
     rooms[room_id]["time_limit"] = time_limit
     rooms[room_id]["randomize_questions"] = randomize_questions

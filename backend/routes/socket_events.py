@@ -15,10 +15,11 @@ def handle_create_room(data):
     mode = data.get('mode', 'both')
     subjects = data.get('subjects') # Changed from 'subject' to 'subjects'
     player_uuid = data.get('player_uuid')
+    mastered_ids = data.get('mastered_ids', [])
     if not player_uuid:
         return emit('error', {'message': 'Missing player_uuid'})
 
-    room_id = room_service.create_room(player_uuid, request.sid, host_name, mode, subjects)
+    room_id = room_service.create_room(player_uuid, request.sid, host_name, mode, subjects, mastered_ids)
     # Register the sid:
     sid_to_player[request.sid] = {'room_id': room_id, 'player_uuid': player_uuid}
     player_to_sid[player_uuid] = request.sid
@@ -30,10 +31,11 @@ def handle_join_room(data):
     room_id = data.get('room_id')
     player_name = data.get('name', 'Player')
     player_uuid = data.get('player_uuid')
+    mastered_ids = data.get('mastered_ids', [])
     if not player_uuid:
         return emit('error', {'message': 'Missing player_uuid'})
 
-    success, result = room_service.join_room(room_id, player_uuid, request.sid, player_name)
+    success, result = room_service.join_room(room_id, player_uuid, request.sid, player_name, mastered_ids)
 
     if success:
         # Register the sid:
@@ -54,6 +56,7 @@ def handle_start_game(data):
     # New randomization flags:
     randomize_questions = data.get('randomize_questions', False)
     randomize_options = data.get('randomize_options', False)
+    filter_mastered = data.get('filter_mastered', False)
 
     success, result = room_service.start_game(
         room_id,
@@ -61,7 +64,8 @@ def handle_start_game(data):
         total_questions,
         time_limit,
         randomize_questions,
-        randomize_options
+        randomize_options,
+        filter_mastered
     )
 
     if success:
