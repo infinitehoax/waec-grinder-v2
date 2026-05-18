@@ -442,6 +442,11 @@
     updateToggleUI('random-options', isRandomizedOptions);
   }
 
+  function trackCustomBatch() {
+    Storage._set('wg_custom_batch_used', true);
+    Storage.incrementSystemStat('custom_batch_starts');
+  }
+
   function refreshResumeCard() {
     const resumeCard = document.getElementById('resume-card');
     const currentActiveSubject = Storage.getSubject();
@@ -508,6 +513,10 @@
     Storage.setBatchSize(selectedBatchSize);
 
     Storage.setFocusTopic(null);
+    Storage._set('wg_custom_batch_used', false);
+    if (document.getElementById('custom-batch-size').value) {
+        trackCustomBatch();
+    }
 
     Storage.initSession(selectedSubjects, selectedMode);
     selectedSubjects.forEach(sub => Storage.trackSubjectStarted(sub.subject));
@@ -530,6 +539,7 @@
     if (selectedSubjects.length === 0) return;
     Storage.clearBatch();
     Storage.setFocusTopic(topic);
+    Storage.incrementSystemStat('weakness_starts');
     // Focus topic sessions usually happen on a single subject but here we use whatever is selected
     Storage.initSession(selectedSubjects, 'both');
     window.location.href = '/study?mode=both';

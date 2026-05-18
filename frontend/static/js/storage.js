@@ -22,6 +22,12 @@ const KEYS = {
   RANDOMIZE_QUESTIONS: 'wg_randomize_questions',
   RANDOMIZE_OPTIONS: 'wg_randomize_options',
   BATCH_START_TIME: 'wg_batch_start_time',
+  QUESTION_STATS:  'wg_question_stats',
+  LAST_BATCH_PERF: 'wg_last_batch_perf',
+  MULTI_STATS:     'wg_multi_stats',
+  SYSTEM_STATS:    'wg_system_stats',
+  SUBJECTS_MASTERED: 'wg_subjects_mastered',
+  AI_CONSECUTIVE_PERFECT: 'wg_ai_consecutive_perfect',
 };
 
 const SUB_KEYS = {
@@ -488,6 +494,83 @@ const Storage = {
       return true;
     }
     return false;
+  },
+
+  // ---- Achievement Helpers ----
+  getQuestionStats(qid) {
+    const stats = this._get(KEYS.QUESTION_STATS) || {};
+    return stats[qid] || { fails: 0, passed: false };
+  },
+  trackQuestionFail(qid) {
+    const stats = this._get(KEYS.QUESTION_STATS) || {};
+    if (!stats[qid]) stats[qid] = { fails: 0, passed: false };
+    stats[qid].fails++;
+    this._set(KEYS.QUESTION_STATS, stats);
+  },
+  trackQuestionPass(qid) {
+    const stats = this._get(KEYS.QUESTION_STATS) || {};
+    if (!stats[qid]) stats[qid] = { fails: 0, passed: false };
+    stats[qid].passed = true;
+    this._set(KEYS.QUESTION_STATS, stats);
+    return stats[qid].fails;
+  },
+
+  getLastBatchPerf() { return this._get(KEYS.LAST_BATCH_PERF); },
+  setLastBatchPerf(perf) { this._set(KEYS.LAST_BATCH_PERF, perf); },
+
+  getMultiStats() {
+    return this._get(KEYS.MULTI_STATS) || {
+      rooms_hosted: 0, games_played: 0, wins: 0, win_streak: 0,
+      max_capacity_rooms: 0, chat_messages: 0, top_3_finishes: 0
+    };
+  },
+  incrementMultiStat(key, val = 1) {
+    const s = this.getMultiStats();
+    s[key] = (s[key] || 0) + val;
+    this._set(KEYS.MULTI_STATS, s);
+  },
+
+  getSystemStats() {
+    return this._get(KEYS.SYSTEM_STATS) || {
+      explain_simpler_count: 0, api_calls: 0, total_study_time_ms: 0,
+      review_sessions_count: 0, weakness_starts: 0, custom_batch_starts: 0
+    };
+  },
+  incrementSystemStat(key, val = 1) {
+    const s = this.getSystemStats();
+    s[key] = (s[key] || 0) + val;
+    this._set(KEYS.SYSTEM_STATS, s);
+  },
+
+  trackSubjectMastered(subject) {
+    const mastered = this._get(KEYS.SUBJECTS_MASTERED) || [];
+    if (!mastered.includes(subject)) {
+      mastered.push(subject);
+      this._set(KEYS.SUBJECTS_MASTERED, mastered);
+    }
+  },
+  getSubjectsMastered() { return this._get(KEYS.SUBJECTS_MASTERED) || []; },
+
+  getSubjectsWithMasteryCount() {
+    let count = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('wg_sub_')) {
+        const subData = this._get(key);
+        if (subData && subData.stats && subData.stats.mastered > 0) {
+          count++;
+        }
+      }
+    }
+    return count;
+  },
+
+  getAiConsecutivePerfect() { return this._get(KEYS.AI_CONSECUTIVE_PERFECT) || 0; },
+  setAiConsecutivePerfect(v) { this._set(KEYS.AI_CONSECUTIVE_PERFECT, v); },
+  incrementAiConsecutivePerfect() {
+    const v = this.getAiConsecutivePerfect() + 1;
+    this.setAiConsecutivePerfect(v);
+    return v;
   },
 
   getAllMasteredIds() {

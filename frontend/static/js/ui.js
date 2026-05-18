@@ -408,6 +408,13 @@ const UI = {
     const q = this.batch[this.currentIdx];
     Engine.markObjResult(q, passed);
 
+    // Track speed for OBJ
+    const batchStartTime = Storage.getBatchStartTime();
+    if (batchStartTime) {
+      q._solve_time_ms = Date.now() - batchStartTime; // relative to batch start for first question
+      // This isn't perfect for individual questions in middle of batch but good enough for batch total speed check
+    }
+
     // Persist batch state (including _passed status)
     Storage.saveBatch(this.batch);
 
@@ -453,6 +460,7 @@ const UI = {
     const totalMax = q.sub_questions.reduce((s, sub) => s + sub.max_marks, 0);
 
     let totalScore, maxScore, passed;
+    Storage.incrementSystemStat('api_calls');
     try {
       ({ totalScore, maxScore, passed } = await Engine.gradeTheoryQuestion(
         q,
@@ -509,6 +517,30 @@ const UI = {
     }
 
     if (gradingOverlay) gradingOverlay.classList.add('hidden');
+
+    // Achievement: ai_whisperer & theory_perfect & buzzer_beater
+    if (passed) {
+      const isPerfectAI = totalScore === totalMax;
+      if (isPerfectAI) {
+        Storage.incrementAiConsecutivePerfect();
+        q._is_theory_perfect = true;
+      } else {
+        Storage.setAiConsecutivePerfect(0);
+      }
+
+      // First try check
+      const stats = Storage.getQuestionStats(q.id);
+      if (stats.fails === 0) q._is_first_try_theory = true;
+
+      // Buzzer beater
+      const timerEnd = Storage.getTimerEnd();
+      if (timerEnd) {
+        const remaining = timerEnd - Date.now();
+        if (remaining > 0 && remaining < 10000) {
+          q._is_buzzer_beater = true;
+        }
+      }
+    }
 
     // Show result banner
     const banner = document.getElementById('result-banner');
@@ -586,6 +618,16 @@ const UI = {
         }
         Storage.clearBatch();
         Storage.clearTimer();
+        Storage.incrementSystemStat('review_sessions_count');
+        this.checkAchievements({
+            batchPerf: {
+                correctCount: this.currentIdx,
+                totalCount: this.currentIdx,
+                allPassed: true,
+                durationMs: 0,
+                batch: []
+            }
+        });
 
         wrapper.innerHTML = `
             <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
@@ -611,8 +653,12 @@ const UI = {
     const correctCount = answeredBatch.filter(q => q._passed === true).length;
     const totalCount = answeredBatch.length;
 
+    const initialFailedQueueSize = (Storage.getFailedObj().length + Storage.getFailedTheory().length) +
+                                  (this.batch.length - this.currentIdx); // approximation
+
     const startTime = Storage.getBatchStartTime();
     const durationMs = startTime ? Date.now() - startTime : 0;
+    Storage.incrementSystemStat('total_study_time_ms', durationMs);
     const durationMins = Math.floor(durationMs / 60000);
     const durationSecs = Math.floor((durationMs % 60000) / 1000);
     const timeStr = `${durationMins}m ${durationSecs}s`;
@@ -629,8 +675,20 @@ const UI = {
 
     // Achievement Checks
     const allPassed = totalCount > 0 && correctCount === totalCount;
+    const perf = {
+        correctCount,
+        totalCount,
+        durationMs,
+        allPassed,
+        batch: answeredBatch,
+        initialFailedQueueSize,
+        failedQueueSize: Storage.getFailedObj().length + Storage.getFailedTheory().length
+    };
+
     if (allPassed) {
-      this.checkAchievements({ perfectBatchSize: totalCount });
+      this.checkAchievements({ perfectBatchSize: totalCount, batchPerf: perf });
+    } else {
+      this.checkAchievements({ batchPerf: perf });
     }
 
     if (this._timerInterval) {
@@ -641,6 +699,7 @@ const UI = {
     // Cleanup storage after gathering metrics
     Storage.clearBatch();
     Storage.clearTimer();
+    Storage.incrementGlobalStat('batches_completed');
 
     const mode = Storage.getMode();
     const allDone = Storage.isAllDone(mode);
@@ -779,25 +838,72 @@ const UI = {
     const earnedIds = Storage.getAchievements();
     const now = new Date();
     const hour = now.getHours();
-    const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+    const day = now.getDay();
 
     const currentSub = Storage.getSubject();
     const subStats = Storage.getStats(currentSub);
+    const lastPerf = Storage.getLastBatchPerf();
+    const batchPerf = sessionFlags.batchPerf || {};
+
+    // Calculate complex stats
+    const subjectsMerged = Storage.getSubjects().length;
+    const masteredPerSubject = {};
+    Storage.getSubjects().forEach(s => {
+        masteredPerSubject[s] = Storage.getStats(s).mastered;
+    });
 
     const checkStats = {
       streak: streak,
       mastered_obj: globalStats.mastered_obj,
       mastered_theory: globalStats.mastered_theory,
+      mastered_total: globalStats.mastered_obj + globalStats.mastered_theory,
       subject_done: Storage.isAllDone('both'),
       isEarlyBird: hour < 8,
       isNightOwl: hour >= 22,
       isWeekend: day === 0 || day === 6,
       perfectBatchSize: sessionFlags.perfectBatchSize || 0,
       isComeback: sessionFlags.isComeback || false,
-      subject_mastered_count: subStats.mastered,
+      subject_mastered_count: Object.keys(masteredPerSubject).length, // count of unique subjects worked on
+      subjects_with_mastery: Storage.getSubjectsWithMasteryCount(),
       subjects_started: Storage.getSubjectsStartedCount(),
-      isMultiplayer: Storage.isMultiplayerDone()
+      isMultiplayer: Storage.isMultiplayerDone(),
+
+      // New stats
+      isBatchEnd: !!sessionFlags.batchPerf,
+      currentHour: hour,
+      subjects_mastered_all: Storage.getSubjectsMastered(),
+      multi_stats: Storage.getMultiStats(),
+      system_stats: Storage.getSystemStats(),
+      batches_completed: Storage.getStats().sessions,
+      subjects_merged: subjectsMerged,
+      failedQueueSize: batchPerf.failedQueueSize,
+      initialFailedQueueSize: batchPerf.initialFailedQueueSize,
+      max_fails_on_passed: Math.max(0, ...(batchPerf.batch || []).map(q => q._fails_before_pass || 0)),
+      isPerfectBatch: batchPerf.allPassed,
+      lastBatchScore: lastPerf ? (lastPerf.correctCount / lastPerf.totalCount) : 1.0,
+      isWeekendBatch: (day === 0 || day === 6) && !!sessionFlags.batchPerf,
+      batchSize: batchPerf.totalCount,
+      theoryMaxMarksAwarded: (batchPerf.batch || []).some(q => q._is_theory_perfect),
+      theoryFirstTryPass: (batchPerf.batch || []).some(q => q._is_first_try_theory),
+      aiConsecutivePerfect: Storage.getAiConsecutivePerfect(),
+      isWeaknessStart: Storage.getFocusTopic() !== null,
+      isRandomOptions: Storage.isRandomizedOptions(),
+      durationMs: batchPerf.durationMs,
+      batchType: (batchPerf.batch || []).every(q => q._type === 'obj') ? 'obj' : ((batchPerf.batch || []).every(q => q._type === 'theory') ? 'theory' : 'mixed'),
+      theoryPassUnder10s: (batchPerf.batch || []).some(q => q._is_buzzer_beater),
+      isTimed: !!Storage.getTimeLimit(),
+      timeRemainingMs: Storage.getTimerEnd() ? (Storage.getTimerEnd() - Date.now()) : 0,
+      mode: Storage.getMode(),
+      mastered_per_subject: masteredPerSubject,
+      isCustomBatch: !!Storage._get('wg_custom_batch_used') // set in dashboard
     };
+
+    if (sessionFlags.batchPerf) {
+        Storage.setLastBatchPerf({
+            correctCount: batchPerf.correctCount,
+            totalCount: batchPerf.totalCount
+        });
+    }
 
     const newlyUnlocked = AchievementEngine.checkNew(checkStats, earnedIds);
     newlyUnlocked.forEach(ach => {
@@ -930,6 +1036,7 @@ const UI = {
     try {
       const { default: API } = await import('./api.js');
       const result = await API.explainConcept(payload);
+      Storage.incrementSystemStat('explain_simpler_count');
       this.showExplanationModal(result.explanation);
     } catch (err) {
       showToast(`Could not get explanation: ${err.message}`, 'error');

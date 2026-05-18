@@ -150,10 +150,23 @@ const Engine = {
       Storage.pushMasteredObj(q);
       Storage.incrementMastered(1, q._subject);
       Storage.incrementGlobalStat('mastered_obj', 1);
+
+      // Instrumentation for achievements
+      q._fails_before_pass = Storage.trackQuestionPass(q.id);
+
+      // Check if subject completed
+      const remaining = Storage.getUnseenObj(q._subject).length +
+                        Storage.getUnseenTheory(q._subject).length +
+                        Storage.getFailedObj(q._subject).length +
+                        Storage.getFailedTheory(q._subject).length;
+      if (remaining === 0) {
+        Storage.trackSubjectMastered(q._subject);
+      }
     } else {
       // Failed: push to failed queue
       Storage.pushFailedObj(q);
       Storage.incrementFailed(1, q._subject);
+      Storage.trackQuestionFail(q.id);
     }
   },
 
@@ -176,9 +189,22 @@ const Engine = {
       Storage.pushMasteredTheory(q);
       Storage.incrementMastered(1, q._subject);
       Storage.incrementGlobalStat('mastered_theory', 1);
+
+      // Instrumentation for achievements
+      q._fails_before_pass = Storage.trackQuestionPass(q.id);
+
+      // Check if subject completed
+      const remaining = Storage.getUnseenObj(q._subject).length +
+                        Storage.getUnseenTheory(q._subject).length +
+                        Storage.getFailedObj(q._subject).length +
+                        Storage.getFailedTheory(q._subject).length;
+      if (remaining === 0) {
+        Storage.trackSubjectMastered(q._subject);
+      }
     } else {
       Storage.pushFailedTheory(q);
       Storage.incrementFailed(1, q._subject);
+      Storage.trackQuestionFail(q.id);
     }
     return passed;
   },

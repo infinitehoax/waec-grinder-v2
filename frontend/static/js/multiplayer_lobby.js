@@ -194,6 +194,7 @@ const Lobby = {
         if (subjects.length === 0) return showToast('Select at least one subject', 'error');
 
         sessionStorage.setItem('wg_multiplayer_name', name);
+        Storage.incrementMultiStat('rooms_hosted');
         socket.createRoom(name, this.selectedMode, subjects);
     },
 
@@ -325,6 +326,7 @@ const Lobby = {
             ? document.getElementById('create-name').value.trim()
             : document.getElementById('join-name').value.trim();
 
+        Storage.incrementMultiStat('chat_messages');
         socket.sendMessage(this.roomId, name, text);
         input.value = '';
     },

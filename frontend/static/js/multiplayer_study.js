@@ -12,8 +12,10 @@ const multiplayer_study = {
     myScore: 0,
     isFinished: false,
     _timerInterval: null,
+    _wasHalfwayLast: false,
 
     init() {
+        this._wasHalfwayLast = false;
         this.roomState = JSON.parse(sessionStorage.getItem('wg_multiplayer_room'));
         this.roomId = sessionStorage.getItem('wg_multiplayer_room_id');
 
@@ -79,6 +81,7 @@ const multiplayer_study = {
             this.roomState = data.room_state;
             sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
             this.showFinalScoreboard();
+            Storage.incrementMultiStat('games_played');
         };
 
         SocketClient.onGameStarted = (data) => {
@@ -222,6 +225,19 @@ const multiplayer_study = {
 
         const progress = UI.currentIdx;
         const total = UI.batch.length;
+
+        // Track halfway status for "Comeback King"
+        if (progress === Math.floor(total / 2) && total >= 4 && !finished) {
+            const myUuid = Storage.getPlayerUuid();
+            const players = Object.entries(this.roomState.players);
+            if (players.length > 1) {
+                const sortedByProgress = players.sort((a, b) => b[1].progress - a[1].progress);
+                if (sortedByProgress[sortedByProgress.length - 1][0] === myUuid) {
+                    this._wasHalfwayLast = true;
+                }
+            }
+        }
+
         const currentProgress = finished ? total : progress;
         const score = this.myScore;
         console.log('Emitting progress:', currentProgress, 'Score:', score, 'Finished:', finished);
@@ -277,6 +293,7 @@ const multiplayer_study = {
             const text = chatInput.value.trim();
             if (!text) return;
             const myName = sessionStorage.getItem('wg_multiplayer_name');
+            Storage.incrementMultiStat('chat_messages');
             SocketClient.sendMessage(this.roomId, myName, text);
             chatInput.value = '';
         };
@@ -365,6 +382,53 @@ const multiplayer_study = {
 
         const sortedPlayers = Object.entries(this.roomState.players)
             .sort((a, b) => b[1].score - a[1].score);
+
+        // Stats tracking
+        const myUuid = Storage.getPlayerUuid();
+        const myIndex = sortedPlayers.findIndex(([sid, p]) => sid === myUuid);
+        const myRank = myIndex + 1;
+        const totalPlayers = sortedPlayers.length;
+        const isWinner = myRank === 1;
+
+        if (myRank <= 3) Storage.incrementMultiStat('top_3_finishes');
+        if (isWinner) {
+            Storage.incrementMultiStat('wins');
+            Storage.incrementMultiStat('win_streak');
+        } else {
+            Storage.incrementMultiStat('win_streak', -999); // Reset streak
+            const stats = Storage.getMultiStats();
+            if (stats.win_streak < 0) stats.win_streak = 0;
+            Storage._set('wg_multi_stats', stats);
+        }
+
+        if (totalPlayers >= 5) {
+            Storage.incrementMultiStat('max_capacity_rooms');
+        }
+
+        // Logic for photo finish
+        if (isWinner && totalPlayers > 1) {
+            const myScore = sortedPlayers[0][1].score;
+            const secondScore = sortedPlayers[1][1].score;
+            if (myScore - secondScore === 1) {
+                // Photo finish
+                this._isPhotoFinish = true;
+            }
+        }
+
+        // Check if I only finished
+        const othersFinished = sortedPlayers.filter(([sid, p]) => sid !== myUuid && p.finished).length;
+        if (isWinner && othersFinished === 0 && totalPlayers > 1) {
+            this._isLoneWolf = true;
+        }
+
+        UI.checkAchievements({
+            isMultiWin: isWinner,
+            multiRank: myRank,
+            multiCapacity: totalPlayers,
+            multiMargin: isWinner && totalPlayers > 1 ? (sortedPlayers[0][1].score - sortedPlayers[1][1].score) : 0,
+            multiOnlyOneFinished: isWinner && othersFinished === 0 && totalPlayers > 1,
+            multiHalfwayLast: isWinner && this._wasHalfwayLast
+        });
 
         wrapper.innerHTML = `
             <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
