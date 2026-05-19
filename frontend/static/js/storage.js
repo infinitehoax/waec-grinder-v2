@@ -51,15 +51,19 @@ function deepClone(obj) {
 
 const Storage = {
   // ---- Raw helpers ----
-  _get(key) {
-    if (_cache.has(key)) return deepClone(_cache.get(key));
+  _getRaw(key) {
+    if (_cache.has(key)) return _cache.get(key);
     try {
       const val = localStorage.getItem(key);
       if (val === null) return null;
       const parsed = JSON.parse(val);
       _cache.set(key, parsed);
-      return deepClone(parsed);
+      return parsed;
     } catch { return null; }
+  },
+  _get(key) {
+    const val = this._getRaw(key);
+    return val !== null ? deepClone(val) : null;
   },
   _set(key, val) {
     _cache.set(key, deepClone(val));
@@ -81,8 +85,8 @@ const Storage = {
 
   // ---- Subject-scoped helpers ----
   _getScoped(subject, key) {
-    const data = this._get(`wg_sub_${subject}`) || {};
-    return data[key];
+    const data = this._getRaw(`wg_sub_${subject}`) || {};
+    return deepClone(data[key]);
   },
   _setScoped(subject, key, val) {
     const data = this._get(`wg_sub_${subject}`) || {};
@@ -551,12 +555,29 @@ const Storage = {
   },
   getSubjectsMastered() { return this._get(KEYS.SUBJECTS_MASTERED) || []; },
 
+  getQuickCounts() {
+    // Fast path for UI updates: aggregates stats without redundant deepClones
+    const subjects = this.getSubjects().filter(s => s !== null);
+    const results = { failed: 0, unseen: 0, mastered: 0, streak: this.getStreak() };
+
+    subjects.forEach(s => {
+      const data = this._getRaw(`wg_sub_${s}`) || {};
+      const stats = data.stats || {};
+
+      results.failed += (data.failed_obj?.length || 0) + (data.failed_theory?.length || 0);
+      results.unseen += (data.unseen_obj?.length || 0) + (data.unseen_theory?.length || 0);
+      results.mastered += (stats.mastered || 0);
+    });
+
+    return results;
+  },
+
   getSubjectsWithMasteryCount() {
     let count = 0;
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key && key.startsWith('wg_sub_')) {
-        const subData = this._get(key);
+        const subData = this._getRaw(key);
         if (subData && subData.stats && subData.stats.mastered > 0) {
           count++;
         }
@@ -578,19 +599,14 @@ const Storage = {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key && key.startsWith('wg_sub_')) {
-        try {
-          const val = localStorage.getItem(key);
-          if (val) {
-            const data = JSON.parse(val);
-            if (data[SUB_KEYS.MASTERED_OBJ]) {
-              data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
-            }
-            if (data[SUB_KEYS.MASTERED_THEORY]) {
-              data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
-            }
+        const data = this._getRaw(key);
+        if (data) {
+          if (data[SUB_KEYS.MASTERED_OBJ]) {
+            data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
           }
-        } catch (e) {
-          console.error("Error parsing storage for mastered IDs", e);
+          if (data[SUB_KEYS.MASTERED_THEORY]) {
+            data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
+          }
         }
       }
     }

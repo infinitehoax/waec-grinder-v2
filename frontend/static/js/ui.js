@@ -28,26 +28,19 @@ function showToast(msg, type = 'info', duration = 3500) {
 
 // ---- Nav stats update ----
 function updateNavStats() {
-  const mode = Storage.getMode();
   const failedEl = document.getElementById('nav-failed');
   const unseenEl = document.getElementById('nav-unseen');
   const masteredEl = document.getElementById('nav-mastered');
   const streakEl = document.getElementById('nav-streak');
 
-  if (failedEl) {
-    const failed = Storage.getFailedObj().length + Storage.getFailedTheory().length;
-    failedEl.textContent = failed;
-  }
-  if (unseenEl) {
-    const unseen = Storage.getUnseenObj().length + Storage.getUnseenTheory().length;
-    unseenEl.textContent = unseen;
-  }
-  if (masteredEl) {
-    masteredEl.textContent = Storage.getStats().mastered;
-  }
-  if (streakEl) {
-    streakEl.textContent = Storage.getStreak();
-  }
+  if (!failedEl && !unseenEl && !masteredEl && !streakEl) return;
+
+  const counts = Storage.getQuickCounts();
+
+  if (failedEl)   failedEl.textContent = counts.failed;
+  if (unseenEl)   unseenEl.textContent = counts.unseen;
+  if (masteredEl) masteredEl.textContent = counts.mastered;
+  if (streakEl)   streakEl.textContent = counts.streak;
 }
 
 // ---- Render a single OBJ question ----
