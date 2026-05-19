@@ -129,9 +129,7 @@ const multiplayer_study = {
             UI.currentIdx = myData.progress || 0;
             this.isFinished = myData.finished || false;
             // Also update storage's currentIdx so UI doesn't overwrite it on reload
-            import('./storage.js').then(({ default: Storage }) => {
-                Storage.saveIdx(UI.currentIdx);
-            });
+            Storage.saveIdx(UI.currentIdx);
         }
 
         // Override UI.nextQuestion and UI.selectOption/submitTheory to emit progress
@@ -455,9 +453,8 @@ const multiplayer_study = {
         `;
 
         const board = document.getElementById('final-leaderboard');
-        const myUuid = Storage.getPlayerUuid();
         sortedPlayers.forEach(([sid, p], idx) => {
-            const div = document.createElement('div');
+            const div = document.createElement("div");
             div.className = `player-tag ${sid === myUuid ? 'is-you' : ''}`;
             div.style.marginBottom = '8px';
 
