@@ -455,7 +455,6 @@ const multiplayer_study = {
         `;
 
         const board = document.getElementById('final-leaderboard');
-        const myUuid = Storage.getPlayerUuid();
         sortedPlayers.forEach(([sid, p], idx) => {
             const div = document.createElement('div');
             div.className = `player-tag ${sid === myUuid ? 'is-you' : ''}`;
