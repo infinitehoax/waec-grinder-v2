@@ -13,12 +13,19 @@ const multiplayer_study = {
     isFinished: false,
     _timerInterval: null,
     _wasHalfwayLast: false,
-
     init() {
-        this._wasHalfwayLast = false;
-        this.roomState = JSON.parse(sessionStorage.getItem('wg_multiplayer_room'));
-        this.roomId = sessionStorage.getItem('wg_multiplayer_room_id');
+        try {
+            this._initLogic();
+        } catch (e) {
+            console.error("Multiplayer Init Error:", e);
+            showToast("Failed to initialize multiplayer session.", "error");
+        }
+    },
 
+    _initLogic() {
+        this._wasHalfwayLast = false;
+        this.roomState = JSON.parse(sessionStorage.getItem("wg_multiplayer_room"));
+        this.roomId = sessionStorage.getItem("wg_multiplayer_room_id");
         if (!this.roomState || !this.roomId) {
             window.location.href = '/multiplayer';
             return;
@@ -223,7 +230,6 @@ const multiplayer_study = {
                 }
             };
         }
-
         this.initChat();
     },
 
@@ -455,7 +461,6 @@ const multiplayer_study = {
         `;
 
         const board = document.getElementById('final-leaderboard');
-        const myUuid = Storage.getPlayerUuid();
         sortedPlayers.forEach(([sid, p], idx) => {
             const div = document.createElement('div');
             div.className = `player-tag ${sid === myUuid ? 'is-you' : ''}`;
