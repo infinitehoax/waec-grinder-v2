@@ -118,7 +118,7 @@
         </div>
       </div>
 
-      <div class="card" id="random-questions-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomizeQuestions()">
+      <div class="card" id="random-questions-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomizeQuestions()" role="button" tabindex="0" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleRandomizeQuestions();}">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
           <div>
             <div style="font-weight:600; margin-bottom:4px;">Randomize Questions</div>
@@ -128,7 +128,7 @@
         </div>
       </div>
 
-      <div class="card" id="random-options-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomizeOptions()">
+      <div class="card" id="random-options-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleRandomizeOptions()" role="button" tabindex="0" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleRandomizeOptions();}">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
           <div>
             <div style="font-weight:600; margin-bottom:4px;">Randomize Options</div>
@@ -140,27 +140,27 @@
     </div>
 
     <!-- Mode selection cards -->
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:28px;">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:28px;" role="radiogroup" aria-label="Study Mode Selection">
 
-      <div class="card mode-card" data-mode="obj" onclick="selectMode('obj')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s;">
+      <div class="card mode-card" data-mode="obj" onclick="selectMode('obj')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s;" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMode('obj');}">
         <div style="font-size:2rem; margin-bottom:10px;">🔤</div>
         <div style="font-weight:700; margin-bottom:6px;">OBJ Only</div>
         <div style="font-size:0.85rem; color:var(--text-secondary);">Multiple choice questions, auto-graded instantly.</div>
       </div>
 
-      <div class="card mode-card" data-mode="theory" onclick="selectMode('theory')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s;">
+      <div class="card mode-card" data-mode="theory" onclick="selectMode('theory')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s;" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMode('theory');}">
         <div style="font-size:2rem; margin-bottom:10px;">✍️</div>
         <div style="font-weight:700; margin-bottom:6px;">Theory Only</div>
         <div style="font-size:0.85rem; color:var(--text-secondary);">Essay questions graded by AI against a rubric.</div>
       </div>
 
-      <div class="card mode-card selected-mode" data-mode="both" onclick="selectMode('both')" style="cursor:pointer; border-color: var(--accent); background: var(--accent-glow); transition: all 0.2s;">
+      <div class="card mode-card selected-mode" data-mode="both" onclick="selectMode('both')" style="cursor:pointer; border-color: var(--accent); background: var(--accent-glow); transition: all 0.2s;" role="radio" aria-checked="true" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMode('both');}">
         <div style="font-size:2rem; margin-bottom:10px;">⚡</div>
         <div style="font-weight:700; margin-bottom:6px;">Both (Recommended)</div>
         <div style="font-size:0.85rem; color:var(--text-secondary);">Mixed session covering all question types.</div>
       </div>
 
-      <div class="card mode-card" id="review-mode-card" data-mode="review" onclick="selectMode('review')" style="display:none; cursor:pointer; border-color: var(--border-subtle); border-style: dashed; transition: all 0.2s;">
+      <div class="card mode-card" id="review-mode-card" data-mode="review" onclick="selectMode('review')" style="display:none; cursor:pointer; border-color: var(--border-subtle); border-style: dashed; transition: all 0.2s;" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMode('review');}">
         <div style="font-size:2rem; margin-bottom:10px;">🔄</div>
         <div style="font-weight:700; margin-bottom:6px;">Review Mastered</div>
         <div style="font-size:0.85rem; color:var(--text-secondary);">Revisit questions you've already mastered.</div>
@@ -424,11 +424,13 @@
       card.style.opacity = '1';
       badge.textContent = 'ON';
       badge.className = 'badge badge--accent';
+      card.setAttribute('aria-pressed', 'true');
     } else {
       card.style.borderColor = 'var(--border-subtle)';
       card.style.opacity = '0.7';
       badge.textContent = 'OFF';
       badge.className = 'badge badge--neutral';
+      card.setAttribute('aria-pressed', 'false');
     }
   }
 
@@ -473,12 +475,14 @@
       c.classList.remove('selected-mode');
       c.style.borderColor = 'var(--border-subtle)';
       c.style.background = '';
+      c.setAttribute('aria-checked', 'false');
     });
     const active = document.querySelector(`.mode-card[data-mode="${mode}"]`);
     if (active) {
       active.classList.add('selected-mode');
       active.style.borderColor = 'var(--accent)';
       active.style.background = 'var(--accent-glow)';
+      active.setAttribute('aria-checked', 'true');
     }
 
     const startBtn = document.getElementById('start-btn');

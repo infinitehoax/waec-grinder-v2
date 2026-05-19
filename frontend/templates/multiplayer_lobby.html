@@ -25,8 +25,8 @@
       </div>
       <div style="margin-bottom: 20px;">
         <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Study Mode</label>
-        <div style="display:grid; grid-template-columns: 1fr; gap:12px;">
-          <div class="card mode-card" data-mode="obj" onclick="lobby.selectMode('obj')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s; padding: 12px;">
+        <div style="display:grid; grid-template-columns: 1fr; gap:12px;" role="radiogroup" aria-label="Study Mode Selection">
+          <div class="card mode-card" data-mode="obj" onclick="lobby.selectMode('obj')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s; padding: 12px;" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();lobby.selectMode('obj');}">
             <div style="display:flex; align-items:center; gap:12px;">
               <div style="font-size:1.5rem;">🔤</div>
               <div>
@@ -35,7 +35,7 @@
               </div>
             </div>
           </div>
-          <div class="card mode-card" data-mode="theory" onclick="lobby.selectMode('theory')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s; padding: 12px;">
+          <div class="card mode-card" data-mode="theory" onclick="lobby.selectMode('theory')" style="cursor:pointer; border-color: var(--border-subtle); transition: all 0.2s; padding: 12px;" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();lobby.selectMode('theory');}">
             <div style="display:flex; align-items:center; gap:12px;">
               <div style="font-size:1.5rem;">✍️</div>
               <div>
@@ -44,7 +44,7 @@
               </div>
             </div>
           </div>
-          <div class="card mode-card selected-mode" data-mode="both" onclick="lobby.selectMode('both')" style="cursor:pointer; border-color: var(--accent); background: var(--accent-glow); transition: all 0.2s; padding: 12px;">
+          <div class="card mode-card selected-mode" data-mode="both" onclick="lobby.selectMode('both')" style="cursor:pointer; border-color: var(--accent); background: var(--accent-glow); transition: all 0.2s; padding: 12px;" role="radio" aria-checked="true" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();lobby.selectMode('both');}">
             <div style="display:flex; align-items:center; gap:12px;">
               <div style="font-size:1.5rem;">⚡</div>
               <div>
@@ -126,7 +126,7 @@
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div class="card" id="random-questions-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('randomize_questions', 'random-q-badge')">
+          <div class="card" id="random-questions-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('randomize_questions', 'random-q-badge')" role="button" tabindex="0" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();lobby.toggleSetting('randomize_questions', 'random-q-badge');}">
             <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
               <div>
                 <div style="font-weight:600; margin-bottom:4px;">Randomize Questions</div>
@@ -136,7 +136,7 @@
             </div>
           </div>
 
-          <div class="card" id="random-options-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('randomize_options', 'random-o-badge')">
+          <div class="card" id="random-options-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('randomize_options', 'random-o-badge')" role="button" tabindex="0" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();lobby.toggleSetting('randomize_options', 'random-o-badge');}">
             <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
               <div>
                 <div style="font-weight:600; margin-bottom:4px;">Randomize Options</div>
@@ -146,7 +146,7 @@
             </div>
           </div>
 
-          <div class="card" id="filter-mastered-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('filter_mastered', 'filter-m-badge')">
+          <div class="card" id="filter-mastered-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="lobby.toggleSetting('filter_mastered', 'filter-m-badge')" role="button" tabindex="0" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();lobby.toggleSetting('filter_mastered', 'filter-m-badge');}">
             <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
               <div>
                 <div style="font-weight:600; margin-bottom:4px;">Filter Mastered</div>

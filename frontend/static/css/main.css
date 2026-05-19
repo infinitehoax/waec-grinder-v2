@@ -92,6 +92,14 @@ code, pre, .mono {
   box-shadow: var(--shadow-md);
 }
 
+.card[role="button"]:focus-visible,
+.card[role="radio"]:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-md);
+  transform: translateY(-1px);
+}
+
 /* ---- Buttons ---- */
 .btn {
   display: inline-flex;

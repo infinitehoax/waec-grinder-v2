@@ -263,12 +263,14 @@ const Lobby = {
             c.classList.remove('selected-mode');
             c.style.borderColor = 'var(--border-subtle)';
             c.style.background = '';
+            c.setAttribute('aria-checked', 'false');
         });
         const active = document.querySelector(`.mode-card[data-mode="${mode}"]`);
         if (active) {
             active.classList.add('selected-mode');
             active.style.borderColor = 'var(--accent)';
             active.style.background = 'var(--accent-glow)';
+            active.setAttribute('aria-checked', 'true');
         }
     },
 
@@ -293,6 +295,7 @@ const Lobby = {
             if (card) {
                 card.style.borderColor = 'var(--accent)';
                 card.style.opacity = '1';
+                card.setAttribute('aria-pressed', 'true');
             }
         } else {
             if (badge) {
@@ -302,6 +305,7 @@ const Lobby = {
             if (card) {
                 card.style.borderColor = 'var(--border-subtle)';
                 card.style.opacity = '0.7';
+                card.setAttribute('aria-pressed', 'false');
             }
         }
     },
