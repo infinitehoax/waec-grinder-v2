@@ -103,6 +103,11 @@ const multiplayer_study = {
             this.roomState = data.room_state;
             sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
 
+            // Sync room configuration to Storage for achievements and UI consistency
+            Storage._set('wg_current_subject', this.roomState.subjects);
+            Storage._set('wg_study_mode', this.roomState.mode);
+            Storage.setTimeLimit(this.roomState.time_limit || 0);
+
             // Sync randomization flags to storage
             Storage.setRandomizedQuestions(data.room_state.randomize_questions || false);
             Storage.setRandomizedOptions(data.room_state.randomize_options || false);
@@ -126,6 +131,13 @@ const multiplayer_study = {
 
         SocketClient.connect();
 
+        // Sync initial room configuration to Storage
+        if (this.roomState) {
+            Storage._set('wg_current_subject', this.roomState.subjects);
+            Storage._set('wg_study_mode', this.roomState.mode);
+            Storage.setTimeLimit(this.roomState.time_limit || 0);
+        }
+
         // Initialize UI with room questions
         const questions = (this.roomState?.questions || []).map(q => ({ ...q, _is_multiplayer: true }));
 
@@ -135,8 +147,6 @@ const multiplayer_study = {
             this.isFinished = myData.finished || false;
             const savedIdx = myData.progress || 0;
             Storage.saveIdx(savedIdx);
-            // Also update storage's currentIdx so UI doesn't overwrite it on reload
-            Storage.saveIdx(UI.currentIdx);
         }
 
         // Override UI.nextQuestion and UI.selectOption/submitTheory to emit progress
