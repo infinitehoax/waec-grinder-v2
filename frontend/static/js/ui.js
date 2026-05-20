@@ -68,7 +68,7 @@ function renderObjQuestion(q, idx, total) {
   }
 
   return `
-    <div class="question-card card animate-fade-in ${fromFailed ? 'type--failed' : ''}">
+    <div class="question-card card animate-fade-in ${fromFailed ? 'type--failed' : ''}" tabindex="-1">
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
         <span class="badge badge--accent">OBJ</span>
@@ -79,14 +79,14 @@ function renderObjQuestion(q, idx, total) {
       <div class="question-text">${formatText(q.question)}</div>
       <div class="options-grid" id="options-grid" data-correct="${escapeHtml(correctOption)}" data-explanation="${escapeAttr(q.explanation || '')}">
         ${optionsToRender.map(([letter, text]) => `
-          <button class="option-btn" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}')">
-            <span class="option-letter">${letter}</span>
+          <button class="option-btn" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}')" aria-label="Option ${letter}: ${escapeHtml(text)}">
+            <span class="option-letter" aria-hidden="true">${letter}</span>
             <span class="option-text">${formatText(text)}</span>
           </button>
         `).join('')}
       </div>
-      <div class="result-banner" id="result-banner">
-        <span class="result-banner__icon"></span>
+      <div class="result-banner" id="result-banner" role="status" aria-live="polite">
+        <span class="result-banner__icon" aria-hidden="true"></span>
         <div class="result-banner__body">
           <div class="result-banner__title"></div>
           <div class="result-banner__sub"></div>
@@ -95,7 +95,7 @@ function renderObjQuestion(q, idx, total) {
       <div class="explanation-block" id="explanation-block">
         <div class="explanation-block__label">📖 Explanation</div>
         <div class="explanation-block__text"></div>
-        <button class="btn-explain" id="explain-btn" onclick="UI.explainSimpler()">
+        <button class="btn-explain" id="explain-btn" onclick="UI.explainSimpler()" aria-label="Explain this concept simpler">
           💡 Explain It Simpler
         </button>
       </div>
@@ -119,7 +119,7 @@ function renderTheoryQuestion(q, idx, total) {
   const showSubject = Storage.getSubjects().length > 1;
   const totalMaxMarks = q.sub_questions.reduce((s, sq) => s + sq.max_marks, 0);
   return `
-    <div class="question-card card type--theory animate-fade-in ${fromFailed ? 'type--failed' : ''}">
+    <div class="question-card card type--theory animate-fade-in ${fromFailed ? 'type--failed' : ''}" tabindex="-1">
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
         <span class="badge badge--neutral">THEORY</span>
@@ -136,8 +136,8 @@ function renderTheoryQuestion(q, idx, total) {
         <div class="spinner"></div>
         <span id="grading-status">Sending to AI examiner...</span>
       </div>
-      <div class="result-banner" id="result-banner">
-        <span class="result-banner__icon"></span>
+      <div class="result-banner" id="result-banner" role="status" aria-live="polite">
+        <span class="result-banner__icon" aria-hidden="true"></span>
         <div class="result-banner__body">
           <div class="result-banner__title"></div>
           <div class="result-banner__sub"></div>
@@ -185,7 +185,7 @@ function renderSubQuestion(sub) {
           <span class="sub-feedback-score" id="fscore-${sub.sub_id}"></span>
           <span class="sub-feedback-text" id="ftext-${sub.sub_id}"></span>
         </div>
-        <button class="btn-explain" onclick="UI.explainSimpler('${sub.sub_id}')">
+        <button class="btn-explain" onclick="UI.explainSimpler('${sub.sub_id}')" aria-label="Explain this concept simpler">
           💡 Explain Simpler
         </button>
       </div>
@@ -322,6 +322,10 @@ const UI = {
         ? renderObjQuestion(q, this.currentIdx, this.batch.length)
         : renderTheoryQuestion(q, this.currentIdx, this.batch.length);
       wrapper.classList.remove('transitioning');
+
+      // Accessibility: Focus the new card so screen readers start reading immediately
+      const card = wrapper.querySelector('.question-card');
+      if (card) card.focus();
     }, 200);
 
     this.updateStepDots();
@@ -1073,10 +1077,36 @@ const UI = {
 // Expose UI globally so inline onclick handlers work
 window.UI = UI;
 
-// Global Escape key listener for modals
+// Global Keyboard Shortcuts
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     UI.closeExplanationModal();
+    return;
+  }
+
+  // Prevent shortcuts if user is typing in an input or textarea
+  const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+  if (activeTag === 'input' || activeTag === 'textarea') return;
+
+  // Next question on Enter
+  if (e.key === 'Enter') {
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn && nextBtn.style.display !== 'none' && !nextBtn.disabled) {
+      UI.nextQuestion();
+    }
+    return;
+  }
+
+  // OBJ shortcuts: A-D or 1-4 keys
+  const key = e.key.toUpperCase();
+  const optionMap = { '1': 'A', '2': 'B', '3': 'C', '4': 'D', 'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D' };
+
+  if (optionMap[key]) {
+    const letter = optionMap[key];
+    const btn = document.querySelector(`.option-btn[data-letter="${letter}"]`);
+    if (btn && !btn.disabled) {
+      UI.selectOption(btn, letter);
+    }
   }
 });
 

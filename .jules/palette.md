@@ -10,6 +10,10 @@
 **Learning:** Elements styled as "badges" that trigger actions (like copying text) are invisible to keyboard and screen reader users unless explicitly marked as interactive.
 **Action:** Apply `role="button"`, `tabindex="0"`, and `aria-label` to badges intended for interaction. Implement `onkeydown` listeners to support 'Enter' and 'Space' keys alongside `onclick`.
 
+## 2025-05-24 - [Programmatic Focus for Dynamic Content]
+**Learning:** When content is dynamically replaced (e.g., transitioning to a new question), screen readers may stay focused on the previous location or lose context. Programmatic focus is required to guide the user.
+**Action:** Use `tabindex="-1"` on the main content container and call `.focus()` whenever the content is updated to ensure screen readers announce the new state immediately.
+
 ## 2025-05-24 - [Manual ARIA Synchronization & Focus States]
 **Learning:** In a Vanilla JS app where UI state is toggled via CSS classes (e.g., `.selected-mode`), ARIA attributes (like `aria-checked` or `aria-pressed`) must be manually updated in the same event handlers to maintain screen reader accuracy.
 **Action:** Always pair class toggles with `.setAttribute('aria-checked', ...)` calls. For interactive `div`s, use `:focus-visible` to provide clear keyboard focus indicators without affecting mouse users.
