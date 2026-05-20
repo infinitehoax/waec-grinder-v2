@@ -197,11 +197,14 @@
   width: 100%;
 }
 
-.option-btn:hover:not(:disabled) {
+.option-btn:hover:not(:disabled),
+.option-btn:focus-visible {
   border-color: var(--accent);
   color: var(--text-primary);
   background: var(--bg-card);
   transform: translateX(2px);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .option-btn:disabled {
