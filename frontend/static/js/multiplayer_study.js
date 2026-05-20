@@ -100,7 +100,11 @@ const multiplayer_study = {
             // Sync room configuration to Storage for achievements and UI consistency
             Storage._set('wg_current_subject', this.roomState.subjects);
             Storage._set('wg_study_mode', this.roomState.mode);
+            Storage.clearTimer();
             Storage.setTimeLimit(this.roomState.time_limit || 0);
+            if (this.roomState.time_limit > 0 && this.roomState.end_time) {
+                Storage.setTimerEnd(this.roomState.end_time);
+            }
 
             // Sync randomization flags to storage
             Storage.setRandomizedQuestions(data.room_state.randomize_questions || false);
@@ -114,22 +118,24 @@ const multiplayer_study = {
             UI.init(questions);
             this.renderSidebar();
 
-            // Handle timer if any
-            if (this._timerInterval) clearInterval(this._timerInterval);
-            if (this.roomState.time_limit > 0 && this.roomState.end_time) {
-                this.startTimer(this.roomState.end_time);
-            }
-
             showToast("A new batch has started!", "success");
         };
 
         SocketClient.connect();
 
+        // Override pause/resume to be no-ops in multiplayer
+        UI.pauseTimer = () => {};
+        UI.resumeTimer = () => {};
+
         // Sync initial room configuration to Storage
         if (this.roomState) {
             Storage._set('wg_current_subject', this.roomState.subjects);
             Storage._set('wg_study_mode', this.roomState.mode);
+            Storage.clearTimer();
             Storage.setTimeLimit(this.roomState.time_limit || 0);
+            if (this.roomState.time_limit > 0 && this.roomState.end_time) {
+                Storage.setTimerEnd(this.roomState.end_time);
+            }
         }
 
         // Initialize UI with room questions
@@ -206,6 +212,11 @@ const multiplayer_study = {
                 clearInterval(this._timerInterval);
                 this._timerInterval = null;
             }
+            if (UI._timerInterval) {
+                clearInterval(UI._timerInterval);
+                UI._timerInterval = null;
+            }
+            Storage.clearTimer();
         };
 
         UI.init(questions);
@@ -213,10 +224,6 @@ const multiplayer_study = {
 
         const batchTitle = document.getElementById('batch-title');
         if (batchTitle) batchTitle.textContent = `Room: ${this.roomId} — ${questions.length} questions`;
-
-        if (this.roomState.time_limit > 0 && this.roomState.end_time) {
-            this.startTimer(this.roomState.end_time);
-        }
 
         const exitBtn = document.getElementById('exit-multiplayer');
         if (exitBtn) {
@@ -344,37 +351,6 @@ const multiplayer_study = {
         div.appendChild(span);
         container.appendChild(div);
         container.scrollTop = container.scrollHeight;
-    },
-
-    startTimer(endTime) {
-        const display = document.getElementById('timer-display');
-        const valEl = document.getElementById('timer-val');
-        if (!display || !valEl) return;
-
-        display.style.display = 'flex';
-
-        const update = () => {
-            const now = Date.now();
-            const diff = endTime - now;
-
-            if (diff <= 0) {
-                clearInterval(this._timerInterval);
-                valEl.textContent = "0:00";
-                this.handleTimeUp();
-                return;
-            }
-
-            const m = Math.floor(diff / 60000);
-            const s = Math.floor((diff % 60000) / 1000);
-            valEl.textContent = `${m}:${s.toString().padStart(2, '0')}`;
-
-            if (diff < 30000) {
-                display.classList.add('low-time');
-            }
-        };
-
-        update();
-        this._timerInterval = setInterval(update, 1000);
     },
 
     handleTimeUp() {

@@ -951,6 +951,11 @@ const UI = {
     const valEl = document.getElementById('timer-val');
     if (!display || !valEl) return;
 
+    if (this._timerInterval) {
+      clearInterval(this._timerInterval);
+      this._timerInterval = null;
+    }
+
     display.style.display = 'flex';
 
     // Handle paused state
