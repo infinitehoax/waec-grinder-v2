@@ -147,40 +147,45 @@ const Lobby = {
         socket.onRoomCreated = (data) => {
             this.roomId = data.room_id;
             this.isHost = true;
-            this.showWaitingRoom(data.room_state);
+            this._updateRoomState(data.room_state);
+            this.showWaitingRoom(this.roomState);
         };
 
         socket.onRoomJoined = (data) => {
             this.roomId = data.room_id;
             this.isHost = false;
 
-            if (data.room_state.status === 'playing') {
-                sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(data.room_state));
+            this._updateRoomState(data.room_state);
+            if (this.roomState.status === 'playing') {
+                sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
                 sessionStorage.setItem('wg_multiplayer_room_id', this.roomId);
                 window.location.href = '/multiplayer/study';
             } else {
-                this.showWaitingRoom(data.room_state);
+                this.showWaitingRoom(this.roomState);
             }
         };
 
         socket.onPlayerJoined = (data) => {
-            this.updatePlayerList(data.room_state);
+            this._updateRoomState(data.room_state);
+            this.updatePlayerList(this.roomState);
             showToast(`${data.player_name} joined the room`, 'info');
         };
 
         socket.onPlayerLeft = (data) => {
-            this.updatePlayerList(data.room_state);
+            this._updateRoomState(data.room_state);
+            this.updatePlayerList(this.roomState);
             // If I become host
-            if (data.room_state.host_id === Storage.getPlayerUuid() && !this.isHost) {
+            if (this.roomState.host_id === Storage.getPlayerUuid() && !this.isHost) {
                 this.isHost = true;
-                this.showWaitingRoom(data.room_state);
+                this.showWaitingRoom(this.roomState);
                 showToast("You are now the room host", "accent");
             }
         };
 
         socket.onGameStarted = (data) => {
+            this._updateRoomState(data.room_state);
             // Save state to sessionStorage for the study page to pick up
-            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(data.room_state));
+            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
             sessionStorage.setItem('wg_multiplayer_room_id', this.roomId);
 
             // Sync randomization flags to storage
@@ -355,6 +360,15 @@ const Lobby = {
         div.innerHTML = `<strong>${msg.name}:</strong> ${msg.text}`;
         chatBox.appendChild(div);
         chatBox.scrollTop = chatBox.scrollHeight;
+    },
+
+    _updateRoomState(newState) {
+        if (!newState) return;
+        // Merge strategy: if newState is missing questions, preserve local ones
+        if (this.roomState && !newState.questions && this.roomState.questions) {
+            newState.questions = this.roomState.questions;
+        }
+        this.roomState = newState;
     },
 
     leaveRoom() {

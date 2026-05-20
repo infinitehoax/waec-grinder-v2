@@ -54,20 +54,17 @@ const multiplayer_study = {
         };
 
         SocketClient.onRoomJoined = (data) => {
-            this.roomState = data.room_state;
-            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+            this._updateRoomState(data.room_state);
             this.renderSidebar();
         };
 
         SocketClient.onPlayerJoined = (data) => {
-            this.roomState = data.room_state;
-            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+            this._updateRoomState(data.room_state);
             this.renderSidebar();
         };
 
         SocketClient.onProgressUpdated = (data) => {
-            this.roomState = data.room_state;
-            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+            this._updateRoomState(data.room_state);
 
             // Note: We don't update this.myScore from roomState here to avoid race conditions.
             // Local this.myScore is the source of truth during active play.
@@ -81,8 +78,7 @@ const multiplayer_study = {
         };
 
         SocketClient.onPlayerLeft = (data) => {
-            this.roomState = data.room_state;
-            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+            this._updateRoomState(data.room_state);
             this.renderSidebar();
         };
 
@@ -91,8 +87,7 @@ const multiplayer_study = {
         };
 
         SocketClient.onGameFinished = (data) => {
-            this.roomState = data.room_state;
-            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+            this._updateRoomState(data.room_state);
             this.showFinalScoreboard();
             Storage.incrementMultiStat('games_played');
         };
@@ -100,8 +95,7 @@ const multiplayer_study = {
         SocketClient.onGameStarted = (data) => {
             if (!data?.room_state?.questions) return;
 
-            this.roomState = data.room_state;
-            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+            this._updateRoomState(data.room_state);
 
             // Sync room configuration to Storage for achievements and UI consistency
             Storage._set('wg_current_subject', this.roomState.subjects);
@@ -297,6 +291,18 @@ const multiplayer_study = {
             item.appendChild(miniBar);
             list.appendChild(item);
         });
+    },
+
+    _updateRoomState(newState) {
+        if (!newState) return;
+
+        // Merge strategy: if newState is missing questions, preserve local ones
+        if (this.roomState && !newState.questions && this.roomState.questions) {
+            newState.questions = this.roomState.questions;
+        }
+
+        this.roomState = newState;
+        sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
     },
 
     initChat() {

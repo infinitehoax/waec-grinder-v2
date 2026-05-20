@@ -42,8 +42,11 @@ def handle_join_room(data):
         sid_to_player[request.sid] = {'room_id': room_id, 'player_uuid': player_uuid}
         player_to_sid[player_uuid] = request.sid
         join_room(room_id)
+        # Sender gets full state (including questions if game in progress)
         emit('room_joined', {'room_id': room_id, 'room_state': result})
-        emit('player_joined', {'player_id': player_uuid, 'player_name': player_name, 'room_state': result}, to=room_id)
+        # Others get optimized state
+        optimized_state = room_service.get_room_state(room_id, include_questions=False)
+        emit('player_joined', {'player_id': player_uuid, 'player_name': player_name, 'room_state': optimized_state}, to=room_id, include_self=False)
     else:
         emit('error', {'message': result})
 
@@ -83,7 +86,8 @@ def handle_update_progress(data):
 
     success, game_just_finished = room_service.update_player_progress(room_id, player_uuid, progress, score, finished)
     if success:
-        state = room_service.get_room_state(room_id)
+        # Optimization: Exclude questions from progress updates as everyone already has them
+        state = room_service.get_room_state(room_id, include_questions=False)
         emit('progress_updated', {
             'player_id': player_uuid,
             'progress': progress,
@@ -112,7 +116,8 @@ def handle_leave_room(data):
         del sid_to_player[request.sid]
     if room_service.leave_room(room_id, player_uuid):
         leave_room(room_id)
-        state = room_service.get_room_state(room_id)
+        # Optimization: Exclude questions from leave events
+        state = room_service.get_room_state(room_id, include_questions=False)
         if state:
             emit('player_left', {'player_id': player_uuid, 'room_state': state}, to=room_id)
             # Check if this exit finished the game for others
@@ -136,7 +141,8 @@ def delayed_disconnect_cleanup(room_id, player_uuid, old_sid):
 
         # Perform standard leave room logic
         if room_service.leave_room(room_id, player_uuid):
-            state = room_service.get_room_state(room_id)
+            # Optimization: Exclude questions from leave events
+            state = room_service.get_room_state(room_id, include_questions=False)
             if state:
                 socketio.emit('player_left', {'player_id': player_uuid, 'room_state': state}, to=room_id)
                 # Check if this exit finished the game for others

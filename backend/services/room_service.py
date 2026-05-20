@@ -236,5 +236,18 @@ def add_message(room_id, player_name, text):
         return msg
     return None
 
-def get_room_state(room_id):
-    return rooms.get(room_id)
+def get_room_state(room_id, include_questions=True):
+    """
+    Returns the state of a room.
+    If include_questions is False, the 'questions' list is excluded to reduce payload size.
+    """
+    room = rooms.get(room_id)
+    if not room:
+        return None
+
+    if include_questions:
+        return room
+
+    # Return a shallow copy without the questions
+    state_copy = {k: v for k, v in room.items() if k != "questions"}
+    return state_copy
