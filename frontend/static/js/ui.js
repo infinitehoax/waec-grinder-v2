@@ -132,7 +132,7 @@ function renderTheoryQuestion(q, idx, total) {
       <div class="theory-section" id="theory-section">
         ${q.sub_questions.map(sub => renderSubQuestion(sub)).join('')}
       </div>
-      <div class="grading-overlay hidden" id="grading-overlay">
+      <div class="grading-overlay hidden" id="grading-overlay" aria-live="polite">
         <div class="spinner"></div>
         <span id="grading-status">Sending to AI examiner...</span>
       </div>
@@ -168,7 +168,7 @@ function renderSubQuestion(sub) {
     <div class="sub-question-block" id="sub-block-${sub.sub_id}">
       <div class="sub-question-header">
         <div style="flex:1">
-          <div class="sub-label">${escapeHtml(sub.label)}</div>
+          <label class="sub-label" for="answer-${sub.sub_id}">${escapeHtml(sub.label)}</label>
           <div class="sub-question-text">${formatText(sub.question)}</div>
         </div>
         <div class="sub-marks-badge">${sub.max_marks} mark${sub.max_marks !== 1 ? 's' : ''}</div>
@@ -448,10 +448,16 @@ const UI = {
     });
 
     const submitBtn = document.getElementById('submit-theory-btn');
-    if (submitBtn) submitBtn.style.display = 'none';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<div class="spinner"></div> Grading...`;
+    }
 
     const gradingOverlay = document.getElementById('grading-overlay');
-    if (gradingOverlay) gradingOverlay.classList.remove('hidden');
+    if (gradingOverlay) {
+      gradingOverlay.classList.remove('hidden');
+      gradingOverlay.setAttribute('aria-busy', 'true');
+    }
 
     let runningTotal = 0;
     const totalMax = q.sub_questions.reduce((s, sub) => s + sub.max_marks, 0);
@@ -498,7 +504,10 @@ const UI = {
       }
     ));
     } catch (err) {
-      if (gradingOverlay) gradingOverlay.classList.add('hidden');
+      if (gradingOverlay) {
+        gradingOverlay.classList.add('hidden');
+        gradingOverlay.setAttribute('aria-busy', 'false');
+      }
       showToast(`Grading failed: ${err.message}`, 'error');
 
       // Re-enable UI for retry
@@ -508,12 +517,19 @@ const UI = {
         const block = document.getElementById(`sub-block-${sub.sub_id}`);
         if (block) block.classList.remove('grading');
       });
-      if (submitBtn) submitBtn.style.display = 'flex';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `✦ Submit for Grading`;
+      }
       this._gradingActive = false;
       return;
     }
 
-    if (gradingOverlay) gradingOverlay.classList.add('hidden');
+    if (gradingOverlay) {
+      gradingOverlay.classList.add('hidden');
+      gradingOverlay.setAttribute('aria-busy', 'false');
+    }
+    if (submitBtn) submitBtn.style.display = 'none';
 
     // Achievement: ai_whisperer & theory_perfect & buzzer_beater
     if (passed) {

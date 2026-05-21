@@ -342,7 +342,7 @@
 .sub-answer-area textarea {
   width: 100%;
   background: var(--bg-card);
-  border: none;
+  border: 1px solid var(--border-subtle);
   outline: none;
   padding: 14px 18px;
   font-family: var(--font-body);
@@ -352,6 +352,12 @@
   resize: vertical;
   min-height: 100px;
   display: block;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sub-answer-area textarea:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 .sub-answer-area textarea::placeholder {
