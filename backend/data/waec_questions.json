@@ -4130,5 +4130,718 @@
         ]
       }
     ]
+  },
+  {
+    "subject": "WAEC Physics version 2",
+    "obj": [
+      {
+        "id": "obj_phy_2026_001",
+        "topic": "Projectile Motion",
+        "question": "A projectile is fired with an initial velocity of $50 ms^{-1}$ at an angle of $30^{\\circ}$ to the horizontal. Calculate its time of flight. \n\n[Take $g = 10 ms^{-2}$]",
+        "options": {
+          "A": "2.5 s",
+          "B": "5.0 s",
+          "C": "10.0 s",
+          "D": "12.5 s"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nThe time of flight for a projectile is given by the formula:\n$$T = \\frac{2u \\sin \\theta}{g}$$\n\n**Given:**\n- Initial velocity, $u = 50 ms^{-1}$\n- Angle of projection, $\\theta = 30^{\\circ}$\n- Acceleration due to gravity, $g = 10 ms^{-2}$\n\n**Substitution:**\n$T = \\frac{2 \\times 50 \\times \\sin(30^{\\circ})}{10}$\nSince $\\sin(30^{\\circ}) = 0.5$,\n$T = \\frac{100 \\times 0.5}{10} = 5.0 s$"
+      },
+      {
+        "id": "obj_phy_2026_002",
+        "topic": "Optics (Refraction)",
+        "question": "If the refractive index of a glass block is $1.5$, calculate the critical angle for light travelling from the glass block into air.",
+        "options": {
+          "A": "41.8^{\\circ}",
+          "B": "45.0^{\\circ}",
+          "C": "48.6^{\\circ}",
+          "D": "52.4^{\\circ}"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nThe relationship between refractive index ($n$) and critical angle ($c$) is:\n$$n = \\frac{1}{\\sin c} \\implies \\sin c = \\frac{1}{n}$$\n\n**Given:**\n- Refractive index, $n = 1.5$\n\n**Substitution:**\n$\\sin c = \\frac{1}{1.5} = 0.6667$\n$c = \\sin^{-1}(0.6667) = 41.8^{\\circ}$"
+      },
+      {
+        "id": "obj_phy_2026_003",
+        "topic": "Alternating Current Circuits",
+        "question": "In a series RLC circuit, resonance occurs when the inductive reactance ($X_L$) equals the capacitive reactance ($X_C$). Which of the following formulas correctly represents the resonance frequency ($f_0$)?",
+        "options": {
+          "A": "$$f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$$",
+          "B": "$$f_0 = 2\\pi \\sqrt{LC}$$",
+          "C": "$$f_0 = \\frac{1}{\\pi \\sqrt{LC}}$$",
+          "D": "$$f_0 = \\frac{\\sqrt{LC}}{2\\pi}$$"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nAt resonance, $X_L = X_C$.\nWe know that $X_L = 2\\pi f_0 L$ and $X_C = \\frac{1}{2\\pi f_0 C}$.\n\nEquating both:\n$2\\pi f_0 L = \\frac{1}{2\\pi f_0 C} \\implies f_0^2 = \\frac{1}{4\\pi^2 LC}$\n$f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$"
+      },
+      {
+        "id": "obj_phy_2026_004",
+        "topic": "Gas Laws",
+        "question": "A fixed mass of an ideal gas occupies a volume of $2.0 m^3$ at a pressure of $1.0 \\times 10^5 Pa$ and temperature of $300 K$. What will be its volume if the pressure is increased to $2.0 \\times 10^5 Pa$ and the temperature to $600 K$?",
+        "options": {
+          "A": "1.0 m^3",
+          "B": "2.0 m^3",
+          "C": "4.0 m^3",
+          "D": "8.0 m^3"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nUsing the general gas equation:\n$$\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2}$$\n\n**Substitution:**\n$\\frac{1.0 \\times 10^5 \\times 2.0}{300} = \\frac{2.0 \\times 10^5 \\times V_2}{600}$\n$V_2 = \\frac{1.0 \\times 10^5 \\times 2.0 \\times 600}{300 \\times 2.0 \\times 10^5} = 2.0 m^3$"
+      },
+      {
+        "id": "obj_phy_2026_005",
+        "topic": "Radioactivity",
+        "question": "A radioactive element has a half-life of 4 days. What fraction of the original sample will remain undecayed after 12 days?",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "1/8",
+          "D": "1/16"
+        },
+        "correct_option": "C",
+        "explanation": "**Detailed Working:**\nThe number of half-lives ($n$) is $\\frac{\\text{Total time}}{\\text{Half-life}} = \\frac{12}{4} = 3$.\n\nThe fraction remaining is $\\left(\\frac{1}{2}\\right)^n$.\n$\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$"
+      },
+      {
+        "id": "obj_phy_2026_006",
+        "topic": "Dimensions",
+        "question": "Which of the following represents the dimensional formula for Power?",
+        "options": {
+          "A": "$ML^2T^{-2}$",
+          "B": "$ML^2T^{-3}$",
+          "C": "$MLT^{-2}$",
+          "D": "$ML^{-1}T^{-2}$"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\n$\\text{Power} = \\frac{\\text{Work}}{\\text{Time}} = \\frac{\\text{Force} \\times \\text{Distance}}{\\text{Time}}$\nForce = $MLT^{-2}$\nWork = $MLT^{-2} \\times L = ML^2T^{-2}$ (Option A is Work/Energy)\nPower = $\\frac{ML^2T^{-2}}{T} = ML^2T^{-3}$"
+      },
+      {
+        "id": "obj_phy_2026_007",
+        "topic": "Vectors",
+        "question": "Two forces of magnitude $3 N$ and $4 N$ act on a body at right angles to each other. Calculate the magnitude of the resultant force.",
+        "options": {
+          "A": "1 N",
+          "B": "5 N",
+          "C": "7 N",
+          "D": "12 N"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nFor two perpendicular vectors, the resultant $R$ is found using Pythagoras' theorem:\n$$R^2 = F_1^2 + F_2^2$$\n$R^2 = 3^2 + 4^2 = 9 + 16 = 25$\n$R = \\sqrt{25} = 5 N$"
+      },
+      {
+        "id": "obj_phy_2026_008",
+        "topic": "Circular Motion",
+        "question": "A body of mass $2 kg$ moves in a circular path of radius $0.5 m$ with a uniform speed of $4 ms^{-1}$. Calculate the centripetal force acting on the body.",
+        "options": {
+          "A": "16 N",
+          "B": "32 N",
+          "C": "64 N",
+          "D": "128 N"
+        },
+        "correct_option": "C",
+        "explanation": "**Detailed Working:**\nThe formula for centripetal force is $F = \\frac{mv^2}{r}$.\nGiven: $m = 2 kg$, $v = 4 ms^{-1}$, $r = 0.5 m$.\n$F = \\frac{2 \\times (4^2)}{0.5} = \\frac{2 \\times 16}{0.5} = \\frac{32}{0.5} = 64 N$"
+      },
+      {
+        "id": "obj_phy_2026_009",
+        "topic": "Elasticity",
+        "question": "A force of $20 N$ extends a spring by $10 cm$. What is the elastic constant of the spring?",
+        "options": {
+          "A": "0.5 N/m",
+          "B": "2.0 N/m",
+          "C": "50 N/m",
+          "D": "200 N/m"
+        },
+        "correct_option": "D",
+        "explanation": "**Detailed Working:**\nAccording to Hooke's Law: $F = ke$.\nFirst, convert extension to meters: $e = 10 cm = 0.1 m$.\n$k = \\frac{F}{e} = \\frac{20}{0.1} = 200 N/m$"
+      },
+      {
+        "id": "obj_phy_2026_010",
+        "topic": "Fluid Mechanics",
+        "question": "According to Archimedes' principle, the upthrust experienced by a body completely or partially immersed in a fluid is equal to the:",
+        "options": {
+          "A": "Density of the body",
+          "B": "Volume of the fluid",
+          "C": "Weight of the fluid displaced",
+          "D": "Mass of the fluid displaced"
+        },
+        "correct_option": "C",
+        "explanation": "Archimedes' principle states that when a body is completely or partially immersed in a fluid, it experiences an upthrust (buoyant force) equal to the **weight** of the fluid it displaces."
+      },
+      {
+        "id": "obj_phy_2026_011",
+        "topic": "Heat Energy",
+        "question": "Calculate the heat energy required to raise the temperature of $5 kg$ of water from $20^{\\circ}C$ to $70^{\\circ}C$. \n\n[Specific heat capacity of water = $4200 Jkg^{-1}K^{-1}$]",
+        "options": {
+          "A": "1,050,000 J",
+          "B": "1,470,000 J",
+          "C": "2,100,000 J",
+          "D": "4,200,000 J"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nThe heat energy $Q$ is given by $Q = mc\\Delta\\theta$.\nGiven: $m = 5 kg$, $c = 4200 Jkg^{-1}K^{-1}$, $\\Delta\\theta = 70 - 20 = 50^{\\circ}C$ (or $K$).\n$Q = 5 \\times 4200 \\times 50 = 250 \\times 4200 = 1,050,000 J$."
+      },
+      {
+        "id": "obj_phy_2026_012",
+        "topic": "Heat Transfer",
+        "question": "Which mode of heat transfer does not require a material medium?",
+        "options": {
+          "A": "Conduction",
+          "B": "Convection",
+          "C": "Radiation",
+          "D": "Evaporation"
+        },
+        "correct_option": "C",
+        "explanation": "Radiation is the transfer of heat via electromagnetic waves (such as infrared radiation). Therefore, unlike conduction and convection, it can travel through a vacuum and does not require a material medium."
+      },
+      {
+        "id": "obj_phy_2026_013",
+        "topic": "Waves",
+        "question": "The equation of a progressive wave is given as $y = 5 \\sin(100\\pi t - 0.4\\pi x)$, where $x$ and $y$ are in meters and $t$ is in seconds. What is the velocity of the wave?",
+        "options": {
+          "A": "250 m/s",
+          "B": "40 m/s",
+          "C": "25 m/s",
+          "D": "4 m/s"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nThe standard wave equation is $y = A \\sin(\\omega t - kx)$.\nBy comparison: $\\omega = 100\\pi$ and $k = 0.4\\pi$.\nVelocity $v = f\\lambda$.\nWe know $\\omega = 2\\pi f \\implies f = \\frac{100\\pi}{2\\pi} = 50 Hz$.\nAlso $k = \\frac{2\\pi}{\\lambda} \\implies \\lambda = \\frac{2\\pi}{0.4\\pi} = 5 m$.\n$v = f\\lambda = 50 \\times 5 = 250 m/s$.\n*(Shortcut: $v = \\frac{\\omega}{k} = \\frac{100\\pi}{0.4\\pi} = 250 m/s$)*"
+      },
+      {
+        "id": "obj_phy_2026_014",
+        "topic": "Sound Waves",
+        "question": "A boy stands $85 m$ away from a tall wall and claps his hands. If he hears the echo $0.5 s$ later, calculate the speed of sound in air.",
+        "options": {
+          "A": "170 m/s",
+          "B": "340 m/s",
+          "C": "425 m/s",
+          "D": "680 m/s"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nFor an echo, sound travels to the wall and back, so the total distance is $2d$.\nSpeed $v = \\frac{2d}{t}$.\nGiven: $d = 85 m$, $t = 0.5 s$.\n$v = \\frac{2 \\times 85}{0.5} = \\frac{170}{0.5} = 340 m/s$."
+      },
+      {
+        "id": "obj_phy_2026_015",
+        "topic": "Sound Waves",
+        "question": "When two tuning forks of frequencies $256 Hz$ and $260 Hz$ are sounded together, the beat frequency produced is:",
+        "options": {
+          "A": "2 Hz",
+          "B": "4 Hz",
+          "C": "258 Hz",
+          "D": "516 Hz"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nThe beat frequency ($f_B$) is the absolute difference between the two frequencies.\n$$f_B = |f_1 - f_2|$$\n$f_B = |256 - 260| = 4 Hz$."
+      },
+      {
+        "id": "obj_phy_2026_016",
+        "topic": "Optics (Mirrors)",
+        "question": "Which of the following is NOT a characteristic of the image formed by a plane mirror?",
+        "options": {
+          "A": "It is virtual",
+          "B": "It is laterally inverted",
+          "C": "It is magnified",
+          "D": "It is the same distance behind the mirror as the object is in front"
+        },
+        "correct_option": "C",
+        "explanation": "A plane mirror always forms images that are the exactly the **same size** as the object (magnification = 1). It does not magnify the object."
+      },
+      {
+        "id": "obj_phy_2026_017",
+        "topic": "Optics (Lenses)",
+        "question": "An object is placed $20 cm$ in front of a converging lens of focal length $15 cm$. What is the image distance?",
+        "options": {
+          "A": "+60 cm",
+          "B": "-60 cm",
+          "C": "+8.6 cm",
+          "D": "-8.6 cm"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nUsing the lens formula: $\\frac{1}{f} = \\frac{1}{u} + \\frac{1}{v}$.\nGiven: $f = +15 cm$ (converging lens), $u = +20 cm$ (real object).\n$\\frac{1}{15} = \\frac{1}{20} + \\frac{1}{v}$\n$\\frac{1}{v} = \\frac{1}{15} - \\frac{1}{20} = \\frac{4 - 3}{60} = \\frac{1}{60}$\n$v = +60 cm$. The positive sign indicates a real image."
+      },
+      {
+        "id": "obj_phy_2026_018",
+        "topic": "Sound (Resonance)",
+        "question": "A resonance tube closed at one end produces its fundamental note. If the length of the air column is $15 cm$, what is the wavelength of the sound?",
+        "options": {
+          "A": "15 cm",
+          "B": "30 cm",
+          "C": "45 cm",
+          "D": "60 cm"
+        },
+        "correct_option": "D",
+        "explanation": "**Detailed Working:**\nFor a tube closed at one end, the fundamental frequency occurs when the length $L$ is one-quarter of a wavelength: $L = \\frac{\\lambda}{4}$.\nGiven: $L = 15 cm$.\n$\\lambda = 4L = 4 \\times 15 = 60 cm$."
+      },
+      {
+        "id": "obj_phy_2026_019",
+        "topic": "Electrostatics",
+        "question": "The force between two point charges is $F$. If the distance between them is halved, the new force will be:",
+        "options": {
+          "A": "$F/4$",
+          "B": "$F/2$",
+          "C": "$2F$",
+          "D": "$4F$"
+        },
+        "correct_option": "D",
+        "explanation": "**Detailed Working:**\nAccording to Coulomb's Law, $F \\propto \\frac{1}{r^2}$.\nIf the distance is halved ($r \\rightarrow r/2$), the new force $F' \\propto \\frac{1}{(r/2)^2} = \\frac{1}{r^2/4} = 4 \\times \\frac{1}{r^2}$.\nThus, $F' = 4F$."
+      },
+      {
+        "id": "obj_phy_2026_020",
+        "topic": "Electrostatics",
+        "question": "Calculate the magnitude of the electric field intensity at a point where a charge of $2.0 \\mu C$ experiences a force of $0.04 N$.",
+        "options": {
+          "A": "$2.0 \\times 10^{4} N/C$",
+          "B": "$4.0 \\times 10^{4} N/C$",
+          "C": "$8.0 \\times 10^{-8} N/C$",
+          "D": "$5.0 \\times 10^{-5} N/C$"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nElectric field intensity $E = \\frac{F}{q}$.\nGiven: $F = 0.04 N$, $q = 2.0 \\times 10^{-6} C$.\n$E = \\frac{0.04}{2.0 \\times 10^{-6}} = \\frac{4 \\times 10^{-2}}{2 \\times 10^{-6}} = 2 \\times 10^4 N/C$."
+      },
+      {
+        "id": "obj_phy_2026_021",
+        "topic": "Capacitors",
+        "question": "Three capacitors of capacitances $2 \\mu F$, $3 \\mu F$, and $6 \\mu F$ are connected in series. Calculate their equivalent capacitance.",
+        "options": {
+          "A": "$1 \\mu F$",
+          "B": "$11 \\mu F$",
+          "C": "$6 \\mu F$",
+          "D": "$0.5 \\mu F$"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nFor capacitors in series, the equivalent capacitance $C_{eq}$ is given by:\n$$\\frac{1}{C_{eq}} = \\frac{1}{C_1} + \\frac{1}{C_2} + \\frac{1}{C_3}$$\n$\\frac{1}{C_{eq}} = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = \\frac{3 + 2 + 1}{6} = \\frac{6}{6} = 1$.\nTherefore, $C_{eq} = 1 \\mu F$."
+      },
+      {
+        "id": "obj_phy_2026_022",
+        "topic": "Current Electricity",
+        "question": "A cell of electromotive force (e.m.f) $1.5 V$ and internal resistance $0.5 \\Omega$ is connected to an external resistor of $2.5 \\Omega$. What is the current flowing in the circuit?",
+        "options": {
+          "A": "0.3 A",
+          "B": "0.5 A",
+          "C": "0.6 A",
+          "D": "3.0 A"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nThe current $I$ is given by $I = \\frac{E}{R + r}$.\nGiven: $E = 1.5 V$, $R = 2.5 \\Omega$, $r = 0.5 \\Omega$.\n$I = \\frac{1.5}{2.5 + 0.5} = \\frac{1.5}{3.0} = 0.5 A$."
+      },
+      {
+        "id": "obj_phy_2026_023",
+        "topic": "Current Electricity",
+        "question": "The resistance of a wire depends on all of the following EXCEPT its:",
+        "options": {
+          "A": "Length",
+          "B": "Cross-sectional area",
+          "C": "Mass",
+          "D": "Temperature"
+        },
+        "correct_option": "C",
+        "explanation": "Resistance $R = \\frac{\\rho L}{A}$. It depends on the length ($L$), cross-sectional area ($A$), nature of the material (resistivity $\\rho$), and temperature. It does not directly depend on the mass."
+      },
+      {
+        "id": "obj_phy_2026_024",
+        "topic": "Electromagnetism",
+        "question": "A straight conductor of length $2.0 m$ carries a current of $5.0 A$ in a uniform magnetic field of $0.4 T$. If the conductor is placed at an angle of $30^{\\circ}$ to the magnetic field, calculate the force experienced by it.",
+        "options": {
+          "A": "2.0 N",
+          "B": "3.5 N",
+          "C": "4.0 N",
+          "D": "8.0 N"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nThe magnetic force is $F = BIl \\sin \\theta$.\nGiven: $B = 0.4 T$, $I = 5.0 A$, $l = 2.0 m$, $\\theta = 30^{\\circ}$.\n$F = 0.4 \\times 5.0 \\times 2.0 \\times \\sin(30^{\\circ})$\n$F = 4.0 \\times 0.5 = 2.0 N$."
+      },
+      {
+        "id": "obj_phy_2026_025",
+        "topic": "Electromagnetic Induction",
+        "question": "A transformer has $500$ turns in its primary coil and $2000$ turns in its secondary coil. If the primary voltage is $12 V$, calculate the secondary voltage.",
+        "options": {
+          "A": "3 V",
+          "B": "24 V",
+          "C": "36 V",
+          "D": "48 V"
+        },
+        "correct_option": "D",
+        "explanation": "**Detailed Working:**\nUsing the transformer equation: $\\frac{V_s}{V_p} = \\frac{N_s}{N_p}$.\nGiven: $N_p = 500$, $N_s = 2000$, $V_p = 12 V$.\n$V_s = V_p \\times \\frac{N_s}{N_p} = 12 \\times \\frac{2000}{500} = 12 \\times 4 = 48 V$."
+      },
+      {
+        "id": "obj_phy_2026_026",
+        "topic": "Alternating Current Circuits",
+        "question": "The power dissipated in an AC circuit is given by the formula $P = IV \\cos \\theta$. What does $\\cos \\theta$ represent?",
+        "options": {
+          "A": "Phase angle",
+          "B": "Power factor",
+          "C": "Impedance",
+          "D": "Reactance factor"
+        },
+        "correct_option": "B",
+        "explanation": "In an AC circuit, the term $\\cos \\theta$ is called the **Power factor**. It is the ratio of true power (Watts) to apparent power (Volt-Amperes)."
+      },
+      {
+        "id": "obj_phy_2026_027",
+        "topic": "Modern Physics (Cathode Rays)",
+        "question": "Which of the following is NOT a property of cathode rays?",
+        "options": {
+          "A": "They travel in straight lines",
+          "B": "They carry a positive charge",
+          "C": "They can produce X-rays when they strike a heavy metal target",
+          "D": "They are deflected by magnetic fields"
+        },
+        "correct_option": "B",
+        "explanation": "Cathode rays are streams of fast-moving **electrons**, so they carry a **negative charge**, not a positive one."
+      },
+      {
+        "id": "obj_phy_2026_028",
+        "topic": "Modern Physics (X-Rays)",
+        "question": "Hard X-rays differ from soft X-rays in that hard X-rays have:",
+        "options": {
+          "A": "Lower frequencies",
+          "B": "Longer wavelengths",
+          "C": "Higher penetrating power",
+          "D": "Slower speeds"
+        },
+        "correct_option": "C",
+        "explanation": "Hard X-rays have very high frequencies and short wavelengths, which gives them a **higher penetrating power** compared to soft X-rays. All X-rays travel at the same speed (the speed of light)."
+      },
+      {
+        "id": "obj_phy_2026_029",
+        "topic": "Nuclear Physics",
+        "question": "When a radioactive nucleus undergoes beta ($\\beta^{-}$) decay, its mass number:",
+        "options": {
+          "A": "Decreases by 4",
+          "B": "Increases by 1",
+          "C": "Decreases by 2",
+          "D": "Remains unchanged"
+        },
+        "correct_option": "D",
+        "explanation": "During beta decay, a neutron turns into a proton and emits an electron (beta particle). The atomic number increases by 1, but the total number of nucleons (protons + neutrons) remains the same. Hence, the mass number **remains unchanged**."
+      },
+      {
+        "id": "obj_phy_2026_030",
+        "topic": "Atomic Structure",
+        "question": "According to Bohr's model of the atom, an electron transitions from a higher energy level $E_2$ to a lower energy level $E_1$. The frequency ($f$) of the emitted photon is given by:",
+        "options": {
+          "A": "$$f = \\frac{E_2 + E_1}{h}$$",
+          "B": "$$f = \\frac{E_2 - E_1}{h}$$",
+          "C": "$$f = h(E_2 - E_1)$$",
+          "D": "$$f = \\frac{h}{E_2 - E_1}$$"
+        },
+        "correct_option": "B",
+        "explanation": "According to Bohr's postulate, the energy of the emitted photon equals the energy difference between the two levels: $\\Delta E = hf \\implies E_2 - E_1 = hf$. Therefore, $f = \\frac{E_2 - E_1}{h}$."
+      },
+      {
+        "id": "obj_phy_2026_031",
+        "topic": "Kinematics",
+        "question": "A car accelerates uniformly from rest at $3 ms^{-2}$. What is the distance covered in the first $4$ seconds?",
+        "options": {
+          "A": "12 m",
+          "B": "24 m",
+          "C": "48 m",
+          "D": "72 m"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nUsing the equation of motion: $s = ut + \\frac{1}{2}at^2$.\nGiven: $u = 0$ (from rest), $a = 3 ms^{-2}$, $t = 4 s$.\n$s = 0 + \\frac{1}{2}(3)(4^2) = \\frac{1}{2}(3)(16) = 24 m$."
+      },
+      {
+        "id": "obj_phy_2026_032",
+        "topic": "Work, Energy and Power",
+        "question": "A stone of mass $2 kg$ is dropped from a height of $10 m$. What is its kinetic energy just before it hits the ground? \n\n[Take $g = 10 ms^{-2}$]",
+        "options": {
+          "A": "20 J",
+          "B": "100 J",
+          "C": "200 J",
+          "D": "400 J"
+        },
+        "correct_option": "C",
+        "explanation": "**Detailed Working:**\nAccording to the principle of conservation of mechanical energy, Potential Energy (PE) at max height = Kinetic Energy (KE) just before hitting the ground.\n$PE = mgh = 2 \\times 10 \\times 10 = 200 J$.\nTherefore, the kinetic energy is $200 J$."
+      },
+      {
+        "id": "obj_phy_2026_033",
+        "topic": "Friction",
+        "question": "A block of mass $5 kg$ rests on a horizontal table. If the coefficient of static friction between the block and the table is $0.4$, calculate the minimum force required to set the block in motion. \n\n[Take $g = 10 ms^{-2}$]",
+        "options": {
+          "A": "2 N",
+          "B": "12.5 N",
+          "C": "20 N",
+          "D": "50 N"
+        },
+        "correct_option": "C",
+        "explanation": "**Detailed Working:**\nThe limiting frictional force $F_r = \\mu R$, where $R$ is the normal reaction.\n$R = mg = 5 \\times 10 = 50 N$.\n$F_r = 0.4 \\times 50 = 20 N$.\nThe minimum force required is $20 N$."
+      },
+      {
+        "id": "obj_phy_2026_034",
+        "topic": "Simple Machines",
+        "question": "A machine with a velocity ratio of $5$ requires $1000 J$ of work to lift a load of $400 N$ through a vertical height of $2 m$. What is the efficiency of the machine?",
+        "options": {
+          "A": "40%",
+          "B": "80%",
+          "C": "12.5%",
+          "D": "20%"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\n$\\text{Work output} = \\text{Load} \\times \\text{Distance moved by load} = 400 N \\times 2 m = 800 J$.\n$\\text{Work input} = 1000 J$.\n$\\text{Efficiency} = \\left( \\frac{\\text{Work output}}{\\text{Work input}} \\right) \\times 100\\%$\n$\\text{Efficiency} = \\left( \\frac{800}{1000} \\right) \\times 100\\% = 80\\%$."
+      },
+      {
+        "id": "obj_phy_2026_035",
+        "topic": "Simple Machines",
+        "question": "Which of the following is correct about the Mechanical Advantage (MA) of a practical machine?",
+        "options": {
+          "A": "MA is always equal to the Velocity Ratio",
+          "B": "MA is always greater than the Velocity Ratio",
+          "C": "MA is always less than the Velocity Ratio",
+          "D": "MA is independent of friction"
+        },
+        "correct_option": "C",
+        "explanation": "In a practical (real) machine, some effort is wasted in overcoming friction. Hence, Efficiency < 100%. Since Efficiency = $\\frac{MA}{VR}$, it means $\\frac{MA}{VR} < 1$, which implies $MA < VR$."
+      },
+      {
+        "id": "obj_phy_2026_036",
+        "topic": "Thermal Expansivity",
+        "question": "A brass rod is $2 m$ long at a temperature of $20^{\\circ}C$. If its linear expansivity is $1.8 \\times 10^{-5} K^{-1}$, calculate its length at $120^{\\circ}C$.",
+        "options": {
+          "A": "2.0036 m",
+          "B": "2.0072 m",
+          "C": "2.0180 m",
+          "D": "2.0360 m"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nIncrease in length, $\\Delta L = \\alpha L_1 \\Delta\\theta$.\nGiven: $\\alpha = 1.8 \\times 10^{-5}$, $L_1 = 2 m$, $\\Delta\\theta = 120 - 20 = 100^{\\circ}C$.\n$\\Delta L = 1.8 \\times 10^{-5} \\times 2 \\times 100 = 360 \\times 10^{-5} = 0.0036 m$.\nNew length $L_2 = L_1 + \\Delta L = 2 + 0.0036 = 2.0036 m$."
+      },
+      {
+        "id": "obj_phy_2026_037",
+        "topic": "Gas Laws",
+        "question": "Which of the gas laws relates the volume and temperature of a fixed mass of gas at constant pressure?",
+        "options": {
+          "A": "Boyle's Law",
+          "B": "Charles's Law",
+          "C": "Pressure Law",
+          "D": "Graham's Law"
+        },
+        "correct_option": "B",
+        "explanation": "**Charles's Law** states that the volume of a fixed mass of gas is directly proportional to its absolute temperature, provided the pressure remains constant."
+      },
+      {
+        "id": "obj_phy_2026_038",
+        "topic": "Heat Energy",
+        "question": "The specific latent heat of fusion of ice is $336 Jg^{-1}$. How much heat is required to completely melt $50 g$ of ice at $0^{\\circ}C$?",
+        "options": {
+          "A": "16,800 J",
+          "B": "33,600 J",
+          "C": "168,000 J",
+          "D": "336,000 J"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nHeat required to change state at constant temperature is $Q = mL$.\nGiven: $m = 50 g$, $L = 336 Jg^{-1}$.\n$Q = 50 \\times 336 = 16,800 J$."
+      },
+      {
+        "id": "obj_phy_2026_039",
+        "topic": "Waves",
+        "question": "Which of the following waves is longitudinal?",
+        "options": {
+          "A": "Light waves",
+          "B": "Radio waves",
+          "C": "Sound waves in air",
+          "D": "Water waves"
+        },
+        "correct_option": "C",
+        "explanation": "Sound waves in air propagate by compressions and rarefactions parallel to the direction of wave travel, which makes them **longitudinal waves**. Light and radio waves are electromagnetic (transverse)."
+      },
+      {
+        "id": "obj_phy_2026_040",
+        "topic": "Sound Waves",
+        "question": "The pitch of a sound note depends primarily on its:",
+        "options": {
+          "A": "Amplitude",
+          "B": "Frequency",
+          "C": "Speed",
+          "D": "Harmonics"
+        },
+        "correct_option": "B",
+        "explanation": "The **pitch** of a sound is determined by its **frequency**. A higher frequency produces a higher pitch. (Amplitude determines loudness, while harmonics/overtones determine quality/timbre)."
+      },
+      {
+        "id": "obj_phy_2026_041",
+        "topic": "Optics (Dispersion)",
+        "question": "When white light passes through a triangular glass prism, it is split into a spectrum of colours. This phenomenon is called:",
+        "options": {
+          "A": "Diffraction",
+          "B": "Interference",
+          "C": "Dispersion",
+          "D": "Polarization"
+        },
+        "correct_option": "C",
+        "explanation": "**Dispersion** is the splitting of white light into its constituent colours because different wavelengths (colours) are refracted at slightly different angles in the glass."
+      },
+      {
+        "id": "obj_phy_2026_042",
+        "topic": "Optics (Human Eye)",
+        "question": "A person suffering from myopia (short-sightedness) can see near objects clearly but distant objects appear blurred. This defect is corrected by using a:",
+        "options": {
+          "A": "Converging lens",
+          "B": "Diverging lens",
+          "C": "Cylindrical lens",
+          "D": "Bifocal lens"
+        },
+        "correct_option": "B",
+        "explanation": "Myopia occurs when light from distant objects focuses *in front* of the retina. A **diverging (concave) lens** spreads the light rays out before they enter the eye, shifting the focal point back onto the retina."
+      },
+      {
+        "id": "obj_phy_2026_043",
+        "topic": "Current Electricity",
+        "question": "A wire of length $4 m$ and cross-sectional area $2 \\times 10^{-6} m^2$ has a resistance of $0.5 \\Omega$. Calculate its resistivity.",
+        "options": {
+          "A": "$1.0 \\times 10^{-6} \\Omega m$",
+          "B": "$2.5 \\times 10^{-7} \\Omega m$",
+          "C": "$4.0 \\times 10^{-6} \\Omega m$",
+          "D": "$5.0 \\times 10^{-7} \\Omega m$"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nResistivity $\\rho = \\frac{RA}{L}$.\nGiven: $R = 0.5 \\Omega$, $A = 2 \\times 10^{-6} m^2$, $L = 4 m$.\n$\\rho = \\frac{0.5 \\times 2 \\times 10^{-6}}{4} = \\frac{1.0 \\times 10^{-6}}{4} = 0.25 \\times 10^{-6} = 2.5 \\times 10^{-7} \\Omega m$."
+      },
+      {
+        "id": "obj_phy_2026_044",
+        "topic": "Current Electricity",
+        "question": "Kirchhoff's first law (Current Law) states that the algebraic sum of currents at any junction in a circuit is zero. This law is based on the conservation of:",
+        "options": {
+          "A": "Energy",
+          "B": "Momentum",
+          "C": "Mass",
+          "D": "Charge"
+        },
+        "correct_option": "D",
+        "explanation": "Kirchhoff's Current Law (KCL) is based on the **conservation of charge**, meaning that charge cannot be created or destroyed at a junction; total current flowing in equals total current flowing out."
+      },
+      {
+        "id": "obj_phy_2026_045",
+        "topic": "Electromagnetic Induction",
+        "question": "The direction of an induced electromotive force (e.m.f) is such that it opposes the change producing it. This statement is known as:",
+        "options": {
+          "A": "Faraday's Law",
+          "B": "Lenz's Law",
+          "C": "Ampere's Law",
+          "D": "Fleming's Right Hand Rule"
+        },
+        "correct_option": "B",
+        "explanation": "**Lenz's Law** states that the direction of the induced current is always such as to oppose the change in magnetic flux that produces it. It is a direct consequence of the conservation of energy."
+      },
+      {
+        "id": "obj_phy_2026_046",
+        "topic": "Semiconductors",
+        "question": "In an n-type semiconductor, the majority charge carriers are:",
+        "options": {
+          "A": "Protons",
+          "B": "Neutrons",
+          "C": "Holes",
+          "D": "Electrons"
+        },
+        "correct_option": "D",
+        "explanation": "An **n-type** semiconductor is doped with pentavalent impurities, which provide extra **electrons**. Thus, electrons are the majority charge carriers, while holes are the minority."
+      },
+      {
+        "id": "obj_phy_2026_047",
+        "topic": "Semiconductors",
+        "question": "A semiconductor diode is commonly used in circuits primarily for:",
+        "options": {
+          "A": "Amplification",
+          "B": "Rectification",
+          "C": "Modulation",
+          "D": "Oscillation"
+        },
+        "correct_option": "B",
+        "explanation": "A diode allows current to flow primarily in only one direction. This property makes it highly useful for **rectification** (converting alternating current, AC, to direct current, DC)."
+      },
+      {
+        "id": "obj_phy_2026_048",
+        "topic": "Photometry",
+        "question": "The SI unit of Luminous Intensity is the:",
+        "options": {
+          "A": "Lux",
+          "B": "Lumen",
+          "C": "Candela",
+          "D": "Watt"
+        },
+        "correct_option": "C",
+        "explanation": "The SI base unit for luminous intensity is the **Candela (cd)**. (Lux is for illuminance, and Lumen is for luminous flux)."
+      },
+      {
+        "id": "obj_phy_2026_049",
+        "topic": "Gravitation",
+        "question": "The acceleration due to gravity ($g$) on the surface of the Earth depends on all of the following EXCEPT the:",
+        "options": {
+          "A": "Mass of the Earth",
+          "B": "Radius of the Earth",
+          "C": "Universal gravitational constant ($G$)",
+          "D": "Mass of the object falling"
+        },
+        "correct_option": "D",
+        "explanation": "The formula for acceleration due to gravity is $g = \\frac{GM}{R^2}$, where $G$ is the gravitational constant, $M$ is the Earth's mass, and $R$ is the Earth's radius. It is completely **independent of the mass of the falling object**."
+      },
+      {
+        "id": "obj_phy_2026_050",
+        "topic": "Measurements",
+        "question": "Which of the following instruments is most suitable for measuring the diameter of a thin wire (approx $0.45 mm$)?",
+        "options": {
+          "A": "Metre rule",
+          "B": "Vernier caliper",
+          "C": "Micrometer screw gauge",
+          "D": "Measuring tape"
+        },
+        "correct_option": "C",
+        "explanation": "A **micrometer screw gauge** typically has a precision of $0.01 mm$, making it the most suitable and accurate instrument for measuring very small distances like the diameter of a thin wire. Vernier calipers usually read to $0.1 mm$ or $0.05 mm$, which is less precise."
+      }
+    ],
+    "theory": [
+      {
+        "id": "th_phy_2026_001",
+        "topic": "Dynamics & Conservation of Momentum",
+        "main_context": "Question 1: Dynamics and Momentum (Total: 10 Marks)",
+        "sub_questions": [
+          {
+            "sub_id": "th_phy_2026_001_a",
+            "label": "1(a)",
+            "question": "State Newton's second law of motion.",
+            "rubric": "Newton's second law of motion states that the time rate of change of momentum of a body is directly proportional to the applied external force and takes place in the direction of the force.\n\n**Marking scheme:**\n- Award 2 marks for a full, correct definition.\n- Award 1 mark if 'momentum' is mentioned but the proportional relationship is improperly stated.\n- Award 1 mark for mathematically writing $F \\propto \\frac{mv - mu}{t}$ or $F = ma$ IF and ONLY IF the terms are clearly defined.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_phy_2026_001_b",
+            "label": "1(b)",
+            "question": "Distinguish clearly between an **elastic collision** and an **inelastic collision**.",
+            "rubric": "**Elastic collision:** A collision in which both total momentum AND total kinetic energy are conserved.\n**Inelastic collision:** A collision in which total momentum is conserved, but total kinetic energy is NOT conserved (some kinetic energy is lost as heat/sound).\n\n**Marking scheme:**\n- Award 1.5 marks for accurately defining Elastic collision (must mention conservation of BOTH momentum and kinetic energy).\n- Award 1.5 marks for accurately defining Inelastic collision (must mention momentum conserved but kinetic energy not conserved).\n- Max 3 marks.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_phy_2026_001_c",
+            "label": "1(c)",
+            "question": "A bullet of mass $20 g$ is fired horizontally with a velocity of $250 ms^{-1}$ into a stationary wooden block of mass $980 g$ suspended freely by a string. If the bullet embeds itself completely in the block, calculate the common velocity of the block and bullet immediately after impact.",
+            "rubric": "**Calculations & Marking Scheme (5 marks total):**\n1. **Formula (1 mark):** State the principle of conservation of linear momentum: $m_1 u_1 + m_2 u_2 = (m_1 + m_2)v$.\n2. **Conversion (1 mark):** Convert masses to kg (or keep strictly uniform in grams). $m_1 = 0.02 kg$, $m_2 = 0.98 kg$.\n3. **Substitution (1 mark):** $(0.02 \\times 250) + (0.98 \\times 0) = (0.02 + 0.98)v$.\n4. **Arithmetic (1 mark):** $5.0 + 0 = 1.0v \\implies v = 5.0$.\n5. **Final Answer & Unit (1 mark):** Common velocity $v = 5.0 ms^{-1}$.\n\n*Pro-tip: Deduct 0.5 marks if the final unit ($ms^{-1}$) is missing or incorrect.*",
+            "max_marks": 5
+          }
+        ]
+      },
+      {
+        "id": "th_phy_2026_002",
+        "topic": "Quantum Physics & Photoelectric Effect",
+        "main_context": "Question 2: Quantum Physics (Total: 10 Marks)",
+        "sub_questions": [
+          {
+            "sub_id": "th_phy_2026_002_a",
+            "label": "2(a)",
+            "question": "Explain the term *Work Function* of a metal.",
+            "rubric": "Work function is defined as the minimum energy required to liberate an electron from the surface of a metal.\n\n**Marking scheme:**\n- Award 2 marks for an exact, accurate definition.\n- Award 1 mark for partial credit if the candidate omits the word 'minimum' but clearly grasps the concept of energy used to eject/liberate an electron.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_phy_2026_002_b",
+            "label": "2(b)",
+            "question": "State THREE characteristic properties of the photoelectric effect.",
+            "rubric": "Acceptable answers include:\n1. It is an instantaneous process.\n2. Emission only occurs if the incident light frequency is greater than a specific threshold frequency.\n3. The maximum kinetic energy of the emitted photoelectrons depends solely on the frequency of the incident light, not its intensity.\n4. The rate of emission (photocurrent) is directly proportional to the intensity of the incident light.\n\n**Marking scheme:**\n- Award 1 mark for each correctly stated property.\n- Maximum of 3 marks.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_phy_2026_002_c",
+            "label": "2(c)",
+            "question": "Light of wavelength $4.0 \\times 10^{-7} m$ falls on a metal surface which has a work function of $2.0 eV$. Calculate the maximum kinetic energy of the emitted photoelectrons. \n\n[Planck's constant, $h = 6.6 \\times 10^{-34} Js$; Velocity of light, $c = 3.0 \\times 10^8 ms^{-1}$; $1 eV = 1.6 \\times 10^{-19} J$]",
+            "rubric": "**Calculations & Marking Scheme (5 marks total):**\n1. **Equation (1 mark):** State Einstein's photoelectric equation: $E = W_0 + K_{max}$ OR $K_{max} = \\frac{hc}{\\lambda} - W_0$.\n2. **Photon Energy Calculation (1 mark):** \n   $E = \\frac{hc}{\\lambda} = \\frac{6.6 \\times 10^{-34} \\times 3.0 \\times 10^8}{4.0 \\times 10^{-7}} = 4.95 \\times 10^{-19} J$.\n3. **Work Function Conversion (1 mark):** \n   Convert $2.0 eV$ to Joules: $W_0 = 2.0 \\times 1.6 \\times 10^{-19} = 3.2 \\times 10^{-19} J$.\n4. **Substitution (1 mark):** \n   $K_{max} = (4.95 \\times 10^{-19}) - (3.2 \\times 10^{-19})$.\n5. **Final Answer & Unit (1 mark):** \n   $K_{max} = 1.75 \\times 10^{-19} J$.\n\n*Note: Award full 5 marks if the candidate directly computes the right answer with clear, logical steps. Deduct 0.5 marks for wrong/missing units.*",
+            "max_marks": 5
+          }
+        ]
+      }
+    ]
   }
 ]
