@@ -57,7 +57,7 @@ def join_room(room_id, player_uuid, sid, player_name, mastered_ids=None):
         rooms[room_id]["players"][player_uuid]["sid"] = sid
         if mastered_ids is not None:
             rooms[room_id]["players"][player_uuid]["mastered_ids"] = mastered_ids
-        return True, rooms[room_id]
+        return True, get_room_state(room_id)
 
     if len(rooms[room_id]["players"]) >= 5:
         return False, "Room is full (max 5 players)"
@@ -71,7 +71,7 @@ def join_room(room_id, player_uuid, sid, player_name, mastered_ids=None):
         "finished": False,
         "mastered_ids": mastered_ids or []
     }
-    return True, rooms[room_id]
+    return True, get_room_state(room_id)
 
 def leave_room(room_id, player_uuid):
     room = rooms.get(room_id)
@@ -204,7 +204,7 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
         rooms[room_id]["players"][p_id]["score"] = 0
         rooms[room_id]["players"][p_id]["finished"] = False
 
-    return True, rooms[room_id]
+    return True, get_room_state(room_id)
 
 def update_player_progress(room_id, player_uuid, progress, score, finished=False):
     if room_id in rooms and player_uuid in rooms[room_id]["players"]:
@@ -213,15 +213,17 @@ def update_player_progress(room_id, player_uuid, progress, score, finished=False
         rooms[room_id]["players"][player_uuid]["finished"] = finished
 
         # Check if all players are finished
-        all_finished = True
-        for p_uuid, p_data in rooms[room_id]["players"].items():
-            if not p_data.get("finished", False):
-                all_finished = False
-                break
+        # Optimization: only check if the current player just finished
+        if finished:
+            all_finished = True
+            for p_uuid, p_data in rooms[room_id]["players"].items():
+                if not p_data.get("finished", False):
+                    all_finished = False
+                    break
 
-        if all_finished and rooms[room_id]["status"] == "playing":
-            rooms[room_id]["status"] = "finished"
-            return True, True # Progress updated, game finished
+            if all_finished and rooms[room_id]["status"] == "playing":
+                rooms[room_id]["status"] = "finished"
+                return True, True # Progress updated, game finished
 
         return True, False # Progress updated, game not finished
     return False, False
@@ -236,18 +238,29 @@ def add_message(room_id, player_name, text):
         return msg
     return None
 
+def _sanitize_player(p_data):
+    """Returns a copy of player data without sensitive/large fields like sid and mastered_ids."""
+    return {k: v for k, v in p_data.items() if k not in ['sid', 'mastered_ids']}
+
 def get_room_state(room_id, include_questions=True):
     """
     Returns the state of a room.
     If include_questions is False, the 'questions' list is excluded to reduce payload size.
+    All player objects are sanitized to remove sid and mastered_ids to save bandwidth.
     """
     room = rooms.get(room_id)
     if not room:
         return None
 
-    if include_questions:
-        return room
-
-    # Return a shallow copy without the questions
+    # Always return a copy to prevent accidental mutation of the global state
     state_copy = {k: v for k, v in room.items() if k != "questions"}
+    if include_questions:
+        state_copy["questions"] = room["questions"]
+
+    # Sanitize players to remove redundant and large mastered_ids/sid
+    state_copy["players"] = {
+        p_uuid: _sanitize_player(p_data)
+        for p_uuid, p_data in room["players"].items()
+    }
+
     return state_copy
