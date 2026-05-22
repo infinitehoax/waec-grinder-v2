@@ -4002,5 +4002,133 @@
         "explanation": "Popcorn kernels pop loudly when heating, expanding greatly in volume (larger) while losing moisture weight during the process."
       }
     ]
+  },
+  {
+    "subject": "Physics",
+    "obj": [
+      {
+        "id": "obj_phy_2026_001",
+        "topic": "Projectile Motion",
+        "question": "A projectile is fired with an initial velocity of $50 ms^{-1}$ at an angle of $30^{\\circ}$ to the horizontal. Calculate its time of flight. \n\n[Take $g = 10 ms^{-2}$]",
+        "options": {
+          "A": "2.5 s",
+          "B": "5.0 s",
+          "C": "10.0 s",
+          "D": "12.5 s"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nThe time of flight for a projectile is given by the formula:\n$$T = \\frac{2u \\sin \\theta}{g}$$\n\n**Given:**\n- Initial velocity, $u = 50 ms^{-1}$\n- Angle of projection, $\\theta = 30^{\\circ}$\n- Acceleration due to gravity, $g = 10 ms^{-2}$\n\n**Substitution:**\n$T = \\frac{2 \\times 50 \\times \\sin(30^{\\circ})}{10}$\nSince $\\sin(30^{\\circ}) = 0.5$,\n$T = \\frac{100 \\times 0.5}{10}$\n$T = \\frac{50}{10} = 5.0 s$"
+      },
+      {
+        "id": "obj_phy_2026_002",
+        "topic": "Optics (Refraction)",
+        "question": "If the refractive index of a glass block is $1.5$, calculate the critical angle for light travelling from the glass block into air.",
+        "options": {
+          "A": "41.8^{\\circ}",
+          "B": "45.0^{\\circ}",
+          "C": "48.6^{\\circ}",
+          "D": "52.4^{\\circ}"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nThe relationship between refractive index ($n$) and critical angle ($c$) is:\n$$n = \\frac{1}{\\sin c} \\implies \\sin c = \\frac{1}{n}$$\n\n**Given:**\n- Refractive index, $n = 1.5$\n\n**Substitution:**\n$\\sin c = \\frac{1}{1.5} = 0.6667$\n$c = \\sin^{-1}(0.6667)$\n$c = 41.8^{\\circ}$\n\nTherefore, the critical angle is $41.8^{\\circ}$."
+      },
+      {
+        "id": "obj_phy_2026_003",
+        "topic": "Alternating Current Circuits",
+        "question": "In a series RLC circuit, resonance occurs when the inductive reactance ($X_L$) equals the capacitive reactance ($X_C$). Which of the following formulas correctly represents the resonance frequency ($f_0$)?",
+        "options": {
+          "A": "$$f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$$",
+          "B": "$$f_0 = 2\\pi \\sqrt{LC}$$",
+          "C": "$$f_0 = \\frac{1}{\\pi \\sqrt{LC}}$$",
+          "D": "$$f_0 = \\frac{\\sqrt{LC}}{2\\pi}$$"
+        },
+        "correct_option": "A",
+        "explanation": "**Detailed Working:**\nAt resonance, $X_L = X_C$.\nWe know that $X_L = 2\\pi f_0 L$ and $X_C = \\frac{1}{2\\pi f_0 C}$.\n\nEquating both:\n$2\\pi f_0 L = \\frac{1}{2\\pi f_0 C}$\n\nCross-multiplying to solve for $f_0$:\n$(2\\pi f_0 L) \\times (2\\pi f_0 C) = 1$\n$4\\pi^2 f_0^2 LC = 1$\n$f_0^2 = \\frac{1}{4\\pi^2 LC}$\n\nTaking the square root of both sides:\n$f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$"
+      },
+      {
+        "id": "obj_phy_2026_004",
+        "topic": "Gas Laws",
+        "question": "A fixed mass of an ideal gas occupies a volume of $2.0 m^3$ at a pressure of $1.0 \\times 10^5 Pa$ and temperature of $300 K$. What will be its volume if the pressure is increased to $2.0 \\times 10^5 Pa$ and the temperature to $600 K$?",
+        "options": {
+          "A": "1.0 m^3",
+          "B": "2.0 m^3",
+          "C": "4.0 m^3",
+          "D": "8.0 m^3"
+        },
+        "correct_option": "B",
+        "explanation": "**Detailed Working:**\nUsing the general gas equation:\n$$\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2}$$\n\n**Given:**\n- $P_1 = 1.0 \\times 10^5 Pa$, $V_1 = 2.0 m^3$, $T_1 = 300 K$\n- $P_2 = 2.0 \\times 10^5 Pa$, $T_2 = 600 K$, $V_2 = ?$\n\n**Substitution:**\n$\\frac{1.0 \\times 10^5 \\times 2.0}{300} = \\frac{2.0 \\times 10^5 \\times V_2}{600}$\n\nCross-multiply and solve for $V_2$:\n$V_2 = \\frac{1.0 \\times 10^5 \\times 2.0 \\times 600}{300 \\times 2.0 \\times 10^5}$\n$V_2 = \\frac{12 \\times 10^7}{6 \\times 10^7} = 2.0 m^3$"
+      },
+      {
+        "id": "obj_phy_2026_005",
+        "topic": "Radioactivity",
+        "question": "A radioactive element has a half-life of 4 days. What fraction of the original sample will remain undecayed after 12 days?",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "1/8",
+          "D": "1/16"
+        },
+        "correct_option": "C",
+        "explanation": "**Detailed Working:**\nThe number of half-lives ($n$) that have passed is given by:\n$n = \\frac{\\text{Total time}}{\\text{Half-life}} = \\frac{12}{4} = 3 \\text{ half-lives}$.\n\nThe fraction of the original sample remaining is calculated using:\n$\\text{Fraction} = \\left(\\frac{1}{2}\\right)^n$\n$\\text{Fraction} = \\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$\n\nAlternatively: $1 \\xrightarrow{4d} 1/2 \\xrightarrow{4d} 1/4 \\xrightarrow{4d} 1/8$."
+      }
+    ],
+    "theory": [
+      {
+        "id": "th_phy_2026_001",
+        "topic": "Dynamics & Conservation of Momentum",
+        "main_context": "Question 1: Dynamics and Momentum (Total: 10 Marks)",
+        "sub_questions": [
+          {
+            "sub_id": "th_phy_2026_001_a",
+            "label": "1(a)",
+            "question": "State Newton's second law of motion.",
+            "rubric": "Newton's second law of motion states that the time rate of change of momentum of a body is directly proportional to the applied external force and takes place in the direction of the force.\n\n**Marking scheme:**\n- Award 2 marks for a full, correct definition.\n- Award 1 mark if 'momentum' is mentioned but the proportional relationship is improperly stated.\n- Award 1 mark for mathematically writing $F \\propto \\frac{mv - mu}{t}$ or $F = ma$ IF and ONLY IF the terms are clearly defined.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_phy_2026_001_b",
+            "label": "1(b)",
+            "question": "Distinguish clearly between an **elastic collision** and an **inelastic collision**.",
+            "rubric": "**Elastic collision:** A collision in which both total momentum AND total kinetic energy are conserved.\n**Inelastic collision:** A collision in which total momentum is conserved, but total kinetic energy is NOT conserved (some kinetic energy is lost as heat/sound).\n\n**Marking scheme:**\n- Award 1.5 marks for accurately defining Elastic collision (must mention conservation of BOTH momentum and kinetic energy).\n- Award 1.5 marks for accurately defining Inelastic collision (must mention momentum conserved but kinetic energy not conserved).\n- Max 3 marks.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_phy_2026_001_c",
+            "label": "1(c)",
+            "question": "A bullet of mass $20 g$ is fired horizontally with a velocity of $250 ms^{-1}$ into a stationary wooden block of mass $980 g$ suspended freely by a string. If the bullet embeds itself completely in the block, calculate the common velocity of the block and bullet immediately after impact.",
+            "rubric": "**Calculations & Marking Scheme (5 marks total):**\n1. **Formula (1 mark):** State the principle of conservation of linear momentum: $m_1 u_1 + m_2 u_2 = (m_1 + m_2)v$.\n2. **Conversion (1 mark):** Convert masses to kg (or keep strictly uniform in grams). $m_1 = 0.02 kg$, $m_2 = 0.98 kg$.\n3. **Substitution (1 mark):** $(0.02 \\times 250) + (0.98 \\times 0) = (0.02 + 0.98)v$.\n4. **Arithmetic (1 mark):** $5.0 + 0 = 1.0v \\implies v = 5.0$.\n5. **Final Answer & Unit (1 mark):** Common velocity $v = 5.0 ms^{-1}$.\n\n*Pro-tip: Deduct 0.5 marks if the final unit ($ms^{-1}$) is missing or incorrect.*",
+            "max_marks": 5
+          }
+        ]
+      },
+      {
+        "id": "th_phy_2026_002",
+        "topic": "Quantum Physics & Photoelectric Effect",
+        "main_context": "Question 2: Quantum Physics (Total: 10 Marks)",
+        "sub_questions": [
+          {
+            "sub_id": "th_phy_2026_002_a",
+            "label": "2(a)",
+            "question": "Explain the term *Work Function* of a metal.",
+            "rubric": "Work function is defined as the minimum energy required to liberate an electron from the surface of a metal.\n\n**Marking scheme:**\n- Award 2 marks for an exact, accurate definition.\n- Award 1 mark for partial credit if the candidate omits the word 'minimum' but clearly grasps the concept of energy used to eject/liberate an electron.",
+            "max_marks": 2
+          },
+          {
+            "sub_id": "th_phy_2026_002_b",
+            "label": "2(b)",
+            "question": "State THREE characteristic properties of the photoelectric effect.",
+            "rubric": "Acceptable answers include:\n1. It is an instantaneous process.\n2. Emission only occurs if the incident light frequency is greater than a specific threshold frequency.\n3. The maximum kinetic energy of the emitted photoelectrons depends solely on the frequency of the incident light, not its intensity.\n4. The rate of emission (photocurrent) is directly proportional to the intensity of the incident light.\n\n**Marking scheme:**\n- Award 1 mark for each correctly stated property.\n- Maximum of 3 marks.",
+            "max_marks": 3
+          },
+          {
+            "sub_id": "th_phy_2026_002_c",
+            "label": "2(c)",
+            "question": "Light of wavelength $4.0 \\times 10^{-7} m$ falls on a metal surface which has a work function of $2.0 eV$. Calculate the maximum kinetic energy of the emitted photoelectrons. \n\n[Planck's constant, $h = 6.6 \\times 10^{-34} Js$; Velocity of light, $c = 3.0 \\times 10^8 ms^{-1}$; $1 eV = 1.6 \\times 10^{-19} J$]",
+            "rubric": "**Calculations & Marking Scheme (5 marks total):**\n1. **Equation (1 mark):** State Einstein's photoelectric equation: $E = W_0 + K_{max}$ OR $K_{max} = \\frac{hc}{\\lambda} - W_0$.\n2. **Photon Energy Calculation (1 mark):** \n   $E = \\frac{hc}{\\lambda} = \\frac{6.6 \\times 10^{-34} \\times 3.0 \\times 10^8}{4.0 \\times 10^{-7}} = 4.95 \\times 10^{-19} J$.\n3. **Work Function Conversion (1 mark):** \n   Convert $2.0 eV$ to Joules: $W_0 = 2.0 \\times 1.6 \\times 10^{-19} = 3.2 \\times 10^{-19} J$.\n4. **Substitution (1 mark):** \n   $K_{max} = (4.95 \\times 10^{-19}) - (3.2 \\times 10^{-19})$.\n5. **Final Answer & Unit (1 mark):** \n   $K_{max} = 1.75 \\times 10^{-19} J$.\n\n*Note: Award full 5 marks if the candidate directly computes the right answer with clear, logical steps. Deduct 0.5 marks for wrong/missing units.*",
+            "max_marks": 5
+          }
+        ]
+      }
+    ]
   }
 ]
