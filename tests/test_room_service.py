@@ -115,5 +115,24 @@ class TestRoomService(unittest.TestCase):
         self.assertEqual(msg["text"], "Hello!")
         self.assertEqual(len(room_service.rooms[room_id]["messages"]), 1)
 
+    def test_finish_on_leave(self):
+        """Verifies that a room transitions to 'finished' if the only non-finished player leaves."""
+        room_id = "FINISH_LEAVE"
+        room_service.rooms[room_id] = {
+            "status": "playing",
+            "host_id": "p1",
+            "players": {
+                "p1": {"progress": 10, "score": 10, "finished": True},
+                "p2": {"progress": 5, "score": 5, "finished": False}
+            }
+        }
+
+        # p2 leaves while p1 is already finished
+        room_service.leave_room(room_id, "p2")
+
+        self.assertEqual(room_service.rooms[room_id]["status"], "finished")
+        self.assertNotIn("p2", room_service.rooms[room_id]["players"])
+        self.assertIn("p1", room_service.rooms[room_id]["players"])
+
 if __name__ == '__main__':
     unittest.main()
