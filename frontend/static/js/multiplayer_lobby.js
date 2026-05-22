@@ -335,8 +335,48 @@ const Lobby = {
     },
 
     copyRoomId() {
-        navigator.clipboard.writeText(this.roomId);
-        showToast('Room ID copied to clipboard', 'success');
+        if (!this.roomId) return;
+
+        const displayEl = document.getElementById('display-room-id');
+        if (!displayEl) return;
+
+        // Clear existing timeout if user clicks again
+        if (this._copyTimeout) {
+            clearTimeout(this._copyTimeout);
+        }
+
+        // Capture original state if not already saved
+        if (!this._originalBadgeState) {
+            this._originalBadgeState = {
+                text: displayEl.textContent,
+                ariaLabel: displayEl.getAttribute('aria-label')
+            };
+        }
+
+        navigator.clipboard.writeText(this.roomId).then(() => {
+            // Visual feedback - Using safer DOM methods
+            displayEl.textContent = `ROOM ID: ${this.roomId} `;
+            const icon = document.createElement('span');
+            icon.className = 'animate-bounce-in';
+            icon.style.marginLeft = '8px';
+            icon.textContent = '✅';
+            displayEl.appendChild(icon);
+
+            displayEl.setAttribute('aria-label', 'Room ID copied');
+            showToast('Room ID copied to clipboard', 'success');
+
+            // Revert after 2 seconds
+            this._copyTimeout = setTimeout(() => {
+                displayEl.textContent = this._originalBadgeState.text;
+                if (this._originalBadgeState.ariaLabel !== null) {
+                    displayEl.setAttribute('aria-label', this._originalBadgeState.ariaLabel);
+                } else {
+                    displayEl.removeAttribute('aria-label');
+                }
+                this._originalBadgeState = null;
+                this._copyTimeout = null;
+            }, 2000);
+        });
     },
 
     sendChatMessage() {
