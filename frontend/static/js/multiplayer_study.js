@@ -24,7 +24,14 @@ const multiplayer_study = {
 
     _initLogic() {
         this._wasHalfwayLast = false;
-        this.roomState = JSON.parse(sessionStorage.getItem("wg_multiplayer_room"));
+        const rawRoom = sessionStorage.getItem("wg_multiplayer_room");
+        const rawQuestions = sessionStorage.getItem("wg_multiplayer_questions");
+
+        this.roomState = rawRoom ? JSON.parse(rawRoom) : null;
+        if (this.roomState && rawQuestions) {
+            this.roomState.questions = JSON.parse(rawQuestions);
+        }
+
         this.roomId = sessionStorage.getItem("wg_multiplayer_room_id");
         if (!this.roomState || !this.roomId) {
             window.location.href = '/multiplayer';
@@ -303,13 +310,33 @@ const multiplayer_study = {
     _updateRoomState(newState) {
         if (!newState) return;
 
+        let questionsUpdated = false;
+
         // Merge strategy: if newState is missing questions, preserve local ones
+        // In multiplayer, questions are static once the game starts.
         if (this.roomState && !newState.questions && this.roomState.questions) {
             newState.questions = this.roomState.questions;
+        } else if (newState.questions) {
+            // New questions detected (e.g. game start or re-join)
+            questionsUpdated = true;
         }
 
         this.roomState = newState;
-        sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+
+        // PERFORMANCE OPTIMIZATION: Extract questions and store them separately.
+        // High-frequency updates (progress/score) should not re-stringify the large questions array.
+        if (this.roomState.questions) {
+            if (questionsUpdated) {
+                sessionStorage.setItem('wg_multiplayer_questions', JSON.stringify(this.roomState.questions));
+            }
+
+            // Create a lightweight version of the room state for frequent persistence
+            const lightweightState = { ...this.roomState };
+            delete lightweightState.questions;
+            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(lightweightState));
+        } else {
+            sessionStorage.setItem('wg_multiplayer_room', JSON.stringify(this.roomState));
+        }
     },
 
     initChat() {

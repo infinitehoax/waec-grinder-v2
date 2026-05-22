@@ -120,16 +120,9 @@ def handle_leave_room(data):
         state = room_service.get_room_state(room_id, include_questions=False)
         if state:
             emit('player_left', {'player_id': player_uuid, 'room_state': state}, to=room_id)
-            # Check if this exit finished the game for others
-            if state['status'] == 'playing':
-                all_finished = True
-                for p_data in state['players'].values():
-                    if not p_data.get('finished'):
-                        all_finished = False
-                        break
-                if all_finished:
-                    state['status'] = 'finished'
-                    emit('game_finished', {'room_state': state}, to=room_id)
+            # If the room just reached 'finished' state due to this leave
+            if state['status'] == 'finished':
+                emit('game_finished', {'room_state': state}, to=room_id)
 
 def delayed_disconnect_cleanup(room_id, player_uuid, old_sid):
     # Wait 5 seconds for reconnection
@@ -145,16 +138,9 @@ def delayed_disconnect_cleanup(room_id, player_uuid, old_sid):
             state = room_service.get_room_state(room_id, include_questions=False)
             if state:
                 socketio.emit('player_left', {'player_id': player_uuid, 'room_state': state}, to=room_id)
-                # Check if this exit finished the game for others
-                if state['status'] == 'playing':
-                    all_finished = True
-                    for p_data in state['players'].values():
-                        if not p_data.get('finished'):
-                            all_finished = False
-                            break
-                    if all_finished:
-                        state['status'] = 'finished'
-                        socketio.emit('game_finished', {'room_state': state}, to=room_id)
+                # If the room just reached 'finished' state due to this disconnect
+                if state['status'] == 'finished':
+                    socketio.emit('game_finished', {'room_state': state}, to=room_id)
 
 @socketio.on('disconnect')
 def handle_disconnect():

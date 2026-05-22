@@ -1,5 +1,6 @@
 import uuid
 import random
+import time
 from backend.services.data_service import load_questions
 
 # In-memory storage for rooms
@@ -90,10 +91,32 @@ def leave_room(room_id, player_uuid):
             # If room is empty, delete it
             if not room["players"]:
                 rooms.pop(room_id, None)
+            else:
+                # Check if the remaining players are all finished
+                check_room_finished(room_id)
+
         return True
     return False
 
-import time
+def check_room_finished(room_id):
+    """Checks if all players in a room have finished and updates status if so."""
+    room = rooms.get(room_id)
+    if not room or room["status"] != "playing":
+        return False
+
+    if not room["players"]:
+        return False
+
+    all_finished = True
+    for p_data in room["players"].values():
+        if not p_data.get("finished", False):
+            all_finished = False
+            break
+
+    if all_finished:
+        room["status"] = "finished"
+        return True
+    return False
 
 def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_questions=False, randomize_options=False, filter_mastered=False):
     if room_id not in rooms:
@@ -213,19 +236,11 @@ def update_player_progress(room_id, player_uuid, progress, score, finished=False
         rooms[room_id]["players"][player_uuid]["finished"] = finished
 
         # Check if all players are finished
-        # Optimization: only check if the current player just finished
+        game_just_finished = False
         if finished:
-            all_finished = True
-            for p_uuid, p_data in rooms[room_id]["players"].items():
-                if not p_data.get("finished", False):
-                    all_finished = False
-                    break
+            game_just_finished = check_room_finished(room_id)
 
-            if all_finished and rooms[room_id]["status"] == "playing":
-                rooms[room_id]["status"] = "finished"
-                return True, True # Progress updated, game finished
-
-        return True, False # Progress updated, game not finished
+        return True, game_just_finished
     return False, False
 
 def add_message(room_id, player_name, text):
