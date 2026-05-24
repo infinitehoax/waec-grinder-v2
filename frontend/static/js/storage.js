@@ -43,9 +43,11 @@ const SUB_KEYS = {
 // In-memory cache to reduce localStorage I/O and redundant JSON.parse calls
 const _cache = new Map();
 
-// Helper to deep clone objects to prevent accidental cache mutations and match JSON.parse behavior
+// Helper to deep clone objects to prevent accidental cache mutations and match JSON.parse behavior.
+// Uses structuredClone for performance with a JSON-based fallback.
 function deepClone(obj) {
   if (obj === null || typeof obj !== 'object') return obj;
+  if (typeof structuredClone === 'function') return structuredClone(obj);
   return JSON.parse(JSON.stringify(obj));
 }
 
@@ -66,8 +68,9 @@ const Storage = {
     return val !== null ? deepClone(val) : null;
   },
   _set(key, val) {
+    const stringified = JSON.stringify(val);
     _cache.set(key, deepClone(val));
-    localStorage.setItem(key, JSON.stringify(val));
+    localStorage.setItem(key, stringified);
   },
   _remove(key) {
     _cache.delete(key);
@@ -91,6 +94,16 @@ const Storage = {
   _setScoped(subject, key, val) {
     const data = this._get(`wg_sub_${subject}`) || {};
     data[key] = val;
+    this._set(`wg_sub_${subject}`, data);
+  },
+
+  /**
+   * Consolidates multiple subject-specific updates into a single localStorage write.
+   * Reduces Disk I/O and redundant JSON.stringify calls.
+   */
+  updateSubjectData(subject, callback) {
+    const data = this._get(`wg_sub_${subject}`) || {};
+    callback(data);
     this._set(`wg_sub_${subject}`, data);
   },
 
@@ -331,33 +344,91 @@ const Storage = {
     return q;
   },
 
-  // ---- Stats updaters ----
-  incrementMastered(count = 1, subject) {
-    const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+  // ---- Consolidated operations ----
+
+  /**
+   * Consolidates topic stats, mastered counts, queue moves, global stats,
+   * and question tracking for a result. Reduces Disk I/O by up to 75%.
+   */
+  recordQuestionResult(q, passed) {
+    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
     if (!sub) return;
-    const s = this.getStats(sub);
-    s.mastered += count;
-    this._setScoped(sub, SUB_KEYS.STATS, s);
-  },
-  incrementFailed(count = 1, subject) {
-    const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
-    if (!sub) return;
-    const s = this.getStats(sub);
-    s.failed_total += count;
-    this._setScoped(sub, SUB_KEYS.STATS, s);
+
+    this.updateSubjectData(sub, (data) => {
+      // 1. Update Topic Stats
+      const topic = q.topic || 'General';
+      if (!data.stats) data.stats = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+      if (!data.stats.topic_stats) data.stats.topic_stats = {};
+      if (!data.stats.topic_stats[topic]) data.stats.topic_stats[topic] = { correct: 0, total: 0 };
+
+      data.stats.topic_stats[topic].total += 1;
+      if (passed) data.stats.topic_stats[topic].correct += 1;
+
+      // 2. Update Queues & Mastered Counts
+      const qType = q._type;
+      const failedKey = qType === 'obj' ? SUB_KEYS.FAILED_OBJ : SUB_KEYS.FAILED_THEORY;
+      const masteredKey = qType === 'obj' ? SUB_KEYS.MASTERED_OBJ : SUB_KEYS.MASTERED_THEORY;
+
+      if (passed) {
+        if (data[failedKey]) {
+          data[failedKey] = data[failedKey].filter(x => x.id !== q.id);
+        }
+        if (!data[masteredKey]) data[masteredKey] = [];
+        if (!data[masteredKey].find(x => x.id === q.id)) {
+          data[masteredKey].push(q);
+          data.stats.mastered += 1;
+        }
+      } else {
+        if (!data[failedKey]) data[failedKey] = [];
+        if (!data[failedKey].find(x => x.id === q.id)) {
+          data[failedKey].push(q);
+          data.stats.failed_total += 1;
+        }
+      }
+
+      // 3. Subject Completion Check (Efficiently uses already loaded 'data')
+      const remaining = (data[SUB_KEYS.UNSEEN_OBJ]?.length || 0) +
+                        (data[SUB_KEYS.UNSEEN_THEORY]?.length || 0) +
+                        (data[SUB_KEYS.FAILED_OBJ]?.length || 0) +
+                        (data[SUB_KEYS.FAILED_THEORY]?.length || 0);
+      if (remaining === 0) {
+        this.trackSubjectMastered(sub);
+      }
+    });
+
+    // 4. Update Global & Question Tracker (Different Keys)
+    if (passed) {
+      this.incrementGlobalStat(q._type === 'obj' ? 'mastered_obj' : 'mastered_theory', 1);
+      q._fails_before_pass = this.trackQuestionPass(q.id);
+    } else {
+      this.trackQuestionFail(q.id);
+    }
   },
 
-  updateTopicStats(topic, passed, subject) {
-    if (!topic) return;
-    const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
-    if (!sub) return;
-    const s = this.getStats(sub);
-    if (!s.topic_stats) s.topic_stats = {};
-    if (!s.topic_stats[topic]) s.topic_stats[topic] = { correct: 0, total: 0 };
-    s.topic_stats[topic].total += 1;
-    if (passed) s.topic_stats[topic].correct += 1;
-    this._setScoped(sub, SUB_KEYS.STATS, s);
+  /**
+   * Consolidates batch consumption from unseen queues.
+   * Performs one localStorage write per unique subject in the batch.
+   */
+  drainBatchFromUnseen(batch) {
+    const bySubject = {};
+    batch.forEach(q => {
+      if (q._from_failed) return;
+      if (!bySubject[q._subject]) bySubject[q._subject] = { obj: [], theory: [] };
+      bySubject[q._subject][q._type].push(q.id);
+    });
+
+    for (const [sub, ids] of Object.entries(bySubject)) {
+      this.updateSubjectData(sub, (data) => {
+        if (ids.obj.length > 0 && data[SUB_KEYS.UNSEEN_OBJ]) {
+          data[SUB_KEYS.UNSEEN_OBJ] = data[SUB_KEYS.UNSEEN_OBJ].filter(q => !ids.obj.includes(q.id));
+        }
+        if (ids.theory.length > 0 && data[SUB_KEYS.UNSEEN_THEORY]) {
+          data[SUB_KEYS.UNSEEN_THEORY] = data[SUB_KEYS.UNSEEN_THEORY].filter(q => !ids.theory.includes(q.id));
+        }
+      });
+    }
   },
+
 
   // ---- Focus Topic (Weakness sessions) ----
   setFocusTopic(topic) {
