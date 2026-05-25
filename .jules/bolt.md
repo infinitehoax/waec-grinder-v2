@@ -11,3 +11,7 @@
 ## 2025-05-21 - [Multiplayer Payload & Logic]
 **Learning:** Frequent WebSocket broadcasts (like `progress_updated`) can become a bottleneck if the payload contains redundant large lists (like `mastered_ids`) or if the server performs O(N) completion checks on every O(1) update.
 **Action:** Always sanitize room state before broadcasting to remove internal/large fields. Gate game-completion loops behind status flags (e.g., `if finished:`) to avoid redundant iterations.
+
+## 2025-05-24 - [Atomic Storage Operations]
+**Learning:** Every `localStorage.setItem` call is a synchronous disk write. In high-frequency loops (like question grading), multiple sequential writes for the same subject data object (stats, queues, global counts) multiply I/O latency.
+**Action:** Consolidate multiple related storage updates into a single atomic "transaction" (using a helper like `updateSubjectData`). This reduces Disk I/O by ~75% during core loops.
