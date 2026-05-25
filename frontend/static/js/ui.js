@@ -92,8 +92,8 @@ function renderObjQuestion(q, idx, total) {
           <div class="result-banner__sub"></div>
         </div>
       </div>
-      <div class="explanation-block" id="explanation-block">
-        <div class="explanation-block__label">📖 Explanation</div>
+      <div class="explanation-block" id="explanation-block" role="region" aria-live="polite" aria-labelledby="explanation-label">
+        <div class="explanation-block__label" id="explanation-label">📖 Explanation</div>
         <div class="explanation-block__text"></div>
         <button class="btn-explain" id="explain-btn" onclick="UI.explainSimpler()" aria-label="Explain this concept simpler">
           💡 Explain It Simpler
@@ -101,10 +101,10 @@ function renderObjQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()">Skip</button>
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question">Skip</button>
         </div>
         <div class="action-bar__right">
-          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()">
+          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()" aria-label="Next question">
             Next &rarr;
           </button>
         </div>
@@ -145,7 +145,7 @@ function renderTheoryQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()">Skip</button>
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question">Skip</button>
           <span class="score-tally hidden" id="score-tally">
             Score: <strong id="score-val">0</strong> / ${totalMaxMarks}
           </span>
@@ -154,7 +154,7 @@ function renderTheoryQuestion(q, idx, total) {
           <button class="btn btn--primary" id="submit-theory-btn" onclick="UI.submitTheory()">
             ✦ Submit for Grading
           </button>
-          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()">
+          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()" aria-label="Next question">
             Next &rarr;
           </button>
         </div>
@@ -355,9 +355,17 @@ const UI = {
     if (!container) return;
     container.innerHTML = this.batch.map((q, i) => {
       let cls = 'step-dot';
-      if (i < this.currentIdx) cls += ' done';
-      else if (i === this.currentIdx) cls += ' active';
-      return `<span class="${cls}"></span>`;
+      let status = '';
+      let ariaCurrent = '';
+      if (i < this.currentIdx) {
+        cls += ' done';
+        status = ' (Completed)';
+      } else if (i === this.currentIdx) {
+        cls += ' active';
+        status = ' (Current)';
+        ariaCurrent = ' aria-current="step"';
+      }
+      return `<span class="${cls}" aria-label="Question ${i + 1}${status}"${ariaCurrent}></span>`;
     }).join('');
   },
 
@@ -1146,7 +1154,16 @@ window.addEventListener('keydown', (e) => {
   // If modal is open, let it handle its own keys (like focus trap)
   if (isModalVisible) return;
 
-  // Prevent shortcuts if user is typing in an input or textarea
+  // Ctrl+Enter or Cmd+Enter to submit theory (works even inside textarea)
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+    const submitBtn = document.getElementById('submit-theory-btn');
+    if (submitBtn && !submitBtn.disabled && window.getComputedStyle(submitBtn).display !== 'none') {
+      UI.submitTheory();
+      return;
+    }
+  }
+
+  // Prevent other shortcuts if user is typing in an input or textarea
   const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
   if (activeTag === 'input' || activeTag === 'textarea') return;
 
@@ -1159,8 +1176,18 @@ window.addEventListener('keydown', (e) => {
     return;
   }
 
-  // OBJ shortcuts: A-D or 1-4 keys
   const key = e.key.toUpperCase();
+
+  // 'S' to skip question
+  if (key === 'S') {
+    const skipBtn = document.querySelector('.action-bar__left .btn--ghost');
+    if (skipBtn && window.getComputedStyle(skipBtn).display !== 'none') {
+      UI.skipQuestion();
+      return;
+    }
+  }
+
+  // OBJ shortcuts: A-D or 1-4 keys
   const optionMap = { '1': 'A', '2': 'B', '3': 'C', '4': 'D', 'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D' };
 
   if (optionMap[key]) {

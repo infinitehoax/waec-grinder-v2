@@ -21,3 +21,11 @@
 ## 2025-05-24 - [Modal Focus Trap & Backdrop Interaction]
 **Learning:** Standard modals in Vanilla JS require explicit focus trapping to be fully accessible. Without it, keyboard users can "tab out" of the modal into the background content, which is disorienting and breaks the modal paradigm.
 **Action:** Implement a focus trap by listening for the 'Tab' key and cycling focus between the first and last focusable elements of the modal. Always add a backdrop click listener for parity with modern UX expectations.
+
+## 2025-05-25 - [Accessibility for Sequential Progress Indicators]
+**Learning:** Progress dots or "step-dots" generated in Vanilla JS are often just empty spans. Without ARIA, screen reader users have no way of knowing how many questions are in a batch or which one is active.
+**Action:** Always include an `aria-label` describing the step and its status (e.g., "Question 3 (Completed)") and use `aria-current="step"` on the active element.
+
+## 2025-05-25 - [Dynamic Keyboard Shortcuts for Productivity]
+**Learning:** For a study application, keyboard shortcuts like 'S' for skip or 'Ctrl+Enter' for submission are critical for a "flow state." However, they must be guarded against visibility and input focus to prevent accidental triggers.
+**Action:** Implement global listeners that check `window.getComputedStyle(btn).display !== 'none'` and avoid triggering when the user is already focused on an input or textarea (unless specifically intended, like Ctrl+Enter).
