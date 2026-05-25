@@ -17,3 +17,7 @@
 ## 2025-05-24 - [Manual ARIA Synchronization & Focus States]
 **Learning:** In a Vanilla JS app where UI state is toggled via CSS classes (e.g., `.selected-mode`), ARIA attributes (like `aria-checked` or `aria-pressed`) must be manually updated in the same event handlers to maintain screen reader accuracy.
 **Action:** Always pair class toggles with `.setAttribute('aria-checked', ...)` calls. For interactive `div`s, use `:focus-visible` to provide clear keyboard focus indicators without affecting mouse users.
+
+## 2025-05-24 - [Modal Focus Trap & Backdrop Interaction]
+**Learning:** Standard modals in Vanilla JS require explicit focus trapping to be fully accessible. Without it, keyboard users can "tab out" of the modal into the background content, which is disorienting and breaks the modal paradigm.
+**Action:** Implement a focus trap by listening for the 'Tab' key and cycling focus between the first and last focusable elements of the modal. Always add a backdrop click listener for parity with modern UX expectations.

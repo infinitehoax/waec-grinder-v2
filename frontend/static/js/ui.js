@@ -1076,9 +1076,44 @@ const UI = {
     modal.classList.add('visible');
     document.body.style.overflow = 'hidden'; // Prevent scroll
 
+    // Backdrop click to close (using addEventListener for robustness)
+    if (!modal._backdropListener) {
+      modal._backdropListener = (e) => {
+        if (e.target === modal) this.closeExplanationModal();
+      };
+      modal.addEventListener('click', modal._backdropListener);
+    }
+
     // Focus the close button for accessibility
     const closeBtn = modal.querySelector('.modal__close');
     if (closeBtn) closeBtn.focus();
+
+    // Focus Trap (re-query elements on every Tab to avoid stale closure refs)
+    if (!modal._trapListener) {
+      modal._trapListener = (e) => {
+        if (e.key !== 'Tab') return;
+
+        const focusableSelector = 'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])';
+        const focusableContent = modal.querySelectorAll(focusableSelector);
+        if (focusableContent.length === 0) return;
+
+        const firstFocusable = focusableContent[0];
+        const lastFocusable = focusableContent[focusableContent.length - 1];
+
+        if (e.shiftKey) { // Shift + Tab
+          if (document.activeElement === firstFocusable) {
+            lastFocusable.focus();
+            e.preventDefault();
+          }
+        } else { // Tab
+          if (document.activeElement === lastFocusable) {
+            firstFocusable.focus();
+            e.preventDefault();
+          }
+        }
+      };
+      modal.addEventListener('keydown', modal._trapListener);
+    }
   },
 
   closeExplanationModal() {
@@ -1100,10 +1135,16 @@ window.UI = UI;
 
 // Global Keyboard Shortcuts
 window.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('explanation-modal');
+  const isModalVisible = modal && modal.classList.contains('visible');
+
   if (e.key === 'Escape') {
     UI.closeExplanationModal();
     return;
   }
+
+  // If modal is open, let it handle its own keys (like focus trap)
+  if (isModalVisible) return;
 
   // Prevent shortcuts if user is typing in an input or textarea
   const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
