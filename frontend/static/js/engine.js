@@ -143,6 +143,7 @@ const Engine = {
     if (q._is_review || Storage.getMode() === 'review' || q._is_multiplayer) return passed;
 
     Storage.recordQuestionResult(q, passed);
+
     return passed;
   },
 

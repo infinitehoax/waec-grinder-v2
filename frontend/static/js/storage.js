@@ -43,12 +43,15 @@ const SUB_KEYS = {
 // In-memory cache to reduce localStorage I/O and redundant JSON.parse calls
 const _cache = new Map();
 
-// Helper to deep clone objects to prevent accidental cache mutations and match JSON.parse behavior.
+// Helper to deep clone objects to prevent accidental cache mutations.
 // Uses structuredClone for performance with a JSON-based fallback.
 function deepClone(obj) {
   if (obj === null || typeof obj !== 'object') return obj;
-  if (typeof structuredClone === 'function') return structuredClone(obj);
-  return JSON.parse(JSON.stringify(obj));
+  try {
+    return structuredClone(obj);
+  } catch (e) {
+    return JSON.parse(JSON.stringify(obj));
+  }
 }
 
 const Storage = {
@@ -64,13 +67,18 @@ const Storage = {
     } catch { return null; }
   },
   _get(key) {
-    const val = this._getRaw(key);
+    const val = Storage._getRaw(key);
     return val !== null ? deepClone(val) : null;
   },
   _set(key, val) {
-    const stringified = JSON.stringify(val);
-    _cache.set(key, deepClone(val));
-    localStorage.setItem(key, stringified);
+    const str = JSON.stringify(val);
+    localStorage.setItem(key, str);
+    try {
+      // Use structuredClone for cache if possible, else reuse the stringified version
+      _cache.set(key, structuredClone(val));
+    } catch (e) {
+      _cache.set(key, JSON.parse(str));
+    }
   },
   _remove(key) {
     _cache.delete(key);
@@ -78,23 +86,127 @@ const Storage = {
   },
 
   getPlayerUuid() {
-    let uuid = this._get('wg_player_uuid');
+    let uuid = Storage._get('wg_player_uuid');
     if (!uuid) {
       uuid = 'p_' + Math.random().toString(36).substr(2, 9);
-      this._set('wg_player_uuid', uuid);
+      Storage._set('wg_player_uuid', uuid);
     }
     return uuid;
   },
 
   // ---- Subject-scoped helpers ----
   _getScoped(subject, key) {
-    const data = this._getRaw(`wg_sub_${subject}`) || {};
+    const data = Storage._getRaw(`wg_sub_${subject}`) || {};
     return deepClone(data[key]);
   },
   _setScoped(subject, key, val) {
-    const data = this._get(`wg_sub_${subject}`) || {};
+    const data = Storage._get(`wg_sub_${subject}`) || {};
     data[key] = val;
-    this._set(`wg_sub_${subject}`, data);
+    Storage._set(`wg_sub_${subject}`, data);
+  },
+
+  /**
+   * Performs an atomic update on subject-scoped data.
+   * updateFn(data) should modify the data object in-place.
+   */
+  updateSubjectData(subject, updateFn) {
+    const key = `wg_sub_${subject}`;
+    const data = Storage._get(key) || {};
+    updateFn(data);
+    Storage._set(key, data);
+  },
+
+  /**
+   * Atomically records a question result for a subject.
+   * Consolidates queue moves and stat updates into one write.
+   */
+  recordQuestionResult(q, passed) {
+    const subject = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
+    if (!subject) return;
+
+    let isFullyMastered = false;
+
+    Storage.updateSubjectData(subject, (data) => {
+      // 1. Initialize stats if missing
+      if (!data.stats) data.stats = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+
+      // 2. Topic stats
+      if (q.topic) {
+        if (!data.stats.topic_stats) data.stats.topic_stats = {};
+        if (!data.stats.topic_stats[q.topic]) data.stats.topic_stats[q.topic] = { correct: 0, total: 0 };
+        data.stats.topic_stats[q.topic].total += 1;
+        if (passed) data.stats.topic_stats[q.topic].correct += 1;
+      }
+
+      const qKey = q._type === 'obj' ? 'failed_obj' : 'failed_theory';
+      const mKey = q._type === 'obj' ? 'mastered_obj' : 'mastered_theory';
+
+      if (passed) {
+        // 3. Remove from failed
+        if (data[qKey]) {
+          data[qKey] = data[qKey].filter(x => x.id !== q.id);
+        }
+
+        // 4. Add to mastered
+        if (!data[mKey]) data[mKey] = [];
+        if (!data[mKey].find(x => x.id === q.id)) {
+          data[mKey].push(q);
+        }
+      } else {
+        // 5. Add to failed
+        if (!data[qKey]) data[qKey] = [];
+        if (!data[qKey].find(x => x.id === q.id)) {
+          data[qKey].push(q);
+          data.stats.failed_total = (data.stats.failed_total || 0) + 1;
+        }
+      }
+
+      // 6. SINGLE SOURCE OF TRUTH: Derive mastered count directly from array lengths
+      data.stats.mastered = (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
+
+      // 7. Check for subject completion within the same atomic update
+      const remaining = (data.unseen_obj?.length || 0) +
+                        (data.unseen_theory?.length || 0) +
+                        (data.failed_obj?.length || 0) +
+                        (data.failed_theory?.length || 0);
+      if (remaining === 0) {
+        isFullyMastered = true;
+      }
+    });
+
+    // Handle cross-key updates and achievement tracking outside the atomic subject write
+    if (passed) {
+      Storage.incrementGlobalStat(q._type === 'obj' ? 'mastered_obj' : 'mastered_theory', 1);
+      q._fails_before_pass = Storage.trackQuestionPass(q.id);
+      if (isFullyMastered) {
+        Storage.trackSubjectMastered(subject);
+      }
+    } else {
+      Storage.trackQuestionFail(q.id);
+    }
+  },
+
+  /**
+   * Atomically removes multiple questions from unseen queues of their respective subjects.
+   */
+  drainBatchFromUnseen(batch) {
+    const bySubject = {};
+    batch.forEach(q => {
+      if (q._from_failed) return;
+      if (!bySubject[q._subject]) bySubject[q._subject] = { obj: [], theory: [] };
+      bySubject[q._subject][q._type].push(q.id);
+    });
+
+    for (const [sub, ids] of Object.entries(bySubject)) {
+      Storage.updateSubjectData(sub, (data) => {
+        if (ids.obj.length > 0 && data.unseen_obj) {
+          data.unseen_obj = data.unseen_obj.filter(q => !ids.obj.includes(q.id));
+        }
+        if (ids.theory.length > 0 && data.unseen_theory) {
+          data.unseen_theory = data.unseen_theory.filter(q => !ids.theory.includes(q.id));
+        }
+      });
+    }
   },
 
   /**
@@ -114,44 +226,37 @@ const Storage = {
     const subjectNames = subjectsData.map(s => s.subject);
 
     // If multiple subjects, current subject is an array
-    this._set(KEYS.CURRENT_SUBJECT, subjectNames.length === 1 ? subjectNames[0] : subjectNames);
-    this._set(KEYS.STUDY_MODE, mode);
+    Storage._set(KEYS.CURRENT_SUBJECT, subjectNames.length === 1 ? subjectNames[0] : subjectNames);
+    Storage._set(KEYS.STUDY_MODE, mode);
 
     subjectsData.forEach(subData => {
-      const subject = subData.subject;
-      if (mode === 'obj' || mode === 'both') {
-        if (!this._getScoped(subject, SUB_KEYS.UNSEEN_OBJ)) {
-          this._setScoped(subject, SUB_KEYS.UNSEEN_OBJ, subData.obj || []);
+      Storage.updateSubjectData(subData.subject, (d) => {
+        if (mode === 'obj' || mode === 'both') {
+          if (!d.unseen_obj) d.unseen_obj = subData.obj || [];
         }
-      }
-      if (mode === 'theory' || mode === 'both') {
-        if (!this._getScoped(subject, SUB_KEYS.UNSEEN_THEORY)) {
-          this._setScoped(subject, SUB_KEYS.UNSEEN_THEORY, subData.theory || []);
+        if (mode === 'theory' || mode === 'both') {
+          if (!d.unseen_theory) d.unseen_theory = subData.theory || [];
         }
-      }
-
-      if (!this._getScoped(subject, SUB_KEYS.FAILED_OBJ))    this._setScoped(subject, SUB_KEYS.FAILED_OBJ, []);
-      if (!this._getScoped(subject, SUB_KEYS.FAILED_THEORY)) this._setScoped(subject, SUB_KEYS.FAILED_THEORY, []);
-      if (!this._getScoped(subject, SUB_KEYS.MASTERED_OBJ))  this._setScoped(subject, SUB_KEYS.MASTERED_OBJ, []);
-      if (!this._getScoped(subject, SUB_KEYS.MASTERED_THEORY)) this._setScoped(subject, SUB_KEYS.MASTERED_THEORY, []);
-
-      if (!this._getScoped(subject, SUB_KEYS.STATS)) {
-        this._setScoped(subject, SUB_KEYS.STATS, { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} });
-      }
+        if (!d.failed_obj) d.failed_obj = [];
+        if (!d.failed_theory) d.failed_theory = [];
+        if (!d.mastered_obj) d.mastered_obj = [];
+        if (!d.mastered_theory) d.mastered_theory = [];
+        if (!d.stats) d.stats = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+      });
     });
   },
 
   // ---- Force reset (re-study all questions for a subject) ----
   clearSubjectProgress(subject) {
-    this._remove(`wg_sub_${subject}`);
-    const current = this.getSubject();
+    Storage._remove(`wg_sub_${subject}`);
+    const current = Storage.getSubject();
     const isCurrent = Array.isArray(current) ? current.includes(subject) : current === subject;
 
     if (isCurrent) {
-      this._remove(KEYS.CURRENT_BATCH);
-      this._remove(KEYS.CURRENT_IDX);
-      this._remove(KEYS.STUDY_MODE);
-      this.clearTimer();
+      Storage._remove(KEYS.CURRENT_BATCH);
+      Storage._remove(KEYS.CURRENT_IDX);
+      Storage._remove(KEYS.STUDY_MODE);
+      Storage.clearTimer();
     }
   },
 
@@ -167,75 +272,81 @@ const Storage = {
 
     subjectsData.forEach(subData => {
       const subject = subData.subject;
-      const stats = this.getStats(subject);
+      const stats = Storage.getStats(subject);
       stats.sessions += 1;
 
-      this._remove(`wg_sub_${subject}`);
-      this._setScoped(subject, SUB_KEYS.STATS, stats);
+      Storage._remove(`wg_sub_${subject}`);
+      Storage._setScoped(subject, SUB_KEYS.STATS, stats);
     });
 
-    this._remove(KEYS.CURRENT_BATCH);
-    this._remove(KEYS.CURRENT_IDX);
+    Storage._remove(KEYS.CURRENT_BATCH);
+    Storage._remove(KEYS.CURRENT_IDX);
 
-    this.initSession(data, mode);
+    Storage.initSession(data, mode);
   },
 
   // ---- Queue accessors ----
   getUnseenObj(sub)    {
-    if (sub) return this._getScoped(sub, SUB_KEYS.UNSEEN_OBJ) || [];
-    const subjects = this.getSubjects();
-    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.UNSEEN_OBJ) || [];
-    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.UNSEEN_OBJ) || []), []);
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.UNSEEN_OBJ) || [];
+    const subjects = Storage.getSubjects();
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.UNSEEN_OBJ) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.UNSEEN_OBJ) || []), []);
   },
   getUnseenTheory(sub) {
-    if (sub) return this._getScoped(sub, SUB_KEYS.UNSEEN_THEORY) || [];
-    const subjects = this.getSubjects();
-    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.UNSEEN_THEORY) || [];
-    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.UNSEEN_THEORY) || []), []);
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.UNSEEN_THEORY) || [];
+    const subjects = Storage.getSubjects();
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.UNSEEN_THEORY) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.UNSEEN_THEORY) || []), []);
   },
   getFailedObj(sub)    {
-    if (sub) return this._getScoped(sub, SUB_KEYS.FAILED_OBJ) || [];
-    const subjects = this.getSubjects();
-    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.FAILED_OBJ) || [];
-    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.FAILED_OBJ) || []), []);
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.FAILED_OBJ) || [];
+    const subjects = Storage.getSubjects();
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.FAILED_OBJ) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.FAILED_OBJ) || []), []);
   },
   getFailedTheory(sub) {
-    if (sub) return this._getScoped(sub, SUB_KEYS.FAILED_THEORY) || [];
-    const subjects = this.getSubjects();
-    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.FAILED_THEORY) || [];
-    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.FAILED_THEORY) || []), []);
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.FAILED_THEORY) || [];
+    const subjects = Storage.getSubjects();
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.FAILED_THEORY) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.FAILED_THEORY) || []), []);
   },
   getMasteredObj(sub) {
-    if (sub) return this._getScoped(sub, SUB_KEYS.MASTERED_OBJ) || [];
-    const subjects = this.getSubjects();
-    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.MASTERED_OBJ) || [];
-    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.MASTERED_OBJ) || []), []);
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.MASTERED_OBJ) || [];
+    const subjects = Storage.getSubjects();
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.MASTERED_OBJ) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.MASTERED_OBJ) || []), []);
   },
   getMasteredTheory(sub) {
-    if (sub) return this._getScoped(sub, SUB_KEYS.MASTERED_THEORY) || [];
-    const subjects = this.getSubjects();
-    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.MASTERED_THEORY) || [];
-    return subjects.reduce((acc, s) => acc.concat(this._getScoped(s, SUB_KEYS.MASTERED_THEORY) || []), []);
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.MASTERED_THEORY) || [];
+    const subjects = Storage.getSubjects();
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.MASTERED_THEORY) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.MASTERED_THEORY) || []), []);
   },
 
-  getMode()    { return this._get(KEYS.STUDY_MODE) || 'both'; },
-  getSubject() { return this._get(KEYS.CURRENT_SUBJECT); },
+  getMode()    { return Storage._get(KEYS.STUDY_MODE) || 'both'; },
+  getSubject() { return Storage._get(KEYS.CURRENT_SUBJECT); },
   getSubjects() {
-    const s = this.getSubject();
+    const s = Storage.getSubject();
     return Array.isArray(s) ? s : [s];
   },
   getStats(sub)   {
-    if (sub) return this._getScoped(sub, SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+    if (sub) {
+      const data = Storage._getRaw(`wg_sub_${sub}`) || {};
+      const stats = data.stats || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+      // Ensure mastered count is derived from lengths for accuracy
+      stats.mastered = (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
+      return stats;
+    }
 
-    const subjects = this.getSubjects().filter(s => s !== null);
+    const subjects = Storage.getSubjects().filter(s => s !== null);
     if (subjects.length === 0) return { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
-    if (subjects.length === 1) return this._getScoped(subjects[0], SUB_KEYS.STATS) || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
 
     // Aggregate stats for multiple subjects
     const aggregate = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
     subjects.forEach(s => {
-      const stats = this._getScoped(s, SUB_KEYS.STATS) || {};
-      aggregate.mastered += (stats.mastered || 0);
+      const data = Storage._getRaw(`wg_sub_${s}`) || {};
+      const stats = data.stats || {};
+      aggregate.mastered += (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
       aggregate.failed_total += (stats.failed_total || 0);
       aggregate.sessions = Math.max(aggregate.sessions, stats.sessions || 0);
       if (stats.topic_stats) {
@@ -249,268 +360,207 @@ const Storage = {
     return aggregate;
   },
 
-  getTimeLimit() { return this._get(KEYS.TIME_LIMIT); },
-  setTimeLimit(v) { this._set(KEYS.TIME_LIMIT, v); },
-  getBatchSize() { return this._get(KEYS.BATCH_SIZE); },
-  setBatchSize(v) { this._set(KEYS.BATCH_SIZE, v); },
-  getTimerEnd() { return this._get(KEYS.TIMER_END); },
-  setTimerEnd(v) { this._set(KEYS.TIMER_END, v); },
-  getTimerRemaining() { return this._get(KEYS.TIMER_REMAINING); },
-  setTimerRemaining(v) { this._set(KEYS.TIMER_REMAINING, v); },
-  clearTimerRemaining() { this._remove(KEYS.TIMER_REMAINING); },
+  getTimeLimit() { return Storage._get(KEYS.TIME_LIMIT); },
+  setTimeLimit(v) { Storage._set(KEYS.TIME_LIMIT, v); },
+  getBatchSize() { return Storage._get(KEYS.BATCH_SIZE); },
+  setBatchSize(v) { Storage._set(KEYS.BATCH_SIZE, v); },
+  getTimerEnd() { return Storage._get(KEYS.TIMER_END); },
+  setTimerEnd(v) { Storage._set(KEYS.TIMER_END, v); },
+  getTimerRemaining() { return Storage._get(KEYS.TIMER_REMAINING); },
+  setTimerRemaining(v) { Storage._set(KEYS.TIMER_REMAINING, v); },
+  clearTimerRemaining() { Storage._remove(KEYS.TIMER_REMAINING); },
   clearTimer() {
-    this._remove(KEYS.TIME_LIMIT);
-    this._remove(KEYS.TIMER_END);
-    this._remove(KEYS.TIMER_REMAINING);
+    Storage._remove(KEYS.TIME_LIMIT);
+    Storage._remove(KEYS.TIMER_END);
+    Storage._remove(KEYS.TIMER_REMAINING);
   },
 
-  getBatchStartTime() { return this._get(KEYS.BATCH_START_TIME); },
-  setBatchStartTime(v) { this._set(KEYS.BATCH_START_TIME, v); },
-  clearBatchStartTime() { this._remove(KEYS.BATCH_START_TIME); },
+  getBatchStartTime() { return Storage._get(KEYS.BATCH_START_TIME); },
+  setBatchStartTime(v) { Storage._set(KEYS.BATCH_START_TIME, v); },
+  clearBatchStartTime() { Storage._remove(KEYS.BATCH_START_TIME); },
 
-  isRandomizedQuestions() { return !!this._get(KEYS.RANDOMIZE_QUESTIONS); },
-  setRandomizedQuestions(v) { this._set(KEYS.RANDOMIZE_QUESTIONS, !!v); },
+  isRandomizedQuestions() { return !!Storage._get(KEYS.RANDOMIZE_QUESTIONS); },
+  setRandomizedQuestions(v) { Storage._set(KEYS.RANDOMIZE_QUESTIONS, !!v); },
 
-  isRandomizedOptions() { return !!this._get(KEYS.RANDOMIZE_OPTIONS); },
-  setRandomizedOptions(v) { this._set(KEYS.RANDOMIZE_OPTIONS, !!v); },
+  isRandomizedOptions() { return !!Storage._get(KEYS.RANDOMIZE_OPTIONS); },
+  setRandomizedOptions(v) { Storage._set(KEYS.RANDOMIZE_OPTIONS, !!v); },
 
   // ---- Queue mutators ----
   pushFailedObj(q) {
-    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = this.getFailedObj(sub);
+    const arr = Storage.getFailedObj(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._setScoped(sub, SUB_KEYS.FAILED_OBJ, arr);
+    Storage._setScoped(sub, SUB_KEYS.FAILED_OBJ, arr);
   },
   pushFailedTheory(q) {
-    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = this.getFailedTheory(sub);
+    const arr = Storage.getFailedTheory(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._setScoped(sub, SUB_KEYS.FAILED_THEORY, arr);
+    Storage._setScoped(sub, SUB_KEYS.FAILED_THEORY, arr);
   },
   pushUnseenObj(q) {
-    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = this.getUnseenObj(sub);
+    const arr = Storage.getUnseenObj(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
+    Storage._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
   },
   pushUnseenTheory(q) {
-    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = this.getUnseenTheory(sub);
+    const arr = Storage.getUnseenTheory(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
+    Storage._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
   },
   pushMasteredObj(q) {
-    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = this.getMasteredObj(sub);
+    const arr = Storage.getMasteredObj(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._setScoped(sub, SUB_KEYS.MASTERED_OBJ, arr);
+    Storage._setScoped(sub, SUB_KEYS.MASTERED_OBJ, arr);
   },
   pushMasteredTheory(q) {
-    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = this.getMasteredTheory(sub);
+    const arr = Storage.getMasteredTheory(sub);
     if (!arr.find(x => x.id === q.id)) arr.push(q);
-    this._setScoped(sub, SUB_KEYS.MASTERED_THEORY, arr);
+    Storage._setScoped(sub, SUB_KEYS.MASTERED_THEORY, arr);
   },
   removeFailedObj(id, subject) {
-    const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    this._setScoped(sub, SUB_KEYS.FAILED_OBJ, this.getFailedObj(sub).filter(q => q.id !== id));
+    Storage._setScoped(sub, SUB_KEYS.FAILED_OBJ, Storage.getFailedObj(sub).filter(q => q.id !== id));
   },
   removeFailedTheory(id, subject) {
-    const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    this._setScoped(sub, SUB_KEYS.FAILED_THEORY, this.getFailedTheory(sub).filter(q => q.id !== id));
+    Storage._setScoped(sub, SUB_KEYS.FAILED_THEORY, Storage.getFailedTheory(sub).filter(q => q.id !== id));
   },
   shiftUnseenObj(subject) {
-    const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return null;
-    const arr = this.getUnseenObj(sub);
+    const arr = Storage.getUnseenObj(sub);
     const q = arr.shift();
-    this._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
+    Storage._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
     return q;
   },
   shiftUnseenTheory(subject) {
-    const sub = subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+    const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return null;
-    const arr = this.getUnseenTheory(sub);
+    const arr = Storage.getUnseenTheory(sub);
     const q = arr.shift();
-    this._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
+    Storage._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
     return q;
   },
 
-  // ---- Consolidated operations ----
-
-  /**
-   * Consolidates topic stats, mastered counts, queue moves, global stats,
-   * and question tracking for a result. Reduces Disk I/O by up to 75%.
-   */
-  recordQuestionResult(q, passed) {
-    const sub = q._subject || (Array.isArray(this.getSubject()) ? null : this.getSubject());
+  // ---- Stats updaters ----
+  incrementMastered(count = 1, subject) {
+    const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-
-    this.updateSubjectData(sub, (data) => {
-      // 1. Update Topic Stats
-      const topic = q.topic || 'General';
-      if (!data.stats) data.stats = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
-      if (!data.stats.topic_stats) data.stats.topic_stats = {};
-      if (!data.stats.topic_stats[topic]) data.stats.topic_stats[topic] = { correct: 0, total: 0 };
-
-      data.stats.topic_stats[topic].total += 1;
-      if (passed) data.stats.topic_stats[topic].correct += 1;
-
-      // 2. Update Queues & Mastered Counts
-      const qType = q._type;
-      const failedKey = qType === 'obj' ? SUB_KEYS.FAILED_OBJ : SUB_KEYS.FAILED_THEORY;
-      const masteredKey = qType === 'obj' ? SUB_KEYS.MASTERED_OBJ : SUB_KEYS.MASTERED_THEORY;
-
-      if (passed) {
-        if (data[failedKey]) {
-          data[failedKey] = data[failedKey].filter(x => x.id !== q.id);
-        }
-        if (!data[masteredKey]) data[masteredKey] = [];
-        if (!data[masteredKey].find(x => x.id === q.id)) {
-          data[masteredKey].push(q);
-          data.stats.mastered += 1;
-        }
-      } else {
-        if (!data[failedKey]) data[failedKey] = [];
-        if (!data[failedKey].find(x => x.id === q.id)) {
-          data[failedKey].push(q);
-          data.stats.failed_total += 1;
-        }
-      }
-
-      // 3. Subject Completion Check (Efficiently uses already loaded 'data')
-      const remaining = (data[SUB_KEYS.UNSEEN_OBJ]?.length || 0) +
-                        (data[SUB_KEYS.UNSEEN_THEORY]?.length || 0) +
-                        (data[SUB_KEYS.FAILED_OBJ]?.length || 0) +
-                        (data[SUB_KEYS.FAILED_THEORY]?.length || 0);
-      if (remaining === 0) {
-        this.trackSubjectMastered(sub);
-      }
-    });
-
-    // 4. Update Global & Question Tracker (Different Keys)
-    if (passed) {
-      this.incrementGlobalStat(q._type === 'obj' ? 'mastered_obj' : 'mastered_theory', 1);
-      q._fails_before_pass = this.trackQuestionPass(q.id);
-    } else {
-      this.trackQuestionFail(q.id);
-    }
+    const s = Storage.getStats(sub);
+    s.mastered += count;
+    Storage._setScoped(sub, SUB_KEYS.STATS, s);
+  },
+  incrementFailed(count = 1, subject) {
+    const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
+    if (!sub) return;
+    const s = Storage.getStats(sub);
+    s.failed_total += count;
+    Storage._setScoped(sub, SUB_KEYS.STATS, s);
   },
 
-  /**
-   * Consolidates batch consumption from unseen queues.
-   * Performs one localStorage write per unique subject in the batch.
-   */
-  drainBatchFromUnseen(batch) {
-    const bySubject = {};
-    batch.forEach(q => {
-      if (q._from_failed) return;
-      if (!bySubject[q._subject]) bySubject[q._subject] = { obj: [], theory: [] };
-      bySubject[q._subject][q._type].push(q.id);
-    });
-
-    for (const [sub, ids] of Object.entries(bySubject)) {
-      this.updateSubjectData(sub, (data) => {
-        if (ids.obj.length > 0 && data[SUB_KEYS.UNSEEN_OBJ]) {
-          data[SUB_KEYS.UNSEEN_OBJ] = data[SUB_KEYS.UNSEEN_OBJ].filter(q => !ids.obj.includes(q.id));
-        }
-        if (ids.theory.length > 0 && data[SUB_KEYS.UNSEEN_THEORY]) {
-          data[SUB_KEYS.UNSEEN_THEORY] = data[SUB_KEYS.UNSEEN_THEORY].filter(q => !ids.theory.includes(q.id));
-        }
-      });
-    }
+  updateTopicStats(topic, passed, subject) {
+    if (!topic) return;
+    const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
+    if (!sub) return;
+    const s = Storage.getStats(sub);
+    if (!s.topic_stats) s.topic_stats = {};
+    if (!s.topic_stats[topic]) s.topic_stats[topic] = { correct: 0, total: 0 };
+    s.topic_stats[topic].total += 1;
+    if (passed) s.topic_stats[topic].correct += 1;
+    Storage._setScoped(sub, SUB_KEYS.STATS, s);
   },
 
 
   // ---- Focus Topic (Weakness sessions) ----
   setFocusTopic(topic) {
-    this._set(KEYS.FOCUS_TOPIC, topic);
+    Storage._set(KEYS.FOCUS_TOPIC, topic);
   },
   getFocusTopic() {
-    return this._get(KEYS.FOCUS_TOPIC) || null;
+    return Storage._get(KEYS.FOCUS_TOPIC) || null;
   },
 
   // ---- Batch state ----
   saveBatch(batch) {
-    this._set(KEYS.CURRENT_BATCH, batch);
+    Storage._set(KEYS.CURRENT_BATCH, batch);
   },
   loadBatch() {
-    return this._get(KEYS.CURRENT_BATCH) || null;
+    return Storage._get(KEYS.CURRENT_BATCH) || null;
   },
   clearBatch() {
-    this._remove(KEYS.CURRENT_BATCH);
-    this._remove(KEYS.CURRENT_IDX);
-    this.clearBatchStartTime();
+    Storage._remove(KEYS.CURRENT_BATCH);
+    Storage._remove(KEYS.CURRENT_IDX);
+    Storage.clearBatchStartTime();
   },
   saveIdx(idx) {
-    this._set(KEYS.CURRENT_IDX, idx);
+    Storage._set(KEYS.CURRENT_IDX, idx);
   },
   loadIdx() {
-    const v = this._get(KEYS.CURRENT_IDX);
+    const v = Storage._get(KEYS.CURRENT_IDX);
     return v !== null ? v : 0;
   },
 
   // ---- Progress calculations ----
   getTotalRemaining(mode) {
     let total = 0;
-    const subjects = this.getSubjects();
+    const subjects = Storage.getSubjects();
     subjects.forEach(sub => {
-      if (mode === "review") {
-        total += this.getMasteredObj(sub).length + this.getMasteredTheory(sub).length;
-      } else {
-        if (mode === "obj" || mode === "both") {
-          total += this.getUnseenObj(sub).length + this.getFailedObj(sub).length;
-        }
-        if (mode === "theory" || mode === "both") {
-          total += this.getUnseenTheory(sub).length + this.getFailedTheory(sub).length;
-        }
+      if (mode === 'obj' || mode === 'both') {
+        total += Storage.getUnseenObj(sub).length + Storage.getFailedObj(sub).length;
+      }
+      if (mode === 'theory' || mode === 'both') {
+        total += Storage.getUnseenTheory(sub).length + Storage.getFailedTheory(sub).length;
       }
     });
     return total;
   },
   isAllDone(mode) {
-    return this.getTotalRemaining(mode) === 0;
+    return Storage.getTotalRemaining(mode) === 0;
   },
 
   hasExistingSession() {
-    return !!(this._get(KEYS.STUDY_MODE));
+    return !!(Storage._get(KEYS.STUDY_MODE));
   },
 
   getSessionSummary() {
-    const mode = this.getMode();
+    const mode = Storage.getMode();
     return {
       mode,
-      subject: this.getSubject(),
-      unseen_obj: this.getUnseenObj().length,
-      unseen_theory: this.getUnseenTheory().length,
-      failed_obj: this.getFailedObj().length,
-      failed_theory: this.getFailedTheory().length,
-      stats: this.getStats(),
+      subject: Storage.getSubject(),
+      unseen_obj: Storage.getUnseenObj().length,
+      unseen_theory: Storage.getUnseenTheory().length,
+      failed_obj: Storage.getFailedObj().length,
+      failed_theory: Storage.getFailedTheory().length,
+      stats: Storage.getStats(),
     };
   },
 
   // ---- Gamification ----
   getStreak() {
-    const s = this._get(KEYS.STREAK);
+    const s = Storage._get(KEYS.STREAK);
     return (s !== null && !isNaN(s)) ? Number(s) : 0;
   },
 
   updateStreak() {
     const today = new Date().toDateString();
-    const lastDate = this._get(KEYS.LAST_STUDY_DATE);
+    const lastDate = Storage._get(KEYS.LAST_STUDY_DATE);
 
     // Already updated today
-    if (lastDate === today) return this.getStreak();
+    if (lastDate === today) return Storage.getStreak();
 
-    let streak = this.getStreak();
+    let streak = Storage.getStreak();
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     const yesterdayStr = yesterday.toDateString();
@@ -523,52 +573,52 @@ const Storage = {
       streak = 1;
     }
 
-    this._set(KEYS.STREAK, streak);
-    this._set(KEYS.LAST_STUDY_DATE, today);
+    Storage._set(KEYS.STREAK, streak);
+    Storage._set(KEYS.LAST_STUDY_DATE, today);
     return streak;
   },
 
   getGlobalStats() {
-    return this._get(KEYS.GLOBAL_STATS) || { mastered_obj: 0, mastered_theory: 0 };
+    return Storage._get(KEYS.GLOBAL_STATS) || { mastered_obj: 0, mastered_theory: 0 };
   },
 
   incrementGlobalStat(key, count = 1) {
-    const stats = this.getGlobalStats();
+    const stats = Storage.getGlobalStats();
     stats[key] = (stats[key] || 0) + count;
-    this._set(KEYS.GLOBAL_STATS, stats);
+    Storage._set(KEYS.GLOBAL_STATS, stats);
     return stats;
   },
 
   trackSubjectStarted(subject) {
-    let subjects = this._get(KEYS.SUBJECTS_STARTED) || [];
+    let subjects = Storage._get(KEYS.SUBJECTS_STARTED) || [];
     if (!subjects.includes(subject)) {
       subjects.push(subject);
-      this._set(KEYS.SUBJECTS_STARTED, subjects);
+      Storage._set(KEYS.SUBJECTS_STARTED, subjects);
     }
     return subjects.length;
   },
 
   getSubjectsStartedCount() {
-    return (this._get(KEYS.SUBJECTS_STARTED) || []).length;
+    return (Storage._get(KEYS.SUBJECTS_STARTED) || []).length;
   },
 
   setMultiplayerDone() {
-    this._set(KEYS.MULTIPLAYER_DONE, true);
+    Storage._set(KEYS.MULTIPLAYER_DONE, true);
   },
 
   isMultiplayerDone() {
-    return !!this._get(KEYS.MULTIPLAYER_DONE);
+    return !!Storage._get(KEYS.MULTIPLAYER_DONE);
   },
 
   getAchievements() {
-    return this._get(KEYS.ACHIEVEMENTS) || [];
+    return Storage._get(KEYS.ACHIEVEMENTS) || [];
   },
 
   saveAchievement(id) {
-    const achievements = this.getAchievements();
+    const achievements = Storage.getAchievements();
     if (!achievements.includes(id)) {
       achievements.push(id);
-      this._set(KEYS.ACHIEVEMENTS, achievements);
+      Storage._set(KEYS.ACHIEVEMENTS, achievements);
       return true;
     }
     return false;
@@ -576,71 +626,70 @@ const Storage = {
 
   // ---- Achievement Helpers ----
   getQuestionStats(qid) {
-    const stats = this._get(KEYS.QUESTION_STATS) || {};
+    const stats = Storage._get(KEYS.QUESTION_STATS) || {};
     return stats[qid] || { fails: 0, passed: false };
   },
   trackQuestionFail(qid) {
-    const stats = this._get(KEYS.QUESTION_STATS) || {};
+    const stats = Storage._get(KEYS.QUESTION_STATS) || {};
     if (!stats[qid]) stats[qid] = { fails: 0, passed: false };
     stats[qid].fails++;
-    this._set(KEYS.QUESTION_STATS, stats);
+    Storage._set(KEYS.QUESTION_STATS, stats);
   },
   trackQuestionPass(qid) {
-    const stats = this._get(KEYS.QUESTION_STATS) || {};
+    const stats = Storage._get(KEYS.QUESTION_STATS) || {};
     if (!stats[qid]) stats[qid] = { fails: 0, passed: false };
     stats[qid].passed = true;
-    this._set(KEYS.QUESTION_STATS, stats);
+    Storage._set(KEYS.QUESTION_STATS, stats);
     return stats[qid].fails;
   },
 
-  getLastBatchPerf() { return this._get(KEYS.LAST_BATCH_PERF); },
-  setLastBatchPerf(perf) { this._set(KEYS.LAST_BATCH_PERF, perf); },
+  getLastBatchPerf() { return Storage._get(KEYS.LAST_BATCH_PERF); },
+  setLastBatchPerf(perf) { Storage._set(KEYS.LAST_BATCH_PERF, perf); },
 
   getMultiStats() {
-    return this._get(KEYS.MULTI_STATS) || {
+    return Storage._get(KEYS.MULTI_STATS) || {
       rooms_hosted: 0, games_played: 0, wins: 0, win_streak: 0,
       max_capacity_rooms: 0, chat_messages: 0, top_3_finishes: 0
     };
   },
   incrementMultiStat(key, val = 1) {
-    const s = this.getMultiStats();
+    const s = Storage.getMultiStats();
     s[key] = (s[key] || 0) + val;
-    this._set(KEYS.MULTI_STATS, s);
+    Storage._set(KEYS.MULTI_STATS, s);
   },
 
   getSystemStats() {
-    return this._get(KEYS.SYSTEM_STATS) || {
+    return Storage._get(KEYS.SYSTEM_STATS) || {
       explain_simpler_count: 0, api_calls: 0, total_study_time_ms: 0,
       review_sessions_count: 0, weakness_starts: 0, custom_batch_starts: 0
     };
   },
   incrementSystemStat(key, val = 1) {
-    const s = this.getSystemStats();
+    const s = Storage.getSystemStats();
     s[key] = (s[key] || 0) + val;
-    this._set(KEYS.SYSTEM_STATS, s);
+    Storage._set(KEYS.SYSTEM_STATS, s);
   },
 
   trackSubjectMastered(subject) {
-    const mastered = this._get(KEYS.SUBJECTS_MASTERED) || [];
+    const mastered = Storage._get(KEYS.SUBJECTS_MASTERED) || [];
     if (!mastered.includes(subject)) {
       mastered.push(subject);
-      this._set(KEYS.SUBJECTS_MASTERED, mastered);
+      Storage._set(KEYS.SUBJECTS_MASTERED, mastered);
     }
   },
-  getSubjectsMastered() { return this._get(KEYS.SUBJECTS_MASTERED) || []; },
+  getSubjectsMastered() { return Storage._get(KEYS.SUBJECTS_MASTERED) || []; },
 
   getQuickCounts() {
     // Fast path for UI updates: aggregates stats without redundant deepClones
-    const subjects = this.getSubjects().filter(s => s !== null);
-    const results = { failed: 0, unseen: 0, mastered: 0, streak: this.getStreak() };
+    const subjects = Storage.getSubjects().filter(s => s !== null);
+    const results = { failed: 0, unseen: 0, mastered: 0, streak: Storage.getStreak() };
 
     subjects.forEach(s => {
-      const data = this._getRaw(`wg_sub_${s}`) || {};
-      const stats = data.stats || {};
+      const data = Storage._getRaw(`wg_sub_${s}`) || {};
 
       results.failed += (data.failed_obj?.length || 0) + (data.failed_theory?.length || 0);
       results.unseen += (data.unseen_obj?.length || 0) + (data.unseen_theory?.length || 0);
-      results.mastered += (stats.mastered || 0);
+      results.mastered += (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
     });
 
     return results;
@@ -651,7 +700,7 @@ const Storage = {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key && key.startsWith('wg_sub_')) {
-        const subData = this._getRaw(key);
+        const subData = Storage._getRaw(key);
         if (subData && subData.stats && subData.stats.mastered > 0) {
           count++;
         }
@@ -660,11 +709,11 @@ const Storage = {
     return count;
   },
 
-  getAiConsecutivePerfect() { return this._get(KEYS.AI_CONSECUTIVE_PERFECT) || 0; },
-  setAiConsecutivePerfect(v) { this._set(KEYS.AI_CONSECUTIVE_PERFECT, v); },
+  getAiConsecutivePerfect() { return Storage._get(KEYS.AI_CONSECUTIVE_PERFECT) || 0; },
+  setAiConsecutivePerfect(v) { Storage._set(KEYS.AI_CONSECUTIVE_PERFECT, v); },
   incrementAiConsecutivePerfect() {
-    const v = this.getAiConsecutivePerfect() + 1;
-    this.setAiConsecutivePerfect(v);
+    const v = Storage.getAiConsecutivePerfect() + 1;
+    Storage.setAiConsecutivePerfect(v);
     return v;
   },
 
