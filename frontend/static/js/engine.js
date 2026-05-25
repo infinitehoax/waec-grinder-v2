@@ -113,24 +113,7 @@ const Engine = {
    * Remove items pulled from unseen queues so they aren't double-counted.
    */
   consumeBatch(batch) {
-    // Group batch by subject to drain correctly
-    const bySubject = {};
-    batch.forEach(q => {
-      if (q._from_failed) return;
-      if (!bySubject[q._subject]) bySubject[q._subject] = { obj: [], theory: [] };
-      bySubject[q._subject][q._type].push(q.id);
-    });
-
-    for (const [sub, ids] of Object.entries(bySubject)) {
-      if (ids.obj.length > 0) {
-        const unseen = Storage.getUnseenObj(sub).filter(q => !ids.obj.includes(q.id));
-        Storage._setScoped(sub, 'unseen_obj', unseen);
-      }
-      if (ids.theory.length > 0) {
-        const unseen = Storage.getUnseenTheory(sub).filter(q => !ids.theory.includes(q.id));
-        Storage._setScoped(sub, 'unseen_theory', unseen);
-      }
-    }
+    Storage.drainBatchFromUnseen(batch);
   },
 
   /**
@@ -143,31 +126,7 @@ const Engine = {
     // Review mode is low-stakes: no stats or queue changes
     if (q._is_review || Storage.getMode() === 'review' || q._is_multiplayer) return;
 
-    Storage.updateTopicStats(q.topic, passed, q._subject);
-    if (passed) {
-      // Passed: remove from failed if it was there, and ARCHIVE to mastered
-      Storage.removeFailedObj(q.id, q._subject);
-      Storage.pushMasteredObj(q);
-      Storage.incrementMastered(1, q._subject);
-      Storage.incrementGlobalStat('mastered_obj', 1);
-
-      // Instrumentation for achievements
-      q._fails_before_pass = Storage.trackQuestionPass(q.id);
-
-      // Check if subject completed
-      const remaining = Storage.getUnseenObj(q._subject).length +
-                        Storage.getUnseenTheory(q._subject).length +
-                        Storage.getFailedObj(q._subject).length +
-                        Storage.getFailedTheory(q._subject).length;
-      if (remaining === 0) {
-        Storage.trackSubjectMastered(q._subject);
-      }
-    } else {
-      // Failed: push to failed queue
-      Storage.pushFailedObj(q);
-      Storage.incrementFailed(1, q._subject);
-      Storage.trackQuestionFail(q.id);
-    }
+    Storage.recordQuestionResult(q, passed);
   },
 
   /**
@@ -183,29 +142,8 @@ const Engine = {
 
     if (q._is_review || Storage.getMode() === 'review' || q._is_multiplayer) return passed;
 
-    Storage.updateTopicStats(q.topic, passed, q._subject);
-    if (passed) {
-      Storage.removeFailedTheory(q.id, q._subject);
-      Storage.pushMasteredTheory(q);
-      Storage.incrementMastered(1, q._subject);
-      Storage.incrementGlobalStat('mastered_theory', 1);
+    Storage.recordQuestionResult(q, passed);
 
-      // Instrumentation for achievements
-      q._fails_before_pass = Storage.trackQuestionPass(q.id);
-
-      // Check if subject completed
-      const remaining = Storage.getUnseenObj(q._subject).length +
-                        Storage.getUnseenTheory(q._subject).length +
-                        Storage.getFailedObj(q._subject).length +
-                        Storage.getFailedTheory(q._subject).length;
-      if (remaining === 0) {
-        Storage.trackSubjectMastered(q._subject);
-      }
-    } else {
-      Storage.pushFailedTheory(q);
-      Storage.incrementFailed(1, q._subject);
-      Storage.trackQuestionFail(q.id);
-    }
     return passed;
   },
 
