@@ -15,3 +15,7 @@
 ## 2025-05-24 - [Atomic Storage Operations]
 **Learning:** Every `localStorage.setItem` call is a synchronous disk write. In high-frequency loops (like question grading), multiple sequential writes for the same subject data object (stats, queues, global counts) multiply I/O latency.
 **Action:** Consolidate multiple related storage updates into a single atomic "transaction" (using a helper like `updateSubjectData`). This reduces Disk I/O by ~75% during core loops.
+
+## 2025-05-27 - [Data Pre-Processing & Indexed Lookups]
+**Learning:** Performing data transformations (like dictionary merging and tagging) inside high-frequency game loops adds unnecessary CPU overhead. On the frontend, iterating over ALL `localStorage` keys for every session start becomes a bottleneck as the user's data grows.
+**Action:** Shift question metadata tagging (like `_type` and `_subject`) to the initial backend cache load. Maintain subject-level indices (e.g., `wg_subjects_started`) to enable O(1) or O(subjects) lookups instead of O(total_keys) scans.

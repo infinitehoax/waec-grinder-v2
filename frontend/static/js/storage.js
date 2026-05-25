@@ -669,21 +669,24 @@ const Storage = {
   },
 
   getAllMasteredIds() {
+    // Optimization: Instead of iterating through ALL localStorage keys (which can be many),
+    // we use the 'wg_subjects_started' index to only look at subjects the user has actually interacted with.
+    // This improves performance for users with many stored items in localStorage.
     const ids = new Set();
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key && key.startsWith('wg_sub_')) {
-        const data = this._getRaw(key);
-        if (data) {
-          if (data[SUB_KEYS.MASTERED_OBJ]) {
-            data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
-          }
-          if (data[SUB_KEYS.MASTERED_THEORY]) {
-            data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
-          }
+    const subjects = this._getRaw(KEYS.SUBJECTS_STARTED) || [];
+
+    subjects.forEach(subject => {
+      const data = this._getRaw(`wg_sub_${subject}`);
+      if (data) {
+        if (data[SUB_KEYS.MASTERED_OBJ]) {
+          data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
+        }
+        if (data[SUB_KEYS.MASTERED_THEORY]) {
+          data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
         }
       }
-    }
+    });
+
     return Array.from(ids);
   },
 };

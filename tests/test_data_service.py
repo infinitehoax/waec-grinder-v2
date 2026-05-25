@@ -16,16 +16,32 @@ class TestDataService(unittest.TestCase):
         data_service._cached_questions = None
 
     def test_load_questions_success(self):
-        mock_data = {"obj": [], "theory": []}
+        # The app expects a list of subject objects
+        mock_data = [
+            {
+                "subject": "Maths",
+                "obj": [{"id": "q1", "question": "1+1?"}],
+                "theory": [{"id": "t1", "question": "Explain addition."}]
+            }
+        ]
         mock_json = json.dumps(mock_data)
+
+        # Expected data after pre-tagging
+        expected_data = [
+            {
+                "subject": "Maths",
+                "obj": [{"id": "q1", "question": "1+1?", "_type": "obj", "_subject": "Maths"}],
+                "theory": [{"id": "t1", "question": "Explain addition.", "_type": "theory", "_subject": "Maths"}]
+            }
+        ]
 
         with patch("builtins.open", mock_open(read_data=mock_json)):
             result = data_service.load_questions()
 
         self.assertTrue(result["success"])
-        self.assertEqual(result["data"], mock_data)
+        self.assertEqual(result["data"], expected_data)
         # Verify it was cached
-        self.assertEqual(data_service._cached_questions, mock_data)
+        self.assertEqual(data_service._cached_questions, expected_data)
 
     def test_load_questions_cache(self):
         # Manually set the cache
