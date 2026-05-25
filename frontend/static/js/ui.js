@@ -92,8 +92,8 @@ function renderObjQuestion(q, idx, total) {
           <div class="result-banner__sub"></div>
         </div>
       </div>
-      <div class="explanation-block" id="explanation-block">
-        <div class="explanation-block__label">📖 Explanation</div>
+      <div class="explanation-block" id="explanation-block" role="region" aria-live="polite" aria-labelledby="explanation-label">
+        <div class="explanation-block__label" id="explanation-label">📖 Explanation</div>
         <div class="explanation-block__text"></div>
         <button class="btn-explain" id="explain-btn" onclick="UI.explainSimpler()" aria-label="Explain this concept simpler">
           💡 Explain It Simpler
@@ -101,10 +101,10 @@ function renderObjQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()">Skip</button>
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question">Skip</button>
         </div>
         <div class="action-bar__right">
-          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()">
+          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()" aria-label="Next question">
             Next &rarr;
           </button>
         </div>
@@ -145,7 +145,7 @@ function renderTheoryQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()">Skip</button>
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question">Skip</button>
           <span class="score-tally hidden" id="score-tally">
             Score: <strong id="score-val">0</strong> / ${totalMaxMarks}
           </span>
@@ -154,7 +154,7 @@ function renderTheoryQuestion(q, idx, total) {
           <button class="btn btn--primary" id="submit-theory-btn" onclick="UI.submitTheory()">
             ✦ Submit for Grading
           </button>
-          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()">
+          <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()" aria-label="Next question">
             Next &rarr;
           </button>
         </div>
@@ -355,9 +355,17 @@ const UI = {
     if (!container) return;
     container.innerHTML = this.batch.map((q, i) => {
       let cls = 'step-dot';
-      if (i < this.currentIdx) cls += ' done';
-      else if (i === this.currentIdx) cls += ' active';
-      return `<span class="${cls}"></span>`;
+      let status = '';
+      let ariaCurrent = '';
+      if (i < this.currentIdx) {
+        cls += ' done';
+        status = ' (Completed)';
+      } else if (i === this.currentIdx) {
+        cls += ' active';
+        status = ' (Current)';
+        ariaCurrent = ' aria-current="step"';
+      }
+      return `<span class="${cls}" aria-label="Question ${i + 1}${status}"${ariaCurrent}></span>`;
     }).join('');
   },
 
@@ -1076,9 +1084,44 @@ const UI = {
     modal.classList.add('visible');
     document.body.style.overflow = 'hidden'; // Prevent scroll
 
+    // Backdrop click to close (using addEventListener for robustness)
+    if (!modal._backdropListener) {
+      modal._backdropListener = (e) => {
+        if (e.target === modal) this.closeExplanationModal();
+      };
+      modal.addEventListener('click', modal._backdropListener);
+    }
+
     // Focus the close button for accessibility
     const closeBtn = modal.querySelector('.modal__close');
     if (closeBtn) closeBtn.focus();
+
+    // Focus Trap (re-query elements on every Tab to avoid stale closure refs)
+    if (!modal._trapListener) {
+      modal._trapListener = (e) => {
+        if (e.key !== 'Tab') return;
+
+        const focusableSelector = 'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])';
+        const focusableContent = modal.querySelectorAll(focusableSelector);
+        if (focusableContent.length === 0) return;
+
+        const firstFocusable = focusableContent[0];
+        const lastFocusable = focusableContent[focusableContent.length - 1];
+
+        if (e.shiftKey) { // Shift + Tab
+          if (document.activeElement === firstFocusable) {
+            lastFocusable.focus();
+            e.preventDefault();
+          }
+        } else { // Tab
+          if (document.activeElement === lastFocusable) {
+            firstFocusable.focus();
+            e.preventDefault();
+          }
+        }
+      };
+      modal.addEventListener('keydown', modal._trapListener);
+    }
   },
 
   closeExplanationModal() {
@@ -1100,12 +1143,27 @@ window.UI = UI;
 
 // Global Keyboard Shortcuts
 window.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('explanation-modal');
+  const isModalVisible = modal && modal.classList.contains('visible');
+
   if (e.key === 'Escape') {
     UI.closeExplanationModal();
     return;
   }
 
-  // Prevent shortcuts if user is typing in an input or textarea
+  // If modal is open, let it handle its own keys (like focus trap)
+  if (isModalVisible) return;
+
+  // Ctrl+Enter or Cmd+Enter to submit theory (works even inside textarea)
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+    const submitBtn = document.getElementById('submit-theory-btn');
+    if (submitBtn && !submitBtn.disabled && window.getComputedStyle(submitBtn).display !== 'none') {
+      UI.submitTheory();
+      return;
+    }
+  }
+
+  // Prevent other shortcuts if user is typing in an input or textarea
   const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
   if (activeTag === 'input' || activeTag === 'textarea') return;
 
@@ -1118,8 +1176,18 @@ window.addEventListener('keydown', (e) => {
     return;
   }
 
-  // OBJ shortcuts: A-D or 1-4 keys
   const key = e.key.toUpperCase();
+
+  // 'S' to skip question
+  if (key === 'S') {
+    const skipBtn = document.querySelector('.action-bar__left .btn--ghost');
+    if (skipBtn && window.getComputedStyle(skipBtn).display !== 'none') {
+      UI.skipQuestion();
+      return;
+    }
+  }
+
+  // OBJ shortcuts: A-D or 1-4 keys
   const optionMap = { '1': 'A', '2': 'B', '3': 'C', '4': 'D', 'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D' };
 
   if (optionMap[key]) {

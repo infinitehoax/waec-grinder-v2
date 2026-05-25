@@ -209,6 +209,16 @@ const Storage = {
     }
   },
 
+  /**
+   * Consolidates multiple subject-specific updates into a single localStorage write.
+   * Reduces Disk I/O and redundant JSON.stringify calls.
+   */
+  updateSubjectData(subject, callback) {
+    const data = this._get(`wg_sub_${subject}`) || {};
+    callback(data);
+    this._set(`wg_sub_${subject}`, data);
+  },
+
   // ---- Initialise from loaded question data ----
   initSession(data, mode) {
     // data can be a single subject object OR an array of subject objects
@@ -473,6 +483,7 @@ const Storage = {
     Storage._setScoped(sub, SUB_KEYS.STATS, s);
   },
 
+
   // ---- Focus Topic (Weakness sessions) ----
   setFocusTopic(topic) {
     Storage._set(KEYS.FOCUS_TOPIC, topic);
@@ -515,7 +526,6 @@ const Storage = {
     });
     return total;
   },
-
   isAllDone(mode) {
     return Storage.getTotalRemaining(mode) === 0;
   },
@@ -708,21 +718,24 @@ const Storage = {
   },
 
   getAllMasteredIds() {
+    // Optimization: Instead of iterating through ALL localStorage keys (which can be many),
+    // we use the 'wg_subjects_started' index to only look at subjects the user has actually interacted with.
+    // This improves performance for users with many stored items in localStorage.
     const ids = new Set();
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key && key.startsWith('wg_sub_')) {
-        const data = Storage._getRaw(key);
-        if (data) {
-          if (data[SUB_KEYS.MASTERED_OBJ]) {
-            data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
-          }
-          if (data[SUB_KEYS.MASTERED_THEORY]) {
-            data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
-          }
+    const subjects = this._getRaw(KEYS.SUBJECTS_STARTED) || [];
+
+    subjects.forEach(subject => {
+      const data = this._getRaw(`wg_sub_${subject}`);
+      if (data) {
+        if (data[SUB_KEYS.MASTERED_OBJ]) {
+          data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
+        }
+        if (data[SUB_KEYS.MASTERED_THEORY]) {
+          data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
         }
       }
-    }
+    });
+
     return Array.from(ids);
   },
 };

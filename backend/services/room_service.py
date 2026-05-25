@@ -158,17 +158,20 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
             mastered_pool.update(p_data.get("mastered_ids", []))
 
     for data in selected_data:
-        sub_name = data.get("subject", "General")
+        # Optimization: Use pre-tagged questions from data_service and only aggregate based on mode
+        # This reduces dictionary allocations and iteration overhead.
 
-        obj_qs = data.get("obj", [])
-        theory_qs = data.get("theory", [])
+        if mode == "obj" or mode == "both":
+            obj_qs = data.get("obj", [])
+            if filter_mastered:
+                obj_qs = [q for q in obj_qs if q.get("id") not in mastered_pool]
+            all_obj.extend(obj_qs)
 
-        if filter_mastered:
-            obj_qs = [q for q in obj_qs if q.get("id") not in mastered_pool]
-            theory_qs = [q for q in theory_qs if q.get("id") not in mastered_pool]
-
-        all_obj.extend([{**q, "_type": "obj", "_subject": sub_name} for q in obj_qs])
-        all_theory.extend([{**q, "_type": "theory", "_subject": sub_name} for q in theory_qs])
+        if mode == "theory" or mode == "both":
+            theory_qs = data.get("theory", [])
+            if filter_mastered:
+                theory_qs = [q for q in theory_qs if q.get("id") not in mastered_pool]
+            all_theory.extend(theory_qs)
 
     # Determine how many questions to take
     available_count = (len(all_obj) if mode == "obj" else

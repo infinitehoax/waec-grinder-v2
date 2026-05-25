@@ -228,7 +228,7 @@
   let isRandomizedOptions = false;
 
   // Make functions available globally for onclick handlers
-  window.selectMode = selectMode;
+      window.selectMode = selectMode;
   window.startSession = startSession;
   window.resumeSession = resumeSession;
   window.clearSession = clearSession;
@@ -244,7 +244,7 @@
     // Load questions + config
     try {
       [allQuestions] = await Promise.all([API.getQuestions(), loadServerConfig()]);
-      populateSubjects();
+                  populateSubjects();
     } catch (e) {
       console.error(e);
       document.getElementById('subject-list').innerHTML = '<div style="padding:10px; color:var(--fail)">Error loading subjects</div>';
@@ -525,8 +525,8 @@
     Storage.initSession(selectedSubjects, selectedMode);
     selectedSubjects.forEach(sub => Storage.trackSubjectStarted(sub.subject));
 
-    // If all already done, soft-reset
-    if (Storage.isAllDone(selectedMode)) {
+    // If all already done, soft-reset (except for review mode)
+    if (selectedMode !== "review" && Storage.isAllDone(selectedMode)) {
       Storage.softReset(selectedSubjects, selectedMode);
     }
 
