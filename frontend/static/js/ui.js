@@ -413,6 +413,13 @@ const UI = {
     const q = this.batch[this.currentIdx];
     Engine.markObjResult(q, passed);
 
+    // Track mastery to Trophy if passed
+    if (passed && !q._is_review && !q._is_multiplayer) {
+      const { default: API } = await import('./api.js');
+      API.trackMastery(Storage.getPlayerUuid(), Storage.getPlayerName())
+        .catch(err => console.error('[Trophy] Tracking failed:', err));
+    }
+
     // Track speed for OBJ
     const batchStartTime = Storage.getBatchStartTime();
     if (batchStartTime) {
@@ -561,6 +568,13 @@ const UI = {
           q._is_buzzer_beater = true;
         }
       }
+    }
+
+    // Track mastery to Trophy if passed
+    if (passed) {
+      const { default: API } = await import('./api.js');
+      API.trackMastery(Storage.getPlayerUuid(), Storage.getPlayerName())
+        .catch(err => console.error('[Trophy] Tracking failed:', err));
     }
 
     // Show result banner

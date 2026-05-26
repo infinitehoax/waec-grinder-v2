@@ -39,6 +39,32 @@
     </div>
   </div>
 
+  <!-- User Profile -->
+  <div class="card" id="profile-card" style="margin-bottom: 32px; border-color: var(--accent-glow); background: var(--bg-card);">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-size:1.5rem;">👤</div>
+        <div>
+          <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-family:var(--font-mono);">Your Profile</div>
+          <div id="player-name-display" style="font-weight:700; font-size:1.1rem;">Student</div>
+        </div>
+      </div>
+      <button class="btn btn--ghost btn--sm" onclick="editPlayerName()">Edit Name</button>
+    </div>
+  </div>
+
+  <!-- Leaderboard -->
+  <div id="leaderboard-section" style="margin-bottom: 32px;">
+    <h2 style="font-size: 1.1rem; margin-bottom: 16px; color: var(--text-secondary); font-weight: 500;">
+      🏆 Top Daily Grinders
+    </h2>
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <div id="leaderboard-list" style="min-height: 100px;">
+        <div style="padding: 20px; text-align: center; color: var(--text-muted);">Loading rankings...</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Weakest Topics -->
   <div id="weak-topics-section" style="margin-bottom: 32px; display: none;">
     <h2 style="font-size: 1.1rem; margin-bottom: 16px; color: var(--text-secondary); font-weight: 500;">
@@ -236,10 +262,13 @@
   window.startWeaknessSession = startWeaknessSession;
   window.toggleRandomizeQuestions = toggleRandomizeQuestions;
   window.toggleRandomizeOptions = toggleRandomizeOptions;
+  window.editPlayerName = editPlayerName;
 
   async function init() {
     // Update nav stats immediately from local storage
     updateNavDisplay();
+    updatePlayerProfile();
+    loadLeaderboard();
 
     // Load questions + config
     try {
@@ -264,6 +293,51 @@
 
     // Update nav stats
     updateNavDisplay();
+  }
+
+  function updatePlayerProfile() {
+    const nameDisplay = document.getElementById('player-name-display');
+    if (nameDisplay) {
+      nameDisplay.textContent = Storage.getPlayerName();
+    }
+  }
+
+  function editPlayerName() {
+    const oldName = Storage.getPlayerName();
+    const newName = prompt('Enter your name for the leaderboard:', oldName);
+    if (newName && newName.trim()) {
+      Storage.setPlayerName(newName.trim());
+      updatePlayerProfile();
+    }
+  }
+
+  async function loadLeaderboard() {
+    const list = document.getElementById('leaderboard-list');
+    if (!list) return;
+
+    try {
+      const rankings = await API.getLeaderboard();
+      if (!rankings || rankings.length === 0) {
+        list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted);">No rankings yet. Start grinding to be the first!</div>';
+        return;
+      }
+
+      list.innerHTML = rankings.map((entry, idx) => {
+        const isYou = entry.userId === Storage.getPlayerUuid();
+        return `
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid var(--border-subtle); ${isYou ? 'background: var(--accent-glow);' : ''}">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="width: 24px; font-weight: 800; color: ${idx < 3 ? 'var(--accent)' : 'var(--text-muted)'}; font-family: var(--font-mono);">${idx + 1}</div>
+              <div style="font-weight: 600; color: var(--text-primary);">${idx === 0 ? '👑 ' : ''}${entry.userName || 'Anonymous'}${isYou ? ' <span style="font-size:0.7rem; opacity:0.6;">(YOU)</span>' : ''}</div>
+            </div>
+            <div style="font-weight: 800; font-family: var(--font-mono); color: var(--accent);">${entry.value} <span style="font-size: 0.7rem; font-weight: 400; color: var(--text-muted);">MASTERED</span></div>
+          </div>
+        `;
+      }).join('');
+    } catch (err) {
+      console.error('[Leaderboard] Load failed:', err);
+      list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--fail);">Failed to load rankings.</div>';
+    }
   }
 
   async function loadServerConfig() {
