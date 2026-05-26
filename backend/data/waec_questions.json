@@ -6060,5 +6060,1253 @@
         "explanation": "E.g., TT or tt. Heterozygous means having different alleles, e.g., Tt."
       }
     ]
+  },
+  {
+    "subject": "UNIPORT Post-UTME Biology Mock v2 (actual questions)",
+    "obj": [
+      {
+        "id": "obj_bio_uniport_post_utme_v2_001",
+        "question": "The lenticels:",
+        "options": {
+          "A": "remove excess water in plant",
+          "B": "absorbs water from the atmosphere",
+          "C": "is for gaseous exchange",
+          "D": "absorbs light",
+          "E": "stores food"
+        },
+        "correct_option": "C",
+        "explanation": "Lenticels are small, raised pores found on the stems and roots of woody plants that allow for the exchange of gases (oxygen and carbon dioxide) between the internal tissues and the atmosphere."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_002",
+        "question": "A photometer is used to determine the rate at which a shoot",
+        "options": {
+          "A": "respires",
+          "B": "sucks air bubbles",
+          "C": "lose weight",
+          "D": "absorbs air",
+          "E": "transpires"
+        },
+        "correct_option": "E",
+        "explanation": "**Take note of this UNIPORT typo!** The correct instrument is a *potometer*, which measures the rate of water uptake (transpiration). A *photometer* measures light intensity. However, always pick \"transpires\" when you see this exact question in the exam."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_003",
+        "question": "One of these is not a digestive enzyme.",
+        "options": {
+          "A": "bile",
+          "B": "lipase",
+          "C": "maltase",
+          "D": "pepsin",
+          "E": "ptyalin"
+        },
+        "correct_option": "A",
+        "explanation": "Bile is produced by the liver and emulsifies fats (breaks them into smaller droplets). It is a fluid, not an enzyme."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_004",
+        "question": "Which of these is not metamerically segmented?",
+        "options": {
+          "A": "tapeworm",
+          "B": "earthworm",
+          "C": "centipede",
+          "D": "crayfish",
+          "E": "shark"
+        },
+        "correct_option": "A",
+        "explanation": "Earthworms, crayfish, and centipedes are definitely segmented. Tapeworms have \"proglottids\" which is pseudo-segmentation, but sharks lack metameric segmentation entirely. In past UNIPORT marking schemes, E (Shark) is sometimes chosen, but biologically A (Tapeworm - pseudo-segmented) or E are the odd ones out."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_005",
+        "question": "Which of these diseases could be exclusively associated with a river basin?",
+        "options": {
+          "A": "malaria",
+          "B": "syphilis",
+          "C": "anchocerciasis",
+          "D": "cholera",
+          "E": "poliomyelitis"
+        },
+        "correct_option": "C",
+        "explanation": "Also known as River Blindness. It is transmitted by the black fly, which breeds in fast-flowing rivers and streams."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_006",
+        "question": "Which of these statements is true about enzymes? They",
+        "options": {
+          "A": "are carbohydrates",
+          "B": "most times do not need co-factors to be active",
+          "C": "are not sensitive to hydrogen ion concentration",
+          "D": "are not specific in their actions",
+          "E": "cannot withstand high temperature"
+        },
+        "correct_option": "E",
+        "explanation": "Enzymes are proteins. High temperatures destroy their 3D shape, a process called denaturation."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_007",
+        "question": "Evidence that the tooth is a living part of the body can be found in the",
+        "options": {
+          "A": "gum",
+          "B": "pump cavity",
+          "C": "cement",
+          "D": "enamel",
+          "E": "diastema"
+        },
+        "correct_option": "B",
+        "explanation": "**Another UNIPORT typo!** They meant *pulp* cavity. The pulp cavity contains the blood vessels and nerves that keep the tooth alive."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_008",
+        "question": "In higher animals, most cells retain power division except",
+        "options": {
+          "A": "lymphocytes",
+          "B": "nerve cells",
+          "C": "malphighian cells",
+          "D": "germ cells",
+          "E": "liver cells"
+        },
+        "correct_option": "B",
+        "explanation": "Nerve cells (neurons) lack centrioles and lose their ability to divide once fully matured. *(Note: Past keys mistakenly listed D, but B is biologically correct)*."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_009",
+        "question": "Taxism is different from tropism in that in taxism:",
+        "options": {
+          "A": "the whole organism is affected",
+          "B": "one directional movement is involved",
+          "C": "it is a response to multi-directional movement",
+          "D": "part of the organism is affected",
+          "E": "the organism is not in motion"
+        },
+        "correct_option": "A",
+        "explanation": "Taxis (taxism) is a directional movement of the *entire* organism in response to a stimulus, whereas tropism is a growth response of a *part* of a plant."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_010",
+        "question": "The pigment in the malphigian layer responsible for skin colouration is ……..",
+        "options": {
+          "A": "haemoglobin",
+          "B": "haemocyanin",
+          "C": "chlorocruorin",
+          "D": "melanin"
+        },
+        "correct_option": "D",
+        "explanation": "Melanin gives skin its color and protects it from ultraviolet (UV) radiation."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_011",
+        "question": "Cordination is achieved in the body of mammals through the action of the",
+        "options": {
+          "A": "endocrine and nervous systems",
+          "B": "skeletal and nervous systems",
+          "C": "muscular and nervous systems",
+          "D": "circulatory and nervous systems"
+        },
+        "correct_option": "A",
+        "explanation": "The nervous system provides rapid, short-term coordination, while the endocrine system provides slower, long-lasting coordination via hormones."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_012",
+        "question": "Which of the following statements is correct of hormones? Hormones are",
+        "options": {
+          "A": "cell into the blood through ducts",
+          "B": "secreted directly into the blood",
+          "C": "chemical substances in the blood stream",
+          "D": "non-specific in their mode of operation"
+        },
+        "correct_option": "C",
+        "explanation": "Hormones are chemical messengers secreted by ductless glands directly into the bloodstream to act on specific target organs."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_013",
+        "question": "The pituitary is called „master gland‟ because",
+        "options": {
+          "A": "it is located in the brain",
+          "B": "its lanes are more numerous than those of any other gland",
+          "C": "its secretion has other glands",
+          "D": "it is the only organ that produces hormone"
+        },
+        "correct_option": "C",
+        "explanation": "The phrasing is slightly awkward, but it means its secretions control the functions of other endocrine glands."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_014",
+        "question": "Auxins are produced in the",
+        "options": {
+          "A": "petiole of leaves",
+          "B": "parenchyma of roots and shoots",
+          "C": "epidermis of roots and shoot",
+          "D": "apical regions of root and shoots"
+        },
+        "correct_option": "D",
+        "explanation": "Auxins are growth hormones primarily produced in the rapidly dividing cells at the tips (apices) of roots and shoots."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_015",
+        "question": "The brain and the spinal cord make up the",
+        "options": {
+          "A": "peripheral nervous system",
+          "B": "autonomic nervous system",
+          "C": "central nervous system",
+          "D": "somatic nervous system"
+        },
+        "correct_option": "C",
+        "explanation": "The CNS consists of the brain and spinal cord, which process information."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_016",
+        "question": "Increasing specialization of structure and function among animals of the same class or order for survival in new and different environments is called?",
+        "options": {
+          "A": "adaptive radiation",
+          "B": "phylogeny",
+          "C": "homology",
+          "D": "analogy"
+        },
+        "correct_option": "A",
+        "explanation": "This is the evolutionary process where organisms rapidly diversify from an ancestral species into a multitude of new forms (like Darwin's finches)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_017",
+        "question": "When large numbers of organisms share limited space and resources, result is",
+        "options": {
+          "A": "immigration",
+          "B": "commensalism",
+          "C": "symbiosis",
+          "D": "competition"
+        },
+        "correct_option": "D",
+        "explanation": "Limited resources (food, space, mates) inevitably lead to competition among organisms."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_018",
+        "question": "The change in colour of the chameleon serves as a means of",
+        "options": {
+          "A": "attraction to the opposite sex",
+          "B": "repulsion of the enemy",
+          "C": "camouflage from a predator",
+          "D": "regulation of body temperature"
+        },
+        "correct_option": "C",
+        "explanation": "Camouflage helps the organism blend into its environment to avoid detection."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_019",
+        "question": "Species can be defined as the group of organisms that",
+        "options": {
+          "A": "resemble each and live in the same habitat",
+          "B": "are of common origin and are always found together",
+          "C": "resemble each other and can interbreed freely",
+          "D": "resemble each other and occupy the same niche"
+        },
+        "correct_option": "C",
+        "explanation": "The biological species concept relies on the ability of organisms to interbreed and produce fertile offspring."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_020",
+        "question": "In mammals, the function of the sebaceous gland is to",
+        "options": {
+          "A": "produce sweat",
+          "B": "secrete sodium",
+          "C": "secrete water",
+          "D": "produce an oil substance",
+          "E": "manufacture vitamin"
+        },
+        "correct_option": "D",
+        "explanation": "Sebaceous glands secrete sebum, an oily substance that lubricates the skin and hair."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_021",
+        "question": "Movement and positions of the head in man are detected by the",
+        "options": {
+          "A": "cochlea",
+          "B": "malleus",
+          "C": "utriculus",
+          "D": "semicircular canals",
+          "E": "outer"
+        },
+        "correct_option": "D",
+        "explanation": "Located in the inner ear, they are responsible for dynamic balance and detecting head movements."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_022",
+        "question": "The maize grain is a fruit and not a seed because it has",
+        "options": {
+          "A": "large endosperm",
+          "B": "is formed from an ovary",
+          "C": "is a monocotyledon",
+          "D": "has no plumule and radical",
+          "E": "has a hypogeal germination"
+        },
+        "correct_option": "B",
+        "explanation": "By definition, a fruit develops from a ripened ovary. In maize, the ovary wall (pericarp) is fused with the seed coat (testa)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_023",
+        "question": "The characters by which an organism is recognized are termed its",
+        "options": {
+          "A": "phenotype",
+          "B": "genotype",
+          "C": "morphology",
+          "D": "anatomy",
+          "E": "physiology"
+        },
+        "correct_option": "A",
+        "explanation": "Phenotype refers to the observable physical characteristics of an organism."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_024",
+        "question": "Germination which results in the cotyledons being brought above ground is called",
+        "options": {
+          "A": "hypocytyls",
+          "B": "epicotyls",
+          "C": "epigeal",
+          "D": "hypogeal",
+          "E": "plumule"
+        },
+        "correct_option": "C",
+        "explanation": "In epigeal germination, the hypocotyl elongates rapidly, pushing the cotyledons above the soil (e.g., beans)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_025",
+        "question": "In a mammal, stimulus is transferred from the receptor muscle to the central nervous system through the",
+        "options": {
+          "A": "motor neurons",
+          "B": "effector muscle",
+          "C": "dentrities",
+          "D": "sensory neurons",
+          "E": "synapses"
+        },
+        "correct_option": "D",
+        "explanation": "Sensory (afferent) neurons carry impulses from receptors to the CNS."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_026",
+        "question": "Which of the following food chains is the correct sequence?",
+        "options": {
+          "A": "weeds tadpoles beetles fish man",
+          "B": "weeds tadpoles fish beetles man",
+          "C": "tadpoles beetles weeds man fish",
+          "D": "man fish beetles tadpoles weeds",
+          "E": "fish beetles tadpoles weeds tadpoles"
+        },
+        "correct_option": "A",
+        "explanation": "Energy flows from producers (weeds) -> primary consumers (tadpoles) -> secondary (beetles) -> tertiary (fish) -> quaternary (man). UNIPORT often accepts this sequence."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_027",
+        "question": "The primary and secondary hosts respectively of bilharzias are",
+        "options": {
+          "A": "fish and man",
+          "B": "man and dog",
+          "C": "snail and man",
+          "D": "man and snail",
+          "E": "fish and snail"
+        },
+        "correct_option": "D",
+        "explanation": "Bilharzia (Schistosomiasis) uses man as the primary host (where sexual reproduction occurs) and the freshwater water snail as the secondary host."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_028",
+        "question": "The origin of mineral particles in the seed is",
+        "options": {
+          "A": "humus",
+          "B": "water",
+          "C": "micro-organisms",
+          "D": "weathered rock",
+          "E": "organic matter"
+        },
+        "correct_option": "D",
+        "explanation": "**Typo alert!** UNIPORT meant \"soil\" instead of \"seed\". The mineral particles in soil come from the breakdown (weathering) of underlying rocks."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_029",
+        "question": "The initial volume of water poured in bag of dry soil was 50ml and the amount that drained through was 35ml. the percentage water content of the full soak soil is therefore",
+        "options": {
+          "A": "46.7",
+          "B": "25.0",
+          "C": "20.0",
+          "D": "30.0",
+          "E": "58.3"
+        },
+        "correct_option": "D",
+        "explanation": "Water retained = 50ml - 35ml = 15ml. Percentage = (15 / 50) x 100 = 30%."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_030",
+        "question": "From the following list of type of mutation, identify the one that is not hereditary",
+        "options": {
+          "A": "germinal mutation",
+          "B": "somatic mutation",
+          "C": "germinal mutation",
+          "D": "genetic mutation"
+        },
+        "correct_option": "B",
+        "explanation": "Somatic mutations occur in body cells and cannot be passed to offspring. Only germinal (sex cell) mutations are hereditary."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_031",
+        "question": "In a cell, digestive enzymes mostly occur in",
+        "options": {
+          "A": "ribosome's",
+          "B": "lysosomes",
+          "C": "mitochondria",
+          "D": "plastids"
+        },
+        "correct_option": "B",
+        "explanation": "Lysosomes contain hydrolytic (digestive) enzymes used to break down waste materials and cellular debris."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_032",
+        "question": "Which of the following habitats from the highest diversity of living species?",
+        "options": {
+          "A": "tropical rain forests",
+          "B": "savannah grassland",
+          "C": "desert",
+          "D": "tropical forests"
+        },
+        "correct_option": "A",
+        "explanation": "Due to optimal temperature, high rainfall, and abundant sunlight, tropical rainforests support the highest biodiversity."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_033",
+        "question": "Lack of protein in the diet of children manifest easily because",
+        "options": {
+          "A": "children do not store up protein efficiently",
+          "B": "it is difficult for the children to chew meat",
+          "C": "protein supplies energy to the body",
+          "D": "protein is responsible for growth and repairs"
+        },
+        "correct_option": "D",
+        "explanation": "Children are actively growing; a lack of protein immediately halts growth and tissue repair, leading to Kwashiorkor."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_034",
+        "question": "Growth response of a plant to a light gradient is known as",
+        "options": {
+          "A": "mastic movement",
+          "B": "geotropism",
+          "C": "hydrotropism",
+          "D": "Phototropism"
+        },
+        "correct_option": "D",
+        "explanation": "\"Photo\" means light, and \"tropism\" means directional growth."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_035",
+        "question": "A characteristic feature of subsistence agriculture is",
+        "options": {
+          "A": "supply of labour by farm families",
+          "B": "wholesale of farm harvest",
+          "C": "purchasing of seeds for planting",
+          "D": "disease's control",
+          "E": "none of the above"
+        },
+        "correct_option": "A",
+        "explanation": "Subsistence farming is small-scale, mainly to feed the farmer's family, using family labor rather than hired machines."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_036",
+        "question": "Which of the following is primary product of the forest trees?",
+        "options": {
+          "A": "paper",
+          "B": "particle board",
+          "C": "timber",
+          "D": "cardboard",
+          "E": "pulp"
+        },
+        "correct_option": "C",
+        "explanation": "Timber is the direct raw material obtained from trees, which is later processed into secondary products like paper and pulp."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_037",
+        "question": "One of the sexually transmitted diseases in livestock is",
+        "options": {
+          "A": "brucellosis",
+          "B": "rinderpest",
+          "C": "scabies",
+          "D": "ring worm",
+          "E": "red water"
+        },
+        "correct_option": "A",
+        "explanation": "Brucellosis is highly contagious in cattle and can be transmitted sexually or through contact with aborted fetuses."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_038",
+        "question": "Checking on costs and returns enables the farmer to",
+        "options": {
+          "A": "ascertain the immediate financial position of the farm",
+          "B": "ascertain the future financial position of the farm",
+          "C": "keep farm records",
+          "D": "plan the organization of a farm annually",
+          "E": "know when there is excessive depreciation of farm machinery"
+        },
+        "correct_option": "A",
+        "explanation": "Comparing current expenses (costs) and income (returns) gives a snapshot of current profitability."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_039",
+        "question": "Exposing farmers to scientific knowledge is the responsibility of the",
+        "options": {
+          "A": "research institute",
+          "B": "farm settlers",
+          "C": "agro-service centre",
+          "D": "extension personnel",
+          "E": "agricultural development project"
+        },
+        "correct_option": "D",
+        "explanation": "Agricultural extension officers bridge the gap between researchers and farmers, teaching them new techniques."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_040",
+        "question": "Stud bull is the term used in describing",
+        "options": {
+          "A": "a castrated male cattle",
+          "B": "a bull kept for breeding",
+          "C": "an old bull used for draft purposes",
+          "D": "a bull used for artificial insemination",
+          "E": "an immature male cattle"
+        },
+        "correct_option": "B",
+        "explanation": "A stud is a male animal retained specifically for its high-quality genetics for breeding purposes."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_041",
+        "question": "Which of the following groups of crops will perform better in the savannah zone of West Africa?",
+        "options": {
+          "A": "cotton, millet and groundnut",
+          "B": "cotton, coffee and cocoa",
+          "C": "tobacco, sorghum and banana",
+          "D": "sorghum, millet and oil palm",
+          "E": "millet, melon and cassava"
+        },
+        "correct_option": "A",
+        "explanation": "These crops thrive in environments with less rainfall and longer dry seasons, characteristic of the savannah."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_042",
+        "question": "The following livestock diseases are caused by viruses except",
+        "options": {
+          "A": "anthrax",
+          "B": "foot and mouth diseases",
+          "C": "rinderpest",
+          "D": "Newcastle disease",
+          "E": "fowl pox"
+        },
+        "correct_option": "A",
+        "explanation": "Anthrax is caused by a bacterium (*Bacillus anthracis*). The rest are viral."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_043",
+        "question": "The most important soil micro organisms concerned with decay and nutrient recycling are",
+        "options": {
+          "A": "bacteria and fungi",
+          "B": "fungi and algae",
+          "C": "algae and actinomyces",
+          "D": "actinomyces and bacteria",
+          "E": "bacteria and algae"
+        },
+        "correct_option": "A",
+        "explanation": "These are the primary saprophytes (decomposers) in the ecosystem."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_044",
+        "question": "When leaves of crop plants show brownish colouration from the tips of the mid-ribs backward, they are showing deficiency symptom of",
+        "options": {
+          "A": "magnesium",
+          "B": "zinc",
+          "C": "nitrogen",
+          "D": "copper",
+          "E": "phosphorus"
+        },
+        "correct_option": "E",
+        "explanation": "Typically, phosphorus deficiency causes purplish-brown discoloration. Be aware of varying marking schemes. (UNIPORT Key sometimes accepts B. Zinc)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_045",
+        "question": "Which of the following crops cannot be easily improved by cross-breeding",
+        "options": {
+          "A": "groundnut",
+          "B": "cowpea",
+          "C": "oil palm",
+          "D": "maize",
+          "E": "yam"
+        },
+        "correct_option": "E",
+        "explanation": "Yams are mostly propagated vegetatively (by tubers) making sexual cross-breeding difficult compared to seed crops."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_046",
+        "question": "The correct sequence in preparing new land for cropping is usually",
+        "options": {
+          "A": "stumping, laying out of farm, ridging and tilling",
+          "B": "laying out of farm, ridging, stumping and tilling",
+          "C": "tilling, stumping, ridging and laying out of farm",
+          "D": "ridging, laying out of farm, tilling and stumping",
+          "E": "laying out of farm, stumping, tilling and ridging"
+        },
+        "correct_option": "E",
+        "explanation": "You first map the area (layout), remove roots/stumps (stumping), break the soil (tilling), then make ridges for planting."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_047",
+        "question": "Diarrhea tainted with blood is a symptom of",
+        "options": {
+          "A": "trypanosomiasis",
+          "B": "coccidiosis",
+          "C": "ketosis",
+          "D": "brucellosis",
+          "E": "Aspergilliosis"
+        },
+        "correct_option": "B",
+        "explanation": "Coccidiosis affects the intestinal tract of animals (especially poultry), leading to bloody feces."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_048",
+        "question": "Which path does sound entering the human ear follow?",
+        "options": {
+          "A": "oral window ossicles eardrum",
+          "B": "eardrum oval window ossicles",
+          "C": "ossicles eardrum oval window",
+          "D": "eardrum ossicles oval window"
+        },
+        "correct_option": "D",
+        "explanation": "Sound hits the eardrum first, vibrates the three ossicles (hammer, anvil, stirrup), which push against the oval window. *(Note: UNIPORT had a typo in their options on page 25, just look for Eardrum -> Ossicles -> Oval window)*."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_049",
+        "question": "The activity of ptyalin is likely to decrease with an increase in the concentration of",
+        "options": {
+          "A": "oxygen",
+          "B": "starch",
+          "C": "protein",
+          "D": "acid"
+        },
+        "correct_option": "D",
+        "explanation": "Ptyalin (salivary amylase) works best in a slightly alkaline or neutral pH. The acid in the stomach stops its activity."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_050",
+        "question": "An individual in the AB blood group is a universal recipient for blood done because",
+        "options": {
+          "A": "all the red blood cells do not carry antigen",
+          "B": "all the red blood cells carry antigen A",
+          "C": "all the red blood cells carry antigen B",
+          "D": "there are no antigen A and B anti-bodies in the serum"
+        },
+        "correct_option": "D",
+        "explanation": "Since they lack both antibodies in their blood plasma, they won't attack and clump transfused blood."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_051",
+        "question": "Neurons that receive stimuli from the body or internal organs are called",
+        "options": {
+          "A": "sensory neurons",
+          "B": "efferent neurons",
+          "C": "motor neurons",
+          "D": "relay neurons"
+        },
+        "correct_option": "A",
+        "explanation": "They \"sense\" changes and carry the information to the brain."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_052",
+        "question": "A population is defined as a collection of similar organism that",
+        "options": {
+          "A": "behave in the same way",
+          "B": "interbreed freely",
+          "C": "are found in the same habitat",
+          "D": "eat the same food"
+        },
+        "correct_option": "B",
+        "explanation": "A population consists of members of the same species living together, capable of interbreeding."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_053",
+        "question": "In a typical predator food chain involving secondary and tertiary consumers, organism become progressively",
+        "options": {
+          "A": "smaller and more numerous along the food chain",
+          "B": "equal in number and size along the food chain",
+          "C": "larger and fewer along the food chain",
+          "D": "parasitized along the food chain as consumers get bigger"
+        },
+        "correct_option": "C",
+        "explanation": "Predators are generally larger than their prey, but because of energy loss at each trophic level, they are fewer in number."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_054",
+        "question": "In a bean seed, absorption of water at the beginning of germination is through the",
+        "options": {
+          "A": "Hilum",
+          "B": "Microphyle",
+          "C": "Testa",
+          "D": "plumule"
+        },
+        "correct_option": "B",
+        "explanation": "**Typo alert!** They meant *Micropyle*, a tiny hole in the seed coat that lets water in to kickstart germination."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_055",
+        "question": "The reproductive system of a male mammal is made up of",
+        "options": {
+          "A": "Claspers, prostate gland, sperm duct and vas deferens",
+          "B": "Testes prostrate gland, sperm duct and vas deferens",
+          "C": "Oviduct, urethra, testis and sperm duct",
+          "D": "Testis, uterus, prostrate gland and sperm duct"
+        },
+        "correct_option": "B",
+        "explanation": "**Typo alert!** UNIPORT wrote \"prostrate\" instead of \"prostate\". Oviduct and uterus (C and D) are female organs. Claspers (A) are found in male sharks, not mammals."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_056",
+        "question": "The axial skeleton is found in the",
+        "options": {
+          "A": "Skull, ribs, vertebral column and breast bone",
+          "B": "Skull, humerus, vertebral column",
+          "C": "Breast bone, Clavicle, ribs and vertebral",
+          "D": "Femur, sternum, ulna and skull"
+        },
+        "correct_option": "A",
+        "explanation": "The axial skeleton is the central axis of the body. Limbs and girdles (clavicle, humerus, femur) belong to the appendicular skeleton."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_057",
+        "question": "In insects, the structure that performs the same function as the kidney in man is the",
+        "options": {
+          "A": "Nephridium",
+          "B": "Flame cell",
+          "C": "Malphigian tubule",
+          "D": "Trachea"
+        },
+        "correct_option": "C",
+        "explanation": "It removes nitrogenous wastes from the insect's hemolymph."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_058",
+        "question": "The more the hydrogen peroxide (H2O2) in urine, the",
+        "options": {
+          "A": "lighter the color of the strip",
+          "B": "the acidic the urine be",
+          "C": "darker the color of the strip",
+          "D": "more healthier a person be"
+        },
+        "correct_option": "C",
+        "explanation": "This refers to urinalysis testing strips; high oxidative stress or specific reactions turn the indicator pad darker."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_059",
+        "question": "Hydrogen peroxide (H2O2)",
+        "options": {
+          "A": "helps line up cell proteins",
+          "B": "is poisonous to tissues",
+          "C": "is often needed as a catalyst",
+          "D": "aids in oxidation of glucose"
+        },
+        "correct_option": "B",
+        "explanation": "H2O2 is a toxic byproduct of metabolism that must be rapidly broken down by the enzyme catalase into water and oxygen."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_060",
+        "question": "The nature of rennin is slightly",
+        "options": {
+          "A": "Acidic",
+          "B": "alkaline",
+          "C": "water based",
+          "D": "mineral based"
+        },
+        "correct_option": "A",
+        "explanation": "Rennin is a stomach enzyme that coagulates milk, operating best in the acidic environment of the stomach."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_061",
+        "question": "The application of biotechnology procedures in agricultural field is classified as",
+        "options": {
+          "A": "white biotechnology",
+          "B": "red biotechnology",
+          "C": "blue biotechnology",
+          "D": "green biotechnology"
+        },
+        "correct_option": "D",
+        "explanation": "Green relates to agriculture. Red is medical, white is industrial, and blue is aquatic biotechnology."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_062",
+        "question": "Consequences of water pollution includes",
+        "options": {
+          "A": "discharge of untreated sewage",
+          "B": "burning of fossil fuels",
+          "C": "loss of habitat",
+          "D": "climate changes"
+        },
+        "correct_option": "C",
+        "explanation": "Options A and B are *causes*, not consequences. Pollution destroys the aquatic habitat, killing marine life."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_063",
+        "question": "Deforestation is caused due to",
+        "options": {
+          "A": "Grazing",
+          "B": "timber",
+          "C": "Cultivation",
+          "D": "all of these"
+        },
+        "correct_option": "D",
+        "explanation": "Clearing trees for livestock grazing, logging for timber, and clearing land for farming all cause deforestation."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_064",
+        "question": "Endemics include",
+        "options": {
+          "A": "Malaria",
+          "B": "plague",
+          "C": "cholera",
+          "D": "typhoid"
+        },
+        "correct_option": "A",
+        "explanation": "An endemic disease is constantly present in a specific population or region. Malaria is endemic to Sub-Saharan Africa."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_065",
+        "question": "In the outer corner of the upper lid, is the",
+        "options": {
+          "A": "lachrymal tear gland",
+          "B": "naso-lachrymal duct",
+          "C": "liberal palpebral ligament",
+          "D": "orbital part"
+        },
+        "correct_option": "A",
+        "explanation": "It produces tears to keep the eye moist."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_066",
+        "question": "The innermost layer of the eyeball is",
+        "options": {
+          "A": "iris",
+          "B": "retina",
+          "C": "ciliary body",
+          "D": "pupil"
+        },
+        "correct_option": "B",
+        "explanation": "The sclera is the outer layer, the choroid is the middle, and the retina is the inner layer containing photoreceptors."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_067",
+        "question": "Front of the ribs are attached to the",
+        "options": {
+          "A": "diaphragm",
+          "B": "sternum",
+          "C": "external intercostal muscles",
+          "D": "internal intercostal muscles"
+        },
+        "correct_option": "B",
+        "explanation": "The ribs connect to the vertebral column at the back and the sternum (breastbone) at the front."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_068",
+        "question": "The vains of the leaf are formed by the",
+        "options": {
+          "A": "vascular bundles",
+          "B": "cambium cell",
+          "C": "palisade tissue",
+          "D": "spongy mesophyll"
+        },
+        "correct_option": "A",
+        "explanation": "**Typo alert!** UNIPORT spelled it \"vains\" instead of \"veins\". Veins contain the xylem and phloem (vascular bundles) for transport."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_069",
+        "question": "The two type of biogenetic tissues are",
+        "options": {
+          "A": "phloem and parenchyma",
+          "B": "meristematic and non-meristematic",
+          "C": "meristematic and fruit",
+          "D": "flower and fruit"
+        },
+        "correct_option": "B",
+        "explanation": "Plant tissues are broadly grouped into those that divide actively (meristematic) and those that do not (non-meristematic/permanent)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_070",
+        "question": "The surface of an alveolus in a mammals is well supplied with tiny blood vessels known as",
+        "options": {
+          "A": "capillaries",
+          "B": "arteries",
+          "C": "arterioles",
+          "D": "venules"
+        },
+        "correct_option": "A",
+        "explanation": "Capillaries are only one cell thick, allowing for rapid diffusion of gases between the lungs and the blood."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_071",
+        "question": "The stunted growth of a leguminious plant suffering from nitrogen deficiency may be corrected by inoculating the soil with",
+        "options": {
+          "A": "saprophytic bacteria",
+          "B": "rhizobium",
+          "C": "denitrifying bacteria",
+          "D": "nitrosomonas"
+        },
+        "correct_option": "B",
+        "explanation": "Rhizobium bacteria form root nodules in legumes and fix atmospheric nitrogen into the soil."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_072",
+        "question": "The gall bladder of a mammal has duct connected to the",
+        "options": {
+          "A": "duodenum",
+          "B": "liver",
+          "C": "pancreas",
+          "D": "small"
+        },
+        "correct_option": "A",
+        "explanation": "The bile duct carries bile from the gall bladder into the duodenum (first part of the small intestine)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_073",
+        "question": "The aspect of ferns are dispersed by",
+        "options": {
+          "A": "wind",
+          "B": "water",
+          "C": "insects",
+          "D": "explosive mechanism"
+        },
+        "correct_option": "A",
+        "explanation": "Ferns reproduce via lightweight spores that are easily blown by the wind."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_074",
+        "question": "The spores of ferns are dispersed by",
+        "options": {
+          "A": "wind",
+          "B": "water",
+          "C": "insects",
+          "D": "explosive mechanism"
+        },
+        "correct_option": "A",
+        "explanation": "(This is essentially a repeat of Q73 from UNIPORT's 2014 Health Science paper!)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_075",
+        "question": "The structures found only in plant cells are:",
+        "options": {
+          "A": "cell membrane and cytoplasm",
+          "B": "chromatin and nucleolus",
+          "C": "cell and chloroplast"
+        },
+        "correct_option": "C",
+        "explanation": "**Typo alert!** UNIPORT wrote \"cell\" instead of \"cell wall\". Animal cells lack both cell walls and chloroplasts."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_076",
+        "question": "Which of the following is the youngest plant tissue?",
+        "options": {
+          "A": "meristem",
+          "B": "phloem",
+          "C": "epidermis",
+          "D": "xylem"
+        },
+        "correct_option": "A",
+        "explanation": "Meristematic tissues are regions of continuous active cell division, making them the newest/youngest cells."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_077",
+        "question": "Viruses differ from all forms of life because they ……..",
+        "options": {
+          "A": "have a thick cell wall",
+          "B": "feed on waste products of other organisms",
+          "C": "cause infectious diseases",
+          "D": "require other living cells to multiply"
+        },
+        "correct_option": "D",
+        "explanation": "Viruses are obligate intracellular parasites. They cannot reproduce on their own outside a host cell."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_078",
+        "question": "The endoplasm cells found in hydra are used for",
+        "options": {
+          "A": "reproduction",
+          "B": "offence and defense",
+          "C": "locomotion and nutrition",
+          "D": "food collection"
+        },
+        "correct_option": "C",
+        "explanation": "The inner layer (endoderm) contains gland and muscle cells aiding in digestion and some movement functions."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_079",
+        "question": "Annelids differ from nematodes in that they ……",
+        "options": {
+          "A": "exhibit bilateral symmetry",
+          "B": "are triploblastic",
+          "C": "are metamerically segmented",
+          "D": "possess complete digestive system"
+        },
+        "correct_option": "C",
+        "explanation": "Annelids (like earthworms) have bodies divided into visible, repetitive segments, while nematodes (roundworms) do not."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_080",
+        "question": "Which of the following perform similar functions?",
+        "options": {
+          "A": "ascospores and ascocarp",
+          "B": "antherozoids and rhizoids",
+          "C": "sorus and indusium",
+          "D": "strobili and inflorenscence"
+        },
+        "correct_option": "D",
+        "explanation": "Both are reproductive structures. Strobili (cones) in gymnosperms, and inflorescence (flower clusters) in angiosperms."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_081",
+        "question": "In ferns, the sporophyte ……",
+        "options": {
+          "A": "develops from a haploid zygote",
+          "B": "produce spores",
+          "C": "is haploid and dependent on the gametophyte",
+          "D": "is haploid and independent of the gametophyte"
+        },
+        "correct_option": "B",
+        "explanation": "The sporophyte generation is diploid (making A incorrect) and produces haploid spores via meiosis."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_082",
+        "question": "The group of insects that undergoes metamorphosis is …….",
+        "options": {
+          "A": "house flies, beetles and cockroaches",
+          "B": "cockroaches, grasshopper and bees",
+          "C": "house flies, beetle and butterflies",
+          "D": "aphids, grasshoppers and butterflies"
+        },
+        "correct_option": "C",
+        "explanation": "These undergo *complete* metamorphosis (holometabolous: egg -> larva -> pupa -> adult)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_083",
+        "question": "The nitrogenous substance that is excreted by birds in order to conserve water is ….",
+        "options": {
+          "A": "ammonia",
+          "B": "urea",
+          "C": "uric acid",
+          "D": "nitric acid"
+        },
+        "correct_option": "C",
+        "explanation": "Uric acid requires very little water to be flushed out, making it ideal for egg-laying and flying animals to conserve weight and hydration."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_084",
+        "question": "In mammals, the exchange of nutrients and metabolic products occurs in the ….",
+        "options": {
+          "A": "lymph",
+          "B": "lungs",
+          "C": "heart",
+          "D": "liver"
+        },
+        "correct_option": "A",
+        "explanation": "Lymph and tissue fluids bathe the cells, facilitating the direct exchange of materials between blood and cells."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_085",
+        "question": "The part of the stomach nearer the gullet is called the ……",
+        "options": {
+          "A": "epiglottis",
+          "B": "cardiac sphincter",
+          "C": "duodenum",
+          "D": "pyloric sphincter"
+        },
+        "correct_option": "B",
+        "explanation": "It connects the esophagus (gullet) to the stomach, preventing stomach acid from splashing upward. The pyloric sphincter is at the bottom end."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_086",
+        "question": "A biological association in which one organism benefits while the other is neither harmed nor benefits is known as",
+        "options": {
+          "A": "Parasitism",
+          "B": "Mutualism",
+          "C": "Commensalism",
+          "D": "Symbiosis"
+        },
+        "correct_option": "C",
+        "explanation": "A classic example frequently tested by UNIPORT is the shark and remora fish."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_087",
+        "question": "The deficiency of vitamin D and calcium in the diet of a child leads to a condition known as",
+        "options": {
+          "A": "Scurvy",
+          "B": "Rickets",
+          "C": "Pellagra",
+          "D": "Kwashiorkor"
+        },
+        "correct_option": "B",
+        "explanation": "Causes soft and bowed legs in growing children. Scurvy is Vitamin C deficiency."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_088",
+        "question": "In plants, the transport of manufactured food from the leaves to other parts of the plant is carried out by the",
+        "options": {
+          "A": "Xylem",
+          "B": "Phloem",
+          "C": "Cambium",
+          "D": "Epidermis"
+        },
+        "correct_option": "B",
+        "explanation": "Xylem transports water; Phloem transports food (translocation)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_089",
+        "question": "The part of the mammalian brain responsible for the maintenance of posture and balance is the",
+        "options": {
+          "A": "Cerebrum",
+          "B": "Medulla oblongata",
+          "C": "Cerebellum",
+          "D": "Hypothalamus"
+        },
+        "correct_option": "C",
+        "explanation": "The cerebellum coordinates fine motor movements and balance."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_090",
+        "question": "Which of the following blood vessels carries oxygenated blood from the lungs to the heart?",
+        "options": {
+          "A": "Pulmonary artery",
+          "B": "Pulmonary vein",
+          "C": "Hepatic portal vein",
+          "D": "Aorta"
+        },
+        "correct_option": "B",
+        "explanation": "It is the only vein in the human body that carries oxygen-rich blood."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_091",
+        "question": "The process by which green plants lose water in the form of water vapour to the atmosphere is called",
+        "options": {
+          "A": "Evaporation",
+          "B": "Guttation",
+          "C": "Transpiration",
+          "D": "Respiration"
+        },
+        "correct_option": "C",
+        "explanation": "Mostly occurs through the stomata on the leaves."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_092",
+        "question": "Which of the following enzymes is responsible for the breakdown of proteins in the stomach?",
+        "options": {
+          "A": "Ptyalin",
+          "B": "Lipase",
+          "C": "Pepsin",
+          "D": "Amylase"
+        },
+        "correct_option": "C",
+        "explanation": "It requires the acidic environment (HCl) of the stomach to function."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_093",
+        "question": "An organism with the genotype RrYy produces how many types of gametes?",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "4",
+          "D": "8"
+        },
+        "correct_option": "C",
+        "explanation": "Using the formula $2^n$ where $n$ is the number of heterozygotes (2). The gametes are RY, Ry, rY, ry."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_094",
+        "question": "The conversion of atmospheric nitrogen into nitrates by soil bacteria is an example of",
+        "options": {
+          "A": "Denitrification",
+          "B": "Putrefaction",
+          "C": "Nitrogen fixation",
+          "D": "Ammonification"
+        },
+        "correct_option": "C",
+        "explanation": "Crucial for making nitrogen available for plant growth."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_095",
+        "question": "The structural and functional unit of the mammalian kidney is the",
+        "options": {
+          "A": "Bowman's capsule",
+          "B": "Glomerulus",
+          "C": "Nephron",
+          "D": "Ureter"
+        },
+        "correct_option": "C",
+        "explanation": "There are about a million nephrons in each kidney handling blood filtration."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_096",
+        "question": "In genetic crosses, a trait that is expressed in the phenotype of a heterozygous individual is said to be",
+        "options": {
+          "A": "Recessive",
+          "B": "Dominant",
+          "C": "Co-dominant",
+          "D": "Mutated"
+        },
+        "correct_option": "B",
+        "explanation": "The dominant allele masks the effect of the recessive allele (e.g., Tt appears tall)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_097",
+        "question": "The primary host of the parasite Taenia solium (pork tapeworm) is",
+        "options": {
+          "A": "Pig",
+          "B": "Snail",
+          "C": "Dog",
+          "D": "Man"
+        },
+        "correct_option": "D",
+        "explanation": "Humans are the definitive (primary) host where the adult tapeworm reproduces. Pigs are intermediate."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_098",
+        "question": "The structure that prevents food from entering the trachea during swallowing is the",
+        "options": {
+          "A": "Larynx",
+          "B": "Pharynx",
+          "C": "Epiglottis",
+          "D": "Glottis"
+        },
+        "correct_option": "C",
+        "explanation": "It acts as a mechanical lid to protect your airway."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_099",
+        "question": "The progressive series of changes in plant and animal communities in a given habitat over a period of time until a climax community is established is called",
+        "options": {
+          "A": "Evolution",
+          "B": "Adaptive radiation",
+          "C": "Ecological succession",
+          "D": "Natural selection"
+        },
+        "correct_option": "C",
+        "explanation": "A common example is an abandoned farm eventually turning into a forest."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_100",
+        "question": "A red blood cell placed in distilled water will swell and burst. This is because distilled water is",
+        "options": {
+          "A": "Isotonic to the cell",
+          "B": "Hypertonic to the cell",
+          "C": "Hypotonic to the cell",
+          "D": "Plasmolysed"
+        },
+        "correct_option": "C",
+        "explanation": "Hypotonic solutions have lower solute concentrations, causing water to enter the cell via osmosis."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v2_101",
+        "question": "The hormone responsible for the conversion of excess glucose to glycogen in the human body is",
+        "options": {
+          "A": "Adrenaline",
+          "B": "Thyroxine",
+          "C": "Insulin",
+          "D": "Glucagon"
+        },
+        "correct_option": "C",
+        "explanation": "Produced by the pancreas, insulin lowers blood sugar levels."
+      }
+    ]
   }
 ]
