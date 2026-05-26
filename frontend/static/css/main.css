@@ -485,3 +485,9 @@ code, pre, .mono {
     grid-template-columns: 1fr !important;
   }
 }
+
+.active-size {
+    background: var(--accent) !important;
+    color: #000 !important;
+    border-color: var(--accent) !important;
+}
