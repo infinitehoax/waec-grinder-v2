@@ -71,6 +71,20 @@ const API = {
     });
     return this._handleResponse(res, 'Explanation request failed');
   },
+
+  async trackMastery(userId, userName) {
+    const res = await fetch(`${APP_CONFIG.API_BASE}/track-mastery`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, userName }),
+    });
+    return this._handleResponse(res, 'Mastery tracking failed');
+  },
+
+  async getLeaderboard(key = 'daily-questions-mastered', limit = 10) {
+    const res = await fetch(`${APP_CONFIG.API_BASE}/leaderboard?key=${key}&limit=${limit}`);
+    return this._handleResponse(res, 'Failed to load leaderboard');
+  },
 };
 
 export default API;

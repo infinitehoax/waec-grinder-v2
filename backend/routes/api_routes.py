@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from backend.services.data_service import load_questions
 from backend.services.llm_service import grade_sub_question, explain_concept, GradingError
+from backend.services.trophy_service import TrophyService
 from backend.config import Config
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
@@ -87,3 +88,28 @@ def get_config():
         "pass_threshold": Config.PASS_THRESHOLD,
         "has_api_key": bool(Config.OPENROUTER_API_KEY)
     }), 200
+
+
+@api_bp.route('/leaderboard', methods=['GET'])
+def get_leaderboard():
+    """Fetches leaderboard from Trophy."""
+    key = request.args.get('key', 'daily-questions-mastered')
+    limit = request.args.get('limit', 10, type=int)
+    rankings = TrophyService.get_leaderboard(key, limit)
+    return jsonify(rankings), 200
+
+
+@api_bp.route('/track-mastery', methods=['POST'])
+def track_mastery():
+    """Tracks a question mastered event in Trophy."""
+    data = request.get_json()
+    if not data or 'userId' not in data:
+        return jsonify({"error": "Missing userId"}), 400
+
+    user_id = data['userId']
+    user_name = data.get('userName', 'Student')
+
+    # Track the 'questions-mastered' metric in Trophy
+    result = TrophyService.track_event(user_id, user_name, 'questions-mastered', 1)
+
+    return jsonify({"success": bool(result), "data": result}), 200

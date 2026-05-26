@@ -94,6 +94,14 @@ const Storage = {
     return uuid;
   },
 
+  getPlayerName() {
+    return Storage._get('wg_player_name') || 'Student';
+  },
+
+  setPlayerName(name) {
+    Storage._set('wg_player_name', name);
+  },
+
   // ---- Subject-scoped helpers ----
   _getScoped(subject, key) {
     const data = Storage._getRaw(`wg_sub_${subject}`) || {};
