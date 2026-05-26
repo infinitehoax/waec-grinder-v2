@@ -4843,5 +4843,1222 @@
         ]
       }
     ]
+  },
+  {
+    "subject": "UNIPORT Biology Post-UTME v1",
+    "obj": [
+      {
+        "id": "obj_bio_uniport_post_utme_v1_001",
+        "question": "The organelle responsible for aerobic respiration and the generation of ATP in a living cell is the:",
+        "options": {
+          "A": "Nucleus",
+          "B": "Ribosome",
+          "C": "Mitochondrion",
+          "D": "Golgi body"
+        },
+        "correct_option": "C",
+        "explanation": "It is the powerhouse of the cell where cellular respiration occurs."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_002",
+        "question": "Which of the following elements is a micro-nutrient (trace element) required by plants?",
+        "options": {
+          "A": "Nitrogen",
+          "B": "Phosphorus",
+          "C": "Potassium",
+          "D": "Zinc"
+        },
+        "correct_option": "D",
+        "explanation": "N, P, and K are macronutrients needed in large quantities."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_003",
+        "question": "In a dicotyledonous stem, the zone of actively dividing cells responsible for secondary growth is the:",
+        "options": {
+          "A": "Phloem",
+          "B": "Xylem",
+          "C": "Cambium",
+          "D": "Cortex"
+        },
+        "correct_option": "C",
+        "explanation": "Cambium cells divide to produce secondary xylem and secondary phloem, increasing the plant's girth."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_004",
+        "question": "The excretory organ of an earthworm is the:",
+        "options": {
+          "A": "Flame cell",
+          "B": "Nephridium",
+          "C": "Malpighian tubule",
+          "D": "Kidney"
+        },
+        "correct_option": "B",
+        "explanation": "Flame cells are for flatworms, Malpighian tubules for insects."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_005",
+        "question": "The process by which the eye lens adjusts its focal length to view objects at varying distances is called:",
+        "options": {
+          "A": "Binocular vision",
+          "B": "Astigmatism",
+          "C": "Accommodation",
+          "D": "Refraction"
+        },
+        "correct_option": "C",
+        "explanation": "The ciliary muscles alter the shape of the lens to achieve this."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_006",
+        "question": "Which of the following is a fat-soluble vitamin?",
+        "options": {
+          "A": "Vitamin B1",
+          "B": "Vitamin C",
+          "C": "Vitamin B12",
+          "D": "Vitamin K"
+        },
+        "correct_option": "D",
+        "explanation": "Vitamins A, D, E, and K are fat-soluble, while B and C are water-soluble."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_007",
+        "question": "A universal donor has blood group:",
+        "options": {
+          "A": "A",
+          "B": "B",
+          "C": "AB",
+          "D": "O"
+        },
+        "correct_option": "D",
+        "explanation": "Group O lacks antigens A and B on its red blood cells, so it will not clump when transfused into other groups."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_008",
+        "question": "The breakdown of glucose to pyruvic acid during cellular respiration is known as:",
+        "options": {
+          "A": "Krebs cycle",
+          "B": "Glycolysis",
+          "C": "Electron transport",
+          "D": "Fermentation"
+        },
+        "correct_option": "B",
+        "explanation": "This occurs in the cytoplasm and does not require oxygen."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_009",
+        "question": "The main nitrogenous waste excreted by birds and insects is:",
+        "options": {
+          "A": "Urea",
+          "B": "Ammonia",
+          "C": "Uric acid",
+          "D": "Amino acids"
+        },
+        "correct_option": "C",
+        "explanation": "It is excreted as a paste to conserve water."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_010",
+        "question": "Which part of the mammalian ear is responsible for maintaining body balance and posture?",
+        "options": {
+          "A": "Cochlea",
+          "B": "Eustachian tube",
+          "C": "Semicircular canals",
+          "D": "Ear drum"
+        },
+        "correct_option": "C",
+        "explanation": "The cochlea is strictly for hearing."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_011",
+        "question": "A true fruit develops from the:",
+        "options": {
+          "A": "Receptacle",
+          "B": "Ovule",
+          "C": "Ovary",
+          "D": "Calyx"
+        },
+        "correct_option": "C",
+        "explanation": "After fertilization, the ovary swells to become the fruit, while the ovule becomes the seed."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_012",
+        "question": "The accumulation of lactic acid in mammalian muscles during vigorous exercise is a result of:",
+        "options": {
+          "A": "Aerobic respiration",
+          "B": "Anaerobic respiration",
+          "C": "Excessive sweating",
+          "D": "Muscle tear"
+        },
+        "correct_option": "B",
+        "explanation": "When oxygen supply is insufficient, glucose is broken down anaerobically into lactic acid."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_013",
+        "question": "A biological association where one organism attaches itself to another for transport without causing harm is:",
+        "options": {
+          "A": "Parasitism",
+          "B": "Predation",
+          "C": "Commensalism",
+          "D": "Mutualism"
+        },
+        "correct_option": "C",
+        "explanation": "An example is the remora fish and the shark."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_014",
+        "question": "The vector for the parasite that causes sleeping sickness is the:",
+        "options": {
+          "A": "Anopheles mosquito",
+          "B": "Housefly",
+          "C": "Tsetse fly",
+          "D": "Sandfly"
+        },
+        "correct_option": "C",
+        "explanation": "It transmits the Trypanosoma parasite."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_015",
+        "question": "Which of the following organisms exhibits both plant and animal characteristics?",
+        "options": {
+          "A": "Amoeba",
+          "B": "Paramecium",
+          "C": "Euglena",
+          "D": "Spirogyra"
+        },
+        "correct_option": "C",
+        "explanation": "It has chloroplasts for photosynthesis like a plant, but lacks a cell wall and moves using a flagellum like an animal."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_016",
+        "question": "The cell wall of fungi is primarily made up of:",
+        "options": {
+          "A": "Cellulose",
+          "B": "Chitin",
+          "C": "Peptidoglycan",
+          "D": "Lignin"
+        },
+        "correct_option": "B",
+        "explanation": "Plant cell walls are made of cellulose; fungal cell walls are made of chitin."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_017",
+        "question": "The bending of a plant shoot towards a unilateral source of light is an example of:",
+        "options": {
+          "A": "Positive geotropism",
+          "B": "Negative phototropism",
+          "C": "Positive phototropism",
+          "D": "Thigmotropism"
+        },
+        "correct_option": "C",
+        "explanation": "Auxins accumulate on the shaded side, causing it to grow faster and bend the shoot toward the light."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_018",
+        "question": "The part of a seed that grows into the shoot system of a plant is the:",
+        "options": {
+          "A": "Radicle",
+          "B": "Cotyledon",
+          "C": "Plumule",
+          "D": "Endosperm"
+        },
+        "correct_option": "C",
+        "explanation": "The radicle grows into the root system."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_019",
+        "question": "Which structure connects a bone to another bone at a joint?",
+        "options": {
+          "A": "Tendon",
+          "B": "Cartilage",
+          "C": "Ligament",
+          "D": "Muscle"
+        },
+        "correct_option": "C",
+        "explanation": "Tendons connect muscle to bone."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_020",
+        "question": "The causative agent of malaria is:",
+        "options": {
+          "A": "Female Anopheles mosquito",
+          "B": "Plasmodium",
+          "C": "Vibrio cholerae",
+          "D": "Trypanosoma"
+        },
+        "correct_option": "B",
+        "explanation": "The mosquito is just the vector/carrier; the actual disease-causing agent is the Plasmodium protozoan."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_021",
+        "question": "An underground stem that swells to store food, such as a yam, is called a:",
+        "options": {
+          "A": "Rhizome",
+          "B": "Corm",
+          "C": "Bulb",
+          "D": "Tuber"
+        },
+        "correct_option": "D",
+        "explanation": "Yam is a stem tuber; potato is also a stem tuber."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_022",
+        "question": "Which part of the mammalian brain is the seat of memory, intelligence, and voluntary actions?",
+        "options": {
+          "A": "Cerebellum",
+          "B": "Cerebrum",
+          "C": "Medulla oblongata",
+          "D": "Hypothalamus"
+        },
+        "correct_option": "B",
+        "explanation": "It is the largest part of the brain handling conscious thought."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_023",
+        "question": "The total number of chromosomes in a normal human gamete (sperm or egg) is:",
+        "options": {
+          "A": "46",
+          "B": "23",
+          "C": "22",
+          "D": "44"
+        },
+        "correct_option": "B",
+        "explanation": "Gametes are haploid, meaning they carry half the normal number of chromosomes."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_024",
+        "question": "The blood component directly responsible for blood clotting is:",
+        "options": {
+          "A": "Erythrocytes (Red Blood Cells)",
+          "B": "Leucocytes (White Blood Cells)",
+          "C": "Thrombocytes (Platelets)",
+          "D": "Plasma"
+        },
+        "correct_option": "C",
+        "explanation": "They initiate the clotting cascade to stop bleeding."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_025",
+        "question": "In the taxonomic classification of living organisms, which is the highest and most inclusive category?",
+        "options": {
+          "A": "Class",
+          "B": "Order",
+          "C": "Kingdom",
+          "D": "Phylum"
+        },
+        "correct_option": "C",
+        "explanation": "The order is Kingdom, Phylum, Class, Order, Family, Genus, Species."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_026",
+        "question": "Which type of germination is characterized by the cotyledons remaining below the soil surface?",
+        "options": {
+          "A": "Epigeal",
+          "B": "Hypogeal",
+          "C": "Radical",
+          "D": "Apical"
+        },
+        "correct_option": "B",
+        "explanation": "Maize exhibits hypogeal germination; beans exhibit epigeal germination where cotyledons emerge above ground."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_027",
+        "question": "The structure used for osmoregulation in *Amoeba* is the:",
+        "options": {
+          "A": "Food vacuole",
+          "B": "Nucleus",
+          "C": "Pseudopodium",
+          "D": "Contractile vacuole"
+        },
+        "correct_option": "D",
+        "explanation": "It actively expels excess water from the cell to prevent bursting."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_028",
+        "question": "Blood pressure is highest in the:",
+        "options": {
+          "A": "Vena cava",
+          "B": "Pulmonary artery",
+          "C": "Aorta",
+          "D": "Capillaries"
+        },
+        "correct_option": "C",
+        "explanation": "It receives blood pumped directly from the powerful left ventricle."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_029",
+        "question": "The second cervical vertebra in mammals is known as the:",
+        "options": {
+          "A": "Atlas",
+          "B": "Axis",
+          "C": "Thoracic",
+          "D": "Lumbar"
+        },
+        "correct_option": "B",
+        "explanation": "The first is the Atlas, the second is the Axis, which allows head rotation."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_030",
+        "question": "An ecological niche is best defined as:",
+        "options": {
+          "A": "The habitat of an organism",
+          "B": "The functional role of an organism in its environment",
+          "C": "The feeding level of an organism",
+          "D": "The physical space an organism occupies"
+        },
+        "correct_option": "B",
+        "explanation": "Niche includes how it feeds, reproduces, and interacts with the ecosystem."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_031",
+        "question": "A person who cannot see distant objects clearly is suffering from:",
+        "options": {
+          "A": "Hypermetropia",
+          "B": "Astigmatism",
+          "C": "Myopia",
+          "D": "Presbyopia"
+        },
+        "correct_option": "C",
+        "explanation": "Short-sightedness. It is corrected using a concave lens."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_032",
+        "question": "Continuous variation in human populations is best illustrated by:",
+        "options": {
+          "A": "Blood groups",
+          "B": "Fingerprints",
+          "C": "Height",
+          "D": "Sex"
+        },
+        "correct_option": "C",
+        "explanation": "Traits like height or skin colour have a range of intermediate values, unlike distinct traits like blood groups."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_033",
+        "question": "The enzyme *ptyalin* (salivary amylase) acts on:",
+        "options": {
+          "A": "Proteins",
+          "B": "Lipids",
+          "C": "Cooked starch",
+          "D": "Cellulose"
+        },
+        "correct_option": "C",
+        "explanation": "It breaks it down into complex sugars like maltose."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_034",
+        "question": "Root nodules of leguminous plants harbour bacteria that:",
+        "options": {
+          "A": "Cause root rot",
+          "B": "Fix atmospheric nitrogen",
+          "C": "Absorb water",
+          "D": "Promote transpiration"
+        },
+        "correct_option": "B",
+        "explanation": "Rhizobium bacteria convert nitrogen into nitrates the plant can use."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_035",
+        "question": "A fruit that splits open along two sutures to release its seeds is a:",
+        "options": {
+          "A": "Berry",
+          "B": "Legume",
+          "C": "Drupe",
+          "D": "Capsule"
+        },
+        "correct_option": "B",
+        "explanation": "Also known as a pod; examples include beans and cowpeas."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_036",
+        "question": "The hormone that prepares the body for \"fight or flight\" is:",
+        "options": {
+          "A": "Thyroxine",
+          "B": "Adrenaline",
+          "C": "Insulin",
+          "D": "Testosterone"
+        },
+        "correct_option": "B",
+        "explanation": "Secreted by the adrenal glands during emergencies."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_037",
+        "question": "The digestion of fats and oils yields:",
+        "options": {
+          "A": "Amino acids",
+          "B": "Glucose and fructose",
+          "C": "Fatty acids and glycerol",
+          "D": "Maltose"
+        },
+        "correct_option": "C",
+        "explanation": "Broken down by the enzyme lipase."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_038",
+        "question": "The largest digestive gland in the mammalian body is the:",
+        "options": {
+          "A": "Pancreas",
+          "B": "Salivary gland",
+          "C": "Liver",
+          "D": "Gall bladder"
+        },
+        "correct_option": "C",
+        "explanation": "It produces bile, stores glycogen, and detoxifies blood."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_039",
+        "question": "A group of cells that are similar in structure and perform the same function is called a:",
+        "options": {
+          "A": "System",
+          "B": "Tissue",
+          "C": "Organ",
+          "D": "Colony"
+        },
+        "correct_option": "B",
+        "explanation": "e.g., muscle tissue, xylem tissue."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_040",
+        "question": "The valve located between the right atrium and the right ventricle of the human heart is the:",
+        "options": {
+          "A": "Bicuspid (mitral) valve",
+          "B": "Tricuspid valve",
+          "C": "Semi-lunar valve",
+          "D": "Aortic valve"
+        },
+        "correct_option": "B",
+        "explanation": "The bicuspid valve is on the left side."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_041",
+        "question": "The pigment responsible for skin and hair colour, which also protects against UV radiation, is:",
+        "options": {
+          "A": "Haemoglobin",
+          "B": "Melanin",
+          "C": "Carotene",
+          "D": "Chlorophyll"
+        },
+        "correct_option": "B",
+        "explanation": "Produced by melanocytes in the epidermis."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_042",
+        "question": "Which of the following plants reproduces by spores and lacks true roots, stems, and leaves?",
+        "options": {
+          "A": "Ferns",
+          "B": "Pines",
+          "C": "Mosses",
+          "D": "Maize"
+        },
+        "correct_option": "C",
+        "explanation": "They are Bryophytes. Ferns have true stems and roots."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_043",
+        "question": "A cockroach undergoes incomplete metamorphosis. The correct sequence of its life cycle is:",
+        "options": {
+          "A": "Egg -> Larva -> Pupa -> Adult",
+          "B": "Egg -> Pupa -> Adult",
+          "C": "Egg -> Nymph -> Adult",
+          "D": "Nymph -> Pupa -> Adult"
+        },
+        "correct_option": "C",
+        "explanation": "Incomplete metamorphosis lacks a pupal stage."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_044",
+        "question": "The specific reagent used to test for the presence of starch in a leaf is:",
+        "options": {
+          "A": "Benedict's solution",
+          "B": "Biuret reagent",
+          "C": "Ethanol",
+          "D": "Iodine solution"
+        },
+        "correct_option": "D",
+        "explanation": "It turns blue-black in the presence of starch."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_045",
+        "question": "When a plant cell is placed in a hypertonic solution, it loses water and shrinks. This process is called:",
+        "options": {
+          "A": "Osmosis",
+          "B": "Plasmolysis",
+          "C": "Turgidity",
+          "D": "Haemolysis"
+        },
+        "correct_option": "B",
+        "explanation": "The cell membrane pulls away from the cell wall."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_046",
+        "question": "Which human blood group is considered the universal recipient?",
+        "options": {
+          "A": "A",
+          "B": "B",
+          "C": "AB",
+          "D": "O"
+        },
+        "correct_option": "C",
+        "explanation": "It has no antibodies against A or B antigens, so it can receive blood from any group."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_047",
+        "question": "The first stage of protein digestion in mammals takes place in the:",
+        "options": {
+          "A": "Mouth",
+          "B": "Stomach",
+          "C": "Duodenum",
+          "D": "Ileum"
+        },
+        "correct_option": "B",
+        "explanation": "Pepsin breaks down proteins into polypeptides."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_048",
+        "question": "The bone of the upper arm is the:",
+        "options": {
+          "A": "Radius",
+          "B": "Ulna",
+          "C": "Femur",
+          "D": "Humerus"
+        },
+        "correct_option": "D",
+        "explanation": "Femur is the thigh bone, radius/ulna are lower arm bones."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_049",
+        "question": "An instrument used in ecology to measure wind speed is the:",
+        "options": {
+          "A": "Hygrometer",
+          "B": "Anemometer",
+          "C": "Barometer",
+          "D": "Wind vane"
+        },
+        "correct_option": "B",
+        "explanation": "A wind vane measures wind direction, not speed."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_050",
+        "question": "Edaphic factors in an ecosystem refer strictly to:",
+        "options": {
+          "A": "Water conditions",
+          "B": "Light availability",
+          "C": "Soil factors",
+          "D": "Temperature"
+        },
+        "correct_option": "C",
+        "explanation": "This includes soil pH, texture, and mineral content."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_051",
+        "question": "In a food chain, organisms that feed directly on producers are called:",
+        "options": {
+          "A": "Secondary consumers",
+          "B": "Carnivores",
+          "C": "Decomposers",
+          "D": "Primary consumers"
+        },
+        "correct_option": "D",
+        "explanation": "Typically herbivores like grasshoppers or cows."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_052",
+        "question": "The basic unit of heredity is the:",
+        "options": {
+          "A": "Chromosome",
+          "B": "Nucleus",
+          "C": "Gene",
+          "D": "Chromatid"
+        },
+        "correct_option": "C",
+        "explanation": "Genes are segments of DNA that determine traits."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_053",
+        "question": "An individual with the genotype 'AS' for the sickle cell trait is considered:",
+        "options": {
+          "A": "A carrier",
+          "B": "A sufferer",
+          "C": "Immune to all diseases",
+          "D": "Homozygous"
+        },
+        "correct_option": "A",
+        "explanation": "They are heterozygous and have a survival advantage against malaria."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_054",
+        "question": "Mammals that lay eggs are known as:",
+        "options": {
+          "A": "Marsupials",
+          "B": "Placentals",
+          "C": "Monotremes",
+          "D": "Primates"
+        },
+        "correct_option": "C",
+        "explanation": "Examples are the duck-billed platypus and the echidna."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_055",
+        "question": "Which of the following teeth in a human adult is primarily used for grinding and chewing?",
+        "options": {
+          "A": "Incisor",
+          "B": "Canine",
+          "C": "Premolar",
+          "D": "Molar"
+        },
+        "correct_option": "D",
+        "explanation": "Incisors are for cutting, canines for tearing."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_056",
+        "question": "The part of the kidney where ultrafiltration of the blood occurs is the:",
+        "options": {
+          "A": "Loop of Henle",
+          "B": "Collecting duct",
+          "C": "Bowman's capsule",
+          "D": "Pelvis"
+        },
+        "correct_option": "C",
+        "explanation": "Blood pressure forces plasma out of the glomerulus into the capsule."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_057",
+        "question": "The brain and spinal cord together make up the:",
+        "options": {
+          "A": "Peripheral Nervous System",
+          "B": "Autonomic Nervous System",
+          "C": "Central Nervous System",
+          "D": "Sympathetic Nervous System"
+        },
+        "correct_option": "C",
+        "explanation": "The brain and spinal cord together make up the Central Nervous System (CNS)."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_058",
+        "question": "Which neurons transmit impulses from the central nervous system to effectors (muscles/glands)?",
+        "options": {
+          "A": "Sensory neurons",
+          "B": "Motor neurons",
+          "C": "Relay neurons",
+          "D": "Afferent neurons"
+        },
+        "correct_option": "B",
+        "explanation": "Sensory neurons carry signals TO the brain/spinal cord."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_059",
+        "question": "The fluid that fills the anterior chamber of the human eye is the:",
+        "options": {
+          "A": "Vitreous humour",
+          "B": "Aqueous humour",
+          "C": "Tears",
+          "D": "Retina fluid"
+        },
+        "correct_option": "B",
+        "explanation": "Vitreous humour fills the larger posterior chamber."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_060",
+        "question": "The primary female sex hormone responsible for secondary sexual characteristics is:",
+        "options": {
+          "A": "Testosterone",
+          "B": "Prolactin",
+          "C": "Oestrogen",
+          "D": "Oxytocin"
+        },
+        "correct_option": "C",
+        "explanation": "Testosterone is the primary male hormone."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_061",
+        "question": "A fruit that forms without the fertilization of an ovum is described as:",
+        "options": {
+          "A": "True fruit",
+          "B": "Parthenocarpic fruit",
+          "C": "Aggregate fruit",
+          "D": "Multiple fruit"
+        },
+        "correct_option": "B",
+        "explanation": "Such fruits are typically seedless, e.g., cultivated bananas."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_062",
+        "question": "Which blood cells are involved in the body's immune defense?",
+        "options": {
+          "A": "Erythrocytes",
+          "B": "Leucocytes",
+          "C": "Thrombocytes",
+          "D": "Osteocytes"
+        },
+        "correct_option": "B",
+        "explanation": "They produce antibodies and engulf pathogens."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_063",
+        "question": "An example of a plant exhibiting positive geotropism is the:",
+        "options": {
+          "A": "Shoot growing upwards",
+          "B": "Root growing downwards",
+          "C": "Leaf turning to light",
+          "D": "Tendril wrapping around a support"
+        },
+        "correct_option": "B",
+        "explanation": "Geotropism is growth in response to gravity."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_064",
+        "question": "The nitrogenous base found in RNA but NOT in DNA is:",
+        "options": {
+          "A": "Adenine",
+          "B": "Guanine",
+          "C": "Thymine",
+          "D": "Uacil"
+        },
+        "correct_option": "D",
+        "explanation": "In RNA, Uracil replaces Thymine and pairs with Adenine."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_065",
+        "question": "Hemophilia and colour blindness are examples of:",
+        "options": {
+          "A": "Dominant traits",
+          "B": "Sex-linked traits",
+          "C": "Continuous variations",
+          "D": "Co-dominant traits"
+        },
+        "correct_option": "B",
+        "explanation": "The genes for these conditions are carried on the X chromosome."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_066",
+        "question": "The concept of \"Survival of the Fittest\" is central to the evolutionary theory proposed by:",
+        "options": {
+          "A": "Jean-Baptiste Lamarck",
+          "B": "Gregor Mendel",
+          "C": "Charles Darwin",
+          "D": "Louis Pasteur"
+        },
+        "correct_option": "C",
+        "explanation": "Through the mechanism of Natural Selection."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_067",
+        "question": "The primary pollutant responsible for the formation of acid rain is:",
+        "options": {
+          "A": "Carbon monoxide",
+          "B": "Sulphur dioxide",
+          "C": "Chlorofluorocarbons (CFCs)",
+          "D": "Methane"
+        },
+        "correct_option": "B",
+        "explanation": "It reacts with water vapour to form sulfuric acid."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_068",
+        "question": "In ecology, the maximum population size that an environment can sustain is called its:",
+        "options": {
+          "A": "Population density",
+          "B": "Ecological niche",
+          "C": "Carrying capacity",
+          "D": "Trophic level"
+        },
+        "correct_option": "C",
+        "explanation": "Determined by available resources like food, water, and space."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_069",
+        "question": "The main respiratory pigment in human red blood cells is:",
+        "options": {
+          "A": "Myoglobin",
+          "B": "Haemocyanin",
+          "C": "Haemoglobin",
+          "D": "Chlorophyll"
+        },
+        "correct_option": "C",
+        "explanation": "It binds reversibly with oxygen to form oxyhaemoglobin."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_070",
+        "question": "The structure that separates the thoracic cavity from the abdominal cavity in mammals is the:",
+        "options": {
+          "A": "Pleura",
+          "B": "Pericardium",
+          "C": "Diaphragm",
+          "D": "Rib cage"
+        },
+        "correct_option": "C",
+        "explanation": "It also plays a crucial role in breathing."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_071",
+        "question": "During inhalation in mammals, the diaphragm:",
+        "options": {
+          "A": "Relaxes and arches upward",
+          "B": "Contracts and flattens",
+          "C": "Expands rapidly",
+          "D": "Remains stationary"
+        },
+        "correct_option": "B",
+        "explanation": "This increases the volume of the thoracic cavity, drawing air in."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_072",
+        "question": "Translocation in plants refers to the transport of:",
+        "options": {
+          "A": "Water from roots to leaves",
+          "B": "Manufactured food from leaves to other parts",
+          "C": "Mineral salts through the xylem",
+          "D": "Oxygen out of the stomata"
+        },
+        "correct_option": "B",
+        "explanation": "Carried out by the phloem tissue."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_073",
+        "question": "The male reproductive part of a flowering plant is the:",
+        "options": {
+          "A": "Carpel",
+          "B": "Stamen",
+          "C": "Stigma",
+          "D": "Style"
+        },
+        "correct_option": "B",
+        "explanation": "It consists of the anther and the filament."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_074",
+        "question": "The transfer of pollen grains from the anther to the stigma of a flower is known as:",
+        "options": {
+          "A": "Fertilization",
+          "B": "Germination",
+          "C": "Pollination",
+          "D": "Plasmogamy"
+        },
+        "correct_option": "C",
+        "explanation": "This must occur before fertilization can happen."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_075",
+        "question": "Which organ in the human body is responsible for the deamination of excess amino acids?",
+        "options": {
+          "A": "Kidney",
+          "B": "Liver",
+          "C": "Spleen",
+          "D": "Pancreas"
+        },
+        "correct_option": "B",
+        "explanation": "The nitrogenous part is converted into urea, which is then sent to the kidney for excretion."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_076",
+        "question": "Which of the following joints allows movement in only one plane?",
+        "options": {
+          "A": "Ball and socket joint",
+          "B": "Hinge joint",
+          "C": "Pivot joint",
+          "D": "Gliding joint"
+        },
+        "correct_option": "B",
+        "explanation": "Examples are the elbow and knee joints."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_077",
+        "question": "The highest concentration of cone cells in the human eye is found at the:",
+        "options": {
+          "A": "Blind spot",
+          "B": "Cornea",
+          "C": "Fovea centralis (Yellow spot)",
+          "D": "Sclera"
+        },
+        "correct_option": "C",
+        "explanation": "It provides the sharpest vision and colour detection."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_078",
+        "question": "The haploid number of chromosomes in humans is:",
+        "options": {
+          "A": "46",
+          "B": "23",
+          "C": "22",
+          "D": "44"
+        },
+        "correct_option": "B",
+        "explanation": "This is the number found in sperm and egg cells."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_079",
+        "question": "The hormone that regulates the amount of water reabsorbed by the kidneys is:",
+        "options": {
+          "A": "Adrenaline",
+          "B": "Aldosterone",
+          "C": "Antidiuretic hormone (ADH)",
+          "D": "Thyroxine"
+        },
+        "correct_option": "C",
+        "explanation": "Also known as vasopressin; lack of it causes diabetes insipidus."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_080",
+        "question": "In mammalian reproduction, fertilization typically occurs in the:",
+        "options": {
+          "A": "Uterus",
+          "B": "Ovary",
+          "C": "Fallopian tube (Oviduct)",
+          "D": "Vagina"
+        },
+        "correct_option": "C",
+        "explanation": "The zygote then moves to the uterus to implant."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_081",
+        "question": "Identical twins are formed when:",
+        "options": {
+          "A": "Two eggs are fertilized by two different sperms",
+          "B": "One egg is fertilized by two sperms",
+          "C": "One egg is fertilized by one sperm and the zygote splits into two",
+          "D": "The ovary releases two eggs simultaneously"
+        },
+        "correct_option": "C",
+        "explanation": "Fraternal twins come from two separate eggs and sperms."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_082",
+        "question": "The specific type of cell division that results in the formation of gametes is:",
+        "options": {
+          "A": "Mitosis",
+          "B": "Meiosis",
+          "C": "Binary fission",
+          "D": "Budding"
+        },
+        "correct_option": "B",
+        "explanation": "It halves the chromosome number to maintain the species number after fertilization."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_083",
+        "question": "The relationship between a tapeworm and a human is described as:",
+        "options": {
+          "A": "Mutualism",
+          "B": "Ectoparasitism",
+          "C": "Endoparasitism",
+          "D": "Commensalism"
+        },
+        "correct_option": "C",
+        "explanation": "The tapeworm lives inside the host's body."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_084",
+        "question": "The primary source of energy in any terrestrial food chain is:",
+        "options": {
+          "A": "Water",
+          "B": "Soil",
+          "C": "The Sun",
+          "D": "Green plants"
+        },
+        "correct_option": "C",
+        "explanation": "Plants convert solar energy into chemical energy."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_085",
+        "question": "The process by which an organism maintains a constant internal environment is:",
+        "options": {
+          "A": "Homeostasis",
+          "B": "Haemostasis",
+          "C": "Plasmolysis",
+          "D": "Osmoregulation"
+        },
+        "correct_option": "A",
+        "explanation": "Examples include temperature control and blood sugar regulation."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_086",
+        "question": "A plant with a genotype TT is crossed with a plant of genotype tt. The genotype of the F1 generation is:",
+        "options": {
+          "A": "TT",
+          "B": "tt",
+          "C": "Tt",
+          "D": "A mix of TT and tt"
+        },
+        "correct_option": "C",
+        "explanation": "All offspring will inherit 'T' from one parent and 't' from the other."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_087",
+        "question": "The sequence of amino acids in a protein is determined by the sequence of bases in:",
+        "options": {
+          "A": "rRNA",
+          "B": "tRNA",
+          "C": "mRNA",
+          "D": "DNA only"
+        },
+        "correct_option": "C",
+        "explanation": "Messenger RNA carries the genetic code from DNA to the ribosomes for translation."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_088",
+        "question": "Which of the following is an abiotic factor in an ecosystem?",
+        "options": {
+          "A": "Predators",
+          "B": "Pathogens",
+          "C": "Temperature",
+          "D": "Competitors"
+        },
+        "correct_option": "C",
+        "explanation": "Abiotic means non-living physical or chemical factors."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_089",
+        "question": "The structure in birds used for grinding food is the:",
+        "options": {
+          "A": "Crop",
+          "B": "Gizzard",
+          "C": "Proventriculus",
+          "D": "Cloaca"
+        },
+        "correct_option": "B",
+        "explanation": "It contains swallowed stones that help physically break down food."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_090",
+        "question": "Which blood vessel carries deoxygenated blood from the heart to the lungs?",
+        "options": {
+          "A": "Pulmonary vein",
+          "B": "Aorta",
+          "C": "Pulmonary artery",
+          "D": "Vena cava"
+        },
+        "correct_option": "C",
+        "explanation": "It is the only artery that carries deoxygenated blood."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_091",
+        "question": "The site of light-dependent reactions of photosynthesis is the:",
+        "options": {
+          "A": "Stroma",
+          "B": "Thylakoid (Grana)",
+          "C": "Cytoplasm",
+          "D": "Matrix"
+        },
+        "correct_option": "B",
+        "explanation": "The light-independent reactions/Calvin cycle happen in the stroma."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_092",
+        "question": "Incomplete dominance is a genetic scenario where:",
+        "options": {
+          "A": "One allele completely hides the other",
+          "B": "The heterozygous phenotype is a blend of the two homozygous phenotypes",
+          "C": "Both alleles are expressed equally and distinctly",
+          "D": "The trait is carried on the X chromosome"
+        },
+        "correct_option": "B",
+        "explanation": "e.g., Red flower x White flower = Pink flower. Distinct equal expression is Co-dominance."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_093",
+        "question": "The theory of 'Use and Disuse' of organs was postulated by:",
+        "options": {
+          "A": "Charles Darwin",
+          "B": "Gregor Mendel",
+          "C": "Jean-Baptiste Lamarck",
+          "D": "Thomas Morgan"
+        },
+        "correct_option": "C",
+        "explanation": "He incorrectly believed that traits acquired during a lifetime could be inherited."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_094",
+        "question": "Fungi store their carbohydrate reserves mainly as:",
+        "options": {
+          "A": "Starch",
+          "B": "Cellulose",
+          "C": "Glycogen",
+          "D": "Glucose"
+        },
+        "correct_option": "C",
+        "explanation": "Animals and fungi store carbs as glycogen, while plants store it as starch."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_095",
+        "question": "Non-directional movement of plant parts in response to a stimulus (like touch) is called:",
+        "options": {
+          "A": "Tropism",
+          "B": "Taxis",
+          "C": "Nastic movement",
+          "D": "Kinesis"
+        },
+        "correct_option": "C",
+        "explanation": "E.g., the folding of Mimosa pudica leaves when touched."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_096",
+        "question": "A community of interacting organisms and their physical environment is a(n):",
+        "options": {
+          "A": "Population",
+          "B": "Biosphere",
+          "C": "Ecosystem",
+          "D": "Habitat"
+        },
+        "correct_option": "C",
+        "explanation": "It combines the biotic community and abiotic surroundings."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_097",
+        "question": "The process of shedding the exoskeleton in insects to allow for growth is known as:",
+        "options": {
+          "A": "Metamorphosis",
+          "B": "Ecdysis (Moulting)",
+          "C": "Instar",
+          "D": "Pupation"
+        },
+        "correct_option": "B",
+        "explanation": "Their hard chitinous exoskeleton prevents continuous growth."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_098",
+        "question": "The organ responsible for sound production in humans is the:",
+        "options": {
+          "A": "Pharynx",
+          "B": "Larynx",
+          "C": "Trachea",
+          "D": "Bronchus"
+        },
+        "correct_option": "B",
+        "explanation": "Also known as the voice box, it contains the vocal cords."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_099",
+        "question": "Which of the following is a symptom of scurvy?",
+        "options": {
+          "A": "Bowed legs",
+          "B": "Bleeding gums",
+          "C": "Night blindness",
+          "D": "Goitre"
+        },
+        "correct_option": "B",
+        "explanation": "Scurvy is caused by a deficiency of Vitamin C."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_100",
+        "question": "The tiny air sacs in the lungs where gas exchange takes place are called:",
+        "options": {
+          "A": "Bronchioles",
+          "B": "Alveoli",
+          "C": "Pleura",
+          "D": "Tracheoles"
+        },
+        "correct_option": "B",
+        "explanation": "They have thin walls and a rich blood supply for efficient diffusion of gases."
+      },
+      {
+        "id": "obj_bio_uniport_post_utme_v1_101",
+        "question": "Which of the following describes an organism that has two identical alleles for a particular trait?",
+        "options": {
+          "A": "Heterozygous",
+          "B": "Homozygous",
+          "C": "Phenotypic",
+          "D": "Recessive"
+        },
+        "correct_option": "B",
+        "explanation": "E.g., TT or tt. Heterozygous means having different alleles, e.g., Tt."
+      }
+    ]
   }
 ]
