@@ -370,7 +370,7 @@ const UI = {
   },
 
   // ---- OBJ: select an option ----
-  selectOption(btn, letter) {
+  async selectOption(btn, letter) {
     if (btn.disabled) return;
 
     const grid = btn.closest('#options-grid');
