@@ -28,6 +28,9 @@ const KEYS = {
   SYSTEM_STATS:    'wg_system_stats',
   SUBJECTS_MASTERED: 'wg_subjects_mastered',
   AI_CONSECUTIVE_PERFECT: 'wg_ai_consecutive_perfect',
+  LEADERBOARD_ENABLED: 'wg_leaderboard_enabled',
+  LEADERBOARD_CACHE:   'wg_leaderboard_cache',
+  LEADERBOARD_NEEDS_UPDATE: 'wg_leaderboard_needs_update',
 };
 
 const SUB_KEYS = {
@@ -392,6 +395,18 @@ const Storage = {
 
   isRandomizedOptions() { return !!Storage._get(KEYS.RANDOMIZE_OPTIONS); },
   setRandomizedOptions(v) { Storage._set(KEYS.RANDOMIZE_OPTIONS, !!v); },
+
+  isLeaderboardEnabled() {
+    const v = Storage._get(KEYS.LEADERBOARD_ENABLED);
+    return v === null ? true : !!v;
+  },
+  setLeaderboardEnabled(v) { Storage._set(KEYS.LEADERBOARD_ENABLED, !!v); },
+
+  getLeaderboardCache() { return Storage._get(KEYS.LEADERBOARD_CACHE); },
+  setLeaderboardCache(v) { Storage._set(KEYS.LEADERBOARD_CACHE, v); },
+
+  leaderboardNeedsUpdate() { return !!Storage._get(KEYS.LEADERBOARD_NEEDS_UPDATE); },
+  setLeaderboardNeedsUpdate(v) { Storage._set(KEYS.LEADERBOARD_NEEDS_UPDATE, !!v); },
 
   // ---- Queue mutators ----
   pushFailedObj(q) {

@@ -163,6 +163,16 @@
           <div id="random-options-status-badge" class="badge badge--neutral">OFF</div>
         </div>
       </div>
+
+      <div class="card" id="leaderboard-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer;" onclick="toggleLeaderboard()" role="button" tabindex="0" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleLeaderboard();}">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-weight:600; margin-bottom:4px;">Leaderboard UI</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Show daily rankings.</div>
+          </div>
+          <div id="leaderboard-status-badge" class="badge badge--neutral">OFF</div>
+        </div>
+      </div>
     </div>
 
     <!-- Mode selection cards -->
@@ -262,6 +272,7 @@
   window.startWeaknessSession = startWeaknessSession;
   window.toggleRandomizeQuestions = toggleRandomizeQuestions;
   window.toggleRandomizeOptions = toggleRandomizeOptions;
+  window.toggleLeaderboard = toggleLeaderboard;
   window.editPlayerName = editPlayerName;
 
   async function init() {
@@ -313,16 +324,48 @@
 
   async function loadLeaderboard() {
     const list = document.getElementById('leaderboard-list');
-    if (!list) return;
+    const section = document.getElementById('leaderboard-section');
+    if (!list || !section) return;
+
+    if (!Storage.isLeaderboardEnabled()) {
+        section.style.display = 'none';
+        return;
+    }
+    section.style.display = 'block';
+
+    const cached = Storage.getLeaderboardCache();
+    const needsUpdate = Storage.leaderboardNeedsUpdate();
+
+    if (cached && !needsUpdate) {
+        renderLeaderboard(cached);
+        return;
+    }
 
     try {
       const rankings = await API.getLeaderboard();
-      if (!rankings || rankings.length === 0) {
-        list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted);">No rankings yet. Start grinding to be the first!</div>';
-        return;
+      Storage.setLeaderboardCache(rankings);
+      Storage.setLeaderboardNeedsUpdate(false);
+      renderLeaderboard(rankings);
+    } catch (err) {
+      console.error('[Leaderboard] Load failed:', err);
+      if (cached) {
+          renderLeaderboard(cached);
+      } else {
+          list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--fail);">Failed to load rankings.</div>';
       }
+    }
+  }
 
-      list.innerHTML = rankings.map((entry, idx) => {
+  function renderLeaderboard(rankings) {
+    const list = document.getElementById('leaderboard-list');
+    if (!list) return;
+
+    if (!rankings || rankings.length === 0) {
+      list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted);">No rankings yet. Start grinding to be the first!</div>';
+      return;
+    }
+
+    list.innerHTML = rankings.map((entry, idx) => {
         const isYou = entry.userId === Storage.getPlayerUuid();
         return `
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid var(--border-subtle); ${isYou ? 'background: var(--accent-glow);' : ''}">
@@ -334,10 +377,6 @@
           </div>
         `;
       }).join('');
-    } catch (err) {
-      console.error('[Leaderboard] Load failed:', err);
-      list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--fail);">Failed to load rankings.</div>';
-    }
   }
 
   async function loadServerConfig() {
@@ -486,6 +525,7 @@
     // but we should ensure they match the local variables.
     updateToggleUI('random-questions', isRandomizedQuestions);
     updateToggleUI('random-options', isRandomizedOptions);
+    updateToggleUI('leaderboard', Storage.isLeaderboardEnabled());
   }
 
   function updateToggleUI(prefix, state) {
@@ -516,6 +556,13 @@
   function toggleRandomizeOptions() {
     isRandomizedOptions = !isRandomizedOptions;
     updateToggleUI('random-options', isRandomizedOptions);
+  }
+
+  function toggleLeaderboard() {
+    const newState = !Storage.isLeaderboardEnabled();
+    Storage.setLeaderboardEnabled(newState);
+    updateToggleUI('leaderboard', newState);
+    loadLeaderboard();
   }
 
   function trackCustomBatch() {

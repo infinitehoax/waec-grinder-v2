@@ -735,6 +735,7 @@ const UI = {
     Storage.clearBatch();
     Storage.clearTimer();
     Storage.incrementGlobalStat('batches_completed');
+    Storage.setLeaderboardNeedsUpdate(true);
 
     const mode = Storage.getMode();
     const allDone = Storage.isAllDone(mode);
