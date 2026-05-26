@@ -18,6 +18,35 @@ from backend.services.data_service import load_questions
 # }
 rooms = {}
 
+def _interleave_questions(pools, limit):
+    """
+    Interleaves questions from multiple subject pools in a round-robin fashion.
+    Shuffles the order of subjects in each round for variety.
+    pools: dict of {subject_name: [list_of_questions]}
+    """
+    result = []
+    # Work on a copy of the pools to avoid mutating the original
+    current_pools = {sub: list(qs) for sub, qs in pools.items() if qs}
+    active_subjects = list(current_pools.keys())
+
+    while len(result) < limit and active_subjects:
+        # Shuffle subjects for this round
+        random.shuffle(active_subjects)
+
+        next_active = []
+        for sub in active_subjects:
+            if len(result) >= limit:
+                break
+
+            if current_pools[sub]:
+                result.append(current_pools[sub].pop(0))
+                if current_pools[sub]:
+                    next_active.append(sub)
+
+        active_subjects = next_active
+
+    return result
+
 def create_room(player_uuid, sid, host_name, mode, subjects=None, mastered_ids=None):
     room_id = str(uuid.uuid4())[:6].upper()
     while room_id in rooms:
@@ -148,8 +177,8 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
         # Fallback to the first subject if none found or specified
         selected_data = [data_raw[0]] if isinstance(data_raw, list) and len(data_raw) > 0 else [data_raw]
 
-    all_obj = []
-    all_theory = []
+    obj_by_subject = {}
+    theory_by_subject = {}
 
     # Aggregate mastered IDs from all players if filtering is requested
     mastered_pool = set()
@@ -158,25 +187,29 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
             mastered_pool.update(p_data.get("mastered_ids", []))
 
     for data in selected_data:
-        # Optimization: Use pre-tagged questions from data_service and only aggregate based on mode
-        # This reduces dictionary allocations and iteration overhead.
-
+        sub_name = data.get("subject")
         if mode == "obj" or mode == "both":
             obj_qs = data.get("obj", [])
             if filter_mastered:
                 obj_qs = [q for q in obj_qs if q.get("id") not in mastered_pool]
-            all_obj.extend(obj_qs)
+            # Shuffle the individual subject pool before interleaving
+            random.shuffle(obj_qs)
+            obj_by_subject[sub_name] = obj_qs
 
         if mode == "theory" or mode == "both":
             theory_qs = data.get("theory", [])
             if filter_mastered:
                 theory_qs = [q for q in theory_qs if q.get("id") not in mastered_pool]
-            all_theory.extend(theory_qs)
+            # Shuffle the individual subject pool before interleaving
+            random.shuffle(theory_qs)
+            theory_by_subject[sub_name] = theory_qs
 
-    # Determine how many questions to take
-    available_count = (len(all_obj) if mode == "obj" else
-                       len(all_theory) if mode == "theory" else
-                       (len(all_obj) + len(all_theory)))
+    # Determine total available counts
+    total_available_obj = sum(len(qs) for qs in obj_by_subject.values())
+    total_available_theory = sum(len(qs) for qs in theory_by_subject.values())
+    available_count = (total_available_obj if mode == "obj" else
+                       total_available_theory if mode == "theory" else
+                       (total_available_obj + total_available_theory))
 
     if total_questions == "all":
         count = available_count
@@ -190,26 +223,25 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
 
     questions = []
     if mode == "obj":
-        questions = random.sample(all_obj, count)
+        questions = _interleave_questions(obj_by_subject, count)
     elif mode == "theory":
-        questions = random.sample(all_theory, count)
+        questions = _interleave_questions(theory_by_subject, count)
     else:
         # For mixed mode, try to maintain 70/30 split if possible
         obj_target = int(count * 0.7)
         theory_target = count - obj_target
 
-        # Adjust if not enough questions in one category
-        if len(all_obj) < obj_target:
-            obj_target = len(all_obj)
-            theory_target = min(len(all_theory), count - obj_target)
-        if len(all_theory) < theory_target:
-            theory_target = len(all_theory)
-            obj_target = min(len(all_obj), count - theory_target)
+        # Adjust targets based on availability
+        if total_available_obj < obj_target:
+            obj_target = total_available_obj
+            theory_target = min(total_available_theory, count - obj_target)
+        if total_available_theory < theory_target:
+            theory_target = total_available_theory
+            obj_target = min(total_available_obj, count - theory_target)
 
-        q_obj = random.sample(all_obj, obj_target)
-        q_theory = random.sample(all_theory, theory_target)
+        q_obj = _interleave_questions(obj_by_subject, obj_target)
+        q_theory = _interleave_questions(theory_by_subject, theory_target)
         questions = q_obj + q_theory
-        # We'll shuffle below if randomize_questions is true
 
     if randomize_questions:
         random.shuffle(questions)
