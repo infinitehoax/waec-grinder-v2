@@ -39,7 +39,7 @@ Each OBJ question in the `obj` array should follow this schema:
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| `id` | String | A unique identifier (e.g., `obj_phy_001`). |
+| `id` | String | A unique identifier (e.g., `obj_phy_001` (PLEASE, BE MORE DESCRIPTIVE LIKE: `obj_phy_term_1_year_12_001`). |
 | `question` | String | The text of the question. Supports Rich Formatting. |
 | `options` | Object | A map with keys `"A"`, `"B"`, `"C"`, `"D"`. |
 | `correct_option`| String | The correct letter: `"A"`, `"B"`, `"C"`, or `"D"`. |
