@@ -22,3 +22,7 @@
 ## 2025-05-27 - [Data Pre-Processing & Indexed Lookups]
 **Learning:** Performing data transformations (like dictionary merging and tagging) inside high-frequency game loops adds unnecessary CPU overhead. On the frontend, iterating over ALL `localStorage` keys for every session start becomes a bottleneck as the user's data grows.
 **Action:** Shift question metadata tagging (like `_type` and `_subject`) to the initial backend cache load. Maintain subject-level indices (e.g., `wg_subjects_started`) to enable O(1) or O(subjects) lookups instead of O(total_keys) scans.
+
+## 2025-05-28 - [Indexed Storage Lookups]
+**Learning:** Even simple UI counters (like `getSubjectsWithMasteryCount`) can become performance bottlenecks if they rely on `localStorage.length` and `localStorage.key(i)` iterations. In applications with many stored items, this O(N) scan causes noticeable UI jank.
+**Action:** Always prefer indexed lookups using a tracking key (like `wg_subjects_started`) to bound the search space to relevant items only.

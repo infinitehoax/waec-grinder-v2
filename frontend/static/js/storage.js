@@ -217,16 +217,6 @@ const Storage = {
     }
   },
 
-  /**
-   * Consolidates multiple subject-specific updates into a single localStorage write.
-   * Reduces Disk I/O and redundant JSON.stringify calls.
-   */
-  updateSubjectData(subject, callback) {
-    const data = this._get(`wg_sub_${subject}`) || {};
-    callback(data);
-    this._set(`wg_sub_${subject}`, data);
-  },
-
   // ---- Initialise from loaded question data ----
   initSession(data, mode) {
     // data can be a single subject object OR an array of subject objects
@@ -238,6 +228,9 @@ const Storage = {
     Storage._set(KEYS.STUDY_MODE, mode);
 
     subjectsData.forEach(subData => {
+      // Ensure the subject is tracked in the index for faster lookups
+      Storage.trackSubjectStarted(subData.subject);
+
       Storage.updateSubjectData(subData.subject, (d) => {
         if (mode === 'obj' || mode === 'both') {
           if (!d.unseen_obj) d.unseen_obj = subData.obj || [];
@@ -704,16 +697,16 @@ const Storage = {
   },
 
   getSubjectsWithMasteryCount() {
+    // Optimization: Use the 'wg_subjects_started' index to only check subjects the user has interacted with.
+    // This avoids an O(N) scan of all localStorage keys, which can be expensive.
     let count = 0;
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key && key.startsWith('wg_sub_')) {
-        const subData = Storage._getRaw(key);
-        if (subData && subData.stats && subData.stats.mastered > 0) {
-          count++;
-        }
+    const subjects = this._getRaw(KEYS.SUBJECTS_STARTED) || [];
+    subjects.forEach(subject => {
+      const subData = this._getRaw(`wg_sub_${subject}`);
+      if (subData && subData.stats && subData.stats.mastered > 0) {
+        count++;
       }
-    }
+    });
     return count;
   },
 
