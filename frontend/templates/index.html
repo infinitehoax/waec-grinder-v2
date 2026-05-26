@@ -298,17 +298,32 @@
   function updatePlayerProfile() {
     const nameDisplay = document.getElementById('player-name-display');
     if (nameDisplay) {
-      nameDisplay.textContent = Storage.getPlayerName();
+      const name = Storage.getPlayerName();
+      nameDisplay.textContent = name;
+      if (name.toLowerCase() === 'student') {
+        nameDisplay.style.color = 'var(--fail)';
+        nameDisplay.innerHTML = `${name} <span style="font-size:0.7rem; font-weight:400; display:block; color:var(--text-muted)">(Action Required: Change Name)</span>`;
+      } else {
+        nameDisplay.style.color = 'var(--text-primary)';
+      }
     }
   }
 
   function editPlayerName() {
     const oldName = Storage.getPlayerName();
-    const newName = prompt('Enter your name for the leaderboard:', oldName);
-    if (newName && newName.trim()) {
-      Storage.setPlayerName(newName.trim());
-      updatePlayerProfile();
+    let newName = prompt('Enter your name for the leaderboard (cannot be "Student"):', oldName.toLowerCase() === 'student' ? '' : oldName);
+
+    if (newName === null) return false; // User cancelled
+
+    newName = newName.trim();
+    if (!newName || newName.toLowerCase() === 'student') {
+      alert('Please enter a valid name that is not "Student".');
+      return editPlayerName();
     }
+
+    Storage.setPlayerName(newName);
+    updatePlayerProfile();
+    return true;
   }
 
   async function loadLeaderboard() {
@@ -568,6 +583,10 @@
   }
 
   async function startSession() {
+    if (Storage.getPlayerName().toLowerCase() === 'student') {
+      if (!editPlayerName()) return;
+    }
+
     if (selectedSubjects.length === 0) {
       alert('Please select at least one subject.');
       return;
@@ -614,6 +633,9 @@
   }
 
   function startWeaknessSession(topic) {
+    if (Storage.getPlayerName().toLowerCase() === 'student') {
+      if (!editPlayerName()) return;
+    }
     if (selectedSubjects.length === 0) return;
     Storage.clearBatch();
     Storage.setFocusTopic(topic);

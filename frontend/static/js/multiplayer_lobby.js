@@ -22,6 +22,15 @@ const Lobby = {
         socket.connect();
         this.setupSocketHandlers();
 
+        const savedName = Storage.getPlayerName();
+        const isDefault = savedName.toLowerCase() === 'student';
+
+        const createInput = document.getElementById('create-name');
+        const joinInput = document.getElementById('join-name');
+
+        if (createInput) createInput.value = isDefault ? '' : savedName;
+        if (joinInput) joinInput.value = isDefault ? '' : savedName;
+
         try {
             const res = await API.getQuestions();
             this.allQuestions = Array.isArray(res) ? res : (res?.data || []);
@@ -205,24 +214,31 @@ const Lobby = {
     },
 
     createRoom() {
-        const name = document.getElementById('create-name').value.trim();
+        const nameInput = document.getElementById('create-name');
+        const name = nameInput.value.trim();
         if (!name) return showToast('Please enter your name', 'error');
+        if (name.toLowerCase() === 'student') return showToast('Please choose a name other than "Student"', 'error');
+
+        Storage.setPlayerName(name);
+        sessionStorage.setItem('wg_multiplayer_name', name);
 
         const subjects = Array.from(document.querySelectorAll('.subject-checkbox:checked')).map(cb => cb.value);
         if (subjects.length === 0) return showToast('Select at least one subject', 'error');
 
-        sessionStorage.setItem('wg_multiplayer_name', name);
         Storage.incrementMultiStat('rooms_hosted');
         socket.createRoom(name, this.selectedMode, subjects);
     },
 
     joinRoom() {
-        const name = document.getElementById('join-name').value.trim();
+        const nameInput = document.getElementById('join-name');
+        const name = nameInput.value.trim();
         const roomId = document.getElementById('join-room-id').value.trim().toUpperCase();
 
         if (!name) return showToast('Please enter your name', 'error');
+        if (name.toLowerCase() === 'student') return showToast('Please choose a name other than "Student"', 'error');
         if (!roomId) return showToast('Please enter Room ID', 'error');
 
+        Storage.setPlayerName(name);
         sessionStorage.setItem('wg_multiplayer_name', name);
         socket.joinRoom(roomId, name);
     },
