@@ -1044,3 +1044,31 @@
   height: 12px;
   border-width: 1px;
 }
+
+/* ---- Keyboard Shortcut Hints ---- */
+.kbd-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 4px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  margin: 0 6px;
+  opacity: 0.8;
+  vertical-align: middle;
+}
+
+.btn--primary .kbd-hint {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 640px) {
+  .kbd-hint { display: none; }
+}

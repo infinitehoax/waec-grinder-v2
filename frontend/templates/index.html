@@ -116,9 +116,9 @@
           </div>
           <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
             <div style="display:flex; gap:8px;">
-              <button class="btn btn--ghost btn--sm batch-size-btn" data-size="3">3</button>
-              <button class="btn btn--ghost btn--sm batch-size-btn active-size" data-size="5">5</button>
-              <button class="btn btn--ghost btn--sm batch-size-btn" data-size="10">10</button>
+              <button class="btn btn--ghost btn--sm batch-size-btn" data-size="3" aria-pressed="false">3</button>
+              <button class="btn btn--ghost btn--sm batch-size-btn active-size" data-size="5" aria-pressed="true">5</button>
+              <button class="btn btn--ghost btn--sm batch-size-btn" data-size="10" aria-pressed="false">10</button>
             </div>
             <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
             <input type="number" id="custom-batch-size" placeholder="Custom" class="input-custom" style="width: 80px;">
@@ -134,9 +134,9 @@
           </div>
           <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
             <div style="display:flex; gap:8px;">
-              <button class="btn btn--ghost btn--sm timed-btn" data-time="5">5m</button>
-              <button class="btn btn--ghost btn--sm timed-btn" data-time="10">10m</button>
-              <button class="btn btn--ghost btn--sm timed-btn" data-time="15">15m</button>
+              <button class="btn btn--ghost btn--sm timed-btn" data-time="5" aria-pressed="false">5m</button>
+              <button class="btn btn--ghost btn--sm timed-btn" data-time="10" aria-pressed="false">10m</button>
+              <button class="btn btn--ghost btn--sm timed-btn" data-time="15" aria-pressed="false">15m</button>
             </div>
             <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
             <input type="number" id="custom-time-limit" placeholder="Mins" class="input-custom" style="width: 80px;">
@@ -704,8 +704,12 @@
   // Batch size buttons
   document.querySelectorAll('.batch-size-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+      document.querySelectorAll('.batch-size-btn').forEach(b => {
+        b.classList.remove('active-size');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active-size');
+      btn.setAttribute('aria-pressed', 'true');
       selectedBatchSize = parseInt(btn.dataset.size);
       document.getElementById('custom-batch-size').value = '';
       document.getElementById('batch-config-card').style.borderColor = 'var(--accent)';
@@ -717,14 +721,22 @@
     const val = parseInt(e.target.value);
     if (val > 0) {
       selectedBatchSize = val;
-      document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+      document.querySelectorAll('.batch-size-btn').forEach(b => {
+        b.classList.remove('active-size');
+        b.setAttribute('aria-pressed', 'false');
+      });
       document.getElementById('batch-config-card').style.borderColor = 'var(--accent)';
       document.getElementById('batch-config-card').style.opacity = '1';
     } else {
       // Revert to default 5 if cleared
       selectedBatchSize = 5;
-      document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
-      document.querySelector('.batch-size-btn[data-size="5"]').classList.add('active-size');
+      document.querySelectorAll('.batch-size-btn').forEach(b => {
+        b.classList.remove('active-size');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      const defaultBtn = document.querySelector('.batch-size-btn[data-size="5"]');
+      defaultBtn.classList.add('active-size');
+      defaultBtn.setAttribute('aria-pressed', 'true');
     }
   });
 
@@ -734,14 +746,19 @@
       if (btn.classList.contains('active-size')) {
         // Toggle off
         btn.classList.remove('active-size');
+        btn.setAttribute('aria-pressed', 'false');
         selectedTimeLimit = null;
         document.getElementById('timed-config-card').style.borderColor = 'var(--border-subtle)';
         document.getElementById('timed-config-card').style.opacity = '0.7';
         return;
       }
 
-      document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+      document.querySelectorAll('.timed-btn').forEach(b => {
+        b.classList.remove('active-size');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active-size');
+      btn.setAttribute('aria-pressed', 'true');
       selectedTimeLimit = parseInt(btn.dataset.time);
       document.getElementById('custom-time-limit').value = '';
       document.getElementById('timed-config-card').style.borderColor = 'var(--accent)';
@@ -753,12 +770,18 @@
     const val = parseInt(e.target.value);
     if (val > 0) {
       selectedTimeLimit = val;
-      document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+      document.querySelectorAll('.timed-btn').forEach(b => {
+        b.classList.remove('active-size');
+        b.setAttribute('aria-pressed', 'false');
+      });
       document.getElementById('timed-config-card').style.borderColor = 'var(--accent)';
       document.getElementById('timed-config-card').style.opacity = '1';
     } else {
       selectedTimeLimit = null;
-      document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+      document.querySelectorAll('.timed-btn').forEach(b => {
+        b.classList.remove('active-size');
+        b.setAttribute('aria-pressed', 'false');
+      });
       document.getElementById('timed-config-card').style.borderColor = 'var(--border-subtle)';
       document.getElementById('timed-config-card').style.opacity = '0.7';
     }

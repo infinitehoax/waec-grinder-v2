@@ -29,3 +29,7 @@
 ## 2025-05-25 - [Dynamic Keyboard Shortcuts for Productivity]
 **Learning:** For a study application, keyboard shortcuts like 'S' for skip or 'Ctrl+Enter' for submission are critical for a "flow state." However, they must be guarded against visibility and input focus to prevent accidental triggers.
 **Action:** Implement global listeners that check `window.getComputedStyle(btn).display !== 'none'` and avoid triggering when the user is already focused on an input or textarea (unless specifically intended, like Ctrl+Enter).
+
+## 2026-05-26 - Improving Shortcut Discoverability & Selection States
+**Learning:** Keyboard shortcuts ('S' for skip, 'Enter' for next, 'Ctrl+Enter' for theory) are powerful but invisible. Users often miss them unless they read documentation. Additionally, toggle buttons (like batch size or timed session) in Vanilla JS environments often lack proper ARIA communication for their "pressed" state, making them inaccessible to screen readers.
+**Action:** Always include subtle <kbd> hints in the UI for keyboard-driven actions (hiding them on mobile). Use 'aria-pressed' and 'aria-label' on toggle buttons and ensure the JS handlers update these attributes during DOM manipulation to maintain accessibility.

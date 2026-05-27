@@ -101,11 +101,11 @@ function renderObjQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question">Skip</button>
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
         </div>
         <div class="action-bar__right">
           <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()" aria-label="Next question">
-            Next &rarr;
+            Next <span class="kbd-hint" aria-hidden="true">Enter</span> &rarr;
           </button>
         </div>
       </div>
@@ -145,17 +145,17 @@ function renderTheoryQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question">Skip</button>
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
           <span class="score-tally hidden" id="score-tally">
             Score: <strong id="score-val">0</strong> / ${totalMaxMarks}
           </span>
         </div>
         <div class="action-bar__right">
-          <button class="btn btn--primary" id="submit-theory-btn" onclick="UI.submitTheory()">
-            ✦ Submit for Grading
+          <button class="btn btn--primary" id="submit-theory-btn" onclick="UI.submitTheory()" aria-label="Submit answer for AI grading">
+            ✦ Submit for Grading <span class="kbd-hint" aria-hidden="true">Ctrl+Enter</span>
           </button>
           <button class="btn btn--primary" id="next-btn" style="display:none" onclick="UI.nextQuestion()" aria-label="Next question">
-            Next &rarr;
+            Next <span class="kbd-hint" aria-hidden="true">Enter</span> &rarr;
           </button>
         </div>
       </div>
