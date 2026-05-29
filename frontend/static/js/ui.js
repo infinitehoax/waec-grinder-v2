@@ -557,7 +557,7 @@ const UI = {
       }
 
       // First try check
-      const stats = Storage.getQuestionStats(q.id);
+      const stats = Storage.getQuestionStats(q.id, q._subject);
       if (stats.fails === 0) q._is_first_try_theory = true;
 
       // Buzzer beater

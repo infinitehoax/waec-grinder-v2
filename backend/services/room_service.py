@@ -180,7 +180,8 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
     obj_by_subject = {}
     theory_by_subject = {}
 
-    # Aggregate mastered IDs from all players if filtering is requested
+    # Aggregate mastered IDs from all players if filtering is requested.
+    # BUG FIX: Use composite IDs (subject|id) to avoid collisions across different subjects.
     mastered_pool = set()
     if filter_mastered:
         for p_data in rooms[room_id]["players"].values():
@@ -192,7 +193,8 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
             # Always copy the list to prevent random.shuffle from mutating the in-memory cache in data_service
             obj_qs = list(data.get("obj", []))
             if filter_mastered:
-                obj_qs = [q for q in obj_qs if q.get("id") not in mastered_pool]
+                # Optimized filtering using O(1) set lookups for composite IDs.
+                obj_qs = [q for q in obj_qs if f"{sub_name}|{q.get('id')}" not in mastered_pool]
             # Shuffle the individual subject pool before interleaving
             random.shuffle(obj_qs)
             obj_by_subject[sub_name] = obj_qs
@@ -201,7 +203,8 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
             # Always copy the list to prevent random.shuffle from mutating the in-memory cache in data_service
             theory_qs = list(data.get("theory", []))
             if filter_mastered:
-                theory_qs = [q for q in theory_qs if q.get("id") not in mastered_pool]
+                # Optimized filtering using O(1) set lookups for composite IDs.
+                theory_qs = [q for q in theory_qs if f"{sub_name}|{q.get('id')}" not in mastered_pool]
             # Shuffle the individual subject pool before interleaving
             random.shuffle(theory_qs)
             theory_by_subject[sub_name] = theory_qs
