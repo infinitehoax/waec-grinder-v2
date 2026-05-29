@@ -292,8 +292,6 @@
   window.toggleRandomizeOptions = toggleRandomizeOptions;
   window.toggleLeaderboard = toggleLeaderboard;
   window.editPlayerName = editPlayerName;
-  window.selectAllSubjects = selectAllSubjects;
-  window.selectNoneSubjects = selectNoneSubjects;
 
   async function init() {
     // Update nav stats immediately from local storage
@@ -311,16 +309,8 @@
     }
 
     // Check for existing session
-    if (Storage.hasExistingSession()) {
-      const summary = Storage.getSessionSummary();
-      const total = summary.unseen_obj + summary.unseen_theory + summary.failed_obj + summary.failed_theory;
-      if (total > 0) {
-        const resumeCard = document.getElementById('resume-card');
-        const desc = document.getElementById('resume-desc');
-        resumeCard.style.display = 'block';
-        desc.textContent = `Subject: ${summary.subject} | ${summary.failed_obj + summary.failed_theory} failed, ${summary.unseen_obj + summary.unseen_theory} unseen, ${summary.stats.mastered} mastered.`;
-      }
-    }
+    refreshResumeCard();
+    selectMode(selectedMode);
 
     // Update nav stats
     updateNavDisplay();
@@ -330,11 +320,11 @@
     const nameDisplay = document.getElementById('player-name-display');
     if (nameDisplay) {
       const name = Storage.getPlayerName();
-      nameDisplay.textContent = name;
       if (name.toLowerCase() === 'student') {
         nameDisplay.style.color = 'var(--fail)';
         nameDisplay.innerHTML = `${name} <span style="font-size:0.7rem; font-weight:400; display:block; color:var(--text-muted)">(Action Required: Change Name)</span>`;
       } else {
+        nameDisplay.textContent = name;
         nameDisplay.style.color = 'var(--text-primary)';
       }
     }
@@ -527,16 +517,6 @@
       list.appendChild(item);
     });
 
-    updateSubjectSelection();
-  }
-
-  function selectAllSubjects() {
-    document.querySelectorAll('.subject-checkbox').forEach(cb => cb.checked = true);
-    updateSubjectSelection();
-  }
-
-  function selectNoneSubjects() {
-    document.querySelectorAll('.subject-checkbox').forEach(cb => cb.checked = false);
     updateSubjectSelection();
   }
 
@@ -744,9 +724,13 @@
   }
 
   function clearSession() {
-    const subjectDisplay = selectedSubjects.length === 1 ? selectedSubjects[0].subject : `${selectedSubjects.length} subjects`;
+    const summary = Storage.getSessionSummary();
+    const subjectsToClear = Array.isArray(summary.subject) ? summary.subject : [summary.subject];
+    const subjectDisplay = subjectsToClear.length === 1 ? subjectsToClear[0] : `${subjectsToClear.length} subjects`;
+
     if (confirm(`This will clear all your progress for ${subjectDisplay}. Are you sure?`)) {
-      selectedSubjects.forEach(s => Storage.clearSubjectProgress(s.subject));
+      subjectsToClear.forEach(s => Storage.clearSubjectProgress(s));
+      populateSubjects();
       refreshResumeCard();
       updateNavDisplay();
     }
