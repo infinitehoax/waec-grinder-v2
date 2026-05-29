@@ -33,3 +33,7 @@
 ## 2026-05-26 - Improving Shortcut Discoverability & Selection States
 **Learning:** Keyboard shortcuts ('S' for skip, 'Enter' for next, 'Ctrl+Enter' for theory) are powerful but invisible. Users often miss them unless they read documentation. Additionally, toggle buttons (like batch size or timed session) in Vanilla JS environments often lack proper ARIA communication for their "pressed" state, making them inaccessible to screen readers.
 **Action:** Always include subtle <kbd> hints in the UI for keyboard-driven actions (hiding them on mobile). Use 'aria-pressed' and 'aria-label' on toggle buttons and ensure the JS handlers update these attributes during DOM manipulation to maintain accessibility.
+
+## 2025-05-27 - [Contextual Selection & Keyboard Visibility]
+**Learning:** For bulk selection lists (like subject selection), providing global controls (All/None) and contextual metadata (counts/mastery) significantly reduces cognitive load. Using ':focus-within' on container labels for checkboxes ensures that keyboard users have a clear visual indicator of their current position even when the native checkbox is small.
+**Action:** Always include global batch controls for long lists. Use ':focus-within' to provide container-level focus states for interactive items that wrap smaller inputs.
