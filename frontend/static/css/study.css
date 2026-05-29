@@ -349,10 +349,11 @@
   font-size: 0.9rem;
   color: var(--text-primary);
   line-height: 1.6;
-  resize: vertical;
+  resize: none;
   min-height: 100px;
   display: block;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  overflow-y: hidden;
 }
 
 .sub-answer-area textarea:focus-visible {
@@ -841,6 +842,7 @@
 
 #question-wrapper.transitioning {
   opacity: 0;
+  transform: translateY(10px);
 }
 
 /* ---- Responsive ---- */

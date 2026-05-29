@@ -40,3 +40,11 @@
 ## 2025-05-27 - [Contextual Selection & Keyboard Visibility]
 **Learning:** For bulk selection lists (like subject selection), providing global controls (All/None) and contextual metadata (counts/mastery) significantly reduces cognitive load. Using ':focus-within' on container labels for checkboxes ensures that keyboard users have a clear visual indicator of their current position even when the native checkbox is small.
 **Action:** Always include global batch controls for long lists. Use ':focus-within' to provide container-level focus states for interactive items that wrap smaller inputs.
+
+## 2025-05-28 - [Dynamic Form Experience & Asynchronous Feedback]
+**Learning:** In a study-heavy Vanilla JS app, fixed-height textareas for theory questions create friction. Implementing auto-resizing textareas via 'scrollHeight' improves focus. Additionally, because LLM-backed features (like AI grading or explanations) have variable latency, using 'aria-busy' and 'showToast' is critical to prevent users from feeling stuck during the "thinking" phase.
+**Action:** Always implement auto-resize for large text inputs using 'element.style.height = element.scrollHeight + "px"'. Use 'aria-busy="true"' on trigger buttons during API calls to maintain accessibility.
+
+## 2025-05-28 - [Report Card Accessibility & Visual Delight]
+**Learning:** Decorative elements in report cards (like topic progress bars) can clutter screen reader output if not hidden. Furthermore, subtle CSS transforms (e.g., 'translateY') during question transitions provide a necessary "layer" of delight that makes the app feel more premium without adding weight.
+**Action:** Apply 'aria-hidden="true"' to purely visual progress indicators when a textual equivalent (e.g., "5/10") is present. Use subtle vertical transforms on '.transitioning' states to improve the feel of navigational flow.
