@@ -178,6 +178,8 @@ function renderSubQuestion(sub) {
           id="answer-${sub.sub_id}"
           placeholder="Write your answer here..."
           rows="4"
+          oninput="UI.autoResize(this)"
+          aria-describedby="feedback-${sub.sub_id}"
         ></textarea>
       </div>
       <div class="sub-feedback" id="feedback-${sub.sub_id}">
@@ -306,6 +308,12 @@ const UI = {
     }
   },
 
+  autoResize(el) {
+    if (!el) return;
+    el.style.height = 'auto';
+    el.style.height = (el.scrollHeight) + 'px';
+  },
+
   renderCurrent() {
     const wrapper = document.getElementById('question-wrapper');
     if (!wrapper) return;
@@ -326,6 +334,9 @@ const UI = {
       // Accessibility: Focus the new card so screen readers start reading immediately
       const card = wrapper.querySelector('.question-card');
       if (card) card.focus();
+
+      // Initialize textarea heights for theory questions
+      wrapper.querySelectorAll('textarea').forEach(ta => this.autoResize(ta));
     }, 200);
 
     this.updateStepDots();
@@ -606,6 +617,7 @@ const UI = {
 
   skipQuestion() {
     this.resumeTimer();
+    showToast('Question skipped', 'info');
     const q = this.batch[this.currentIdx];
     // Push skipped unseen questions back to unseen queue (don't count as failed)
     if (!q._from_failed) {
@@ -794,7 +806,7 @@ const UI = {
               <div class="topic-row">
                 <span class="topic-name">${escapeHtml(topic)}</span>
                 <div class="topic-bar-wrapper">
-                  <div class="topic-bar">
+                  <div class="topic-bar" aria-hidden="true">
                     <div class="topic-bar__fill" style="width: ${(stats.correct / stats.total) * 100}%"></div>
                   </div>
                   <span class="topic-score">${stats.correct}/${stats.total}</span>
@@ -1072,6 +1084,7 @@ const UI = {
 
     const originalHTML = btn.innerHTML;
     btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
     btn.innerHTML = `<div class="spinner"></div> Thinking...`;
 
     try {
@@ -1083,6 +1096,7 @@ const UI = {
       showToast(`Could not get explanation: ${err.message}`, 'error');
     } finally {
       btn.disabled = false;
+      btn.setAttribute('aria-busy', 'false');
       btn.innerHTML = originalHTML;
     }
   },
