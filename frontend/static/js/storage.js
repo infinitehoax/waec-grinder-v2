@@ -188,12 +188,12 @@ const Storage = {
     // Handle cross-key updates and achievement tracking outside the atomic subject write
     if (passed) {
       Storage.incrementGlobalStat(q._type === 'obj' ? 'mastered_obj' : 'mastered_theory', 1);
-      q._fails_before_pass = Storage.trackQuestionPass(q.id);
+      q._fails_before_pass = Storage.trackQuestionPass(q.id, subject);
       if (isFullyMastered) {
         Storage.trackSubjectMastered(subject);
       }
     } else {
-      Storage.trackQuestionFail(q.id);
+      Storage.trackQuestionFail(q.id, subject);
     }
   },
 
@@ -641,22 +641,27 @@ const Storage = {
   },
 
   // ---- Achievement Helpers ----
-  getQuestionStats(qid) {
+  // BUG FIX: Use composite keys (subject|qid) for question-specific stats to avoid collisions
+  // between different subjects that share the same question ID.
+  getQuestionStats(qid, subject) {
     const stats = Storage._get(KEYS.QUESTION_STATS) || {};
-    return stats[qid] || { fails: 0, passed: false };
+    const key = subject ? `${subject}|${qid}` : qid;
+    return stats[key] || { fails: 0, passed: false };
   },
-  trackQuestionFail(qid) {
+  trackQuestionFail(qid, subject) {
     const stats = Storage._get(KEYS.QUESTION_STATS) || {};
-    if (!stats[qid]) stats[qid] = { fails: 0, passed: false };
-    stats[qid].fails++;
+    const key = subject ? `${subject}|${qid}` : qid;
+    if (!stats[key]) stats[key] = { fails: 0, passed: false };
+    stats[key].fails++;
     Storage._set(KEYS.QUESTION_STATS, stats);
   },
-  trackQuestionPass(qid) {
+  trackQuestionPass(qid, subject) {
     const stats = Storage._get(KEYS.QUESTION_STATS) || {};
-    if (!stats[qid]) stats[qid] = { fails: 0, passed: false };
-    stats[qid].passed = true;
+    const key = subject ? `${subject}|${qid}` : qid;
+    if (!stats[key]) stats[key] = { fails: 0, passed: false };
+    stats[key].passed = true;
     Storage._set(KEYS.QUESTION_STATS, stats);
-    return stats[qid].fails;
+    return stats[key].fails;
   },
 
   getLastBatchPerf() { return Storage._get(KEYS.LAST_BATCH_PERF); },
@@ -737,6 +742,8 @@ const Storage = {
     // Optimization: Instead of iterating through ALL localStorage keys (which can be many),
     // we use the 'wg_subjects_started' index to only look at subjects the user has actually interacted with.
     // This improves performance for users with many stored items in localStorage.
+    // BUG FIX: Returns composite IDs (subject|id) to ensure uniqueness across subjects
+    // during multiplayer mastered-question filtering.
     const ids = new Set();
     const subjects = this._getRaw(KEYS.SUBJECTS_STARTED) || [];
 
@@ -744,10 +751,10 @@ const Storage = {
       const data = this._getRaw(`wg_sub_${subject}`);
       if (data) {
         if (data[SUB_KEYS.MASTERED_OBJ]) {
-          data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(q.id); });
+          data[SUB_KEYS.MASTERED_OBJ].forEach(q => { if (q.id) ids.add(`${subject}|${q.id}`); });
         }
         if (data[SUB_KEYS.MASTERED_THEORY]) {
-          data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(q.id); });
+          data[SUB_KEYS.MASTERED_THEORY].forEach(q => { if (q.id) ids.add(`${subject}|${q.id}`); });
         }
       }
     });
