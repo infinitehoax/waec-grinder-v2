@@ -189,7 +189,8 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
     for data in selected_data:
         sub_name = data.get("subject")
         if mode == "obj" or mode == "both":
-            obj_qs = data.get("obj", [])
+            # Always copy the list to prevent random.shuffle from mutating the in-memory cache in data_service
+            obj_qs = list(data.get("obj", []))
             if filter_mastered:
                 obj_qs = [q for q in obj_qs if q.get("id") not in mastered_pool]
             # Shuffle the individual subject pool before interleaving
@@ -197,7 +198,8 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
             obj_by_subject[sub_name] = obj_qs
 
         if mode == "theory" or mode == "both":
-            theory_qs = data.get("theory", [])
+            # Always copy the list to prevent random.shuffle from mutating the in-memory cache in data_service
+            theory_qs = list(data.get("theory", []))
             if filter_mastered:
                 theory_qs = [q for q in theory_qs if q.get("id") not in mastered_pool]
             # Shuffle the individual subject pool before interleaving

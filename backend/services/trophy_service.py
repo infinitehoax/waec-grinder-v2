@@ -1,6 +1,9 @@
 import requests
 from backend.config import Config
 
+# Global session for connection pooling to reduce TCP handshake latency for Trophy API calls
+_http_session = requests.Session()
+
 class TrophyService:
     @staticmethod
     def _get_headers():
@@ -23,7 +26,7 @@ class TrophyService:
             "value": value
         }
         try:
-            response = requests.post(url, headers=cls._get_headers(), json=payload, timeout=10)
+            response = _http_session.post(url, headers=cls._get_headers(), json=payload, timeout=10)
             response.raise_for_status()
             return response.json()
         except Exception as e:
@@ -38,7 +41,7 @@ class TrophyService:
         url = f"https://app.trophy.so/api/leaderboards/{leaderboard_key}"
         params = {"limit": limit}
         try:
-            response = requests.get(url, headers=cls._get_headers(), params=params, timeout=10)
+            response = _http_session.get(url, headers=cls._get_headers(), params=params, timeout=10)
             response.raise_for_status()
             return response.json().get("rankings", [])
         except Exception as e:

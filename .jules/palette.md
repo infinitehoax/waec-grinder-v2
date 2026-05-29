@@ -37,3 +37,6 @@
 ## 2025-05-27 - [Redundant Progress Indicators]
 **Learning:** When using visual progress bars alongside textual summaries (e.g., "12/55 mastered"), the bar itself provides redundant information that can clutter screen reader output if not handled.
 **Action:** Apply `aria-hidden="true"` to the visual progress bar container. Ensure the textual summary is descriptive enough to stand alone for accessibility users while the bar provides "at-a-glance" value for visual users.
+## 2025-05-27 - [Contextual Selection & Keyboard Visibility]
+**Learning:** For bulk selection lists (like subject selection), providing global controls (All/None) and contextual metadata (counts/mastery) significantly reduces cognitive load. Using ':focus-within' on container labels for checkboxes ensures that keyboard users have a clear visual indicator of their current position even when the native checkbox is small.
+**Action:** Always include global batch controls for long lists. Use ':focus-within' to provide container-level focus states for interactive items that wrap smaller inputs.
