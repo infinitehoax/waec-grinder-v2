@@ -420,9 +420,14 @@ const Lobby = {
 
     _updateRoomState(newState) {
         if (!newState) return;
-        // Merge strategy: if newState is missing questions, preserve local ones
-        if (this.roomState && !newState.questions && this.roomState.questions) {
-            newState.questions = this.roomState.questions;
+        // Merge strategy: if newState is missing questions or messages, preserve local ones
+        if (this.roomState) {
+            if (!newState.questions && this.roomState.questions) {
+                newState.questions = this.roomState.questions;
+            }
+            if (!newState.messages && this.roomState.messages) {
+                newState.messages = this.roomState.messages;
+            }
         }
         this.roomState = newState;
     },

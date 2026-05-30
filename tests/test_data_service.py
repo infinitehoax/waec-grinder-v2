@@ -30,8 +30,8 @@ class TestDataService(unittest.TestCase):
         expected_data = [
             {
                 "subject": "Maths",
-                "obj": [{"id": "q1", "question": "1+1?", "_type": "obj", "_subject": "Maths"}],
-                "theory": [{"id": "t1", "question": "Explain addition.", "_type": "theory", "_subject": "Maths"}]
+                "obj": [{"id": "q1", "question": "1+1?", "_type": "obj", "_subject": "Maths", "_composite_id": "Maths|q1"}],
+                "theory": [{"id": "t1", "question": "Explain addition.", "_type": "theory", "_subject": "Maths", "_composite_id": "Maths|t1"}]
             }
         ]
 

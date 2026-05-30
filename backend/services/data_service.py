@@ -26,14 +26,14 @@ def load_questions() -> dict:
                 # Tag OBJ questions
                 if "obj" in subject_data:
                     subject_data["obj"] = [
-                        {**q, "_type": "obj", "_subject": sub_name}
+                        {**q, "_type": "obj", "_subject": sub_name, "_composite_id": f"{sub_name}|{q.get('id')}"}
                         for q in subject_data["obj"]
                     ]
 
                 # Tag Theory questions
                 if "theory" in subject_data:
                     subject_data["theory"] = [
-                        {**q, "_type": "theory", "_subject": sub_name}
+                        {**q, "_type": "theory", "_subject": sub_name, "_composite_id": f"{sub_name}|{q.get('id')}"}
                         for q in subject_data["theory"]
                     ]
 
