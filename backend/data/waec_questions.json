@@ -1547,7 +1547,7 @@
           "D": "Mole ratio"
         },
         "correct_option": "B",
-        "explanation": "The formula explicitly written is: `Concentration of B in mol/dm³ = mass concentration (g/dm³) / molar mass (g/mol)`."
+        "explanation": "The formula explicitly written is: `Concentration of B in mol/dm\u00b3 = mass concentration (g/dm\u00b3) / molar mass (g/mol)`."
       },
       {
         "id": "obj_chem_011",
@@ -1667,7 +1667,7 @@
           "D": "Molar mass of $H_2SO_4$ / Molar conc. of A"
         },
         "correct_option": "B",
-        "explanation": "The text reads: `Mass Concentration of pure H2SO4 in g/dm³ = Molar conc. of A x Molar mass of H2SO4`."
+        "explanation": "The text reads: `Mass Concentration of pure H2SO4 in g/dm\u00b3 = Molar conc. of A x Molar mass of H2SO4`."
       },
       {
         "id": "obj_chem_021",
@@ -1691,7 +1691,7 @@
           "D": "$10.09 g/dm^3$"
         },
         "correct_option": "D",
-        "explanation": "Although the student uses $9.996$ on page 2, the bottom right of page 3 shows the specific calculation evaluating to `= 10.09 g/dm³ //` (an apparent calculation error in the notes itself, but it is what is written)."
+        "explanation": "Although the student uses $9.996$ on page 2, the bottom right of page 3 shows the specific calculation evaluating to `= 10.09 g/dm\u00b3 //` (an apparent calculation error in the notes itself, but it is what is written)."
       },
       {
         "id": "obj_chem_023",
@@ -1715,7 +1715,7 @@
           "D": "$97.5 g/dm^3$"
         },
         "correct_option": "C",
-        "explanation": "The calculation yields `= 9.75 g/dm³`."
+        "explanation": "The calculation yields `= 9.75 g/dm\u00b3`."
       },
       {
         "id": "obj_chem_025",
@@ -1727,7 +1727,7 @@
           "D": "$98 g/dm^3$"
         },
         "correct_option": "B",
-        "explanation": "The student specifically wrote: `Mass concentration of pure acid = 9.75 g/dm³`."
+        "explanation": "The student specifically wrote: `Mass concentration of pure acid = 9.75 g/dm\u00b3`."
       },
       {
         "id": "obj_chem_026",
@@ -1739,7 +1739,7 @@
           "D": "$10.09 g/dm^3$"
         },
         "correct_option": "C",
-        "explanation": "The student specifically wrote: `Mass concentration of Impure acid = 0.102 x 98 = 9.996 g/dm³`."
+        "explanation": "The student specifically wrote: `Mass concentration of Impure acid = 0.102 x 98 = 9.996 g/dm\u00b3`."
       },
       {
         "id": "obj_chem_027",
@@ -1763,7 +1763,7 @@
           "D": "$\\frac{9.75}{3.9} \\times 100$"
         },
         "correct_option": "C",
-        "explanation": "The substituted numbers are: `∴ % purity = (9.75 / 9.996) x 100`."
+        "explanation": "The substituted numbers are: `\u2234 % purity = (9.75 / 9.996) x 100`."
       },
       {
         "id": "obj_chem_029",
@@ -2278,7 +2278,7 @@
           "D": "oxygen"
         },
         "correct_option": "C",
-        "explanation": "Liquid nitrogen maintains a temperature of -196°C, which halts all biological activity and preserves the sperm for years."
+        "explanation": "Liquid nitrogen maintains a temperature of -196\u00b0C, which halts all biological activity and preserves the sperm for years."
       },
       {
         "id": "obj_agric_019",
@@ -2525,7 +2525,7 @@
           "D": "buffering"
         },
         "correct_option": "C",
-        "explanation": "Thawing must be done carefully (usually in a 37°C water bath) to revive the frozen sperm without damaging them."
+        "explanation": "Thawing must be done carefully (usually in a 37\u00b0C water bath) to revive the frozen sperm without damaging them."
       },
       {
         "id": "obj_agric_038",
@@ -3104,7 +3104,7 @@
         "topic": "Animal Pests and Diseases",
         "question": "The reproductive segments of a tapeworm that contain eggs and are passed out in the faeces are called:",
         "options": {
-          "A": "固定 scolices",
+          "A": "\u56fa\u5b9a scolices",
           "B": "cysts",
           "C": "metacercariae",
           "D": "proglottids"
@@ -3347,7 +3347,7 @@
         "explanation": "Bush clearing destroys the shady breeding and resting habitats of the tsetse fly."
       }
     ]
-},
+  },
   {
     "subject": "Friday Social Riddles",
     "obj": [
@@ -3536,7 +3536,7 @@
       {
         "id": "obj_rid_015",
         "topic": "Lateral Thinking",
-        "question": "A man washes his car in the rain, but his hair doesn’t get wet. How is this possible?",
+        "question": "A man washes his car in the rain, but his hair doesn\u2019t get wet. How is this possible?",
         "options": {
           "A": "He used a large umbrella.",
           "B": "He is bald.",
@@ -3549,7 +3549,7 @@
       {
         "id": "obj_rid_016",
         "topic": "Semantic Wordplay",
-        "question": "You see a boat filled with people. It has not sunk, but when you look again you don’t see a single person on the boat. Why?",
+        "question": "You see a boat filled with people. It has not sunk, but when you look again you don\u2019t see a single person on the boat. Why?",
         "options": {
           "A": "They all jumped overboard.",
           "B": "The boat capsized.",
@@ -6183,7 +6183,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_010",
-        "question": "The pigment in the malphigian layer responsible for skin colouration is ……..",
+        "question": "The pigment in the malphigian layer responsible for skin colouration is \u2026\u2026..",
         "options": {
           "A": "haemoglobin",
           "B": "haemocyanin",
@@ -6219,7 +6219,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_013",
-        "question": "The pituitary is called „master gland‟ because",
+        "question": "The pituitary is called \u201emaster gland\u201f because",
         "options": {
           "A": "it is located in the brain",
           "B": "its lanes are more numerous than those of any other gland",
@@ -7009,7 +7009,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_077",
-        "question": "Viruses differ from all forms of life because they ……..",
+        "question": "Viruses differ from all forms of life because they \u2026\u2026..",
         "options": {
           "A": "have a thick cell wall",
           "B": "feed on waste products of other organisms",
@@ -7033,7 +7033,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_079",
-        "question": "Annelids differ from nematodes in that they ……",
+        "question": "Annelids differ from nematodes in that they \u2026\u2026",
         "options": {
           "A": "exhibit bilateral symmetry",
           "B": "are triploblastic",
@@ -7057,7 +7057,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_081",
-        "question": "In ferns, the sporophyte ……",
+        "question": "In ferns, the sporophyte \u2026\u2026",
         "options": {
           "A": "develops from a haploid zygote",
           "B": "produce spores",
@@ -7069,7 +7069,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_082",
-        "question": "The group of insects that undergoes metamorphosis is …….",
+        "question": "The group of insects that undergoes metamorphosis is \u2026\u2026.",
         "options": {
           "A": "house flies, beetles and cockroaches",
           "B": "cockroaches, grasshopper and bees",
@@ -7081,7 +7081,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_083",
-        "question": "The nitrogenous substance that is excreted by birds in order to conserve water is ….",
+        "question": "The nitrogenous substance that is excreted by birds in order to conserve water is \u2026.",
         "options": {
           "A": "ammonia",
           "B": "urea",
@@ -7093,7 +7093,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_084",
-        "question": "In mammals, the exchange of nutrients and metabolic products occurs in the ….",
+        "question": "In mammals, the exchange of nutrients and metabolic products occurs in the \u2026.",
         "options": {
           "A": "lymph",
           "B": "lungs",
@@ -7105,7 +7105,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_085",
-        "question": "The part of the stomach nearer the gullet is called the ……",
+        "question": "The part of the stomach nearer the gullet is called the \u2026\u2026",
         "options": {
           "A": "epiglottis",
           "B": "cardiac sphincter",
@@ -7419,7 +7419,7 @@
       {
         "id": "obj_eng_lexis_synonyms_009",
         "topic": "Lexis - Synonyms",
-        "question": "### SECTION B: LEXIS (NEAREST IN MEANING / SYNONYMS)\n*Choose the option nearest in meaning to the italicized/capitalized word.*\n\n**9. The rest of the boys admire Olu’s VERVE.**",
+        "question": "### SECTION B: LEXIS (NEAREST IN MEANING / SYNONYMS)\n*Choose the option nearest in meaning to the italicized/capitalized word.*\n\n**9. The rest of the boys admire Olu\u2019s VERVE.**",
         "options": {
           "A": "Energy",
           "B": "Handsomeness",
@@ -8428,7 +8428,7 @@
           "D": "People"
         },
         "correct_option": "B",
-        "explanation": "Key, Even, and People have the long /i:/ sound. Win has the short /ɪ/ sound."
+        "explanation": "Key, Even, and People have the long /i:/ sound. Win has the short /\u026a/ sound."
       },
       {
         "id": "obj_eng_oral_vowels_087",
@@ -8441,7 +8441,7 @@
           "D": "Coast"
         },
         "correct_option": "A",
-        "explanation": "Won't, Hope, and Coast have the long /əʊ/ sound (oh). Cost has the short /ɒ/ sound (aw)."
+        "explanation": "Won't, Hope, and Coast have the long /\u0259\u028a/ sound (oh). Cost has the short /\u0252/ sound (aw)."
       },
       {
         "id": "obj_eng_oral_consonants_088",
@@ -8467,7 +8467,7 @@
           "D": "Character"
         },
         "correct_option": "C",
-        "explanation": "Chemistry, Chorus, and Character have the /k/ sound. Machine has the /ʃ/ (sh) sound."
+        "explanation": "Chemistry, Chorus, and Character have the /k/ sound. Machine has the /\u0283/ (sh) sound."
       },
       {
         "id": "obj_eng_oral_consonants_090",
@@ -8620,7 +8620,7 @@
       {
         "id": "obj_eng_comprehension_001",
         "topic": "Reading Comprehension",
-        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**1. The expression \"standard of living in developed countries will plummet\" means:**",
+        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**1. The expression \"standard of living in developed countries will plummet\" means:**",
         "options": {
           "A": "the economy of rich nations will stagnate",
           "B": "economic life will improve in rich nations",
@@ -8633,7 +8633,7 @@
       {
         "id": "obj_eng_comprehension_002",
         "topic": "Reading Comprehension",
-        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**2. The writer warns that the world could:**",
+        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**2. The writer warns that the world could:**",
         "options": {
           "A": "lose all its oil reserves in a matter of years",
           "B": "face energy crisis soon if production is not stepped up",
@@ -8646,7 +8646,7 @@
       {
         "id": "obj_eng_comprehension_003",
         "topic": "Reading Comprehension",
-        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**3. \"Fossil fuels\" as used in the passage include:**",
+        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**3. \"Fossil fuels\" as used in the passage include:**",
         "options": {
           "A": "wood, kerosene and natural gas",
           "B": "oil, coal and natural gas",
@@ -8659,7 +8659,7 @@
       {
         "id": "obj_eng_comprehension_004",
         "topic": "Reading Comprehension",
-        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**4. The most important aspect of agriculture mentioned in the passage is:**",
+        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**4. The most important aspect of agriculture mentioned in the passage is:**",
         "options": {
           "A": "Poultry",
           "B": "Fishery",
@@ -8672,7 +8672,7 @@
       {
         "id": "obj_eng_comprehension_005",
         "topic": "Reading Comprehension",
-        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**5. A lot of crops harvested are wasted because farmers:**",
+        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**5. A lot of crops harvested are wasted because farmers:**",
         "options": {
           "A": "allow insects and pests to destroy their crop",
           "B": "do not have enough money to invest in harvesters",
@@ -8685,7 +8685,7 @@
       {
         "id": "obj_eng_lexis_synonyms_006",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**6. It is claimed that there is an *extinct* volcano near Jos.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**6. It is claimed that there is an *extinct* volcano near Jos.**",
         "options": {
           "A": "Extinguished",
           "B": "Inactive",
@@ -8698,7 +8698,7 @@
       {
         "id": "obj_eng_lexis_synonyms_007",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**7. Bola has a *sonorous* voice.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**7. Bola has a *sonorous* voice.**",
         "options": {
           "A": "High pitched",
           "B": "Beautiful",
@@ -8711,7 +8711,7 @@
       {
         "id": "obj_eng_lexis_synonyms_008",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**8. Some workers went on *rampage* at a trade fair.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**8. Some workers went on *rampage* at a trade fair.**",
         "options": {
           "A": "Turned violent",
           "B": "Robbed",
@@ -8724,7 +8724,7 @@
       {
         "id": "obj_eng_lexis_synonyms_009",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**9. We have to identify the *protagonists* of the new movement.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**9. We have to identify the *protagonists* of the new movement.**",
         "options": {
           "A": "Enemies",
           "B": "Leading figures",
@@ -8737,7 +8737,7 @@
       {
         "id": "obj_eng_lexis_synonyms_010",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**10. My nephew came in *stealthily* through the back gate.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**10. My nephew came in *stealthily* through the back gate.**",
         "options": {
           "A": "Briskly",
           "B": "Boldly",
@@ -8750,7 +8750,7 @@
       {
         "id": "obj_eng_lexis_synonyms_011",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**11. The distance is not more than twenty kilometers *as the crow flies*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**11. The distance is not more than twenty kilometers *as the crow flies*.**",
         "options": {
           "A": "By the longest route",
           "B": "By the shortest route",
@@ -8763,7 +8763,7 @@
       {
         "id": "obj_eng_lexis_synonyms_012",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**12. Your extreme patience sometimes *infuriates* me.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**12. Your extreme patience sometimes *infuriates* me.**",
         "options": {
           "A": "Impresses",
           "B": "Annoys",
@@ -8776,7 +8776,7 @@
       {
         "id": "obj_eng_lexis_synonyms_013",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**13. I cannot understand how he suddenly became *audacious* contrary to his nature.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**13. I cannot understand how he suddenly became *audacious* contrary to his nature.**",
         "options": {
           "A": "Proud",
           "B": "Bold",
@@ -8789,7 +8789,7 @@
       {
         "id": "obj_eng_lexis_synonyms_014",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**14. His has been a life of *make-belief*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**14. His has been a life of *make-belief*.**",
         "options": {
           "A": "Faith",
           "B": "Fantasy",
@@ -8802,7 +8802,7 @@
       {
         "id": "obj_eng_lexis_synonyms_015",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**15. Our teacher *seldom* comes late to school.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**15. Our teacher *seldom* comes late to school.**",
         "options": {
           "A": "Very often",
           "B": "Always",
@@ -8815,7 +8815,7 @@
       {
         "id": "obj_eng_lexis_synonyms_016",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**16. The Director left his secret file to the Secretary in *good faith*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**16. The Director left his secret file to the Secretary in *good faith*.**",
         "options": {
           "A": "With proof",
           "B": "In anxiety",
@@ -8828,7 +8828,7 @@
       {
         "id": "obj_eng_lexis_synonyms_017",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**17. The Chief approached the issue with convincing *disinterestedness*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**17. The Chief approached the issue with convincing *disinterestedness*.**",
         "options": {
           "A": "Lack of interest",
           "B": "Lack of personal interest",
@@ -8841,7 +8841,7 @@
       {
         "id": "obj_eng_lexis_synonyms_018",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**18. The man insisted on having no *strings attached* to the agreement.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**18. The man insisted on having no *strings attached* to the agreement.**",
         "options": {
           "A": "Financial obligations",
           "B": "Documents",
@@ -8854,7 +8854,7 @@
       {
         "id": "obj_eng_lexis_synonyms_019",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**19. The company has *gone under*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**19. The company has *gone under*.**",
         "options": {
           "A": "Suffered some loss",
           "B": "Broken up",
@@ -8867,7 +8867,7 @@
       {
         "id": "obj_eng_lexis_synonyms_020",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**20. The case was thrown out because the court lacked *jurisdiction*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**20. The case was thrown out because the court lacked *jurisdiction*.**",
         "options": {
           "A": "Jurors to help the judge",
           "B": "Authority",
@@ -8880,7 +8880,7 @@
       {
         "id": "obj_eng_lexis_synonyms_021",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**21. The chief will *launch* the fund-raising appeal.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**21. The chief will *launch* the fund-raising appeal.**",
         "options": {
           "A": "Make a speech at",
           "B": "Eat his afternoon meal during",
@@ -8893,7 +8893,7 @@
       {
         "id": "obj_eng_lexis_synonyms_022",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**22. As the wedding day approached, the bride began to develop *cold feet*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**22. As the wedding day approached, the bride began to develop *cold feet*.**",
         "options": {
           "A": "Fall sick",
           "B": "Feel cold",
@@ -8906,7 +8906,7 @@
       {
         "id": "obj_eng_lexis_synonyms_023",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**23. The clerk refused to *answer for* the mistakes made by the manager.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**23. The clerk refused to *answer for* the mistakes made by the manager.**",
         "options": {
           "A": "Reply",
           "B": "Give an answer",
@@ -8919,7 +8919,7 @@
       {
         "id": "obj_eng_lexis_synonyms_024",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**24. The sudden death of the king *put paid* to the ambition of the minister.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**24. The sudden death of the king *put paid* to the ambition of the minister.**",
         "options": {
           "A": "Contributed",
           "B": "Rewarded",
@@ -8932,7 +8932,7 @@
       {
         "id": "obj_eng_lexis_synonyms_025",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**25. 'You're *impossible*', she said to me.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**25. 'You're *impossible*', she said to me.**",
         "options": {
           "A": "Unreasonable",
           "B": "Unforgiving",
@@ -8945,7 +8945,7 @@
       {
         "id": "obj_eng_lexis_synonyms_026",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**26. Everyone was talking about the *camaraderie* in the club.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**26. Everyone was talking about the *camaraderie* in the club.**",
         "options": {
           "A": "Companionship",
           "B": "Quarrelsomeness",
@@ -8958,7 +8958,7 @@
       {
         "id": "obj_eng_lexis_synonyms_027",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**27. I was being directed by the *sixth sense* all through the ordeal.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**27. I was being directed by the *sixth sense* all through the ordeal.**",
         "options": {
           "A": "Intelligent",
           "B": "Judgement",
@@ -8971,7 +8971,7 @@
       {
         "id": "obj_eng_lexis_synonyms_028",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**28. Tade has an *aquiline* nose.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**28. Tade has an *aquiline* nose.**",
         "options": {
           "A": "Large and curved",
           "B": "A wide and straight nose",
@@ -8984,7 +8984,7 @@
       {
         "id": "obj_eng_lexis_synonyms_029",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**29. The man's wife has her *misgivings* about him.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**29. The man's wife has her *misgivings* about him.**",
         "options": {
           "A": "Fears for",
           "B": "Distrust of",
@@ -8997,7 +8997,7 @@
       {
         "id": "obj_eng_lexis_synonyms_030",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**30. The rest of the boys admire Olu's *verve*.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**30. The rest of the boys admire Olu's *verve*.**",
         "options": {
           "A": "Energy",
           "B": "Handsomeness",
@@ -9010,7 +9010,7 @@
       {
         "id": "obj_eng_lexis_synonyms_031",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**31. The tax rebate was a *concession* given to the civil servants.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**31. The tax rebate was a *concession* given to the civil servants.**",
         "options": {
           "A": "An incentive",
           "B": "An allowance",
@@ -9023,7 +9023,7 @@
       {
         "id": "obj_eng_lexis_synonyms_032",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**32. Violent crime is only one of the *maladies* affecting modern society.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**32. Violent crime is only one of the *maladies* affecting modern society.**",
         "options": {
           "A": "Damages",
           "B": "Illnesses",
@@ -9036,7 +9036,7 @@
       {
         "id": "obj_eng_lexis_synonyms_033",
         "topic": "Lexis - Synonyms",
-        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**33. Cook had *little* oil and so could not prepare the soup.**",
+        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**33. Cook had *little* oil and so could not prepare the soup.**",
         "options": {
           "A": "Little",
           "B": "Small",
@@ -9049,7 +9049,7 @@
       {
         "id": "obj_eng_lexis_antonyms_034",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**34. Their students are very *conscientious*.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**34. Their students are very *conscientious*.**",
         "options": {
           "A": "Careful",
           "B": "Industrious",
@@ -9063,7 +9063,7 @@
       {
         "id": "obj_eng_lexis_antonyms_035",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**35. The business is very *unsuccessful*.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**35. The business is very *unsuccessful*.**",
         "options": {
           "A": "Unscrupulous",
           "B": "Unskillful",
@@ -9077,7 +9077,7 @@
       {
         "id": "obj_eng_lexis_antonyms_036",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**36. *Spurious* arguments are easily identified by smart guys.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**36. *Spurious* arguments are easily identified by smart guys.**",
         "options": {
           "A": "Genuine",
           "B": "Interesting",
@@ -9091,7 +9091,7 @@
       {
         "id": "obj_eng_lexis_antonyms_037",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**37. In my opinion, the decision was *disinterested*.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**37. In my opinion, the decision was *disinterested*.**",
         "options": {
           "A": "Neutral",
           "B": "Impartial",
@@ -9105,7 +9105,7 @@
       {
         "id": "obj_eng_lexis_antonyms_038",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**38. \"A novel is an *embellished* falsehood\", said the teacher.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**38. \"A novel is an *embellished* falsehood\", said the teacher.**",
         "options": {
           "A": "Enriched",
           "B": "Exaggerated",
@@ -9118,7 +9118,7 @@
       {
         "id": "obj_eng_lexis_antonyms_039",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**39. *Curiously*, he escaped unhurt.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**39. *Curiously*, he escaped unhurt.**",
         "options": {
           "A": "Interestingly",
           "B": "Unsurprisingly",
@@ -9131,7 +9131,7 @@
       {
         "id": "obj_eng_lexis_antonyms_040",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**40. His comment was so *printable*.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**40. His comment was so *printable*.**",
         "options": {
           "A": "Punishable",
           "B": "Suitable",
@@ -9144,7 +9144,7 @@
       {
         "id": "obj_eng_lexis_antonyms_041",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**41. I have had enough of your *impudence*.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**41. I have had enough of your *impudence*.**",
         "options": {
           "A": "Politeness",
           "B": "Incivility",
@@ -9157,7 +9157,7 @@
       {
         "id": "obj_eng_lexis_antonyms_042",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**42. Sola was *apathetic* about his work.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**42. Sola was *apathetic* about his work.**",
         "options": {
           "A": "Indifferent",
           "B": "Enthusiastic",
@@ -9170,7 +9170,7 @@
       {
         "id": "obj_eng_lexis_antonyms_043",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**43. The compulsory leave made her feel *listless*.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**43. The compulsory leave made her feel *listless*.**",
         "options": {
           "A": "Restful",
           "B": "Great",
@@ -9183,7 +9183,7 @@
       {
         "id": "obj_eng_lexis_antonyms_044",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**44. We were *collectively* responsible for keeping the machine in good shape.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**44. We were *collectively* responsible for keeping the machine in good shape.**",
         "options": {
           "A": "Jointly",
           "B": "Severally",
@@ -9196,7 +9196,7 @@
       {
         "id": "obj_eng_lexis_antonyms_045",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**45. Mr. Jack was most *flexible* in his instructions.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**45. Mr. Jack was most *flexible* in his instructions.**",
         "options": {
           "A": "Rigid",
           "B": "Correct",
@@ -9209,7 +9209,7 @@
       {
         "id": "obj_eng_lexis_antonyms_046",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**46. The University has offered *temporary* accommodation to its staff.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**46. The University has offered *temporary* accommodation to its staff.**",
         "options": {
           "A": "Popular",
           "B": "Permanent",
@@ -9222,7 +9222,7 @@
       {
         "id": "obj_eng_lexis_antonyms_047",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**47. Mary complained that she slept on the *coarse* floor.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**47. Mary complained that she slept on the *coarse* floor.**",
         "options": {
           "A": "Smooth",
           "B": "Rough",
@@ -9235,7 +9235,7 @@
       {
         "id": "obj_eng_lexis_antonyms_048",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**48. Jim was one of the *spectators* at the concert.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**48. Jim was one of the *spectators* at the concert.**",
         "options": {
           "A": "Ushers",
           "B": "Judges",
@@ -9248,7 +9248,7 @@
       {
         "id": "obj_eng_lexis_antonyms_049",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**49. The governor *declined* to give audience to the journalist.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**49. The governor *declined* to give audience to the journalist.**",
         "options": {
           "A": "Ignored",
           "B": "Accepted",
@@ -9261,7 +9261,7 @@
       {
         "id": "obj_eng_lexis_antonyms_050",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**50. The debtor's husband is *liable* for his wife's debts.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**50. The debtor's husband is *liable* for his wife's debts.**",
         "options": {
           "A": "Unanswerable",
           "B": "Responsible",
@@ -9274,7 +9274,7 @@
       {
         "id": "obj_eng_lexis_antonyms_051",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**51. The lotion recommended by the doctor *soothed* Okon's aching tooth.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**51. The lotion recommended by the doctor *soothed* Okon's aching tooth.**",
         "options": {
           "A": "Calmed",
           "B": "Extracted",
@@ -9287,7 +9287,7 @@
       {
         "id": "obj_eng_lexis_antonyms_052",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**52. The sun cast its *shadow* on the wall.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**52. The sun cast its *shadow* on the wall.**",
         "options": {
           "A": "Reflection",
           "B": "Rays",
@@ -9300,7 +9300,7 @@
       {
         "id": "obj_eng_lexis_antonyms_053",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**53. He was *locked up* for a fortnight.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**53. He was *locked up* for a fortnight.**",
         "options": {
           "A": "Released",
           "B": "Punished",
@@ -9313,7 +9313,7 @@
       {
         "id": "obj_eng_lexis_antonyms_054",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**54. The lady acted *courageously* when thieves attacked her.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**54. The lady acted *courageously* when thieves attacked her.**",
         "options": {
           "A": "Shyly",
           "B": "Fearlessly",
@@ -9326,7 +9326,7 @@
       {
         "id": "obj_eng_lexis_antonyms_055",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**55. The *handsome* profit from her fish business made Mrs. Uba stop complaining.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**55. The *handsome* profit from her fish business made Mrs. Uba stop complaining.**",
         "options": {
           "A": "Ugly",
           "B": "Meager",
@@ -9339,7 +9339,7 @@
       {
         "id": "obj_eng_lexis_antonyms_056",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**56. It pays to be *firm* rather than _______ in a case like this.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**56. It pays to be *firm* rather than _______ in a case like this.**",
         "options": {
           "A": "Flexible",
           "B": "Frank",
@@ -9352,7 +9352,7 @@
       {
         "id": "obj_eng_lexis_antonyms_057",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**57. Usually Joseph is *articulate* in his speech but today he sounds _______**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**57. Usually Joseph is *articulate* in his speech but today he sounds _______**",
         "options": {
           "A": "Clear",
           "B": "Turgid",
@@ -9365,7 +9365,7 @@
       {
         "id": "obj_eng_lexis_antonyms_058",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**58. The man's first wife is *loyal*, while the second is _______**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**58. The man's first wife is *loyal*, while the second is _______**",
         "options": {
           "A": "Unfaithful",
           "B": "Unkind",
@@ -9378,7 +9378,7 @@
       {
         "id": "obj_eng_lexis_antonyms_059",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**59. Instead of *reconciling* her parents, Roxanne worked hard at them _______**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**59. Instead of *reconciling* her parents, Roxanne worked hard at them _______**",
         "options": {
           "A": "Dividing",
           "B": "Destroying",
@@ -9391,7 +9391,7 @@
       {
         "id": "obj_eng_lexis_antonyms_060",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**60. We thought that uncle Sam's health had *improved* but it rather _______**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**60. We thought that uncle Sam's health had *improved* but it rather _______**",
         "options": {
           "A": "Persisted",
           "B": "Deteriorated",
@@ -9404,7 +9404,7 @@
       {
         "id": "obj_eng_lexis_antonyms_061",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**61. He loved his *altruism*.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**61. He loved his *altruism*.**",
         "options": {
           "A": "Benevolence",
           "B": "Sincerity",
@@ -9417,7 +9417,7 @@
       {
         "id": "obj_eng_lexis_antonyms_062",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**62. *Disgruntled* people are indifferent to any plans to rid the society of evil.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**62. *Disgruntled* people are indifferent to any plans to rid the society of evil.**",
         "options": {
           "A": "Different from",
           "B": "Different about",
@@ -9430,7 +9430,7 @@
       {
         "id": "obj_eng_lexis_antonyms_063",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**63. This card *entitles* you to attend the film show.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**63. This card *entitles* you to attend the film show.**",
         "options": {
           "A": "Disqualifies",
           "B": "Discourages",
@@ -9443,7 +9443,7 @@
       {
         "id": "obj_eng_lexis_antonyms_064",
         "topic": "Lexis - Antonyms",
-        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**64. The old woman *smiled* at me and walked away.**",
+        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**64. The old woman *smiled* at me and walked away.**",
         "options": {
           "A": "Laughed",
           "B": "Frowned",
@@ -9456,7 +9456,7 @@
       {
         "id": "obj_eng_idioms_065",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**65. Our teacher was not speaking literally when he said that the lawyer was *under a cloud*.**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**65. Our teacher was not speaking literally when he said that the lawyer was *under a cloud*.**",
         "options": {
           "A": "Literally",
           "B": "Simply",
@@ -9469,7 +9469,7 @@
       {
         "id": "obj_eng_idioms_066",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**66. James and Henry were *at daggers drawn* when I knew them. This means that they:**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**66. James and Henry were *at daggers drawn* when I knew them. This means that they:**",
         "options": {
           "A": "were always angry with each other",
           "B": "always wore daggers",
@@ -9482,7 +9482,7 @@
       {
         "id": "obj_eng_idioms_067",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**67. My book has become *dog-eared* through use. This means that:**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**67. My book has become *dog-eared* through use. This means that:**",
         "options": {
           "A": "the corners of the pages of my book are crumbled",
           "B": "my book is designed like dog's ears",
@@ -9495,7 +9495,7 @@
       {
         "id": "obj_eng_idioms_068",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**68. Musa does not believe that there is poverty in Africa; he is a *dyed-in-the-wool* capitalist. This means that Musa is:**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**68. Musa does not believe that there is poverty in Africa; he is a *dyed-in-the-wool* capitalist. This means that Musa is:**",
         "options": {
           "A": "a kind capitalist",
           "B": "a thoughtful capitalist",
@@ -9508,7 +9508,7 @@
       {
         "id": "obj_eng_idioms_069",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**69. Whenever my cousin comes to realize that I am telling the truth, she will *eat humble pie*. This means that my cousin will:**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**69. Whenever my cousin comes to realize that I am telling the truth, she will *eat humble pie*. This means that my cousin will:**",
         "options": {
           "A": "respect me",
           "B": "hate herself",
@@ -9521,12 +9521,12 @@
       {
         "id": "obj_eng_idioms_070",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**70. Okeke’s chief idiosyncrasy is a passion for pounded yam.**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**70. Okeke\u2019s chief idiosyncrasy is a passion for pounded yam.**",
         "options": {
-          "A": "Okeke’s chief hates pounded yam",
+          "A": "Okeke\u2019s chief hates pounded yam",
           "B": "Okeke hates pounded yam",
           "C": "Okeke has a penchant for pounded yam",
-          "D": "Okeke’s chief likes pounded yams"
+          "D": "Okeke\u2019s chief likes pounded yams"
         },
         "correct_option": "C",
         "explanation": "An idiosyncrasy is a distinctive feature/habit. A penchant means a strong liking for something."
@@ -9534,7 +9534,7 @@
       {
         "id": "obj_eng_idioms_071",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**71. Jimmy is *as hard as nails*.**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**71. Jimmy is *as hard as nails*.**",
         "options": {
           "A": "Jimmy is very strong",
           "B": "Jimmy is very brave",
@@ -9547,7 +9547,7 @@
       {
         "id": "obj_eng_idioms_072",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**72. It is usually hard to change the course of action when one *crosses the Rubicon*.**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**72. It is usually hard to change the course of action when one *crosses the Rubicon*.**",
         "options": {
           "A": "Pass through a place called Rubicon",
           "B": "Cross a river called Rubicon",
@@ -9560,7 +9560,7 @@
       {
         "id": "obj_eng_idioms_073",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**73. Solo has resigned his job. His plans are still quite *in the air*.**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**73. Solo has resigned his job. His plans are still quite *in the air*.**",
         "options": {
           "A": "Airmailed",
           "B": "Air light",
@@ -9573,7 +9573,7 @@
       {
         "id": "obj_eng_idioms_074",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**74. *Old customs die hard*. This implies old customs:**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**74. *Old customs die hard*. This implies old customs:**",
         "options": {
           "A": "Cause a lot of hardship and death",
           "B": "Must be stopped",
@@ -9586,7 +9586,7 @@
       {
         "id": "obj_eng_idioms_075",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**75. The senior prefect had to *CARRY THE CAN* because he refused to identify the culprit.**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**75. The senior prefect had to *CARRY THE CAN* because he refused to identify the culprit.**",
         "options": {
           "A": "Dispose the can of refuse",
           "B": "Accept responsibility",
@@ -9599,7 +9599,7 @@
       {
         "id": "obj_eng_idioms_076",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**76. The opposition party is merely *making a mountain out of a molehill* by insisting that the President resigns.**",
+        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**76. The opposition party is merely *making a mountain out of a molehill* by insisting that the President resigns.**",
         "options": {
           "A": "Defending the president",
           "B": "Exaggerating the situation",
@@ -9612,7 +9612,7 @@
       {
         "id": "obj_eng_grammar_077",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**77. He _______ read more but he is tired.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**77. He _______ read more but he is tired.**",
         "options": {
           "A": "ought to",
           "B": "may",
@@ -9626,7 +9626,7 @@
       {
         "id": "obj_eng_grammar_078",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**78. We have been having _______ series of meetings lately.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**78. We have been having _______ series of meetings lately.**",
         "options": {
           "A": "some",
           "B": "a",
@@ -9640,7 +9640,7 @@
       {
         "id": "obj_eng_grammar_079",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**79. Don't forget to hang _______ the telephone when you finish.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**79. Don't forget to hang _______ the telephone when you finish.**",
         "options": {
           "A": "down",
           "B": "up",
@@ -9654,7 +9654,7 @@
       {
         "id": "obj_eng_grammar_080",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**80. Almost all building which _______ in 1950s _______ not habitable now.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**80. Almost all building which _______ in 1950s _______ not habitable now.**",
         "options": {
           "A": "were build/are",
           "B": "were built/are",
@@ -9668,7 +9668,7 @@
       {
         "id": "obj_eng_grammar_081",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**81. Some motor bikes shuttle _______ Aroma and Unizik.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**81. Some motor bikes shuttle _______ Aroma and Unizik.**",
         "options": {
           "A": "along",
           "B": "to",
@@ -9682,7 +9682,7 @@
       {
         "id": "obj_eng_grammar_082",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**82. I _______ you refuse the _______**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**82. I _______ you refuse the _______**",
         "options": {
           "A": "advice/advise",
           "B": "advise/advice",
@@ -9695,7 +9695,7 @@
       {
         "id": "obj_eng_grammar_083",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**83. The chairman, no less than the members _______ to blame.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**83. The chairman, no less than the members _______ to blame.**",
         "options": {
           "A": "is",
           "B": "are",
@@ -9709,7 +9709,7 @@
       {
         "id": "obj_eng_grammar_084",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**84. Did the ladies enjoy _______?**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**84. Did the ladies enjoy _______?**",
         "options": {
           "A": "each other",
           "B": "one another",
@@ -9723,7 +9723,7 @@
       {
         "id": "obj_eng_grammar_085",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**85. The worker did a shoddy job at that _______**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**85. The worker did a shoddy job at that _______**",
         "options": {
           "A": "cite",
           "B": "sight",
@@ -9737,7 +9737,7 @@
       {
         "id": "obj_eng_grammar_086",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**86. As a result of the power cut, production at the paint factory came to a _______**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**86. As a result of the power cut, production at the paint factory came to a _______**",
         "options": {
           "A": "hold-up",
           "B": "blockade",
@@ -9750,7 +9750,7 @@
       {
         "id": "obj_eng_grammar_087",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**87. Several _______ were passed at the meeting.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**87. Several _______ were passed at the meeting.**",
         "options": {
           "A": "memoranda",
           "B": "Decisions",
@@ -9763,7 +9763,7 @@
       {
         "id": "obj_eng_grammar_088",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**88. We won't leave until it _______ raining.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**88. We won't leave until it _______ raining.**",
         "options": {
           "A": "will stop",
           "B": "stopped",
@@ -9776,7 +9776,7 @@
       {
         "id": "obj_eng_grammar_089",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**89. The _______ event marked the beginning of a new life for the entire cabinet.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**89. The _______ event marked the beginning of a new life for the entire cabinet.**",
         "options": {
           "A": "historical",
           "B": "historicity",
@@ -9789,7 +9789,7 @@
       {
         "id": "obj_eng_grammar_090",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**90. You can't travel on your own, _______?**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**90. You can't travel on your own, _______?**",
         "options": {
           "A": "isn't it",
           "B": "can't you",
@@ -9802,7 +9802,7 @@
       {
         "id": "obj_eng_grammar_091",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**91. The man is refurbishing the flat with a view to _______ it.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**91. The man is refurbishing the flat with a view to _______ it.**",
         "options": {
           "A": "sell",
           "B": "selling",
@@ -9815,7 +9815,7 @@
       {
         "id": "obj_eng_grammar_092",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**92. He has stopped drinking, _______?**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**92. He has stopped drinking, _______?**",
         "options": {
           "A": "does he?",
           "B": "Has he?",
@@ -9828,7 +9828,7 @@
       {
         "id": "obj_eng_grammar_093",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**93. The statement, \"My father gave me this watch\", re-written in the passive form becomes: I _______ this watch by my father.**",
+        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**93. The statement, \"My father gave me this watch\", re-written in the passive form becomes: I _______ this watch by my father.**",
         "options": {
           "A": "Had been given",
           "B": "Am given",
@@ -9841,7 +9841,7 @@
       {
         "id": "obj_eng_oral_094",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**94. Identify the word that has a different vowel sound from the others:**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**94. Identify the word that has a different vowel sound from the others:**",
         "options": {
           "A": "key",
           "B": "win",
@@ -9849,12 +9849,12 @@
           "D": "people"
         },
         "correct_option": "B",
-        "explanation": "Key, Even, and People all have the long /i:/ sound. Win has the short /ɪ/ sound."
+        "explanation": "Key, Even, and People all have the long /i:/ sound. Win has the short /\u026a/ sound."
       },
       {
         "id": "obj_eng_oral_095",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**95. Identify the word that has a different vowel sound from the others:**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**95. Identify the word that has a different vowel sound from the others:**",
         "options": {
           "A": "tear (verb)",
           "B": "hear",
@@ -9862,12 +9862,12 @@
           "D": "mere"
         },
         "correct_option": "A",
-        "explanation": "To tear (verb) is pronounced /tɛə/ (like bear/hair). Hear, weird, and mere are pronounced with the /ɪə/ sound (like ear)."
+        "explanation": "To tear (verb) is pronounced /t\u025b\u0259/ (like bear/hair). Hear, weird, and mere are pronounced with the /\u026a\u0259/ sound (like ear)."
       },
       {
         "id": "obj_eng_oral_096",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**96. Identify the word that has a different vowel sound from the others:**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**96. Identify the word that has a different vowel sound from the others:**",
         "options": {
           "A": "cost",
           "B": "won't",
@@ -9875,12 +9875,12 @@
           "D": "coast"
         },
         "correct_option": "A",
-        "explanation": "Won't, Hope, and Coast have the long /əʊ/ sound (oh). Cost has the short /ɒ/ sound (aw)."
+        "explanation": "Won't, Hope, and Coast have the long /\u0259\u028a/ sound (oh). Cost has the short /\u0252/ sound (aw)."
       },
       {
         "id": "obj_eng_oral_097",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**97. Identify the word that has a different consonant sound from the others:**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**97. Identify the word that has a different consonant sound from the others:**",
         "options": {
           "A": "wife",
           "B": "of",
@@ -9893,7 +9893,7 @@
       {
         "id": "obj_eng_oral_098",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**98. Oladipo is the MANAGER of the country's best team. (Choose the question that best prompts this statement)**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**98. Oladipo is the MANAGER of the country's best team. (Choose the question that best prompts this statement)**",
         "options": {
           "A": "Is Oladipo the coach of the country's best team?",
           "B": "Is Oladipo the manager of the country's best player?",
@@ -9906,7 +9906,7 @@
       {
         "id": "obj_eng_oral_099",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**99. IRELAND is much better.**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**99. IRELAND is much better.**",
         "options": {
           "A": "Is Wales much better?",
           "B": "Is Ireland much worse?",
@@ -9919,7 +9919,7 @@
       {
         "id": "obj_eng_oral_100",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**100. We ATTENDED the seminar together.**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**100. We ATTENDED the seminar together.**",
         "options": {
           "A": "Did we miss the seminar together?",
           "B": "Did they attend the seminar together?",
@@ -9932,7 +9932,7 @@
       {
         "id": "obj_eng_oral_101",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**101. HE wasn't interested in my excuses.**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**101. HE wasn't interested in my excuses.**",
         "options": {
           "A": "Was she interested in my excuses?",
           "B": "Was he interested in your excuses?",
@@ -9945,7 +9945,7 @@
       {
         "id": "obj_eng_oral_102",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**102. The boy WHO stole the mango was given out by an eye witness.**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**102. The boy WHO stole the mango was given out by an eye witness.**",
         "options": {
           "A": "Was the boy that stole the mango given out?",
           "B": "Was the girl who stole the mango given out?",
@@ -9958,7 +9958,7 @@
       {
         "id": "obj_eng_oral_103",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**103. The discussion became ANIMATED.**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**103. The discussion became ANIMATED.**",
         "options": {
           "A": "Specialized",
           "B": "Lively",
@@ -9971,7 +9971,7 @@
       {
         "id": "obj_eng_oral_104",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**104. In the sentence \"We ATTENDED the seminar together\", the capitalized word is an example of:**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**104. In the sentence \"We ATTENDED the seminar together\", the capitalized word is an example of:**",
         "options": {
           "A": "Preposition",
           "B": "Auxiliary verb",
@@ -9984,7 +9984,7 @@
       {
         "id": "obj_eng_oral_105",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**105. \"The girl AT THE GATE saw me\". The capitalized expression is correctly classified as:**",
+        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**105. \"The girl AT THE GATE saw me\". The capitalized expression is correctly classified as:**",
         "options": {
           "A": "An adverbial phrase",
           "B": "An adjectival phrase",
@@ -9995,5 +9995,271 @@
         "explanation": "The phrase \"at the gate\" modifies the noun \"girl\" (telling us *which* girl), so it functions as an adjectival phrase."
       }
     ]
+  },
+  {
+    "subject": "Uche hard quiz",
+    "obj": [
+      {
+        "id": "obj_uche_001",
+        "topic": "Area, Perimeter & Money",
+        "question": "A rectangular school playground is 45 meters long and 30 meters wide. The principal wants to build a new fence around the entire outside edge of the playground. The fencing material costs \\$8 per meter. If the school receives a \\$50 discount on the total price, how much will the fence cost?",
+        "options": {
+          "A": "\\$550",
+          "B": "\\$650",
+          "C": "\\$1,150",
+          "D": "\\$1,200"
+        },
+        "correct_option": "C",
+        "explanation": "**Step 1:** Find the perimeter. Perimeter = length + length + width + width. $45 + 45 + 30 + 30 = 150$ meters.\n**Step 2:** Multiply by the cost per meter. $150 \\times 8 = \\$1,200$.\n**Step 3:** Subtract the discount. $\\$1,200 - \\$50 = \\$1,150$.\n*(Distractor A comes from only adding $45+30=75$ and multiplying by 8).*"
+      },
+      {
+        "id": "obj_uche_002",
+        "topic": "Interpreting Remainders in Division",
+        "question": "A bakery baked 347 blueberry muffins. The bakers pack the muffins into boxes that hold exactly 8 muffins each. They fill as many boxes as completely as possible. Any leftover muffins that cannot make a full box are given to the 3 bakers to share equally. How many full boxes are packed, and how many muffins does *each* baker get?",
+        "options": {
+          "A": "43 boxes packed, 3 muffins for each baker",
+          "B": "43 boxes packed, 1 muffin for each baker",
+          "C": "44 boxes packed, 0 muffins for each baker",
+          "D": "42 boxes packed, 1 muffin for each baker"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Divide 347 by 8. $347 \\div 8 = 43$ with a remainder of 3. This means 43 full boxes.\n**Step 2:** Take the remainder (3 leftover muffins) and divide them equally among the 3 bakers. $3 \\div 3 = 1$ muffin each."
+      },
+      {
+        "id": "obj_uche_003",
+        "topic": "Fraction Operations (Addition & Subtraction)",
+        "question": "Emma baked a cherry pie and cut it into 8 equal slices. She ate $\\frac{1}{8}$ of the pie, and her brother ate $\\frac{3}{8}$ of the pie. Later that day, her mom brought home a second cherry pie of the exact same size. The family ate $\\frac{5}{8}$ of the second pie. If Emma combines all the leftover slices from both pies into one pan, what fraction of a whole pie is left over?",
+        "options": {
+          "A": "$\\frac{1}{8}$",
+          "B": "$\\frac{7}{16}$",
+          "C": "$\\frac{9}{8}$",
+          "D": "$\\frac{7}{8}$"
+        },
+        "correct_option": "D",
+        "explanation": "**Step 1:** Calculate what is left of Pie 1. $\\frac{8}{8} - \\frac{1}{8}$ (Emma) - $\\frac{3}{8}$ (Brother) = $\\frac{4}{8}$ left.\n**Step 2:** Calculate what is left of Pie 2. $\\frac{8}{8} - \\frac{5}{8} = \\frac{3}{8}$ left.\n**Step 3:** Add the leftovers. $\\frac{4}{8} + \\frac{3}{8} = \\frac{7}{8}$."
+      },
+      {
+        "id": "obj_uche_004",
+        "topic": "Elapsed Time & Multi-Step",
+        "question": "A movie starts exactly at 2:45 PM. The movie lasts for 1 hour and 35 minutes. After the movie ends, Julian spends 45 minutes eating dinner, and then it takes him 20 minutes to ride the bus home. At what time does Julian arrive home?",
+        "options": {
+          "A": "4:45 PM",
+          "B": "5:15 PM",
+          "C": "5:25 PM",
+          "D": "6:05 PM"
+        },
+        "correct_option": "C",
+        "explanation": "**Step 1:** Movie runs from 2:45 to 3:45 (1 hr), plus 35 mins. $3:45 + 15$ mins = 4:00, plus the remaining $20$ mins = 4:20 PM.\n**Step 2:** Add 45 mins for dinner. $4:20 + 45 = 5:05$ PM.\n**Step 3:** Add 20 mins for the bus. $5:05 + 20 = 5:25$ PM."
+      },
+      {
+        "id": "obj_uche_005",
+        "topic": "Measurement Conversion (Capacity)",
+        "question": "A science teacher has 3 liters of a special blue liquid. She pours exactly 350 milliliters of the liquid into each of 4 different beakers. How many milliliters of the blue liquid are left in her original container? *(Hint: 1 Liter = 1,000 milliliters)*",
+        "options": {
+          "A": "1,400 mL",
+          "B": "1,600 mL",
+          "C": "2,650 mL",
+          "D": "400 mL"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Convert 3 liters to milliliters. $3 \\times 1,000 = 3,000$ mL.\n**Step 2:** Calculate liquid poured. $350$ mL $\\times 4$ beakers = $1,400$ mL.\n**Step 3:** Subtract poured liquid from total. $3,000 - 1,400 = 1,600$ mL."
+      },
+      {
+        "id": "obj_uche_006",
+        "topic": "Multi-Digit Operations",
+        "question": "A bookstore received 18 boxes of books. Each box contained exactly 35 books. On Monday, the store sold 119 books. On Tuesday, they sold exactly twice as many books as they did on Monday. How many of the newly delivered books are left unsold?",
+        "options": {
+          "A": "154",
+          "B": "273",
+          "C": "392",
+          "D": "511"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Find total books received. $18 \\times 35 = 630$ books.\n**Step 2:** Find total books sold. Monday = 119. Tuesday = $119 \\times 2 = 238$. Total sold = $119 + 238 = 357$.\n**Step 3:** Subtract sold from total. $630 - 357 = 273$ books left."
+      },
+      {
+        "id": "obj_uche_007",
+        "topic": "Additive Angles",
+        "question": "Angle $ABC$ makes a perfectly straight line ($180$ degrees). A ray $BD$ splits the straight line into two angles: Angle $ABD$ and Angle $DBC$. Angle $ABD$ is a right angle. Another ray, $BE$, splits Angle $DBC$ into two smaller angles: Angle $DBE$ and Angle $EBC$. If Angle $DBE$ measures 37 degrees, what is the measurement of Angle $EBC$?",
+        "options": {
+          "A": "43 degrees",
+          "B": "53 degrees",
+          "C": "90 degrees",
+          "D": "143 degrees"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** A straight line is $180^{\\circ}$. A right angle ($ABD$) is $90^{\\circ}$. $180 - 90 = 90^{\\circ}$ left for Angle $DBC$.\n**Step 2:** Angle $DBC$ is made of $DBE$ ($37^{\\circ}$) + $EBC$. $90 - 37 = 53^{\\circ}$."
+      },
+      {
+        "id": "obj_uche_008",
+        "topic": "Measurement Conversion (Mass)",
+        "question": "A veterinarian is weighing animals. A large dog weighs 12 kilograms. A small cat weighs 3 kilograms and 400 grams. How much heavier is the dog than the cat, measured in grams? *(Hint: 1 kilogram = 1,000 grams)*",
+        "options": {
+          "A": "860 g",
+          "B": "8,600 g",
+          "C": "9,600 g",
+          "D": "15,400 g"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Convert the dog's weight. $12$ kg = $12,000$ grams.\n**Step 2:** Convert the cat's weight. $3$ kg $400$ g = $3,400$ grams.\n**Step 3:** Subtract to find the difference. $12,000 - 3,400 = 8,600$ grams."
+      },
+      {
+        "id": "obj_uche_009",
+        "topic": "Area of Rectilinear Figures",
+        "question": "A room is made of two joined rectangular spaces. The first rectangular space is 6 feet long and 4 feet wide. The second rectangular space is attached to it and is 5 feet long and 3 feet wide. New wooden flooring costs \\$3 for every square foot. How much will it cost to put new flooring in the entire room?",
+        "options": {
+          "A": "\\$39",
+          "B": "\\$54",
+          "C": "\\$72",
+          "D": "\\$117"
+        },
+        "correct_option": "D",
+        "explanation": "**Step 1:** Find area of Rectangle 1. $6 \\times 4 = 24$ sq ft.\n**Step 2:** Find area of Rectangle 2. $5 \\times 3 = 15$ sq ft.\n**Step 3:** Total area = $24 + 15 = 39$ sq ft.\n**Step 4:** Multiply by cost per sq ft. $39 \\times \\$3 = \\$117$."
+      },
+      {
+        "id": "obj_uche_010",
+        "topic": "Multiplicative Comparison",
+        "question": "Sarah has 4 times as many stickers as Mark. Mark has 15 fewer stickers than Jenny. If Jenny has 32 stickers, how many stickers do Sarah, Mark, and Jenny have altogether?",
+        "options": {
+          "A": "85",
+          "B": "99",
+          "C": "117",
+          "D": "132"
+        },
+        "correct_option": "C",
+        "explanation": "**Step 1:** Jenny = 32.\n**Step 2:** Mark has 15 fewer than Jenny. $32 - 15 = 17$. Mark = 17.\n**Step 3:** Sarah has 4 times as many as Mark. $17 \\times 4 = 68$. Sarah = 68.\n**Step 4:** Add them all. $32 + 17 + 68 = 117$."
+      },
+      {
+        "id": "obj_uche_011",
+        "topic": "Money and Making Change",
+        "question": "Leo goes to the store and buys 3 notebooks that cost \\$2.45 each, and one pack of pens that costs \\$4.50. He hands the cashier a \\$20.00 bill. How much change should Leo receive?",
+        "options": {
+          "A": "\\$7.15",
+          "B": "\\$8.15",
+          "C": "\\$9.15",
+          "D": "\\$11.85"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Cost of notebooks = $\\$2.45 \\times 3 = \\$7.35$.\n**Step 2:** Add cost of pens. $\\$7.35 + \\$4.50 = \\$11.85$ total spent.\n**Step 3:** Subtract from $\\$20.00$. $\\$20.00 - \\$11.85 = \\$8.15$."
+      },
+      {
+        "id": "obj_uche_012",
+        "topic": "Fraction Equivalence & Ordering",
+        "question": "Look at the following three fractions: $\\frac{3}{4}$, $\\frac{5}{8}$, and $\\frac{4}{6}$. Which of the following statements is true?",
+        "options": {
+          "A": "$\\frac{5}{8}$ is the largest fraction because 8 is the largest denominator.",
+          "B": "$\\frac{3}{4}$ is equal to $\\frac{4}{6}$.",
+          "C": "$\\frac{3}{4}$ is the largest fraction of the three.",
+          "D": "$\\frac{4}{6}$ is smaller than $\\frac{5}{8}$."
+        },
+        "correct_option": "C",
+        "explanation": "**Step 1:** Find a common denominator for 4, 8, and 6. The number 24 works perfectly.\n**Step 2:** Convert all: $\\frac{3}{4} = \\frac{18}{24}$. $\\frac{5}{8} = \\frac{15}{24}$. $\\frac{4}{6} = \\frac{16}{24}$.\n**Step 3:** Order them: $\\frac{15}{24} < \\frac{16}{24} < \\frac{18}{24}$. The largest is $\\frac{18}{24}$, which is $\\frac{3}{4}$."
+      },
+      {
+        "id": "obj_uche_013",
+        "topic": "Distance Conversion & Comparison",
+        "question": "A local running track is 400 meters long. Tom runs completely around the track 6 times. His friend Jerry runs 3 kilometers on a trail. Who ran farther, and by how many meters? *(Hint: 1 kilometer = 1,000 meters)*",
+        "options": {
+          "A": "Tom ran farther by 400 meters.",
+          "B": "Tom ran farther by 600 meters.",
+          "C": "Jerry ran farther by 600 meters.",
+          "D": "Jerry ran farther by 2,600 meters."
+        },
+        "correct_option": "C",
+        "explanation": "**Step 1:** Calculate Tom's distance. $400$ m $\\times 6$ laps = $2,400$ meters.\n**Step 2:** Convert Jerry's distance. $3$ km = $3,000$ meters.\n**Step 3:** Find the difference. $3,000 - 2,400 = 600$ meters. Jerry ran further."
+      },
+      {
+        "id": "obj_uche_014",
+        "topic": "Perimeter and Area Logic",
+        "question": "A square garden has an area of 64 square meters. A rectangular garden is built nearby that has the exact same perimeter as the square garden. If the length of the rectangular garden is 10 meters, what is the area of the rectangular garden?",
+        "options": {
+          "A": "22 square meters",
+          "B": "60 square meters",
+          "C": "64 square meters",
+          "D": "120 square meters"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Find the side length of the square. Area is 64, so side = 8 ($8 \\times 8 = 64$).\n**Step 2:** Find the perimeter of the square. $8 + 8 + 8 + 8 = 32$ m.\n**Step 3:** The rectangle has a perimeter of 32. Formula: $2L + 2W = 32$. If Length = 10, then $20 + 2W = 32$. That means $2W = 12$, so Width = 6.\n**Step 4:** Area of the rectangle = $10 \\times 6 = 60$ sq m."
+      },
+      {
+        "id": "obj_uche_015",
+        "topic": "Division Word Problem (Empty Seats)",
+        "question": "There are 215 students going on a field trip. They are taking mini-buses, and each mini-bus can hold exactly 14 students. The school wants to make sure every student gets a seat. After filling as many mini-buses as possible completely to the maximum, how many **empty seats** will there be on the final mini-bus?",
+        "options": {
+          "A": "4",
+          "B": "5",
+          "C": "9",
+          "D": "14"
+        },
+        "correct_option": "C",
+        "explanation": "**Step 1:** Divide 215 by 14. $14 \\times 10 = 140$. $14 \\times 5 = 70$. $140 + 70 = 210$. So, $215 \\div 14 = 15$ full buses, with a remainder of 5 students.\n**Step 2:** The 16th bus will carry the leftover 5 students.\n**Step 3:** A bus holds 14 seats. $14$ total seats - $5$ students = $9$ empty seats."
+      },
+      {
+        "id": "obj_uche_016",
+        "topic": "Number Patterns",
+        "question": "A sequence of numbers starts with 3. The rule to find the next number is: \"Multiply by 2, then add 4.\"\n*   Term 1: 3\n*   Term 2: 10\n*   Term 3: 24\n\nWhat will the 5th term in this sequence be?",
+        "options": {
+          "A": "52",
+          "B": "108",
+          "C": "112",
+          "D": "224"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Term 3 is 24.\n**Step 2:** Find Term 4 by applying the rule. $(24 \\times 2) + 4 = 48 + 4 = 52$.\n**Step 3:** Find Term 5 by applying the rule to Term 4. $(52 \\times 2) + 4 = 104 + 4 = 108$."
+      },
+      {
+        "id": "obj_uche_017",
+        "topic": "Fractions & Line Plots",
+        "question": "A baker measures the weight of 6 different bags of flour in pounds. The weights are:\n$1\\frac{1}{4}$, $2\\frac{2}{4}$, $1\\frac{3}{4}$, $1\\frac{1}{4}$, $2$, $1\\frac{3}{4}$\nWhat is the total combined weight of all 6 bags of flour?",
+        "options": {
+          "A": "$9\\frac{1}{4}$ pounds",
+          "B": "$10\\frac{1}{2}$ pounds",
+          "C": "$10\\frac{3}{4}$ pounds",
+          "D": "$11$ pounds"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Add the whole numbers: $1 + 2 + 1 + 1 + 2 + 1 = 8$.\n**Step 2:** Add the fractions: $\\frac{1}{4} + \\frac{2}{4} + \\frac{3}{4} + \\frac{1}{4} + \\frac{3}{4} = \\frac{10}{4}$.\n**Step 3:** Convert $\\frac{10}{4}$ to a mixed number: $\\frac{10}{4} = 2\\frac{2}{4}$.\n**Step 4:** Add together: $8 + 2\\frac{2}{4} = 10\\frac{2}{4}$, which simplifies to $10\\frac{1}{2}$."
+      },
+      {
+        "id": "obj_uche_018",
+        "topic": "Geometry & Symmetry",
+        "question": "Which of the following statements about a regular hexagon (a 6-sided shape where all sides and angles are equal) is true?",
+        "options": {
+          "A": "It has exactly 3 lines of symmetry and 0 pairs of parallel sides.",
+          "B": "It has exactly 6 lines of symmetry and 3 pairs of parallel sides.",
+          "C": "It has exactly 1 line of symmetry and all acute angles.",
+          "D": "It has exactly 4 lines of symmetry and 2 pairs of parallel sides."
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** A regular polygon with $N$ sides has exactly $N$ lines of symmetry. A hexagon has 6.\n**Step 2:** In a regular hexagon, opposite sides run perfectly parallel to each other. Because there are 6 sides, they pair up into exactly 3 pairs."
+      },
+      {
+        "id": "obj_uche_019",
+        "topic": "Multi-Step Capacity",
+        "question": "Liam has a large jug containing 5 gallons of water. He uses the jug to completely fill 6 water bottles that hold 2 pints each. Next, he fills a cooler that holds exactly 1 gallon. How many **pints** of water are left in Liam's large jug? *(Hint: 1 gallon = 4 quarts; 1 quart = 2 pints)*",
+        "options": {
+          "A": "12 pints",
+          "B": "20 pints",
+          "C": "28 pints",
+          "D": "40 pints"
+        },
+        "correct_option": "B",
+        "explanation": "**Step 1:** Convert total starting water to pints. 1 gal = 4 qt. 1 qt = 2 pt. Therefore, 1 gal = 8 pints. $5$ gallons $\\times 8 = 40$ pints.\n**Step 2:** Calculate bottles. $6$ bottles $\\times 2$ pints = $12$ pints used.\n**Step 3:** Calculate cooler. $1$ gallon = $8$ pints used.\n**Step 4:** Subtract usage from total. Total used = $12 + 8 = 20$ pints. Remaining = $40 - 20 = 20$ pints."
+      },
+      {
+        "id": "obj_uche_020",
+        "topic": "Number Sense & Logic",
+        "question": "Read the clues to find the secret number:\n*   I am a number less than 50.\n*   I am an odd number.\n*   I am a multiple of 7.\n*   My tens digit is exactly 1 more than my ones digit.\nWhat number am I?",
+        "options": {
+          "A": "21",
+          "B": "35",
+          "C": "42",
+          "D": "43"
+        },
+        "correct_option": "A",
+        "explanation": "**Step 1:** Multiples of 7 less than 50: 7, 14, 21, 28, 35, 42, 49.\n**Step 2:** Filter out even numbers (it must be odd): 7, 21, 35, 49.\n**Step 3:** Check the tens digit rule (tens digit is exactly 1 more than ones digit).\n    *   07: $0 \\neq 7+1$ (No)\n    *   21: $2 = 1+1$ (Yes!)\n    *   35: $3 \\neq 5+1$ (No)\n    *   49: $4 \\neq 9+1$ (No)"
+      }
+    ],
+    "theory": []
   }
 ]
