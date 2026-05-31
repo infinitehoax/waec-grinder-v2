@@ -71,7 +71,9 @@ const Storage = {
   },
   _get(key) {
     const val = Storage._getRaw(key);
-    return val !== null ? deepClone(val) : null;
+    // Optimization: Skip deepClone for primitives (immutable) and null to reduce CPU overhead
+    if (val === null || typeof val !== 'object') return val;
+    return deepClone(val);
   },
   _set(key, val) {
     const str = JSON.stringify(val);
@@ -330,14 +332,16 @@ const Storage = {
   getMode()    { return Storage._get(KEYS.STUDY_MODE) || 'both'; },
   getSubject() { return Storage._get(KEYS.CURRENT_SUBJECT); },
   getSubjects() {
-    const s = Storage.getSubject();
+    // Optimization: Use _getRaw to avoid redundant cloning of the subject list array
+    const s = Storage._getRaw(KEYS.CURRENT_SUBJECT);
     return Array.isArray(s) ? s : [s];
   },
   getStats(sub)   {
     if (sub) {
       const data = Storage._getRaw(`wg_sub_${sub}`) || {};
-      const stats = data.stats || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
-      // Ensure mastered count is derived from lengths for accuracy
+      // Bug Fix: Ensure we return a clone of stats so UI mutations don't pollute the cache.
+      // Also derive 'mastered' directly from primary arrays to ensure consistency.
+      const stats = deepClone(data.stats || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} });
       stats.mastered = (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
       return stats;
     }
@@ -533,11 +537,17 @@ const Storage = {
     let total = 0;
     const subjects = Storage.getSubjects();
     subjects.forEach(sub => {
+      // Optimization: Aggregate counts directly from raw cache objects.
+      // This bypasses expensive deep clones triggered by high-level queue accessors.
+      const data = Storage._getRaw(`wg_sub_${sub}`) || {};
       if (mode === 'obj' || mode === 'both') {
-        total += Storage.getUnseenObj(sub).length + Storage.getFailedObj(sub).length;
+        total += (data.unseen_obj?.length || 0) + (data.failed_obj?.length || 0);
       }
       if (mode === 'theory' || mode === 'both') {
-        total += Storage.getUnseenTheory(sub).length + Storage.getFailedTheory(sub).length;
+        total += (data.unseen_theory?.length || 0) + (data.failed_theory?.length || 0);
+      }
+      if (mode === 'review') {
+        total += (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
       }
     });
     return total;
@@ -552,13 +562,22 @@ const Storage = {
 
   getSessionSummary() {
     const mode = Storage.getMode();
+    const subjects = Storage.getSubjects();
+    const counts = { unseen_obj: 0, unseen_theory: 0, failed_obj: 0, failed_theory: 0 };
+
+    // Optimization: Access .length directly via _getRaw to minimize object cloning during summary updates.
+    subjects.forEach(s => {
+      const data = Storage._getRaw(`wg_sub_${s}`) || {};
+      counts.unseen_obj += (data.unseen_obj?.length || 0);
+      counts.unseen_theory += (data.unseen_theory?.length || 0);
+      counts.failed_obj += (data.failed_obj?.length || 0);
+      counts.failed_theory += (data.failed_theory?.length || 0);
+    });
+
     return {
       mode,
       subject: Storage.getSubject(),
-      unseen_obj: Storage.getUnseenObj().length,
-      unseen_theory: Storage.getUnseenTheory().length,
-      failed_obj: Storage.getFailedObj().length,
-      failed_theory: Storage.getFailedTheory().length,
+      ...counts,
       stats: Storage.getStats(),
     };
   },
