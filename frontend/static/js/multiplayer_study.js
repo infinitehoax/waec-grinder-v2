@@ -312,12 +312,20 @@ const multiplayer_study = {
 
         let questionsUpdated = false;
 
-        // Merge strategy: if newState is missing questions, preserve local ones
+        // Merge strategy: if newState is missing questions or messages, preserve local ones
         // In multiplayer, questions are static once the game starts.
-        if (this.roomState && !newState.questions && this.roomState.questions) {
-            newState.questions = this.roomState.questions;
+        if (this.roomState) {
+            if (!newState.questions && this.roomState.questions) {
+                newState.questions = this.roomState.questions;
+            } else if (newState.questions) {
+                // New questions detected (e.g. game start or re-join)
+                questionsUpdated = true;
+            }
+
+            if (!newState.messages && this.roomState.messages) {
+                newState.messages = this.roomState.messages;
+            }
         } else if (newState.questions) {
-            // New questions detected (e.g. game start or re-join)
             questionsUpdated = true;
         }
 

@@ -194,7 +194,7 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
             obj_qs = list(data.get("obj", []))
             if filter_mastered:
                 # Optimized filtering using O(1) set lookups for composite IDs.
-                obj_qs = [q for q in obj_qs if f"{sub_name}|{q.get('id')}" not in mastered_pool]
+                obj_qs = [q for q in obj_qs if q.get("_composite_id") not in mastered_pool]
             # Shuffle the individual subject pool before interleaving
             random.shuffle(obj_qs)
             obj_by_subject[sub_name] = obj_qs
@@ -204,7 +204,7 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
             theory_qs = list(data.get("theory", []))
             if filter_mastered:
                 # Optimized filtering using O(1) set lookups for composite IDs.
-                theory_qs = [q for q in theory_qs if f"{sub_name}|{q.get('id')}" not in mastered_pool]
+                theory_qs = [q for q in theory_qs if q.get("_composite_id") not in mastered_pool]
             # Shuffle the individual subject pool before interleaving
             random.shuffle(theory_qs)
             theory_by_subject[sub_name] = theory_qs
@@ -297,10 +297,11 @@ def _sanitize_player(p_data):
     """Returns a copy of player data without sensitive/large fields like sid and mastered_ids."""
     return {k: v for k, v in p_data.items() if k not in ['sid', 'mastered_ids']}
 
-def get_room_state(room_id, include_questions=True):
+def get_room_state(room_id, include_questions=True, include_messages=True):
     """
     Returns the state of a room.
     If include_questions is False, the 'questions' list is excluded to reduce payload size.
+    If include_messages is False, the 'messages' list is excluded.
     All player objects are sanitized to remove sid and mastered_ids to save bandwidth.
     """
     room = rooms.get(room_id)
@@ -308,9 +309,13 @@ def get_room_state(room_id, include_questions=True):
         return None
 
     # Always return a copy to prevent accidental mutation of the global state
-    state_copy = {k: v for k, v in room.items() if k != "questions"}
+    state_copy = {k: v for k, v in room.items() if k not in ["questions", "messages"]}
     if include_questions:
         state_copy["questions"] = room["questions"]
+
+    if include_messages:
+        # Return a shallow copy of messages to prevent accidental mutation
+        state_copy["messages"] = list(room.get("messages", []))
 
     # Sanitize players to remove redundant and large mastered_ids/sid
     state_copy["players"] = {
