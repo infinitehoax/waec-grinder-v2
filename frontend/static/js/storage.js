@@ -31,6 +31,7 @@ const KEYS = {
   LEADERBOARD_ENABLED: 'wg_leaderboard_enabled',
   LEADERBOARD_CACHE:   'wg_leaderboard_cache',
   LEADERBOARD_NEEDS_UPDATE: 'wg_leaderboard_needs_update',
+  CBT_DELAY_MARKING: "wg_cbt_delay_marking",
   CBT_MODE:          'wg_cbt_mode',
 };
 
@@ -391,6 +392,8 @@ const Storage = {
 
   isCbtMode() { return !!Storage._get(KEYS.CBT_MODE); },
   setCbtMode(v) { Storage._set(KEYS.CBT_MODE, !!v); },
+  isCbtDelayMarking() { return !!Storage._get(KEYS.CBT_DELAY_MARKING); },
+  setCbtDelayMarking(v) { Storage._set(KEYS.CBT_DELAY_MARKING, !!v); },
   isRandomizedQuestions() { return !!Storage._get(KEYS.RANDOMIZE_QUESTIONS); },
   setRandomizedQuestions(v) { Storage._set(KEYS.RANDOMIZE_QUESTIONS, !!v); },
 

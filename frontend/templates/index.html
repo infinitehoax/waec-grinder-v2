@@ -199,6 +199,16 @@
           <div id="cbt-status-badge" class="badge badge--neutral">OFF</div>
         </div>
       </div>
+
+      <div class="card" id="exam-mode-config-card" style="border-color: var(--border-subtle); opacity: 0.7; cursor: pointer; display: none;" onclick="toggleCbtDelayMarking()" role="button" tabindex="0" aria-pressed="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCbtDelayMarking();}">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-weight:600; margin-bottom:4px;">Exam Mode</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Grade all at the end. No instant feedback.</div>
+          </div>
+          <div id="exam-mode-status-badge" class="badge badge--neutral">OFF</div>
+        </div>
+      </div>
 </div>
 
     <!-- Mode selection cards -->
@@ -598,6 +608,8 @@
     updateToggleUI('random-options', isRandomizedOptions);
     updateToggleUI('leaderboard', Storage.isLeaderboardEnabled());
     updateToggleUI('cbt', Storage.isCbtMode());
+    updateToggleUI('exam-mode', Storage.isCbtDelayMarking());
+    document.getElementById('exam-mode-config-card').style.display = Storage.isCbtMode() ? 'block' : 'none';
   }
 
   function updateToggleUI(prefix, state) {
@@ -635,6 +647,13 @@
     const newState = !Storage.isCbtMode();
     Storage.setCbtMode(newState);
     updateToggleUI('cbt', newState);
+    document.getElementById('exam-mode-config-card').style.display = newState ? 'block' : 'none';
+  }
+
+  function toggleCbtDelayMarking() {
+    const newState = !Storage.isCbtDelayMarking();
+    Storage.setCbtDelayMarking(newState);
+    updateToggleUI('exam-mode', newState);
   }
 
   function toggleLeaderboard() {

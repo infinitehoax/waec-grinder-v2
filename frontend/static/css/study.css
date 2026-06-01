@@ -1138,3 +1138,11 @@
     font-size: 0.8rem;
   }
 }
+
+/* Exam Mode / CBT Selected State */
+.option-btn.selected {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+  transform: translateX(4px);
+}

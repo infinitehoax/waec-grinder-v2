@@ -78,12 +78,17 @@ function renderObjQuestion(q, idx, total) {
       </div>
       <div class="question-text">${formatText(q.question)}</div>
       <div class="options-grid" id="options-grid" data-correct="${escapeHtml(correctOption)}" data-explanation="${escapeAttr(q.explanation || '')}">
-        ${optionsToRender.map(([letter, text]) => `
-          <button class="option-btn" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}')" aria-label="Option ${letter}: ${escapeHtml(text)}">
-            <span class="option-letter" aria-hidden="true">${letter}</span>
-            <span class="option-text">${formatText(text)}</span>
-          </button>
-        `).join('')}
+        ${optionsToRender.map(([letter, text]) => {
+          let cls = 'option-btn';
+          if (q._selected_letter === letter) cls += ' selected';
+
+          return `
+            <button class="${cls}" data-letter="${letter}" onclick="UI.selectOption(this, '${letter}')" aria-label="Option ${letter}: ${escapeHtml(text)}">
+              <span class="option-letter" aria-hidden="true">${letter}</span>
+              <span class="option-text">${formatText(text)}</span>
+            </button>
+          `;
+        }).join('')}
       </div>
       <div class="result-banner" id="result-banner" role="status" aria-live="polite">
         <span class="result-banner__icon" aria-hidden="true"></span>
@@ -432,6 +437,26 @@ const UI = {
     const grid = btn.closest('#options-grid');
     const correct = grid ? grid.dataset.correct : '';
     const explanation = grid ? grid.dataset.explanation : '';
+    const q = this.batch[this.currentIdx];
+
+    if (Storage.isCbtDelayMarking()) {
+      // Exam Mode: Just record selection, no feedback
+      q._selected_letter = letter;
+      q._status = 'answered';
+      q._passed = (letter === correct);
+
+      // Update UI selection
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      Storage.saveBatch(this.batch);
+      updateNavStats();
+      this.renderNavigator(); // Refresh navigator to show answered status
+
+      const nextBtn = document.getElementById('next-btn');
+      if (nextBtn) nextBtn.style.display = 'flex';
+      return;
+    }
 
     // Disable all options
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
@@ -466,7 +491,6 @@ const UI = {
     }
 
     // Record result
-    const q = this.batch[this.currentIdx];
     Engine.markObjResult(q, passed);
     q._status = 'answered';
     Storage.saveBatch(this.batch);
@@ -751,13 +775,33 @@ const UI = {
         return;
     }
 
+    // Exam Mode Final Grading
+    if (Storage.isCbtDelayMarking()) {
+      this.batch.forEach(q => {
+        if (q._selected_letter && q._status === 'answered' && q._passed !== undefined && !q._graded) {
+          Engine.markObjResult(q, q._passed);
+          q._graded = true;
+
+          // Track mastery to Trophy if passed
+          if (q._passed && !q._is_review && !q._is_multiplayer) {
+            import('./api.js').then(({ default: API }) => {
+              API.trackMastery(Storage.getPlayerUuid(), Storage.getPlayerName())
+                .catch(err => console.error('[Trophy] Tracking failed:', err));
+            });
+          }
+        }
+      });
+      Storage.saveBatch(this.batch);
+    }
+
     // Performance Calculations
-    const answeredBatch = this.batch.slice(0, this.currentIdx);
+    const answeredBatch = Storage.isCbtDelayMarking() ? this.batch : this.batch.slice(0, this.currentIdx);
     const correctCount = answeredBatch.filter(q => q._passed === true).length;
     const totalCount = answeredBatch.length;
 
+    const remainingInBatch = Storage.isCbtDelayMarking() ? 0 : (this.batch.length - this.currentIdx);
     const initialFailedQueueSize = (Storage.getFailedObj().length + Storage.getFailedTheory().length) +
-                                  (this.batch.length - this.currentIdx); // approximation
+                                  remainingInBatch; // approximation
 
     const startTime = Storage.getBatchStartTime();
     const durationMs = startTime ? Date.now() - startTime : 0;
