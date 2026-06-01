@@ -48,3 +48,7 @@
 ## 2025-05-28 - [Report Card Accessibility & Visual Delight]
 **Learning:** Decorative elements in report cards (like topic progress bars) can clutter screen reader output if not hidden. Furthermore, subtle CSS transforms (e.g., 'translateY') during question transitions provide a necessary "layer" of delight that makes the app feel more premium without adding weight.
 **Action:** Apply 'aria-hidden="true"' to purely visual progress indicators when a textual equivalent (e.g., "5/10") is present. Use subtle vertical transforms on '.transitioning' states to improve the feel of navigational flow.
+
+## 2025-05-30 - [Visual Progress in Compressed Lists]
+**Learning:** When adding visual progress indicators to compressed list items (like subject selection), using flex containers with explicit constraints (min-width/max-width) ensures layout stability across different screen sizes. Combining this with 'aria-hidden="true"' and a parent 'aria-label' maintains WCAG compliance without cluttering the accessibility tree with redundant percentage announcements.
+**Action:** Use 'min-width' on sibling labels and 'max-width' on progress bars within flex containers to prevent layout shifting during dynamic content rendering.
