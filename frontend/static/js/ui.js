@@ -101,12 +101,12 @@ function renderObjQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question">&larr; Back</button>` : ''}
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
+          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (B)">&larr; <span class="kbd-hint" aria-hidden="true">B</span>Back</button>` : ''}
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question (S)"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
         </div>
         <div class="action-bar__right">
-          ${Storage.isCbtMode() && idx === total - 1 ? `<button class="btn btn--accent" onclick="UI.showBatchComplete()" aria-label="Finish and submit batch">Finish & Submit</button>` : ''}
-          <button class="btn btn--primary" id="next-btn" style="${(Storage.isCbtMode() && idx < total - 1) || q._status === 'answered' ? '' : 'display:none'}" onclick="UI.nextQuestion()" aria-label="Next question">
+          ${Storage.isCbtMode() && idx === total - 1 ? `<button class="btn btn--accent" id="finish-btn" onclick="UI.showBatchComplete()" aria-label="Finish and submit batch (Enter)">Finish & Submit <span class="kbd-hint" aria-hidden="true">Enter</span></button>` : ''}
+          <button class="btn btn--primary" id="next-btn" style="${(Storage.isCbtMode() && idx < total - 1) || (!Storage.isCbtMode() && q._status === 'answered') ? '' : 'display:none'}" onclick="UI.nextQuestion()" aria-label="Next question (Enter)">
             Next <span class="kbd-hint" aria-hidden="true">Enter</span> &rarr;
           </button>
         </div>
@@ -147,18 +147,18 @@ function renderTheoryQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question">&larr; Back</button>` : ''}
-          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
+          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (B)">&larr; <span class="kbd-hint" aria-hidden="true">B</span>Back</button>` : ''}
+          <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question (S)"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
           <span class="score-tally hidden" id="score-tally">
             Score: <strong id="score-val">0</strong> / ${totalMaxMarks}
           </span>
         </div>
         <div class="action-bar__right">
-          ${Storage.isCbtMode() && idx === total - 1 ? `<button class="btn btn--accent" onclick="UI.showBatchComplete()" aria-label="Finish and submit batch">Finish & Submit</button>` : ''}
-          <button class="btn btn--primary" id="submit-theory-btn" onclick="UI.submitTheory()" aria-label="Submit answer for AI grading">
+          ${Storage.isCbtMode() && idx === total - 1 ? `<button class="btn btn--accent" id="finish-btn" onclick="UI.showBatchComplete()" aria-label="Finish and submit batch (Enter)">Finish & Submit <span class="kbd-hint" aria-hidden="true">Enter</span></button>` : ''}
+          <button class="btn btn--primary" id="submit-theory-btn" onclick="UI.submitTheory()" aria-label="Submit answer for AI grading (Ctrl+Enter)">
             ✦ Submit for Grading <span class="kbd-hint" aria-hidden="true">Ctrl+Enter</span>
           </button>
-          <button class="btn btn--primary" id="next-btn" style="${(Storage.isCbtMode() && idx < total - 1) || q._status === 'answered' ? '' : 'display:none'}" onclick="UI.nextQuestion()" aria-label="Next question">
+          <button class="btn btn--primary" id="next-btn" style="${(Storage.isCbtMode() && idx < total - 1) || (!Storage.isCbtMode() && q._status === 'answered') ? '' : 'display:none'}" onclick="UI.nextQuestion()" aria-label="Next question (Enter)">
             Next <span class="kbd-hint" aria-hidden="true">Enter</span> &rarr;
           </button>
         </div>
@@ -1255,15 +1255,29 @@ window.addEventListener('keydown', (e) => {
   // Next question on Enter
   if (e.key === 'Enter') {
     const nextBtn = document.getElementById('next-btn');
-    if (nextBtn && nextBtn.style.display !== 'none' && !nextBtn.disabled) {
+    const isNextVisible = nextBtn && window.getComputedStyle(nextBtn).display !== 'none' && !nextBtn.disabled;
+
+    if (isNextVisible && UI.currentIdx < UI.batch.length - 1) {
       UI.nextQuestion();
+      return;
     }
-    return;
+
+    const finishBtn = document.getElementById('finish-btn');
+    if (finishBtn && window.getComputedStyle(finishBtn).display !== 'none' && !finishBtn.disabled) {
+      UI.showBatchComplete();
+      return;
+    }
   }
 
   const key = e.key.toUpperCase();
 
-  // 'B' to go back\n  if (key === 'B' && Storage.isCbtMode()) {\n    UI.prevQuestion();\n    return;\n  }\n\n  // 'S' to skip question
+  // 'B' to go back
+  if (key === 'B' && Storage.isCbtMode()) {
+    UI.prevQuestion();
+    return;
+  }
+
+  // 'S' to skip question
   if (key === 'S') {
     const skipBtn = document.querySelector('.action-bar__left .btn--ghost');
     if (skipBtn && window.getComputedStyle(skipBtn).display !== 'none') {
