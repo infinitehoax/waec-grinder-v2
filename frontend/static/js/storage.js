@@ -213,11 +213,16 @@ const Storage = {
 
     for (const [sub, ids] of Object.entries(bySubject)) {
       Storage.updateSubjectData(sub, (data) => {
-        if (ids.obj.length > 0 && data.unseen_obj) {
-          data.unseen_obj = data.unseen_obj.filter(q => !ids.obj.includes(q.id));
+        // Optimization: Use Sets for O(1) lookups during filtering.
+        // This significantly improves performance when draining batches from large unseen queues.
+        const objIds = new Set(ids.obj);
+        const theoryIds = new Set(ids.theory);
+
+        if (objIds.size > 0 && data.unseen_obj) {
+          data.unseen_obj = data.unseen_obj.filter(q => !objIds.has(q.id));
         }
-        if (ids.theory.length > 0 && data.unseen_theory) {
-          data.unseen_theory = data.unseen_theory.filter(q => !ids.theory.includes(q.id));
+        if (theoryIds.size > 0 && data.unseen_theory) {
+          data.unseen_theory = data.unseen_theory.filter(q => !theoryIds.has(q.id));
         }
       });
     }

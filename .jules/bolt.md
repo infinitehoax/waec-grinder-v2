@@ -30,3 +30,7 @@
 ## 2026-05-27 - [Side-Effect Prevention & Connection Pooling]
 **Learning:** `random.shuffle()` in Python operates in-place. Mutating data directly from a shared in-memory cache leads to unexpected state changes across sessions. Additionally, repeated outbound API calls (like to Trophy) incur significant overhead due to constant TCP/TLS handshakes.
 **Action:** Always create a copy (e.g., `list(data)`) before performing in-place mutations on cached objects. Implement `requests.Session()` for service-level connection pooling to minimize network latency.
+
+## 2025-06-01 - [Algorithmic Optimization in Storage]
+**Learning:** Using `Array.prototype.includes()` inside a `filter()` loop results in O(N*M) complexity. For large question banks, this causes noticeable lag when starting sessions or draining batches.
+**Action:** Convert lookup arrays to `Set` objects before entering loops to achieve O(1) lookups, reducing the overall complexity to O(N+M).
