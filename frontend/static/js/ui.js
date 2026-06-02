@@ -800,8 +800,9 @@ const UI = {
     const totalCount = answeredBatch.length;
 
     const remainingInBatch = Storage.isCbtDelayMarking() ? 0 : (this.batch.length - this.currentIdx);
-    const initialFailedQueueSize = (Storage.getFailedObj().length + Storage.getFailedTheory().length) +
-                                  remainingInBatch; // approximation
+    // Optimization: Use getQuickCounts() to avoid cloning and concatenating multiple large arrays just for length checks.
+    const currentFailedCount = Storage.getQuickCounts().failed;
+    const initialFailedQueueSize = currentFailedCount + remainingInBatch; // approximation
 
     const startTime = Storage.getBatchStartTime();
     const durationMs = startTime ? Date.now() - startTime : 0;
@@ -829,7 +830,7 @@ const UI = {
         allPassed,
         batch: answeredBatch,
         initialFailedQueueSize,
-        failedQueueSize: Storage.getFailedObj().length + Storage.getFailedTheory().length
+        failedQueueSize: currentFailedCount
     };
 
     if (allPassed) {
