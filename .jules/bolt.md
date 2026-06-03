@@ -34,3 +34,7 @@
 ## 2025-06-01 - [Algorithmic Optimization in Storage]
 **Learning:** Using `Array.prototype.includes()` inside a `filter()` loop results in O(N*M) complexity. For large question banks, this causes noticeable lag when starting sessions or draining batches.
 **Action:** Convert lookup arrays to `Set` objects before entering loops to achieve O(1) lookups, reducing the overall complexity to O(N+M).
+
+## 2024-06-03 - [Optional Cloning for Performance]
+**Learning:** Deep cloning (especially via `structuredClone`) of large data structures in high-frequency loops or batch operations can introduce significant CPU overhead. If the caller immediately maps or filters the data into a new array/object, the initial clone is redundant.
+**Action:** Provide an optional `clone` parameter (defaulting to `true`) in data accessors. Use `clone=false` in contexts like `Engine.buildBatch` where data is immediately transformed, saving unnecessary CPU cycles and memory pressure.

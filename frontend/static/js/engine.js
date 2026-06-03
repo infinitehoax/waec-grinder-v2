@@ -72,8 +72,8 @@ const Engine = {
     // Review Mode: Pull exclusively from mastered queues
     if (mode === 'review') {
       return this._getInterleaved(subjects, limit, (sub) => {
-        const obj = Storage.getMasteredObj(sub).map(q => ({ ...q, _type: 'obj', _from_failed: false, _is_review: true, _subject: sub }));
-        const theory = Storage.getMasteredTheory(sub).map(q => ({ ...q, _type: 'theory', _from_failed: false, _is_review: true, _subject: sub }));
+        const obj = Storage.getMasteredObj(sub, false).map(q => ({ ...q, _type: 'obj', _from_failed: false, _is_review: true, _subject: sub }));
+        const theory = Storage.getMasteredTheory(sub, false).map(q => ({ ...q, _type: 'theory', _from_failed: false, _is_review: true, _subject: sub }));
         const pool = [...obj, ...theory];
 
         // Shuffle each subject pool to pick random mastered questions
@@ -88,7 +88,7 @@ const Engine = {
     // 1. Failed OBJ
     if (mode === 'obj' || mode === 'both') {
       const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        let qs = Storage.getFailedObj(sub);
+        let qs = Storage.getFailedObj(sub, false);
         if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
         return qs.map(q => ({ ...q, _type: 'obj', _from_failed: true, _subject: sub }));
       });
@@ -97,7 +97,7 @@ const Engine = {
     // 2. Failed Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
       const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        let qs = Storage.getFailedTheory(sub);
+        let qs = Storage.getFailedTheory(sub, false);
         if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
         return qs.map(q => ({ ...q, _type: 'theory', _from_failed: true, _subject: sub }));
       });
@@ -106,7 +106,7 @@ const Engine = {
     // 3. Unseen OBJ
     if ((mode === 'obj' || mode === 'both') && batch.length < limit) {
       const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        let qs = Storage.getUnseenObj(sub);
+        let qs = Storage.getUnseenObj(sub, false);
         if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
         return qs.map(q => ({ ...q, _type: 'obj', _from_failed: false, _subject: sub }));
       });
@@ -115,7 +115,7 @@ const Engine = {
     // 4. Unseen Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
       const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        let qs = Storage.getUnseenTheory(sub);
+        let qs = Storage.getUnseenTheory(sub, false);
         if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
         return qs.map(q => ({ ...q, _type: 'theory', _from_failed: false, _subject: sub }));
       });
