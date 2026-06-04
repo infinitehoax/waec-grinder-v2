@@ -18,7 +18,13 @@
         <input type="text" id="create-name" placeholder="Enter your name" class="form-input" style="width:100%; padding:10px; background:var(--bg-card); border:1px solid var(--border-subtle); color:var(--text-primary); border-radius:8px;">
       </div>
       <div style="margin-bottom: 16px;">
-        <label style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:8px;">Select Subjects</label>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px;">
+          <label style="display:block; font-size:0.85rem; color:var(--text-muted);">Select Subjects</label>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn--ghost btn--sm" onclick="lobby.selectAllSubjects()" type="button" style="padding: 2px 8px; font-size: 0.65rem;">All</button>
+            <button class="btn btn--ghost btn--sm" onclick="lobby.selectNoneSubjects()" type="button" style="padding: 2px 8px; font-size: 0.65rem;">None</button>
+          </div>
+        </div>
         <div id="subject-list" style="display: grid; grid-template-columns: 1fr; gap: 10px; max-height: 240px; overflow-y: auto; padding: 4px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-input);">
             <!-- Subjects rendered here by JS -->
         </div>
@@ -97,9 +103,9 @@
             </div>
             <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
               <div style="display:flex; gap:8px;">
-                <button class="btn btn--ghost btn--sm batch-size-btn active-size" data-size="10">10</button>
-                <button class="btn btn--ghost btn--sm batch-size-btn" data-size="20">20</button>
-                <button class="btn btn--ghost btn--sm batch-size-btn" data-size="all">All</button>
+                <button class="btn btn--ghost btn--sm batch-size-btn active-size" data-size="10" aria-pressed="true">10</button>
+                <button class="btn btn--ghost btn--sm batch-size-btn" data-size="20" aria-pressed="false">20</button>
+                <button class="btn btn--ghost btn--sm batch-size-btn" data-size="all" aria-pressed="false">All</button>
               </div>
               <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
               <input type="number" id="custom-batch-size" placeholder="Custom" class="input-custom" style="width: 80px;">
@@ -115,9 +121,9 @@
             </div>
             <div style="display:flex; gap:8px; align-items: center; flex-wrap: wrap;">
               <div style="display:flex; gap:8px;">
-                <button class="btn btn--ghost btn--sm timed-btn" data-time="5">5m</button>
-                <button class="btn btn--ghost btn--sm timed-btn" data-time="10">10m</button>
-                <button class="btn btn--ghost btn--sm timed-btn" data-time="20">20m</button>
+                <button class="btn btn--ghost btn--sm timed-btn" data-time="5" aria-pressed="false">5m</button>
+                <button class="btn btn--ghost btn--sm timed-btn" data-time="10" aria-pressed="false">10m</button>
+                <button class="btn btn--ghost btn--sm timed-btn" data-time="20" aria-pressed="false">20m</button>
               </div>
               <span style="color: var(--text-muted); font-size: 0.8rem; margin: 0 4px;">or</span>
               <input type="number" id="custom-time-limit" placeholder="Mins" class="input-custom" style="width: 80px;">
@@ -185,6 +191,10 @@
 
 <style>
 .mode-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.subject-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; cursor: pointer; transition: all var(--transition-fast); border-radius: var(--radius-sm); border: 1px solid transparent; }
+.subject-item:hover { background: var(--bg-card-hover); transform: translateX(2px); }
+.subject-item.is-selected { background: var(--accent-glow); border-color: var(--accent); }
+.subject-item:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
 .form-input:focus {
     outline: none;
     border-color: var(--accent) !important;

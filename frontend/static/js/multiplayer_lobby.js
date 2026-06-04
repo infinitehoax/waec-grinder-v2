@@ -7,7 +7,7 @@ import Storage from './storage.js';
 import socket from './socket_client.js';
 import { showToast } from './ui.js';
 
-const Lobby = {
+const lobby = {
     selectedMode: 'both',
     allQuestions: [],
     roomId: null,
@@ -62,8 +62,12 @@ const Lobby = {
         // Question count buttons
         document.querySelectorAll('.batch-size-btn').forEach(btn => {
             btn.onclick = () => {
-                document.querySelectorAll('.batch-size-btn').forEach(b => b.classList.remove('active-size'));
+                document.querySelectorAll('.batch-size-btn').forEach(b => {
+                    b.classList.remove('active-size');
+                    b.setAttribute('aria-pressed', 'false');
+                });
                 btn.classList.add('active-size');
+                btn.setAttribute('aria-pressed', 'true');
                 this.totalQuestions = btn.dataset.size === 'all' ? 'all' : parseInt(btn.dataset.size);
                 const customInput = document.getElementById('custom-batch-size');
                 if (customInput) customInput.value = '';
@@ -93,12 +97,17 @@ const Lobby = {
             btn.onclick = () => {
                 if (btn.classList.contains('active-size')) {
                     btn.classList.remove('active-size');
+                    btn.setAttribute('aria-pressed', 'false');
                     this.timeLimit = 0;
                     this.updateHostControlUI('timed-config-card', false);
                     return;
                 }
-                document.querySelectorAll('.timed-btn').forEach(b => b.classList.remove('active-size'));
+                document.querySelectorAll('.timed-btn').forEach(b => {
+                    b.classList.remove('active-size');
+                    b.setAttribute('aria-pressed', 'false');
+                });
                 btn.classList.add('active-size');
+                btn.setAttribute('aria-pressed', 'true');
                 this.timeLimit = parseInt(btn.dataset.time);
                 const customInput = document.getElementById('custom-time-limit');
                 if (customInput) customInput.value = '';
@@ -145,11 +154,33 @@ const Lobby = {
         }
 
         list.innerHTML = this.allQuestions.map((s, idx) => `
-            <label style="display:flex; align-items:center; gap:10px; padding:8px 12px; cursor:pointer; transition:background 0.2s; border-radius:var(--radius-sm);">
-                <input type="checkbox" class="subject-checkbox" value="${s.subject}" ${idx === 0 ? 'checked' : ''} style="width:18px; height:18px; accent-color:var(--accent);">
+            <label class="subject-item ${idx === 0 ? 'is-selected' : ''}">
+                <input type="checkbox" class="subject-checkbox" value="${s.subject}" ${idx === 0 ? 'checked' : ''} onchange="lobby.updateSubjectUI(this)" style="width:18px; height:18px; accent-color:var(--accent);">
                 <span style="font-size:0.9rem; font-weight:500;">${s.subject}</span>
             </label>
         `).join('');
+    },
+
+    updateSubjectUI(checkbox) {
+        const item = checkbox.closest('.subject-item');
+        if (item) {
+            if (checkbox.checked) item.classList.add('is-selected');
+            else item.classList.remove('is-selected');
+        }
+    },
+
+    selectAllSubjects() {
+        document.querySelectorAll('.subject-checkbox').forEach(cb => {
+            cb.checked = true;
+            this.updateSubjectUI(cb);
+        });
+    },
+
+    selectNoneSubjects() {
+        document.querySelectorAll('.subject-checkbox').forEach(cb => {
+            cb.checked = false;
+            this.updateSubjectUI(cb);
+        });
     },
 
     setupSocketHandlers() {
@@ -438,4 +469,4 @@ const Lobby = {
     }
 };
 
-export default Lobby;
+export default lobby;

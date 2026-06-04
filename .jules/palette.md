@@ -1,3 +1,6 @@
+## 2025-05-15 - Vanilla JS ARIA Sync & Module Exposure
+**Learning:** In Vanilla JS, dynamic UI state changes (like toggling host settings) require manual ARIA attribute synchronization to remain accessible. Additionally, when using ES modules, objects must be explicitly attached to `window` to be accessible from inline HTML `onclick` handlers.
+**Action:** Use `Lobby.updateSubjectUI(this)` and ensure `window.Lobby` is assigned in the template. Synchronize `aria-pressed` in all toggle handlers.
 ## 2026-05-17 - [Accessible Modal Focus & Keyboard Support]
 **Learning:** In a Vanilla JS app where modals are toggled by adding/removing CSS classes (e.g., '.visible'), manual focus management and global keyboard listeners are necessary since the 'dialog' element's native behaviors aren't used.
 **Action:** Always save the 'document.activeElement' before opening a modal and restore it upon closure. Use 'setTimeout' or direct '.focus()' on the close button to ensure keyboard users are not lost in the background DOM.
