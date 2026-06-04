@@ -187,7 +187,7 @@ function renderSubQuestion(sub, savedAnswer = "") {
           id="answer-${sub.sub_id}"
           placeholder="Write your answer here..."
           rows="4"
-          oninput="UI.autoResize(this)"
+          oninput="UI.handleTheoryInput(this, '${sub.sub_id}')"
           aria-describedby="feedback-${sub.sub_id}"
         >${escapeHtml(savedAnswer)}</textarea>
       </div>
@@ -324,6 +324,14 @@ const UI = {
     if (!el) return;
     el.style.height = 'auto';
     el.style.height = (el.scrollHeight) + 'px';
+  },
+
+  handleTheoryInput(el, subId) {
+    this.autoResize(el);
+    const q = this.batch[this.currentIdx];
+    if (!q._answers) q._answers = {};
+    q._answers[subId] = el.value;
+    Storage.saveBatch(this.batch);
   },
 
   renderCurrent() {

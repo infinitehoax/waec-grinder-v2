@@ -59,3 +59,7 @@
 ## 2025-06-01 - [Semantic Form & State Communication]
 **Learning:** In Jinja2-based Vanilla JS apps, form labels often lose association if 'for' attributes aren't explicitly paired with 'id's. Additionally, for single-selection lists styled as buttons (like OBJ options), using 'aria-pressed' provides an immediate accessibility win by communicating the 'selected' state to screen readers without a full radio-group refactor.
 **Action:** Always verify label-input pairing in templates. Use 'aria-pressed' and 'aria-current' for dynamic selection and navigation states.
+
+## 2025-06-05 - [Theory Draft Persistence & Auto-save]
+**Learning:** In essay-heavy interfaces, user data loss during navigation (especially in CBT/Exam modes) is a major friction point. Persisting drafts to local storage on every keystroke (`oninput`) provides a fail-safe against accidental navigation or refreshes.
+**Action:** Implement `oninput` handlers for long-form text inputs that synchronize the DOM state with the underlying storage model (`Storage.saveBatch`) in real-time.
