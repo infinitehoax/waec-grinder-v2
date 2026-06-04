@@ -110,9 +110,9 @@ const Storage = {
   },
 
   // ---- Subject-scoped helpers ----
-  _getScoped(subject, key) {
+  _getScoped(subject, key, clone = true) {
     const data = Storage._getRaw(`wg_sub_${subject}`) || {};
-    return deepClone(data[key]);
+    return clone ? deepClone(data[key]) : data[key];
   },
   _setScoped(subject, key, val) {
     const data = Storage._get(`wg_sub_${subject}`) || {};
@@ -299,41 +299,41 @@ const Storage = {
   },
 
   // ---- Queue accessors ----
-  getUnseenObj(sub)    {
-    if (sub) return Storage._getScoped(sub, SUB_KEYS.UNSEEN_OBJ) || [];
+  getUnseenObj(sub, clone = true)    {
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.UNSEEN_OBJ, clone) || [];
     const subjects = Storage.getSubjects();
-    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.UNSEEN_OBJ) || [];
-    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.UNSEEN_OBJ) || []), []);
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.UNSEEN_OBJ, clone) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.UNSEEN_OBJ, clone) || []), []);
   },
-  getUnseenTheory(sub) {
-    if (sub) return Storage._getScoped(sub, SUB_KEYS.UNSEEN_THEORY) || [];
+  getUnseenTheory(sub, clone = true) {
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.UNSEEN_THEORY, clone) || [];
     const subjects = Storage.getSubjects();
-    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.UNSEEN_THEORY) || [];
-    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.UNSEEN_THEORY) || []), []);
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.UNSEEN_THEORY, clone) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.UNSEEN_THEORY, clone) || []), []);
   },
-  getFailedObj(sub)    {
-    if (sub) return Storage._getScoped(sub, SUB_KEYS.FAILED_OBJ) || [];
+  getFailedObj(sub, clone = true)    {
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.FAILED_OBJ, clone) || [];
     const subjects = Storage.getSubjects();
-    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.FAILED_OBJ) || [];
-    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.FAILED_OBJ) || []), []);
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.FAILED_OBJ, clone) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.FAILED_OBJ, clone) || []), []);
   },
-  getFailedTheory(sub) {
-    if (sub) return Storage._getScoped(sub, SUB_KEYS.FAILED_THEORY) || [];
+  getFailedTheory(sub, clone = true) {
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.FAILED_THEORY, clone) || [];
     const subjects = Storage.getSubjects();
-    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.FAILED_THEORY) || [];
-    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.FAILED_THEORY) || []), []);
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.FAILED_THEORY, clone) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.FAILED_THEORY, clone) || []), []);
   },
-  getMasteredObj(sub) {
-    if (sub) return Storage._getScoped(sub, SUB_KEYS.MASTERED_OBJ) || [];
+  getMasteredObj(sub, clone = true) {
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.MASTERED_OBJ, clone) || [];
     const subjects = Storage.getSubjects();
-    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.MASTERED_OBJ) || [];
-    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.MASTERED_OBJ) || []), []);
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.MASTERED_OBJ, clone) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.MASTERED_OBJ, clone) || []), []);
   },
-  getMasteredTheory(sub) {
-    if (sub) return Storage._getScoped(sub, SUB_KEYS.MASTERED_THEORY) || [];
+  getMasteredTheory(sub, clone = true) {
+    if (sub) return Storage._getScoped(sub, SUB_KEYS.MASTERED_THEORY, clone) || [];
     const subjects = Storage.getSubjects();
-    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.MASTERED_THEORY) || [];
-    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.MASTERED_THEORY) || []), []);
+    if (subjects.length === 1) return Storage._getScoped(subjects[0], SUB_KEYS.MASTERED_THEORY, clone) || [];
+    return subjects.reduce((acc, s) => acc.concat(Storage._getScoped(s, SUB_KEYS.MASTERED_THEORY, clone) || []), []);
   },
 
   getMode()    { return Storage._get(KEYS.STUDY_MODE) || 'both'; },
