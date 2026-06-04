@@ -137,7 +137,7 @@ function renderTheoryQuestion(q, idx, total) {
       </div>
       <div class="question-context">${formatText(q.main_context)}</div>
       <div class="theory-section" id="theory-section">
-        ${q.sub_questions.map(sub => renderSubQuestion(sub)).join('')}
+        ${q.sub_questions.map(sub => renderSubQuestion(sub, q._answers && q._answers[sub.sub_id] ? q._answers[sub.sub_id] : "")).join('')}
       </div>
       <div class="grading-overlay hidden" id="grading-overlay" aria-live="polite">
         <div class="spinner"></div>
@@ -172,7 +172,7 @@ function renderTheoryQuestion(q, idx, total) {
   `;
 }
 
-function renderSubQuestion(sub) {
+function renderSubQuestion(sub, savedAnswer = "") {
   return `
     <div class="sub-question-block" id="sub-block-${sub.sub_id}">
       <div class="sub-question-header">
@@ -189,7 +189,7 @@ function renderSubQuestion(sub) {
           rows="4"
           oninput="UI.autoResize(this)"
           aria-describedby="feedback-${sub.sub_id}"
-        ></textarea>
+        >${escapeHtml(savedAnswer)}</textarea>
       </div>
       <div class="sub-feedback" id="feedback-${sub.sub_id}">
         <div style="flex: 1;">
@@ -439,17 +439,45 @@ const UI = {
     const explanation = grid ? grid.dataset.explanation : '';
     const q = this.batch[this.currentIdx];
 
+    // Exam Mode Final Grading
     if (Storage.isCbtDelayMarking()) {
-      // Exam Mode: Just record selection, no feedback
-      q._selected_letter = letter;
-      q._status = 'answered';
-      q._passed = (letter === correct);
+      const wrapper = document.getElementById("question-wrapper");
+      if (wrapper) {
+        wrapper.innerHTML = `
+          <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
+            <div class="spinner" style="width:48px;height:48px;margin:0 auto 24px"></div>
+            <h2 style="margin-bottom:8px">Finalizing Results...</h2>
+            <p style="color:var(--text-muted)">Please wait while we grade your theory responses.</p>
+          </div>
+        `;
+      }
 
-      // Update UI selection
-      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
+      for (const q of this.batch) {
+        if (q._status === "answered" && !q._graded) {
+          if (q.sub_questions) {
+            // Theory
+            try {
+               const { totalScore, maxScore, passed } = await Engine.gradeTheoryQuestion(q, q._answers || {});
+               q._graded = true;
+            } catch (e) {
+               console.error("Batch theory grading failed for", q.id, e);
+            }
+          } else if (q._selected_letter !== undefined) {
+            // OBJ
+            Engine.markObjResult(q, q._passed);
+            q._graded = true;
 
+            // Track mastery to Trophy if passed
+            if (q._passed && !q._is_review && !q._is_multiplayer) {
+              const { default: API } = await import("./api.js");
+              API.trackMastery(Storage.getPlayerUuid(), Storage.getPlayerName())
+                .catch(err => console.error("[Trophy] Tracking failed:", err));
+            }
+          }
+        }
+      }
       Storage.saveBatch(this.batch);
+    }
       updateNavStats();
       this.renderNavigator(); // Refresh navigator to show answered status
 
@@ -537,6 +565,23 @@ const UI = {
       const el = document.getElementById(`answer-${sub.sub_id}`);
       answers[sub.sub_id] = el ? el.value.trim() : '';
     }
+    // Exam Mode Final Grading
+    if (Storage.isCbtDelayMarking()) {
+      q._answers = answers;
+      q._status = "answered";
+      Storage.saveBatch(this.batch);
+      this.renderNavigator();
+
+      const submitBtn = document.getElementById("submit-theory-btn");
+      if (submitBtn) submitBtn.innerHTML = "✓ Answer Saved";
+      const nextBtn = document.getElementById("next-btn");
+      if (nextBtn) nextBtn.style.display = "flex";
+
+      this._gradingActive = false;
+      return;
+    }
+
+
 
     // Lock textareas
     q.sub_questions.forEach(sub => {
@@ -734,7 +779,7 @@ const UI = {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   },
 
-  showBatchComplete(timedOut = false) {
+  async showBatchComplete(timedOut = false) {
     const wrapper = document.getElementById('question-wrapper');
     if (!wrapper) return;
 
@@ -776,22 +821,46 @@ const UI = {
     }
 
     // Exam Mode Final Grading
+    // Exam Mode Final Grading
     if (Storage.isCbtDelayMarking()) {
-      this.batch.forEach(q => {
-        if (q._selected_letter && q._status === 'answered' && q._passed !== undefined && !q._graded) {
-          Engine.markObjResult(q, q._passed);
-          q._graded = true;
+      const wrapper = document.getElementById("question-wrapper");
+      if (wrapper) {
+        wrapper.innerHTML = `
+          <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
+            <div class="spinner" style="width:48px;height:48px;margin:0 auto 24px"></div>
+            <h2 style="margin-bottom:8px">Finalizing Results...</h2>
+            <p style="color:var(--text-muted)">Please wait while we grade your theory responses.</p>
+          </div>
+        `;
+      }
 
-          // Track mastery to Trophy if passed
-          if (q._passed && !q._is_review && !q._is_multiplayer) {
-            import('./api.js').then(({ default: API }) => {
+      for (const q of this.batch) {
+        if (q._status === "answered" && !q._graded) {
+          if (q.sub_questions) {
+            // Theory
+            try {
+               const { totalScore, maxScore, passed } = await Engine.gradeTheoryQuestion(q, q._answers || {});
+               q._graded = true;
+            } catch (e) {
+               console.error("Batch theory grading failed for", q.id, e);
+            }
+          } else if (q._selected_letter !== undefined) {
+            // OBJ
+            Engine.markObjResult(q, q._passed);
+            q._graded = true;
+
+            // Track mastery to Trophy if passed
+            if (q._passed && !q._is_review && !q._is_multiplayer) {
+              const { default: API } = await import("./api.js");
               API.trackMastery(Storage.getPlayerUuid(), Storage.getPlayerName())
-                .catch(err => console.error('[Trophy] Tracking failed:', err));
-            });
+                .catch(err => console.error("[Trophy] Tracking failed:", err));
+            }
           }
         }
-      });
+      }
+    const correctCount = answeredBatch.filter(q => q._passed === true).length;
       Storage.saveBatch(this.batch);
+    }
     }
 
     // Performance Calculations
