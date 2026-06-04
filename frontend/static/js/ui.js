@@ -451,19 +451,8 @@ const UI = {
     const explanation = grid ? grid.dataset.explanation : '';
     const q = this.batch[this.currentIdx];
 
-    // Exam Mode Final Grading
+    // Exam Mode: Record selection, no immediate feedback
     if (Storage.isCbtDelayMarking()) {
-      const wrapper = document.getElementById("question-wrapper");
-      if (wrapper) {
-        wrapper.innerHTML = `
-          <div class="card animate-bounce-in" style="text-align:center;padding:48px 32px">
-            <div class="spinner" style="width:48px;height:48px;margin:0 auto 24px"></div>
-            <h2 style="margin-bottom:8px">Finalizing Results...</h2>
-            <p style="color:var(--text-muted)">Please wait while we grade your theory responses.</p>
-          </div>
-        `;
-      }
-      // Exam Mode: Just record selection, no feedback
       q._selected_letter = letter;
       q._status = 'answered';
       q._passed = (letter === correct);
@@ -476,34 +465,9 @@ const UI = {
       btn.classList.add('selected');
       btn.setAttribute('aria-pressed', 'true');
 
-      for (const q of this.batch) {
-        if (q._status === "answered" && !q._graded) {
-          if (q.sub_questions) {
-            // Theory
-            try {
-               const { totalScore, maxScore, passed } = await Engine.gradeTheoryQuestion(q, q._answers || {});
-               q._graded = true;
-            } catch (e) {
-               console.error("Batch theory grading failed for", q.id, e);
-            }
-          } else if (q._selected_letter !== undefined) {
-            // OBJ
-            Engine.markObjResult(q, q._passed);
-            q._graded = true;
-
-            // Track mastery to Trophy if passed
-            if (q._passed && !q._is_review && !q._is_multiplayer) {
-              const { default: API } = await import("./api.js");
-              API.trackMastery(Storage.getPlayerUuid(), Storage.getPlayerName())
-                .catch(err => console.error("[Trophy] Tracking failed:", err));
-            }
-          }
-        }
-      }
       Storage.saveBatch(this.batch);
-    }
       updateNavStats();
-      this.renderNavigator(); // Refresh navigator to show answered status
+      this.renderNavigator();
 
       const nextBtn = document.getElementById('next-btn');
       if (nextBtn) nextBtn.style.display = 'flex';
@@ -846,7 +810,6 @@ const UI = {
     }
 
     // Exam Mode Final Grading
-    // Exam Mode Final Grading
     if (Storage.isCbtDelayMarking()) {
       const wrapper = document.getElementById("question-wrapper");
       if (wrapper) {
@@ -883,9 +846,7 @@ const UI = {
           }
         }
       }
-    const correctCount = answeredBatch.filter(q => q._passed === true).length;
       Storage.saveBatch(this.batch);
-    }
     }
 
     // Performance Calculations
