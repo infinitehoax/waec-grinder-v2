@@ -681,6 +681,14 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  transition: transform var(--transition-med);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.topic-row:hover {
+  transform: translateX(4px);
+  background: var(--bg-card-hover);
 }
 
 .topic-name {
@@ -708,6 +716,12 @@
   height: 100%;
   background: var(--accent);
   border-radius: 3px;
+  animation: topicFill 1s cubic-bezier(0.65, 0, 0.35, 1) both;
+  transition: width 0.4s ease;
+}
+
+@keyframes topicFill {
+  from { width: 0; }
 }
 
 .topic-score {

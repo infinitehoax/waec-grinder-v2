@@ -71,10 +71,10 @@ function renderObjQuestion(q, idx, total) {
     <div class="question-card card animate-fade-in ${fromFailed ? 'type--failed' : ''}" tabindex="-1">
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
-        <span class="badge badge--accent">OBJ</span>
-        ${showSubject ? `<span class="badge badge--neutral">${escapeHtml(q._subject)}</span>` : ''}
-        ${q.topic ? `<span class="badge badge--neutral">${escapeHtml(q.topic)}</span>` : ''}
-        ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
+        <span class="badge badge--accent" aria-label="Question type: Multiple Choice">OBJ</span>
+        ${showSubject ? `<span class="badge badge--neutral" aria-label="Subject: ${escapeHtml(q._subject)}">${escapeHtml(q._subject)}</span>` : ''}
+        ${q.topic ? `<span class="badge badge--neutral" aria-label="Topic: ${escapeHtml(q.topic)}">${escapeHtml(q.topic)}</span>` : ''}
+        ${fromFailed ? '<span class="badge badge--fail" aria-label="This question is repeated from a previous failure">⟳ Repeat</span>' : ''}
       </div>
       <div class="question-text">${formatText(q.question)}</div>
       <div class="options-grid" id="options-grid" data-correct="${escapeHtml(correctOption)}" data-explanation="${escapeAttr(q.explanation || '')}">
@@ -129,11 +129,11 @@ function renderTheoryQuestion(q, idx, total) {
     <div class="question-card card type--theory animate-fade-in ${fromFailed ? 'type--failed' : ''}" tabindex="-1">
       <div class="question-meta">
         <span class="q-number">Question ${idx + 1} / ${total}</span>
-        <span class="badge badge--neutral">THEORY</span>
-        ${showSubject ? `<span class="badge badge--neutral">${escapeHtml(q._subject)}</span>` : ''}
-        ${q.topic ? `<span class="badge badge--neutral">${escapeHtml(q.topic)}</span>` : ''}
-        ${fromFailed ? '<span class="badge badge--fail">⟳ Repeat</span>' : ''}
-        <span class="badge badge--accent">${totalMaxMarks} marks</span>
+        <span class="badge badge--neutral" aria-label="Question type: Theory">THEORY</span>
+        ${showSubject ? `<span class="badge badge--neutral" aria-label="Subject: ${escapeHtml(q._subject)}">${escapeHtml(q._subject)}</span>` : ''}
+        ${q.topic ? `<span class="badge badge--neutral" aria-label="Topic: ${escapeHtml(q.topic)}">${escapeHtml(q.topic)}</span>` : ''}
+        ${fromFailed ? '<span class="badge badge--fail" aria-label="This question is repeated from a previous failure">⟳ Repeat</span>' : ''}
+        <span class="badge badge--accent" aria-label="Total marks: ${totalMaxMarks}">${totalMaxMarks} marks</span>
       </div>
       <div class="question-context">${formatText(q.main_context)}</div>
       <div class="theory-section" id="theory-section">
@@ -941,7 +941,7 @@ const UI = {
 
     if (timedOut) {
       content += `
-        <div class="report-header animate-bounce-in">
+        <div class="report-header animate-bounce-in" tabindex="-1">
           <div class="report-header__icon">⏰</div>
           <h1>Time's Up!</h1>
           <p>Your timed session has ended. Here's your report card.</p>
@@ -949,7 +949,7 @@ const UI = {
       `;
     } else if (allDone) {
       content += `
-        <div class="report-header animate-bounce-in">
+        <div class="report-header animate-bounce-in" tabindex="-1">
           <div class="report-header__icon">🏆</div>
           <h1>Mastery Achieved!</h1>
           <p>Every single question has been conquered. You are ready!</p>
@@ -957,7 +957,7 @@ const UI = {
       `;
     } else {
       content += `
-        <div class="report-header animate-bounce-in">
+        <div class="report-header animate-bounce-in" tabindex="-1">
           <div class="report-header__icon">🎯</div>
           <h1>Batch Complete!</h1>
           <p>Reflection is the key to mastery. Review your performance below.</p>
@@ -985,17 +985,20 @@ const UI = {
         <div class="report-section">
           <div class="report-section__title">Topic Performance</div>
           <div class="topic-breakdown">
-            ${Object.entries(topicStats).map(([topic, stats]) => `
-              <div class="topic-row">
-                <span class="topic-name">${escapeHtml(topic)}</span>
-                <div class="topic-bar-wrapper">
-                  <div class="topic-bar" aria-hidden="true">
-                    <div class="topic-bar__fill" style="width: ${(stats.correct / stats.total) * 100}%"></div>
+            ${Object.entries(topicStats).map(([topic, stats], idx) => {
+              const successRate = Math.round((stats.correct / stats.total) * 100);
+              return `
+                <div class="topic-row animate-slide-in" style="animation-delay: ${0.1 + (idx * 0.05)}s" aria-label="${escapeHtml(topic)}: ${stats.correct} out of ${stats.total} correct, ${successRate}%">
+                  <span class="topic-name" aria-hidden="true">${escapeHtml(topic)}</span>
+                  <div class="topic-bar-wrapper">
+                    <div class="topic-bar" aria-hidden="true">
+                      <div class="topic-bar__fill" style="width: ${successRate}%"></div>
+                    </div>
+                    <span class="topic-score" aria-hidden="true">${stats.correct}/${stats.total}</span>
                   </div>
-                  <span class="topic-score">${stats.correct}/${stats.total}</span>
                 </div>
-              </div>
-            `).join('')}
+              `;
+            }).join('')}
           </div>
         </div>
 
@@ -1064,6 +1067,10 @@ const UI = {
     `;
 
     wrapper.innerHTML = content;
+
+    // Accessibility: Focus the report header so screen readers start reading the summary
+    const header = wrapper.querySelector('.report-header');
+    if (header) header.focus();
   },
 
   async nextBatch() {

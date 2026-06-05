@@ -63,3 +63,7 @@
 ## 2025-06-05 - [Theory Draft Persistence & Auto-save]
 **Learning:** In essay-heavy interfaces, user data loss during navigation (especially in CBT/Exam modes) is a major friction point. Persisting drafts to local storage on every keystroke (`oninput`) provides a fail-safe against accidental navigation or refreshes.
 **Action:** Implement `oninput` handlers for long-form text inputs that synchronize the DOM state with the underlying storage model (`Storage.saveBatch`) in real-time.
+
+## 2025-06-10 - [Staggered Animations & Programmatic Focus for Report Cards]
+**Learning:** When rendering complex data summaries (like report cards) in Vanilla JS, using staggered animations for list items (e.g., topic rows) significantly enhances the "premium" feel. However, replacing the entire page content via `innerHTML` requires manual focus management on the new container's header to ensure screen readers don't lose context.
+**Action:** Apply staggered `animation-delay` to dynamically generated list items. Ensure the summary header has `tabindex="-1"` and is focused immediately after the DOM update.
