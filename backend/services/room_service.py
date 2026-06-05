@@ -25,8 +25,9 @@ def _interleave_questions(pools, limit):
     pools: dict of {subject_name: [list_of_questions]}
     """
     result = []
-    # Work on a copy of the pools to avoid mutating the original
-    current_pools = {sub: list(qs) for sub, qs in pools.items() if qs}
+    # Work on a copy of the pools to avoid mutating the original.
+    # Reverse the lists so we can use pop() which is O(1) instead of pop(0) which is O(N).
+    current_pools = {sub: list(reversed(qs)) for sub, qs in pools.items() if qs}
     active_subjects = list(current_pools.keys())
 
     while len(result) < limit and active_subjects:
@@ -39,7 +40,7 @@ def _interleave_questions(pools, limit):
                 break
 
             if current_pools[sub]:
-                result.append(current_pools[sub].pop(0))
+                result.append(current_pools[sub].pop())
                 if current_pools[sub]:
                     next_active.append(sub)
 

@@ -39,6 +39,10 @@
 **Learning:** Automatic deep cloning (via `structuredClone`) on every storage access prevents side effects but adds significant CPU overhead when question pools are large. In many cases, the retrieved data is immediately mapped or transformed, making the clone redundant.
 **Action:** Implement an optional `clone` parameter in storage accessors. Pass `clone=false` when the caller immediately performs a transformation (like `.map()` or `.filter()`) that creates new object instances, saving CPU cycles without risking cache corruption.
 
+## 2026-06-05 - [Algorithmic Efficiency in Interleaving]
+**Learning:** Standard array operations like `shift()` and `pop(0)` have O(N) complexity because they require re-indexing the entire array. In high-frequency batch building (interleaving multiple subjects), this leads to O(Subjects * Questions_Per_Subject) overhead. Similarly, mapping entire question pools before picking a subset results in redundant O(Total_Questions) allocations.
+**Action:** Use pointer-based iteration or `reversed().pop()` for O(1) item removal from pools. Defer data transformations (like tagging or cloning) until an item is explicitly selected for a batch to minimize memory pressure and CPU cycles.
+
 ## Contribution: UNIPORT Chemistry v1 actual questions (105 questions)
 - Added 105 objective questions to `backend/data/waec_questions.json`.
 - Questions were parsed from raw text using a custom Python script to ensure schema compatibility.
