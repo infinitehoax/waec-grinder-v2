@@ -185,19 +185,33 @@ const Engine = {
   async gradeTheoryQuestion(q, answers, onSubGraded) {
     let totalScore = 0;
     let maxScore = 0;
+    q._theory_results = {};
 
-    for (const sub of q.sub_questions) {
-      const answer = answers[sub.sub_id] || '';
+    const gradingPromises = q.sub_questions.map(async (sub) => {
+      const answer = answers[sub.sub_id] || "";
       const result = await API.gradeSubQuestion({
         sub_question: sub.question,
         student_answer: answer,
         rubric: sub.rubric,
         max_marks: sub.max_marks,
       });
-      totalScore += result.score;
-      maxScore += sub.max_marks;
+
+      q._theory_results[sub.sub_id] = {
+        score: result.score,
+        max_marks: result.max_marks,
+        feedback: result.feedback,
+        answer: answer
+      };
+
       if (onSubGraded) onSubGraded(sub.sub_id, result);
-    }
+      return result;
+    });
+
+    const results = await Promise.all(gradingPromises);
+    results.forEach(res => {
+      totalScore += res.score;
+      maxScore += res.max_marks;
+    });
 
     const passed = this.markTheoryResult(q, totalScore, maxScore);
     return { totalScore, maxScore, passed };

@@ -1148,3 +1148,93 @@
   box-shadow: 0 0 0 2px var(--accent-glow);
   transform: translateX(4px);
 }
+
+/* Report Card Review Enhancements */
+.obj-review-item, .sq-review-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 12px;
+  border-left: 4px solid var(--border-subtle);
+}
+
+.obj-review-item.pass, .sq-review-item.pass {
+  border-left-color: var(--pass);
+  background: var(--pass-bg);
+}
+
+.obj-review-item.fail, .sq-review-item.fail {
+  border-left-color: var(--fail);
+  background: var(--fail-bg);
+}
+
+.review-status-pill {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.review-status-pill.pass {
+  background: var(--pass);
+  color: #fff;
+}
+
+.review-status-pill.fail {
+  background: var(--fail);
+  color: #fff;
+}
+
+.review-row {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.answer-val {
+  font-weight: 700;
+}
+
+.explanation-box {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.explanation-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.sq-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sq-review-score {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.review-essay, .review-feedback {
+  background: var(--bg-base);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 6px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border: 1px solid var(--border-subtle);
+}
+
+.item-pass { border-left-color: var(--pass) !important; }
+.item-fail { border-left-color: var(--fail) !important; }

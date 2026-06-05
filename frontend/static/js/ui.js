@@ -777,6 +777,19 @@ const UI = {
   },
 
   async showBatchComplete(timedOut = false) {
+    // Auto-save current question if in CBT mode and not already answered
+    if (Storage.isCbtMode() && this.batch[this.currentIdx]) {
+      const q = this.batch[this.currentIdx];
+      if (q._status !== 'answered') {
+        if (q._type === 'obj' && q._selected_letter) {
+          q._status = 'answered';
+        } else if (q._type === 'theory' && q._answers && Object.values(q._answers).some(a => a.trim().length > 0)) {
+          q._status = 'answered';
+        }
+        Storage.saveBatch(this.batch);
+      }
+    }
+
     const wrapper = document.getElementById('question-wrapper');
     if (!wrapper) return;
 
@@ -830,15 +843,15 @@ const UI = {
         `;
       }
 
-      for (const q of this.batch) {
+      const gradingPromises = this.batch.map(async (q) => {
         if (q._status === "answered" && !q._graded) {
           if (q.sub_questions) {
             // Theory
             try {
-               const { totalScore, maxScore, passed } = await Engine.gradeTheoryQuestion(q, q._answers || {});
-               q._graded = true;
+              await Engine.gradeTheoryQuestion(q, q._answers || {});
+              q._graded = true;
             } catch (e) {
-               console.error("Batch theory grading failed for", q.id, e);
+              console.error("Batch theory grading failed for", q.id, e);
             }
           } else if (q._selected_letter !== undefined) {
             // OBJ
@@ -853,7 +866,8 @@ const UI = {
             }
           }
         }
-      }
+      });
+      await Promise.all(gradingPromises);
       Storage.saveBatch(this.batch);
     }
 
@@ -980,40 +994,58 @@ const UI = {
           </div>
         </div>
 
-        ${failedQuestions.length > 0 ? `
-          <div class="report-section">
-            <div class="report-section__title">Review Failed Questions (${failedQuestions.length})</div>
-            <div class="failed-review-list">
-              ${failedQuestions.map(q => {
-                let explanationHtml = '';
-                if (q._type === 'obj') {
-                  explanationHtml = formatText(q.explanation || 'No explanation provided.');
-                } else {
-                  explanationHtml = q.sub_questions.map(sq => `
-                    <div class="sq-review">
-                      <strong>${escapeHtml(sq.label)}:</strong>
-                      <div class="rubric-text">${formatText(sq.rubric)}</div>
-                    </div>
-                  `).join('');
-                }
-
-                return `
-                  <div class="failed-item">
-                    <div class="failed-item__q">${formatText(q.question || q.main_context)}</div>
-                    <div class="failed-item__explanation">
-                      <div class="explanation-label">📖 Review & Explanation</div>
-                      <div class="explanation-content">${explanationHtml}</div>
+        <div class="report-section">
+          <div class="report-section__title">${Storage.isCbtMode() ? "Session Review" : "Review Failed Questions"}</div>
+          <div class="failed-review-list">
+            ${(Storage.isCbtMode() ? answeredBatch : failedQuestions).map(q => {
+              let reviewHtml = "";
+              if (q._type === "obj") {
+                const selected = q._selected_letter || "No Answer";
+                const correct = q.answer || q.correct_option;
+                const isCorrect = q._passed;
+                reviewHtml = `
+                  <div class="obj-review-item ${isCorrect ? "pass" : "fail"}">
+                    <div class="review-status-pill ${isCorrect ? "pass" : "fail"}">${isCorrect ? "CORRECT" : "INCORRECT"}</div>
+                    <div class="review-row"><strong>Your Answer:</strong> <span class="answer-val">${selected}</span></div>
+                    <div class="review-row"><strong>Correct Answer:</strong> <span class="answer-val text-pass">${correct}</span></div>
+                    <div class="explanation-box">
+                      <div class="explanation-label">📖 Explanation</div>
+                      <div class="explanation-content">${formatText(q.explanation || "No explanation provided.")}</div>
                     </div>
                   </div>
                 `;
-              }).join('')}
-            </div>
+              } else {
+                // Theory Review
+                const results = q._theory_results || {};
+                reviewHtml = q.sub_questions.map(sq => {
+                  const res = results[sq.sub_id] || {};
+                  const subPassed = res.score >= res.max_marks * APP_CONFIG.PASS_THRESHOLD;
+                  return `
+                    <div class="sq-review-item ${subPassed ? "pass" : "fail"}">
+                      <div class="sq-review-header">
+                        <strong>${escapeHtml(sq.label)}:</strong>
+                        <span class="sq-review-score ${subPassed ? "text-pass" : "text-fail"}">${res.score || 0}/${res.max_marks || sq.max_marks}</span>
+                      </div>
+                      <div class="review-row"><strong>Your Answer:</strong> <div class="review-essay">${formatText(res.answer || "No Answer")}</div></div>
+                      <div class="review-row"><strong>AI Feedback:</strong> <div class="review-feedback">${formatText(res.feedback || "No feedback available.")}</div></div>
+                    </div>
+                  `;
+                }).join("");
+              }
+
+              return `
+                <div class="failed-item ${q._passed ? "item-pass" : "item-fail"}">
+                  <div class="failed-item__q">${formatText(q.question || q.main_context)}</div>
+                  <div class="failed-item__explanation">
+                    ${reviewHtml}
+                  </div>
+                </div>
+              `;
+            }).join("")}
+            ${Storage.isCbtMode() && answeredBatch.length === 0 ? `<p style="text-align:center;color:var(--text-muted)">No questions were answered in this session.</p>` : ""}
+            ${!Storage.isCbtMode() && failedQuestions.length === 0 ? `<div class="text-pass" style="text-align:center; font-size: 1.2rem; font-weight: 700; padding: 20px;">✨ Perfect Batch! No mistakes to review.</div>` : ""}
           </div>
-        ` : `
-          <div class="report-section" style="text-align:center; padding: 20px;">
-            <div class="text-pass" style="font-size: 1.2rem; font-weight: 700;">✨ Perfect Batch! No mistakes to review.</div>
-          </div>
-        `}
+        </div>
 
         <div class="report-actions">
           ${allDone ? `
