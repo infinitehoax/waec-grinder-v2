@@ -186,3 +186,5 @@ To ensure our auto-generated release notes are organized correctly, please ensur
 * `test:` (e.g., `test: added playwright UI tests`)
 
 *These prefixes allow the Auto-Release bot to categorize your work automatically!*
+
+> **Note:** These prefixes are strictly enforced. Pull Requests with non-compliant titles will be automatically blocked by CI.
