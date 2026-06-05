@@ -930,7 +930,7 @@
             "sub_id": "th_005_b",
             "label": "5(b)",
             "question": "Calculate the expenses using operator precedence: Total = 12 * 200.00 + 150.00 + 7 * 23.00",
-            "rubric": "Examiner expects BODMAS/PEMDAS. Step 1 (Multiply first): (12 \u00d7 200) = 2400. Step 2 (Multiply second): (7 \u00d7 23) = 161. Step 3 (Add them all up): 2400 + 150 + 161. Final Answer: GH\u00a2 2,711.00. Examiner penalty: Student must include the currency symbol for full marks.",
+            "rubric": "Examiner expects BODMAS/PEMDAS. Step 1 (Multiply first): (12 × 200) = 2400. Step 2 (Multiply second): (7 × 23) = 161. Step 3 (Add them all up): 2400 + 150 + 161. Final Answer: GH¢ 2,711.00. Examiner penalty: Student must include the currency symbol for full marks.",
             "max_marks": 4
           },
           {
@@ -956,28 +956,28 @@
             "sub_id": "th_001_a_i",
             "label": "1(a)(i)",
             "question": "Explain the following term: Data processing;",
-            "rubric": "**Answer:** Data processing is the collection, manipulation, and transformation of raw, unorganized facts (data) into meaningful and useful information.\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** You MUST use the keywords \"raw data\" and \"meaningful information\". If you just say \"working on data,\" you will lose the mark!",
+            "rubric": "**Answer:** Data processing is the collection, manipulation, and transformation of raw, unorganized facts (data) into meaningful and useful information.\n\n👨‍🏫 **Teacher's Trap:** You MUST use the keywords \"raw data\" and \"meaningful information\". If you just say \"working on data,\" you will lose the mark!",
             "max_marks": 2
           },
           {
             "sub_id": "th_001_a_ii",
             "label": "1(a)(ii)",
             "question": "Explain the following term: Data collation;",
-            "rubric": "**Answer:** This is the process of gathering, arranging, and assembling data from different sources into a standard, logical order or structured format before it is processed.\n\n\u2705 **Acceptable WAEC Alternatives:** Bringing data together, sorting data into groups, merging raw data.",
+            "rubric": "**Answer:** This is the process of gathering, arranging, and assembling data from different sources into a standard, logical order or structured format before it is processed.\n\n✅ **Acceptable WAEC Alternatives:** Bringing data together, sorting data into groups, merging raw data.",
             "max_marks": 2
           },
           {
             "sub_id": "th_001_b",
             "label": "1(b)",
             "question": "Describe Data Processing Cycle.",
-            "rubric": "**Answer:** The data processing cycle is the sequence of steps involved in converting raw data into information.\n\n**The Steps (Describe them briefly for full marks):**\n1. **Data Collection/Gathering:** Acquiring the raw data.\n2. **Data Input:** Entering the data into the computer system.\n3. **Processing:** Manipulating the data (calculating, sorting, etc.).\n4. **Output:** Displaying the processed information.\n5. **Storage:** Saving the output for future use.\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Secret:** Because the question says \"Describe\" and carries marks, do not just list the words! Give a tiny one-sentence explanation of the flow.",
+            "rubric": "**Answer:** The data processing cycle is the sequence of steps involved in converting raw data into information.\n\n**The Steps (Describe them briefly for full marks):**\n1. **Data Collection/Gathering:** Acquiring the raw data.\n2. **Data Input:** Entering the data into the computer system.\n3. **Processing:** Manipulating the data (calculating, sorting, etc.).\n4. **Output:** Displaying the processed information.\n5. **Storage:** Saving the output for future use.\n\n👨‍🏫 **Teacher's Secret:** Because the question says \"Describe\" and carries marks, do not just list the words! Give a tiny one-sentence explanation of the flow.",
             "max_marks": 4
           },
           {
             "sub_id": "th_001_c",
             "label": "1(c)",
             "question": "State four benefits of the computer as a tool for processing data.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives (Pick any 4, but memorize them all!):**\n* **Speed:** Computations are done in fractions of a second.\n* **Accuracy:** It eliminates human error if programmed correctly (GIGO principle).\n* **Storage Capacity:** Can hold massive amounts of data in small physical spaces.\n* **Efficiency:** Can work continuously without fatigue.\n* **Versatility:** Can be used for a wide variety of tasks (text, numbers, graphics).\n* **Reliability:** Gives consistent results for the same inputs.",
+            "rubric": "✅ **Acceptable WAEC Alternatives (Pick any 4, but memorize them all!):**\n* **Speed:** Computations are done in fractions of a second.\n* **Accuracy:** It eliminates human error if programmed correctly (GIGO principle).\n* **Storage Capacity:** Can hold massive amounts of data in small physical spaces.\n* **Efficiency:** Can work continuously without fatigue.\n* **Versatility:** Can be used for a wide variety of tasks (text, numbers, graphics).\n* **Reliability:** Gives consistent results for the same inputs.",
             "max_marks": 4
           }
         ]
@@ -990,7 +990,7 @@
             "sub_id": "th_002_a",
             "label": "2(a)",
             "question": "Identify the part labelled in Figure 1: (i) A (ii) B (iii) C (iv) D",
-            "rubric": "**(i) A:** Monitor \u2705 *(Alternative: Visual Display Unit / VDU)*\n**(ii) B:** Printer \u2705\n**(iii) C:** Mouse \u2705\n**(iv) D:** Keyboard \u2705 *(Trap: Make sure you follow the exact arrow line! D points to the flat board, not the system unit box).* ",
+            "rubric": "**(i) A:** Monitor ✅ *(Alternative: Visual Display Unit / VDU)*\n**(ii) B:** Printer ✅\n**(iii) C:** Mouse ✅\n**(iv) D:** Keyboard ✅ *(Trap: Make sure you follow the exact arrow line! D points to the flat board, not the system unit box).* ",
             "max_marks": 4
           },
           {
@@ -1004,7 +1004,7 @@
             "sub_id": "th_002_c",
             "label": "2(c)",
             "question": "Name two devices that can be used for both input and output operations.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives (The Examiner's Buffet):**\n* Touchscreen\n* Modem\n* Digital Camera\n* Interactive Whiteboard\n* Headset (with microphone)\n* Storage devices (Flash drive, Hard drive - as they read and write)\n* Fax Machine (Facsimile)",
+            "rubric": "✅ **Acceptable WAEC Alternatives (The Examiner's Buffet):**\n* Touchscreen\n* Modem\n* Digital Camera\n* Interactive Whiteboard\n* Headset (with microphone)\n* Storage devices (Flash drive, Hard drive - as they read and write)\n* Fax Machine (Facsimile)",
             "max_marks": 2
           }
         ]
@@ -1017,49 +1017,49 @@
             "sub_id": "th_003_a_i",
             "label": "3(a)(i)",
             "question": "With the aid of a well-labelled diagram, explain the following: Simplex",
-            "rubric": "**Simplex:** Data transmission occurs in **only one direction**.\n*Diagram:* [Sender] \u2794\u2794\u2794\u2794 [Receiver]\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** Forget the diagrams, and you lose half the marks! Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+            "rubric": "**Simplex:** Data transmission occurs in **only one direction**.\n*Diagram:* [Sender] ➔➔➔➔ [Receiver]\n\n👨‍🏫 **Teacher's Trap:** Forget the diagrams, and you lose half the marks! Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
             "max_marks": 3
           },
           {
             "sub_id": "th_003_a_ii",
             "label": "3(a)(ii)",
             "question": "With the aid of a well-labelled diagram, explain the following: Half duplex",
-            "rubric": "**Half duplex:** Data transmission occurs in **both directions, but only ONE AT A TIME**.\n*Diagram:* [Device A] \u2794\u2794 (Wait) \u2794\u2794 [Device B] AND THEN [Device A] \u2b05\ufe0f\u2b05\ufe0f (Wait) \u2b05\ufe0f\u2b05\ufe0f [Device B]. *(Label it: Two-way, but not at the same time).* \n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+            "rubric": "**Half duplex:** Data transmission occurs in **both directions, but only ONE AT A TIME**.\n*Diagram:* [Device A] ➔➔ (Wait) ➔➔ [Device B] AND THEN [Device A] ⬅️⬅️ (Wait) ⬅️⬅️ [Device B]. *(Label it: Two-way, but not at the same time).* \n\n👨‍🏫 **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
             "max_marks": 3
           },
           {
             "sub_id": "th_003_a_iii",
             "label": "3(a)(iii)",
             "question": "With the aid of a well-labelled diagram, explain the following: Full duplex",
-            "rubric": "**Full duplex:** Data transmission occurs in **both directions SIMULTANEOUSLY** (at the same time).\n*Diagram:* [Device A] \u21c4 [Device B] *(Draw two distinct arrows pointing in opposite directions).*\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
+            "rubric": "**Full duplex:** Data transmission occurs in **both directions SIMULTANEOUSLY** (at the same time).\n*Diagram:* [Device A] ⇄ [Device B] *(Draw two distinct arrows pointing in opposite directions).*\n\n👨‍🏫 **Teacher's Trap:** Always draw neat, rectangular boxes for the sender/receiver and clear arrows for the signal path.",
             "max_marks": 3
           },
           {
             "sub_id": "th_003_b_i",
             "label": "3(b)(i)",
             "question": "State one example of: Simplex",
-            "rubric": "\u2705 Radio broadcast, Television broadcast, Keyboard to Computer.",
+            "rubric": "✅ Radio broadcast, Television broadcast, Keyboard to Computer.",
             "max_marks": 1
           },
           {
             "sub_id": "th_003_b_ii",
             "label": "3(b)(ii)",
             "question": "State one example of: Half duplex",
-            "rubric": "\u2705 Walkie-talkie, Police radio, CB Radio.",
+            "rubric": "✅ Walkie-talkie, Police radio, CB Radio.",
             "max_marks": 1
           },
           {
             "sub_id": "th_003_b_iii",
             "label": "3(b)(iii)",
             "question": "State one example of: Full duplex",
-            "rubric": "\u2705 Telephone conversation, Mobile phone call, Video conferencing.",
+            "rubric": "✅ Telephone conversation, Mobile phone call, Video conferencing.",
             "max_marks": 1
           },
           {
             "sub_id": "th_003_c",
             "label": "3(c)",
             "question": "Name one component of a data communication system.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* Sender (or Source)\n* Receiver (or Destination)\n* Transmission Medium (or Communication Channel)\n* Message (or Data)\n* Protocol",
+            "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Sender (or Source)\n* Receiver (or Destination)\n* Transmission Medium (or Communication Channel)\n* Message (or Data)\n* Protocol",
             "max_marks": 1
           }
         ]
@@ -1079,7 +1079,7 @@
             "sub_id": "th_004_b",
             "label": "4(b)",
             "question": "State one importance of add-in in MS Excel.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* It provides additional custom commands and features not available in the default Excel setup.\n* It automates complex mathematical or statistical tasks (e.g., Solver or Data Analysis ToolPak).\n* It allows integration with third-party software.",
+            "rubric": "✅ **Acceptable WAEC Alternatives:**\n* It provides additional custom commands and features not available in the default Excel setup.\n* It automates complex mathematical or statistical tasks (e.g., Solver or Data Analysis ToolPak).\n* It allows integration with third-party software.",
             "max_marks": 2
           },
           {
@@ -1113,56 +1113,56 @@
             "sub_id": "th_005_a",
             "label": "5(a)",
             "question": "Identify the type of application whose interface is shown in Figure 2.",
-            "rubric": "**Answer:** Presentation Software \u2705 *(Acceptable alternative: Microsoft PowerPoint)*.",
+            "rubric": "**Answer:** Presentation Software ✅ *(Acceptable alternative: Microsoft PowerPoint)*.",
             "max_marks": 1
           },
           {
             "sub_id": "th_005_b_i",
             "label": "5(b)(i)",
             "question": "Outline the steps to insert a new slide to the interface.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* *Method 1:* Go to the **Home** tab \u2794 Click on **New Slide**.\n* *Method 2:* Right-click on the slide navigation pane on the left \u2794 Select **New Slide**.\n* *Method 3:* Use the keyboard shortcut **Ctrl + M**.",
+            "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Go to the **Home** tab ➔ Click on **New Slide**.\n* *Method 2:* Right-click on the slide navigation pane on the left ➔ Select **New Slide**.\n* *Method 3:* Use the keyboard shortcut **Ctrl + M**.",
             "max_marks": 2
           },
           {
             "sub_id": "th_005_b_ii",
             "label": "5(b)(ii)",
             "question": "Outline the steps to delete a slide from the interface.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* *Method 1:* Click/Select the slide in the navigation pane \u2794 Press the **Delete** or **Backspace** key on the keyboard.\n* *Method 2:* Right-click the slide in the navigation pane \u2794 Click **Delete Slide**.",
+            "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Click/Select the slide in the navigation pane ➔ Press the **Delete** or **Backspace** key on the keyboard.\n* *Method 2:* Right-click the slide in the navigation pane ➔ Click **Delete Slide**.",
             "max_marks": 2
           },
           {
             "sub_id": "th_005_c",
             "label": "5(c)",
             "question": "State two examples of the application in Figure 2.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:** Microsoft PowerPoint, Google Slides, Apple Keynote, LibreOffice Impress, Prezi, WPS Presentation.",
+            "rubric": "✅ **Acceptable WAEC Alternatives:** Microsoft PowerPoint, Google Slides, Apple Keynote, LibreOffice Impress, Prezi, WPS Presentation.",
             "max_marks": 2
           },
           {
             "sub_id": "th_005_d_i",
             "label": "5(d)(i)",
             "question": "Give two uses of the application in Figure 2.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* Delivering educational lectures or teaching.\n* Making business proposals or corporate pitches.\n* Creating automated informational kiosks/digital signage.\n* Creating multimedia photo/video slideshows.",
+            "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Delivering educational lectures or teaching.\n* Making business proposals or corporate pitches.\n* Creating automated informational kiosks/digital signage.\n* Creating multimedia photo/video slideshows.",
             "max_marks": 2
           },
           {
             "sub_id": "th_005_d_ii",
             "label": "5(d)(ii)",
             "question": "Give two differences between transitions and animations.",
-            "rubric": "**Answer:** **Transitions** are the visual effects that occur when moving from *one entire slide to the next* during a presentation, WHEREAS **Animations** are the visual effects applied to *individual elements* (like text, images, or shapes) on a single, specific slide.\n\n\ud83d\udc68\u200d\ud83c\udfeb **Teacher's Secret:** The words **\"Slide-to-slide\"** versus **\"Elements ON a slide\"** are the exact keywords the examiner is hunting for!",
+            "rubric": "**Answer:** **Transitions** are the visual effects that occur when moving from *one entire slide to the next* during a presentation, WHEREAS **Animations** are the visual effects applied to *individual elements* (like text, images, or shapes) on a single, specific slide.\n\n👨‍🏫 **Teacher's Secret:** The words **\"Slide-to-slide\"** versus **\"Elements ON a slide\"** are the exact keywords the examiner is hunting for!",
             "max_marks": 2
           },
           {
             "sub_id": "th_005_e_i",
             "label": "5(e)(i)",
             "question": "Highlight the steps to run slideshow.",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* *Method 1:* Click on the **Slide Show** tab \u2794 Click **From Beginning** (or From Current Slide).\n* *Method 2:* Press **F5** (to start from the beginning) or **Shift + F5** (to start from current slide).\n* *Method 3:* Click the small **Slide Show icon** at the bottom right of the screen.",
+            "rubric": "✅ **Acceptable WAEC Alternatives:**\n* *Method 1:* Click on the **Slide Show** tab ➔ Click **From Beginning** (or From Current Slide).\n* *Method 2:* Press **F5** (to start from the beginning) or **Shift + F5** (to start from current slide).\n* *Method 3:* Click the small **Slide Show icon** at the bottom right of the screen.",
             "max_marks": 2
           },
           {
             "sub_id": "th_005_e_ii",
             "label": "5(e)(ii)",
             "question": "Highlight the steps to print a handout of 6 slides on a page.",
-            "rubric": "**Step-by-step:** Click the **File** tab \u2794 Select **Print** \u2794 Under settings, click on the \"Full Page Slides\" drop-down menu \u2794 Look under the \"Handouts\" section and select **\"6 Slides\"** \u2794 Click **Print**.",
+            "rubric": "**Step-by-step:** Click the **File** tab ➔ Select **Print** ➔ Under settings, click on the \"Full Page Slides\" drop-down menu ➔ Look under the \"Handouts\" section and select **\"6 Slides\"** ➔ Click **Print**.",
             "max_marks": 3
           }
         ]
@@ -1175,7 +1175,7 @@
             "sub_id": "th_006_a",
             "label": "6(a)",
             "question": "Describe in detail the step-by-step approach to create (a mail merge document):",
-            "rubric": "**Step-by-step:**\n1. Open Microsoft Word and click on the **Mailings** tab.\n2. Click **Start Mail Merge** and choose your document type (e.g., Letters or Email Messages).\n3. Click **Select Recipients** \u2794 Choose **Use an Existing List**.\n4. Browse your computer to locate and open the provided database (contacts list).\n5. Place your cursor in the document and click **Insert Merge Field** to add the contact details (like Name, Address) into the document.",
+            "rubric": "**Step-by-step:**\n1. Open Microsoft Word and click on the **Mailings** tab.\n2. Click **Start Mail Merge** and choose your document type (e.g., Letters or Email Messages).\n3. Click **Select Recipients** ➔ Choose **Use an Existing List**.\n4. Browse your computer to locate and open the provided database (contacts list).\n5. Place your cursor in the document and click **Insert Merge Field** to add the contact details (like Name, Address) into the document.",
             "max_marks": 5
           },
           {
@@ -1223,14 +1223,14 @@
             "sub_id": "th_007_b",
             "label": "(b)",
             "question": "List three file management practices to organize work better:",
-            "rubric": "\u2705 **Acceptable WAEC Alternatives:**\n* Create logically named folders and subfolders to categorize files.\n* Use descriptive, clear, and consistent file naming conventions.\n* Regularly back up important files to an external drive or cloud.\n* Delete duplicated or obsolete (unwanted) files.\n* Sort files by date, type, or name to find them easily.",
+            "rubric": "✅ **Acceptable WAEC Alternatives:**\n* Create logically named folders and subfolders to categorize files.\n* Use descriptive, clear, and consistent file naming conventions.\n* Regularly back up important files to an external drive or cloud.\n* Delete duplicated or obsolete (unwanted) files.\n* Sort files by date, type, or name to find them easily.",
             "max_marks": 3
           },
           {
             "sub_id": "th_007_c_i",
             "label": "(c)(i)",
             "question": "What computing-related disorder is the student likely experiencing?",
-            "rubric": "**Answer:** Computer Vision Syndrome (CVS) \u2705 *(Acceptable alternative: Digital Eye Strain)*.",
+            "rubric": "**Answer:** Computer Vision Syndrome (CVS) ✅ *(Acceptable alternative: Digital Eye Strain)*.",
             "max_marks": 1
           },
           {
@@ -1547,7 +1547,7 @@
           "D": "Mole ratio"
         },
         "correct_option": "B",
-        "explanation": "The formula explicitly written is: `Concentration of B in mol/dm\u00b3 = mass concentration (g/dm\u00b3) / molar mass (g/mol)`."
+        "explanation": "The formula explicitly written is: `Concentration of B in mol/dm³ = mass concentration (g/dm³) / molar mass (g/mol)`."
       },
       {
         "id": "obj_chem_011",
@@ -1667,7 +1667,7 @@
           "D": "Molar mass of $H_2SO_4$ / Molar conc. of A"
         },
         "correct_option": "B",
-        "explanation": "The text reads: `Mass Concentration of pure H2SO4 in g/dm\u00b3 = Molar conc. of A x Molar mass of H2SO4`."
+        "explanation": "The text reads: `Mass Concentration of pure H2SO4 in g/dm³ = Molar conc. of A x Molar mass of H2SO4`."
       },
       {
         "id": "obj_chem_021",
@@ -1691,7 +1691,7 @@
           "D": "$10.09 g/dm^3$"
         },
         "correct_option": "D",
-        "explanation": "Although the student uses $9.996$ on page 2, the bottom right of page 3 shows the specific calculation evaluating to `= 10.09 g/dm\u00b3 //` (an apparent calculation error in the notes itself, but it is what is written)."
+        "explanation": "Although the student uses $9.996$ on page 2, the bottom right of page 3 shows the specific calculation evaluating to `= 10.09 g/dm³ //` (an apparent calculation error in the notes itself, but it is what is written)."
       },
       {
         "id": "obj_chem_023",
@@ -1715,7 +1715,7 @@
           "D": "$97.5 g/dm^3$"
         },
         "correct_option": "C",
-        "explanation": "The calculation yields `= 9.75 g/dm\u00b3`."
+        "explanation": "The calculation yields `= 9.75 g/dm³`."
       },
       {
         "id": "obj_chem_025",
@@ -1727,7 +1727,7 @@
           "D": "$98 g/dm^3$"
         },
         "correct_option": "B",
-        "explanation": "The student specifically wrote: `Mass concentration of pure acid = 9.75 g/dm\u00b3`."
+        "explanation": "The student specifically wrote: `Mass concentration of pure acid = 9.75 g/dm³`."
       },
       {
         "id": "obj_chem_026",
@@ -1739,7 +1739,7 @@
           "D": "$10.09 g/dm^3$"
         },
         "correct_option": "C",
-        "explanation": "The student specifically wrote: `Mass concentration of Impure acid = 0.102 x 98 = 9.996 g/dm\u00b3`."
+        "explanation": "The student specifically wrote: `Mass concentration of Impure acid = 0.102 x 98 = 9.996 g/dm³`."
       },
       {
         "id": "obj_chem_027",
@@ -1763,7 +1763,7 @@
           "D": "$\\frac{9.75}{3.9} \\times 100$"
         },
         "correct_option": "C",
-        "explanation": "The substituted numbers are: `\u2234 % purity = (9.75 / 9.996) x 100`."
+        "explanation": "The substituted numbers are: `∴ % purity = (9.75 / 9.996) x 100`."
       },
       {
         "id": "obj_chem_029",
@@ -2278,7 +2278,7 @@
           "D": "oxygen"
         },
         "correct_option": "C",
-        "explanation": "Liquid nitrogen maintains a temperature of -196\u00b0C, which halts all biological activity and preserves the sperm for years."
+        "explanation": "Liquid nitrogen maintains a temperature of -196°C, which halts all biological activity and preserves the sperm for years."
       },
       {
         "id": "obj_agric_019",
@@ -2525,7 +2525,7 @@
           "D": "buffering"
         },
         "correct_option": "C",
-        "explanation": "Thawing must be done carefully (usually in a 37\u00b0C water bath) to revive the frozen sperm without damaging them."
+        "explanation": "Thawing must be done carefully (usually in a 37°C water bath) to revive the frozen sperm without damaging them."
       },
       {
         "id": "obj_agric_038",
@@ -3104,7 +3104,7 @@
         "topic": "Animal Pests and Diseases",
         "question": "The reproductive segments of a tapeworm that contain eggs and are passed out in the faeces are called:",
         "options": {
-          "A": "\u56fa\u5b9a scolices",
+          "A": "固定 scolices",
           "B": "cysts",
           "C": "metacercariae",
           "D": "proglottids"
@@ -3536,7 +3536,7 @@
       {
         "id": "obj_rid_015",
         "topic": "Lateral Thinking",
-        "question": "A man washes his car in the rain, but his hair doesn\u2019t get wet. How is this possible?",
+        "question": "A man washes his car in the rain, but his hair doesn’t get wet. How is this possible?",
         "options": {
           "A": "He used a large umbrella.",
           "B": "He is bald.",
@@ -3549,7 +3549,7 @@
       {
         "id": "obj_rid_016",
         "topic": "Semantic Wordplay",
-        "question": "You see a boat filled with people. It has not sunk, but when you look again you don\u2019t see a single person on the boat. Why?",
+        "question": "You see a boat filled with people. It has not sunk, but when you look again you don’t see a single person on the boat. Why?",
         "options": {
           "A": "They all jumped overboard.",
           "B": "The boat capsized.",
@@ -6183,7 +6183,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_010",
-        "question": "The pigment in the malphigian layer responsible for skin colouration is \u2026\u2026..",
+        "question": "The pigment in the malphigian layer responsible for skin colouration is ……..",
         "options": {
           "A": "haemoglobin",
           "B": "haemocyanin",
@@ -6219,7 +6219,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_013",
-        "question": "The pituitary is called \u201emaster gland\u201f because",
+        "question": "The pituitary is called „master gland‟ because",
         "options": {
           "A": "it is located in the brain",
           "B": "its lanes are more numerous than those of any other gland",
@@ -7009,7 +7009,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_077",
-        "question": "Viruses differ from all forms of life because they \u2026\u2026..",
+        "question": "Viruses differ from all forms of life because they ……..",
         "options": {
           "A": "have a thick cell wall",
           "B": "feed on waste products of other organisms",
@@ -7033,7 +7033,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_079",
-        "question": "Annelids differ from nematodes in that they \u2026\u2026",
+        "question": "Annelids differ from nematodes in that they ……",
         "options": {
           "A": "exhibit bilateral symmetry",
           "B": "are triploblastic",
@@ -7057,7 +7057,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_081",
-        "question": "In ferns, the sporophyte \u2026\u2026",
+        "question": "In ferns, the sporophyte ……",
         "options": {
           "A": "develops from a haploid zygote",
           "B": "produce spores",
@@ -7069,7 +7069,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_082",
-        "question": "The group of insects that undergoes metamorphosis is \u2026\u2026.",
+        "question": "The group of insects that undergoes metamorphosis is …….",
         "options": {
           "A": "house flies, beetles and cockroaches",
           "B": "cockroaches, grasshopper and bees",
@@ -7081,7 +7081,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_083",
-        "question": "The nitrogenous substance that is excreted by birds in order to conserve water is \u2026.",
+        "question": "The nitrogenous substance that is excreted by birds in order to conserve water is ….",
         "options": {
           "A": "ammonia",
           "B": "urea",
@@ -7093,7 +7093,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_084",
-        "question": "In mammals, the exchange of nutrients and metabolic products occurs in the \u2026.",
+        "question": "In mammals, the exchange of nutrients and metabolic products occurs in the ….",
         "options": {
           "A": "lymph",
           "B": "lungs",
@@ -7105,7 +7105,7 @@
       },
       {
         "id": "obj_bio_uniport_post_utme_v2_085",
-        "question": "The part of the stomach nearer the gullet is called the \u2026\u2026",
+        "question": "The part of the stomach nearer the gullet is called the ……",
         "options": {
           "A": "epiglottis",
           "B": "cardiac sphincter",
@@ -7419,7 +7419,7 @@
       {
         "id": "obj_eng_lexis_synonyms_009",
         "topic": "Lexis - Synonyms",
-        "question": "### SECTION B: LEXIS (NEAREST IN MEANING / SYNONYMS)\n*Choose the option nearest in meaning to the italicized/capitalized word.*\n\n**9. The rest of the boys admire Olu\u2019s VERVE.**",
+        "question": "### SECTION B: LEXIS (NEAREST IN MEANING / SYNONYMS)\n*Choose the option nearest in meaning to the italicized/capitalized word.*\n\n**9. The rest of the boys admire Olu’s VERVE.**",
         "options": {
           "A": "Energy",
           "B": "Handsomeness",
@@ -8428,7 +8428,7 @@
           "D": "People"
         },
         "correct_option": "B",
-        "explanation": "Key, Even, and People have the long /i:/ sound. Win has the short /\u026a/ sound."
+        "explanation": "Key, Even, and People have the long /i:/ sound. Win has the short /ɪ/ sound."
       },
       {
         "id": "obj_eng_oral_vowels_087",
@@ -8441,7 +8441,7 @@
           "D": "Coast"
         },
         "correct_option": "A",
-        "explanation": "Won't, Hope, and Coast have the long /\u0259\u028a/ sound (oh). Cost has the short /\u0252/ sound (aw)."
+        "explanation": "Won't, Hope, and Coast have the long /əʊ/ sound (oh). Cost has the short /ɒ/ sound (aw)."
       },
       {
         "id": "obj_eng_oral_consonants_088",
@@ -8467,7 +8467,7 @@
           "D": "Character"
         },
         "correct_option": "C",
-        "explanation": "Chemistry, Chorus, and Character have the /k/ sound. Machine has the /\u0283/ (sh) sound."
+        "explanation": "Chemistry, Chorus, and Character have the /k/ sound. Machine has the /ʃ/ (sh) sound."
       },
       {
         "id": "obj_eng_oral_consonants_090",
@@ -8620,7 +8620,7 @@
       {
         "id": "obj_eng_comprehension_001",
         "topic": "Reading Comprehension",
-        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**1. The expression \"standard of living in developed countries will plummet\" means:**",
+        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**1. The expression \"standard of living in developed countries will plummet\" means:**",
         "options": {
           "A": "the economy of rich nations will stagnate",
           "B": "economic life will improve in rich nations",
@@ -8633,7 +8633,7 @@
       {
         "id": "obj_eng_comprehension_002",
         "topic": "Reading Comprehension",
-        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**2. The writer warns that the world could:**",
+        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**2. The writer warns that the world could:**",
         "options": {
           "A": "lose all its oil reserves in a matter of years",
           "B": "face energy crisis soon if production is not stepped up",
@@ -8646,7 +8646,7 @@
       {
         "id": "obj_eng_comprehension_003",
         "topic": "Reading Comprehension",
-        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**3. \"Fossil fuels\" as used in the passage include:**",
+        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE A**\nIf present trends continue, the world would face a major crisis by the end of this century: insufficient, cheap, convenient energy. For without such energy, industrial production will fall, agricultural output will drop, transport will be restricted and standard of living in developed countries will plummet. At present, almost all our energy comes from fossil fuels. Because power demand is increasing very rapidly, fossil fuels will be exhausted within a relatively short time. \n\n**3. \"Fossil fuels\" as used in the passage include:**",
         "options": {
           "A": "wood, kerosene and natural gas",
           "B": "oil, coal and natural gas",
@@ -8659,7 +8659,7 @@
       {
         "id": "obj_eng_comprehension_004",
         "topic": "Reading Comprehension",
-        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**4. The most important aspect of agriculture mentioned in the passage is:**",
+        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**4. The most important aspect of agriculture mentioned in the passage is:**",
         "options": {
           "A": "Poultry",
           "B": "Fishery",
@@ -8672,7 +8672,7 @@
       {
         "id": "obj_eng_comprehension_005",
         "topic": "Reading Comprehension",
-        "question": "### \ud83d\udcd6 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**5. A lot of crops harvested are wasted because farmers:**",
+        "question": "### 📖 CATEGORY 1: READING COMPREHENSION\n*Read the passages below carefully and answer the questions that follow.*\n\n**PASSAGE B**\nFarming is the most important aspect of agriculture that has attracted attention within the last few years. Agriculture has several other aspects like fishery, livestock and poultry. In many parts of the world today, farming has been regarded as the mainstay of the economy. Crops such as cocoa, rubber and cotton have been produced in such commercial quantities that they are sold to other countries. Most farmers use outmoded tools. A lot of them have no place to store their crops, most of which are always destroyed by insects and pests before harvest time. \n\n**5. A lot of crops harvested are wasted because farmers:**",
         "options": {
           "A": "allow insects and pests to destroy their crop",
           "B": "do not have enough money to invest in harvesters",
@@ -8685,7 +8685,7 @@
       {
         "id": "obj_eng_lexis_synonyms_006",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**6. It is claimed that there is an *extinct* volcano near Jos.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**6. It is claimed that there is an *extinct* volcano near Jos.**",
         "options": {
           "A": "Extinguished",
           "B": "Inactive",
@@ -8698,7 +8698,7 @@
       {
         "id": "obj_eng_lexis_synonyms_007",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**7. Bola has a *sonorous* voice.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**7. Bola has a *sonorous* voice.**",
         "options": {
           "A": "High pitched",
           "B": "Beautiful",
@@ -8711,7 +8711,7 @@
       {
         "id": "obj_eng_lexis_synonyms_008",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**8. Some workers went on *rampage* at a trade fair.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**8. Some workers went on *rampage* at a trade fair.**",
         "options": {
           "A": "Turned violent",
           "B": "Robbed",
@@ -8724,7 +8724,7 @@
       {
         "id": "obj_eng_lexis_synonyms_009",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**9. We have to identify the *protagonists* of the new movement.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**9. We have to identify the *protagonists* of the new movement.**",
         "options": {
           "A": "Enemies",
           "B": "Leading figures",
@@ -8737,7 +8737,7 @@
       {
         "id": "obj_eng_lexis_synonyms_010",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**10. My nephew came in *stealthily* through the back gate.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**10. My nephew came in *stealthily* through the back gate.**",
         "options": {
           "A": "Briskly",
           "B": "Boldly",
@@ -8750,7 +8750,7 @@
       {
         "id": "obj_eng_lexis_synonyms_011",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**11. The distance is not more than twenty kilometers *as the crow flies*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**11. The distance is not more than twenty kilometers *as the crow flies*.**",
         "options": {
           "A": "By the longest route",
           "B": "By the shortest route",
@@ -8763,7 +8763,7 @@
       {
         "id": "obj_eng_lexis_synonyms_012",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**12. Your extreme patience sometimes *infuriates* me.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**12. Your extreme patience sometimes *infuriates* me.**",
         "options": {
           "A": "Impresses",
           "B": "Annoys",
@@ -8776,7 +8776,7 @@
       {
         "id": "obj_eng_lexis_synonyms_013",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**13. I cannot understand how he suddenly became *audacious* contrary to his nature.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**13. I cannot understand how he suddenly became *audacious* contrary to his nature.**",
         "options": {
           "A": "Proud",
           "B": "Bold",
@@ -8789,7 +8789,7 @@
       {
         "id": "obj_eng_lexis_synonyms_014",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**14. His has been a life of *make-belief*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**14. His has been a life of *make-belief*.**",
         "options": {
           "A": "Faith",
           "B": "Fantasy",
@@ -8802,7 +8802,7 @@
       {
         "id": "obj_eng_lexis_synonyms_015",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**15. Our teacher *seldom* comes late to school.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**15. Our teacher *seldom* comes late to school.**",
         "options": {
           "A": "Very often",
           "B": "Always",
@@ -8815,7 +8815,7 @@
       {
         "id": "obj_eng_lexis_synonyms_016",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**16. The Director left his secret file to the Secretary in *good faith*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**16. The Director left his secret file to the Secretary in *good faith*.**",
         "options": {
           "A": "With proof",
           "B": "In anxiety",
@@ -8828,7 +8828,7 @@
       {
         "id": "obj_eng_lexis_synonyms_017",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**17. The Chief approached the issue with convincing *disinterestedness*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**17. The Chief approached the issue with convincing *disinterestedness*.**",
         "options": {
           "A": "Lack of interest",
           "B": "Lack of personal interest",
@@ -8841,7 +8841,7 @@
       {
         "id": "obj_eng_lexis_synonyms_018",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**18. The man insisted on having no *strings attached* to the agreement.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**18. The man insisted on having no *strings attached* to the agreement.**",
         "options": {
           "A": "Financial obligations",
           "B": "Documents",
@@ -8854,7 +8854,7 @@
       {
         "id": "obj_eng_lexis_synonyms_019",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**19. The company has *gone under*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**19. The company has *gone under*.**",
         "options": {
           "A": "Suffered some loss",
           "B": "Broken up",
@@ -8867,7 +8867,7 @@
       {
         "id": "obj_eng_lexis_synonyms_020",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**20. The case was thrown out because the court lacked *jurisdiction*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**20. The case was thrown out because the court lacked *jurisdiction*.**",
         "options": {
           "A": "Jurors to help the judge",
           "B": "Authority",
@@ -8880,7 +8880,7 @@
       {
         "id": "obj_eng_lexis_synonyms_021",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**21. The chief will *launch* the fund-raising appeal.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**21. The chief will *launch* the fund-raising appeal.**",
         "options": {
           "A": "Make a speech at",
           "B": "Eat his afternoon meal during",
@@ -8893,7 +8893,7 @@
       {
         "id": "obj_eng_lexis_synonyms_022",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**22. As the wedding day approached, the bride began to develop *cold feet*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**22. As the wedding day approached, the bride began to develop *cold feet*.**",
         "options": {
           "A": "Fall sick",
           "B": "Feel cold",
@@ -8906,7 +8906,7 @@
       {
         "id": "obj_eng_lexis_synonyms_023",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**23. The clerk refused to *answer for* the mistakes made by the manager.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**23. The clerk refused to *answer for* the mistakes made by the manager.**",
         "options": {
           "A": "Reply",
           "B": "Give an answer",
@@ -8919,7 +8919,7 @@
       {
         "id": "obj_eng_lexis_synonyms_024",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**24. The sudden death of the king *put paid* to the ambition of the minister.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**24. The sudden death of the king *put paid* to the ambition of the minister.**",
         "options": {
           "A": "Contributed",
           "B": "Rewarded",
@@ -8932,7 +8932,7 @@
       {
         "id": "obj_eng_lexis_synonyms_025",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**25. 'You're *impossible*', she said to me.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**25. 'You're *impossible*', she said to me.**",
         "options": {
           "A": "Unreasonable",
           "B": "Unforgiving",
@@ -8945,7 +8945,7 @@
       {
         "id": "obj_eng_lexis_synonyms_026",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**26. Everyone was talking about the *camaraderie* in the club.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**26. Everyone was talking about the *camaraderie* in the club.**",
         "options": {
           "A": "Companionship",
           "B": "Quarrelsomeness",
@@ -8958,7 +8958,7 @@
       {
         "id": "obj_eng_lexis_synonyms_027",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**27. I was being directed by the *sixth sense* all through the ordeal.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**27. I was being directed by the *sixth sense* all through the ordeal.**",
         "options": {
           "A": "Intelligent",
           "B": "Judgement",
@@ -8971,7 +8971,7 @@
       {
         "id": "obj_eng_lexis_synonyms_028",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**28. Tade has an *aquiline* nose.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**28. Tade has an *aquiline* nose.**",
         "options": {
           "A": "Large and curved",
           "B": "A wide and straight nose",
@@ -8984,7 +8984,7 @@
       {
         "id": "obj_eng_lexis_synonyms_029",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**29. The man's wife has her *misgivings* about him.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**29. The man's wife has her *misgivings* about him.**",
         "options": {
           "A": "Fears for",
           "B": "Distrust of",
@@ -8997,7 +8997,7 @@
       {
         "id": "obj_eng_lexis_synonyms_030",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**30. The rest of the boys admire Olu's *verve*.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**30. The rest of the boys admire Olu's *verve*.**",
         "options": {
           "A": "Energy",
           "B": "Handsomeness",
@@ -9010,7 +9010,7 @@
       {
         "id": "obj_eng_lexis_synonyms_031",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**31. The tax rebate was a *concession* given to the civil servants.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**31. The tax rebate was a *concession* given to the civil servants.**",
         "options": {
           "A": "An incentive",
           "B": "An allowance",
@@ -9023,7 +9023,7 @@
       {
         "id": "obj_eng_lexis_synonyms_032",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**32. Violent crime is only one of the *maladies* affecting modern society.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**32. Violent crime is only one of the *maladies* affecting modern society.**",
         "options": {
           "A": "Damages",
           "B": "Illnesses",
@@ -9036,7 +9036,7 @@
       {
         "id": "obj_eng_lexis_synonyms_033",
         "topic": "Lexis - Synonyms",
-        "question": "### \ud83e\udde0 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**33. Cook had *little* oil and so could not prepare the soup.**",
+        "question": "### 🧠 CATEGORY 2: LEXIS - SYNONYMS (Nearest in Meaning)\n*Choose the option nearest in meaning to the underlined/italicized word.*\n\n**33. Cook had *little* oil and so could not prepare the soup.**",
         "options": {
           "A": "Little",
           "B": "Small",
@@ -9049,7 +9049,7 @@
       {
         "id": "obj_eng_lexis_antonyms_034",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**34. Their students are very *conscientious*.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**34. Their students are very *conscientious*.**",
         "options": {
           "A": "Careful",
           "B": "Industrious",
@@ -9063,7 +9063,7 @@
       {
         "id": "obj_eng_lexis_antonyms_035",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**35. The business is very *unsuccessful*.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**35. The business is very *unsuccessful*.**",
         "options": {
           "A": "Unscrupulous",
           "B": "Unskillful",
@@ -9077,7 +9077,7 @@
       {
         "id": "obj_eng_lexis_antonyms_036",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**36. *Spurious* arguments are easily identified by smart guys.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**36. *Spurious* arguments are easily identified by smart guys.**",
         "options": {
           "A": "Genuine",
           "B": "Interesting",
@@ -9091,7 +9091,7 @@
       {
         "id": "obj_eng_lexis_antonyms_037",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**37. In my opinion, the decision was *disinterested*.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**37. In my opinion, the decision was *disinterested*.**",
         "options": {
           "A": "Neutral",
           "B": "Impartial",
@@ -9105,7 +9105,7 @@
       {
         "id": "obj_eng_lexis_antonyms_038",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**38. \"A novel is an *embellished* falsehood\", said the teacher.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**38. \"A novel is an *embellished* falsehood\", said the teacher.**",
         "options": {
           "A": "Enriched",
           "B": "Exaggerated",
@@ -9118,7 +9118,7 @@
       {
         "id": "obj_eng_lexis_antonyms_039",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**39. *Curiously*, he escaped unhurt.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**39. *Curiously*, he escaped unhurt.**",
         "options": {
           "A": "Interestingly",
           "B": "Unsurprisingly",
@@ -9131,7 +9131,7 @@
       {
         "id": "obj_eng_lexis_antonyms_040",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**40. His comment was so *printable*.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**40. His comment was so *printable*.**",
         "options": {
           "A": "Punishable",
           "B": "Suitable",
@@ -9144,7 +9144,7 @@
       {
         "id": "obj_eng_lexis_antonyms_041",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**41. I have had enough of your *impudence*.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**41. I have had enough of your *impudence*.**",
         "options": {
           "A": "Politeness",
           "B": "Incivility",
@@ -9157,7 +9157,7 @@
       {
         "id": "obj_eng_lexis_antonyms_042",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**42. Sola was *apathetic* about his work.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**42. Sola was *apathetic* about his work.**",
         "options": {
           "A": "Indifferent",
           "B": "Enthusiastic",
@@ -9170,7 +9170,7 @@
       {
         "id": "obj_eng_lexis_antonyms_043",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**43. The compulsory leave made her feel *listless*.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**43. The compulsory leave made her feel *listless*.**",
         "options": {
           "A": "Restful",
           "B": "Great",
@@ -9183,7 +9183,7 @@
       {
         "id": "obj_eng_lexis_antonyms_044",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**44. We were *collectively* responsible for keeping the machine in good shape.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**44. We were *collectively* responsible for keeping the machine in good shape.**",
         "options": {
           "A": "Jointly",
           "B": "Severally",
@@ -9196,7 +9196,7 @@
       {
         "id": "obj_eng_lexis_antonyms_045",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**45. Mr. Jack was most *flexible* in his instructions.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**45. Mr. Jack was most *flexible* in his instructions.**",
         "options": {
           "A": "Rigid",
           "B": "Correct",
@@ -9209,7 +9209,7 @@
       {
         "id": "obj_eng_lexis_antonyms_046",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**46. The University has offered *temporary* accommodation to its staff.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**46. The University has offered *temporary* accommodation to its staff.**",
         "options": {
           "A": "Popular",
           "B": "Permanent",
@@ -9222,7 +9222,7 @@
       {
         "id": "obj_eng_lexis_antonyms_047",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**47. Mary complained that she slept on the *coarse* floor.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**47. Mary complained that she slept on the *coarse* floor.**",
         "options": {
           "A": "Smooth",
           "B": "Rough",
@@ -9235,7 +9235,7 @@
       {
         "id": "obj_eng_lexis_antonyms_048",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**48. Jim was one of the *spectators* at the concert.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**48. Jim was one of the *spectators* at the concert.**",
         "options": {
           "A": "Ushers",
           "B": "Judges",
@@ -9248,7 +9248,7 @@
       {
         "id": "obj_eng_lexis_antonyms_049",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**49. The governor *declined* to give audience to the journalist.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**49. The governor *declined* to give audience to the journalist.**",
         "options": {
           "A": "Ignored",
           "B": "Accepted",
@@ -9261,7 +9261,7 @@
       {
         "id": "obj_eng_lexis_antonyms_050",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**50. The debtor's husband is *liable* for his wife's debts.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**50. The debtor's husband is *liable* for his wife's debts.**",
         "options": {
           "A": "Unanswerable",
           "B": "Responsible",
@@ -9274,7 +9274,7 @@
       {
         "id": "obj_eng_lexis_antonyms_051",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**51. The lotion recommended by the doctor *soothed* Okon's aching tooth.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**51. The lotion recommended by the doctor *soothed* Okon's aching tooth.**",
         "options": {
           "A": "Calmed",
           "B": "Extracted",
@@ -9287,7 +9287,7 @@
       {
         "id": "obj_eng_lexis_antonyms_052",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**52. The sun cast its *shadow* on the wall.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**52. The sun cast its *shadow* on the wall.**",
         "options": {
           "A": "Reflection",
           "B": "Rays",
@@ -9300,7 +9300,7 @@
       {
         "id": "obj_eng_lexis_antonyms_053",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**53. He was *locked up* for a fortnight.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**53. He was *locked up* for a fortnight.**",
         "options": {
           "A": "Released",
           "B": "Punished",
@@ -9313,7 +9313,7 @@
       {
         "id": "obj_eng_lexis_antonyms_054",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**54. The lady acted *courageously* when thieves attacked her.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**54. The lady acted *courageously* when thieves attacked her.**",
         "options": {
           "A": "Shyly",
           "B": "Fearlessly",
@@ -9326,7 +9326,7 @@
       {
         "id": "obj_eng_lexis_antonyms_055",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**55. The *handsome* profit from her fish business made Mrs. Uba stop complaining.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**55. The *handsome* profit from her fish business made Mrs. Uba stop complaining.**",
         "options": {
           "A": "Ugly",
           "B": "Meager",
@@ -9339,7 +9339,7 @@
       {
         "id": "obj_eng_lexis_antonyms_056",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**56. It pays to be *firm* rather than _______ in a case like this.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**56. It pays to be *firm* rather than _______ in a case like this.**",
         "options": {
           "A": "Flexible",
           "B": "Frank",
@@ -9352,7 +9352,7 @@
       {
         "id": "obj_eng_lexis_antonyms_057",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**57. Usually Joseph is *articulate* in his speech but today he sounds _______**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**57. Usually Joseph is *articulate* in his speech but today he sounds _______**",
         "options": {
           "A": "Clear",
           "B": "Turgid",
@@ -9365,7 +9365,7 @@
       {
         "id": "obj_eng_lexis_antonyms_058",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**58. The man's first wife is *loyal*, while the second is _______**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**58. The man's first wife is *loyal*, while the second is _______**",
         "options": {
           "A": "Unfaithful",
           "B": "Unkind",
@@ -9378,7 +9378,7 @@
       {
         "id": "obj_eng_lexis_antonyms_059",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**59. Instead of *reconciling* her parents, Roxanne worked hard at them _______**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**59. Instead of *reconciling* her parents, Roxanne worked hard at them _______**",
         "options": {
           "A": "Dividing",
           "B": "Destroying",
@@ -9391,7 +9391,7 @@
       {
         "id": "obj_eng_lexis_antonyms_060",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**60. We thought that uncle Sam's health had *improved* but it rather _______**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**60. We thought that uncle Sam's health had *improved* but it rather _______**",
         "options": {
           "A": "Persisted",
           "B": "Deteriorated",
@@ -9404,7 +9404,7 @@
       {
         "id": "obj_eng_lexis_antonyms_061",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**61. He loved his *altruism*.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**61. He loved his *altruism*.**",
         "options": {
           "A": "Benevolence",
           "B": "Sincerity",
@@ -9417,7 +9417,7 @@
       {
         "id": "obj_eng_lexis_antonyms_062",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**62. *Disgruntled* people are indifferent to any plans to rid the society of evil.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**62. *Disgruntled* people are indifferent to any plans to rid the society of evil.**",
         "options": {
           "A": "Different from",
           "B": "Different about",
@@ -9430,7 +9430,7 @@
       {
         "id": "obj_eng_lexis_antonyms_063",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**63. This card *entitles* you to attend the film show.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**63. This card *entitles* you to attend the film show.**",
         "options": {
           "A": "Disqualifies",
           "B": "Discourages",
@@ -9443,7 +9443,7 @@
       {
         "id": "obj_eng_lexis_antonyms_064",
         "topic": "Lexis - Antonyms",
-        "question": "### \ud83e\ude9e CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**64. The old woman *smiled* at me and walked away.**",
+        "question": "### 🪞 CATEGORY 3: LEXIS - ANTONYMS (Opposite in Meaning)\n*Choose the option exactly opposite in meaning to the underlined/italicized word.*\n\n**64. The old woman *smiled* at me and walked away.**",
         "options": {
           "A": "Laughed",
           "B": "Frowned",
@@ -9456,7 +9456,7 @@
       {
         "id": "obj_eng_idioms_065",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**65. Our teacher was not speaking literally when he said that the lawyer was *under a cloud*.**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**65. Our teacher was not speaking literally when he said that the lawyer was *under a cloud*.**",
         "options": {
           "A": "Literally",
           "B": "Simply",
@@ -9469,7 +9469,7 @@
       {
         "id": "obj_eng_idioms_066",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**66. James and Henry were *at daggers drawn* when I knew them. This means that they:**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**66. James and Henry were *at daggers drawn* when I knew them. This means that they:**",
         "options": {
           "A": "were always angry with each other",
           "B": "always wore daggers",
@@ -9482,7 +9482,7 @@
       {
         "id": "obj_eng_idioms_067",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**67. My book has become *dog-eared* through use. This means that:**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**67. My book has become *dog-eared* through use. This means that:**",
         "options": {
           "A": "the corners of the pages of my book are crumbled",
           "B": "my book is designed like dog's ears",
@@ -9495,7 +9495,7 @@
       {
         "id": "obj_eng_idioms_068",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**68. Musa does not believe that there is poverty in Africa; he is a *dyed-in-the-wool* capitalist. This means that Musa is:**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**68. Musa does not believe that there is poverty in Africa; he is a *dyed-in-the-wool* capitalist. This means that Musa is:**",
         "options": {
           "A": "a kind capitalist",
           "B": "a thoughtful capitalist",
@@ -9508,7 +9508,7 @@
       {
         "id": "obj_eng_idioms_069",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**69. Whenever my cousin comes to realize that I am telling the truth, she will *eat humble pie*. This means that my cousin will:**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**69. Whenever my cousin comes to realize that I am telling the truth, she will *eat humble pie*. This means that my cousin will:**",
         "options": {
           "A": "respect me",
           "B": "hate herself",
@@ -9521,12 +9521,12 @@
       {
         "id": "obj_eng_idioms_070",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**70. Okeke\u2019s chief idiosyncrasy is a passion for pounded yam.**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**70. Okeke’s chief idiosyncrasy is a passion for pounded yam.**",
         "options": {
-          "A": "Okeke\u2019s chief hates pounded yam",
+          "A": "Okeke’s chief hates pounded yam",
           "B": "Okeke hates pounded yam",
           "C": "Okeke has a penchant for pounded yam",
-          "D": "Okeke\u2019s chief likes pounded yams"
+          "D": "Okeke’s chief likes pounded yams"
         },
         "correct_option": "C",
         "explanation": "An idiosyncrasy is a distinctive feature/habit. A penchant means a strong liking for something."
@@ -9534,7 +9534,7 @@
       {
         "id": "obj_eng_idioms_071",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**71. Jimmy is *as hard as nails*.**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**71. Jimmy is *as hard as nails*.**",
         "options": {
           "A": "Jimmy is very strong",
           "B": "Jimmy is very brave",
@@ -9547,7 +9547,7 @@
       {
         "id": "obj_eng_idioms_072",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**72. It is usually hard to change the course of action when one *crosses the Rubicon*.**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**72. It is usually hard to change the course of action when one *crosses the Rubicon*.**",
         "options": {
           "A": "Pass through a place called Rubicon",
           "B": "Cross a river called Rubicon",
@@ -9560,7 +9560,7 @@
       {
         "id": "obj_eng_idioms_073",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**73. Solo has resigned his job. His plans are still quite *in the air*.**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**73. Solo has resigned his job. His plans are still quite *in the air*.**",
         "options": {
           "A": "Airmailed",
           "B": "Air light",
@@ -9573,7 +9573,7 @@
       {
         "id": "obj_eng_idioms_074",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**74. *Old customs die hard*. This implies old customs:**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**74. *Old customs die hard*. This implies old customs:**",
         "options": {
           "A": "Cause a lot of hardship and death",
           "B": "Must be stopped",
@@ -9586,7 +9586,7 @@
       {
         "id": "obj_eng_idioms_075",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**75. The senior prefect had to *CARRY THE CAN* because he refused to identify the culprit.**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**75. The senior prefect had to *CARRY THE CAN* because he refused to identify the culprit.**",
         "options": {
           "A": "Dispose the can of refuse",
           "B": "Accept responsibility",
@@ -9599,7 +9599,7 @@
       {
         "id": "obj_eng_idioms_076",
         "topic": "Idioms & Figurative Expressions",
-        "question": "### \ud83d\udca1 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**76. The opposition party is merely *making a mountain out of a molehill* by insisting that the President resigns.**",
+        "question": "### 💡 CATEGORY 4: IDIOMS & FIGURATIVE EXPRESSIONS\n*Choose the option that best conveys the meaning of the underlined/capitalized expression.*\n\n**76. The opposition party is merely *making a mountain out of a molehill* by insisting that the President resigns.**",
         "options": {
           "A": "Defending the president",
           "B": "Exaggerating the situation",
@@ -9612,7 +9612,7 @@
       {
         "id": "obj_eng_grammar_077",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**77. He _______ read more but he is tired.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**77. He _______ read more but he is tired.**",
         "options": {
           "A": "ought to",
           "B": "may",
@@ -9626,7 +9626,7 @@
       {
         "id": "obj_eng_grammar_078",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**78. We have been having _______ series of meetings lately.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**78. We have been having _______ series of meetings lately.**",
         "options": {
           "A": "some",
           "B": "a",
@@ -9640,7 +9640,7 @@
       {
         "id": "obj_eng_grammar_079",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**79. Don't forget to hang _______ the telephone when you finish.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**79. Don't forget to hang _______ the telephone when you finish.**",
         "options": {
           "A": "down",
           "B": "up",
@@ -9654,7 +9654,7 @@
       {
         "id": "obj_eng_grammar_080",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**80. Almost all building which _______ in 1950s _______ not habitable now.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**80. Almost all building which _______ in 1950s _______ not habitable now.**",
         "options": {
           "A": "were build/are",
           "B": "were built/are",
@@ -9668,7 +9668,7 @@
       {
         "id": "obj_eng_grammar_081",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**81. Some motor bikes shuttle _______ Aroma and Unizik.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**81. Some motor bikes shuttle _______ Aroma and Unizik.**",
         "options": {
           "A": "along",
           "B": "to",
@@ -9682,7 +9682,7 @@
       {
         "id": "obj_eng_grammar_082",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**82. I _______ you refuse the _______**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**82. I _______ you refuse the _______**",
         "options": {
           "A": "advice/advise",
           "B": "advise/advice",
@@ -9695,7 +9695,7 @@
       {
         "id": "obj_eng_grammar_083",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**83. The chairman, no less than the members _______ to blame.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**83. The chairman, no less than the members _______ to blame.**",
         "options": {
           "A": "is",
           "B": "are",
@@ -9709,7 +9709,7 @@
       {
         "id": "obj_eng_grammar_084",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**84. Did the ladies enjoy _______?**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**84. Did the ladies enjoy _______?**",
         "options": {
           "A": "each other",
           "B": "one another",
@@ -9723,7 +9723,7 @@
       {
         "id": "obj_eng_grammar_085",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**85. The worker did a shoddy job at that _______**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**85. The worker did a shoddy job at that _______**",
         "options": {
           "A": "cite",
           "B": "sight",
@@ -9737,7 +9737,7 @@
       {
         "id": "obj_eng_grammar_086",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**86. As a result of the power cut, production at the paint factory came to a _______**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**86. As a result of the power cut, production at the paint factory came to a _______**",
         "options": {
           "A": "hold-up",
           "B": "blockade",
@@ -9750,7 +9750,7 @@
       {
         "id": "obj_eng_grammar_087",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**87. Several _______ were passed at the meeting.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**87. Several _______ were passed at the meeting.**",
         "options": {
           "A": "memoranda",
           "B": "Decisions",
@@ -9763,7 +9763,7 @@
       {
         "id": "obj_eng_grammar_088",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**88. We won't leave until it _______ raining.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**88. We won't leave until it _______ raining.**",
         "options": {
           "A": "will stop",
           "B": "stopped",
@@ -9776,7 +9776,7 @@
       {
         "id": "obj_eng_grammar_089",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**89. The _______ event marked the beginning of a new life for the entire cabinet.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**89. The _______ event marked the beginning of a new life for the entire cabinet.**",
         "options": {
           "A": "historical",
           "B": "historicity",
@@ -9789,7 +9789,7 @@
       {
         "id": "obj_eng_grammar_090",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**90. You can't travel on your own, _______?**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**90. You can't travel on your own, _______?**",
         "options": {
           "A": "isn't it",
           "B": "can't you",
@@ -9802,7 +9802,7 @@
       {
         "id": "obj_eng_grammar_091",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**91. The man is refurbishing the flat with a view to _______ it.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**91. The man is refurbishing the flat with a view to _______ it.**",
         "options": {
           "A": "sell",
           "B": "selling",
@@ -9815,7 +9815,7 @@
       {
         "id": "obj_eng_grammar_092",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**92. He has stopped drinking, _______?**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**92. He has stopped drinking, _______?**",
         "options": {
           "A": "does he?",
           "B": "Has he?",
@@ -9828,7 +9828,7 @@
       {
         "id": "obj_eng_grammar_093",
         "topic": "Grammar, Concord & Prepositions",
-        "question": "### \ud83d\udcdd CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**93. The statement, \"My father gave me this watch\", re-written in the passive form becomes: I _______ this watch by my father.**",
+        "question": "### 📝 CATEGORY 5: GRAMMAR, CONCORD & PREPOSITIONS\n*Choose the word or phrase that best completes the sentence.*\n\n**93. The statement, \"My father gave me this watch\", re-written in the passive form becomes: I _______ this watch by my father.**",
         "options": {
           "A": "Had been given",
           "B": "Am given",
@@ -9841,7 +9841,7 @@
       {
         "id": "obj_eng_oral_094",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**94. Identify the word that has a different vowel sound from the others:**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**94. Identify the word that has a different vowel sound from the others:**",
         "options": {
           "A": "key",
           "B": "win",
@@ -9849,12 +9849,12 @@
           "D": "people"
         },
         "correct_option": "B",
-        "explanation": "Key, Even, and People all have the long /i:/ sound. Win has the short /\u026a/ sound."
+        "explanation": "Key, Even, and People all have the long /i:/ sound. Win has the short /ɪ/ sound."
       },
       {
         "id": "obj_eng_oral_095",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**95. Identify the word that has a different vowel sound from the others:**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**95. Identify the word that has a different vowel sound from the others:**",
         "options": {
           "A": "tear (verb)",
           "B": "hear",
@@ -9862,12 +9862,12 @@
           "D": "mere"
         },
         "correct_option": "A",
-        "explanation": "To tear (verb) is pronounced /t\u025b\u0259/ (like bear/hair). Hear, weird, and mere are pronounced with the /\u026a\u0259/ sound (like ear)."
+        "explanation": "To tear (verb) is pronounced /tɛə/ (like bear/hair). Hear, weird, and mere are pronounced with the /ɪə/ sound (like ear)."
       },
       {
         "id": "obj_eng_oral_096",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**96. Identify the word that has a different vowel sound from the others:**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**96. Identify the word that has a different vowel sound from the others:**",
         "options": {
           "A": "cost",
           "B": "won't",
@@ -9875,12 +9875,12 @@
           "D": "coast"
         },
         "correct_option": "A",
-        "explanation": "Won't, Hope, and Coast have the long /\u0259\u028a/ sound (oh). Cost has the short /\u0252/ sound (aw)."
+        "explanation": "Won't, Hope, and Coast have the long /əʊ/ sound (oh). Cost has the short /ɒ/ sound (aw)."
       },
       {
         "id": "obj_eng_oral_097",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**97. Identify the word that has a different consonant sound from the others:**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**97. Identify the word that has a different consonant sound from the others:**",
         "options": {
           "A": "wife",
           "B": "of",
@@ -9893,7 +9893,7 @@
       {
         "id": "obj_eng_oral_098",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**98. Oladipo is the MANAGER of the country's best team. (Choose the question that best prompts this statement)**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**98. Oladipo is the MANAGER of the country's best team. (Choose the question that best prompts this statement)**",
         "options": {
           "A": "Is Oladipo the coach of the country's best team?",
           "B": "Is Oladipo the manager of the country's best player?",
@@ -9906,7 +9906,7 @@
       {
         "id": "obj_eng_oral_099",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**99. IRELAND is much better.**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**99. IRELAND is much better.**",
         "options": {
           "A": "Is Wales much better?",
           "B": "Is Ireland much worse?",
@@ -9919,7 +9919,7 @@
       {
         "id": "obj_eng_oral_100",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**100. We ATTENDED the seminar together.**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**100. We ATTENDED the seminar together.**",
         "options": {
           "A": "Did we miss the seminar together?",
           "B": "Did they attend the seminar together?",
@@ -9932,7 +9932,7 @@
       {
         "id": "obj_eng_oral_101",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**101. HE wasn't interested in my excuses.**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**101. HE wasn't interested in my excuses.**",
         "options": {
           "A": "Was she interested in my excuses?",
           "B": "Was he interested in your excuses?",
@@ -9945,7 +9945,7 @@
       {
         "id": "obj_eng_oral_102",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**102. The boy WHO stole the mango was given out by an eye witness.**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**102. The boy WHO stole the mango was given out by an eye witness.**",
         "options": {
           "A": "Was the boy that stole the mango given out?",
           "B": "Was the girl who stole the mango given out?",
@@ -9958,7 +9958,7 @@
       {
         "id": "obj_eng_oral_103",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**103. The discussion became ANIMATED.**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**103. The discussion became ANIMATED.**",
         "options": {
           "A": "Specialized",
           "B": "Lively",
@@ -9971,7 +9971,7 @@
       {
         "id": "obj_eng_oral_104",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**104. In the sentence \"We ATTENDED the seminar together\", the capitalized word is an example of:**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**104. In the sentence \"We ATTENDED the seminar together\", the capitalized word is an example of:**",
         "options": {
           "A": "Preposition",
           "B": "Auxiliary verb",
@@ -9984,7 +9984,7 @@
       {
         "id": "obj_eng_oral_105",
         "topic": "Oral English & Emphatic Stress",
-        "question": "### \ud83d\udde3\ufe0f CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**105. \"The girl AT THE GATE saw me\". The capitalized expression is correctly classified as:**",
+        "question": "### 🗣️ CATEGORY 6: ORAL ENGLISH & EMPHATIC STRESS\n*Choose the option that has a DIFFERENT vowel or consonant sound, or the correct stress prompt.*\n\n**105. \"The girl AT THE GATE saw me\". The capitalized expression is correctly classified as:**",
         "options": {
           "A": "An adverbial phrase",
           "B": "An adjectival phrase",
@@ -10261,5 +10261,1375 @@
       }
     ],
     "theory": []
+  },
+  {
+    "subject": "UNIPORT Chemistry v1 actual questions",
+    "obj": [
+      {
+        "id": "obj_up_chem_001",
+        "question": "When ethane gas reacts with chlorine gas to form 1, 2-dichloroethane, the reaction is called?",
+        "options": {
+          "A": "Substitution",
+          "B": "Addition",
+          "C": "Polymerization",
+          "D": "Hydrolysis"
+        },
+        "correct_option": "A",
+        "explanation": "Ethane is a saturated alkane. Alkanes only undergo substitution reactions, where hydrogen atoms are progressively replaced by halogen atoms under UV light.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_002",
+        "question": "The reaction of ethanoic acid and ethanol with an acid catalyst will produce one of these as the organic product.",
+        "options": {
+          "A": "Ethyl ethanoate",
+          "B": "Ethyl methyl ketone",
+          "C": "Butanol",
+          "D": "Cholera"
+        },
+        "correct_option": "A",
+        "explanation": "This is an *Esterification* reaction. An alkanoic acid + an alkanol $\\rightarrow$ an ester + water. Ethanoic acid + Ethanol yields Ethyl ethanoate.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_003",
+        "question": "One of these has an isomer.",
+        "options": {
+          "A": "$C_2H_4$",
+          "B": "$C_4H_{10}$",
+          "C": "$C_3H_8$",
+          "D": "$C_2H_6$"
+        },
+        "correct_option": "B",
+        "explanation": "Isomerism in alkanes begins at Butane ($C_4H_{10}$). Methane, ethane, and propane do not have enough carbon atoms to form branched chain isomers.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_004",
+        "question": "The characteristic reaction of the carbonyl compound is:",
+        "options": {
+          "A": "Substitution",
+          "B": "Elimination",
+          "C": "Addition",
+          "D": "Saponification"
+        },
+        "correct_option": "C",
+        "explanation": "Carbonyl compounds (aldehydes and ketones) possess a $C=O$ double bond, making them unsaturated. Their characteristic reaction is nucleophilic addition.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_005",
+        "question": "The boiling points of water, ethanol, toluene and butan-2-ol are 373.0K, 352.3K, 383.6K and 372.5K respectively. Which liquid has the highest vapour pressure at 323.0K?",
+        "options": {
+          "A": "Water",
+          "B": "Toluene",
+          "C": "Ethanol",
+          "D": "Butan-2-ol"
+        },
+        "correct_option": "C",
+        "explanation": "Vapour pressure is inversely proportional to boiling point. The liquid with the lowest boiling point (Ethanol at 352.3K) is the most volatile and therefore has the highest vapour pressure at any given temperature.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_006",
+        "question": "The function of sulphur during the vulcanization of rubber is to:",
+        "options": {
+          "A": "Act as catalyst for the polymerization of rubber molecules",
+          "B": "Convert rubber from thermosetting to thermoplastic polymer",
+          "C": "Form chains which bind rubber molecules together",
+          "D": "Break down rubber polymer molecule"
+        },
+        "correct_option": "C",
+        "explanation": "Sulphur forms cross-links between the long polyisoprene chains of natural rubber. This prevents the chains from slipping past each other, making the rubber harder and more durable.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_007",
+        "question": "Complete hydrogenation of ethyne yields:",
+        "options": {
+          "A": "Benzene",
+          "B": "Methane",
+          "C": "Ethane",
+          "D": "Propane"
+        },
+        "correct_option": "C",
+        "explanation": "Ethyne ($C_2H_2$) has a triple bond. Complete hydrogenation adds two moles of Hydrogen gas ($H_2$) to break the triple bond entirely, yielding the saturated alkane, Ethane ($C_2H_6$).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_008",
+        "question": "An organic compound decolorized acidified $KMnO_4$ solution but failed to react with ammoniacal silver nitrate solution. The organic compound is likely to be:",
+        "options": {
+          "A": "A carboxylic acid",
+          "B": "An alkane",
+          "C": "An alkene",
+          "D": "An alkyne"
+        },
+        "correct_option": "C",
+        "explanation": "*Classic UNIPORT Trap!* Decolorizing $KMnO_4$ means it is unsaturated (has a double or triple bond). Failing to react with ammoniacal $AgNO_3$ (Tollens' reagent) means it does *not* have a terminal acidic hydrogen. Thus, it is an alkene, not a terminal alkyne.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_009",
+        "question": "Which of these compounds exhibits resonance?",
+        "options": {
+          "A": "Benzene",
+          "B": "Ethanol",
+          "C": "Propene",
+          "D": "Butyne"
+        },
+        "correct_option": "A",
+        "explanation": "Benzene ($C_6H_6$) has a planar ring of 6 carbon atoms with delocalized pi-electrons, which gives it extra chemical stability known as resonance energy.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_010",
+        "question": "The compound that makes palm wine taste sour after exposure to the air for few days is:",
+        "options": {
+          "A": "Ethanol",
+          "B": "Ethanoic acid",
+          "C": "Methanol",
+          "D": "Methanoic acid"
+        },
+        "correct_option": "B",
+        "explanation": "Airborne bacteria oxidize the ethanol in palm wine into ethanoic acid (acetic acid/vinegar), causing the sour taste.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_011",
+        "question": "The ability of carbon to form bonds with other carbon atoms thereby giving many interesting compounds is known as:",
+        "options": {
+          "A": "Polymerization",
+          "B": "Catenation",
+          "C": "Allotropy",
+          "D": "Isotopy"
+        },
+        "correct_option": "B",
+        "explanation": "Catenation is the unique ability of an element (predominantly carbon) to form long chains and rings by bonding with itself.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_012",
+        "question": "When an s-orbital of a carbon atom mixes with three p-orbitals, the hybrid orbital formed is:",
+        "options": {
+          "A": "$2sp^3$",
+          "B": "$sp$",
+          "C": "$sp^3$",
+          "D": "$sp^2$"
+        },
+        "correct_option": "C",
+        "explanation": "1 s-orbital + 3 p-orbitals = 4 $sp^3$ hybridized orbitals. This is found in alkanes like methane, creating a tetrahedral shape.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_013",
+        "question": "How many isomers can be obtained from $C_4H_{10}$?",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "2",
+          "D": "3"
+        },
+        "correct_option": "C",
+        "explanation": "Butane ($C_4H_{10}$) has exactly two structural isomers: normal-butane (straight chain) and 2-methylpropane (isobutane).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_014",
+        "question": "The carbon atoms in ethane are ………. hybridized.",
+        "options": {
+          "A": "$sp^4$",
+          "B": "$sp^3$",
+          "C": "$sp^2$",
+          "D": "$sp$"
+        },
+        "correct_option": "B",
+        "explanation": "Ethane ($C_2H_6$) contains only single bonds. All carbons with only single bonds are $sp^3$ hybridized.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_015",
+        "question": "The type of reaction that is peculiar to benzene is:",
+        "options": {
+          "A": "Addition",
+          "B": "Hydrolysis",
+          "C": "Polymerization",
+          "D": "Substitution"
+        },
+        "correct_option": "D",
+        "explanation": "Despite being highly unsaturated, benzene prefers electrophilic *substitution* reactions over addition reactions to preserve its stable resonance ring.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_016",
+        "question": "Under normal condition of ionic addition, what will be the major product of the addition of HBr to 2-methyl-2-butene?",
+        "options": {
+          "A": "2-Bromo-3-methylbutane",
+          "B": "1-Bromo-3-methylbutane",
+          "C": "2-methyl-1-bromobutane",
+          "D": "2-bromo-2-methylbutane"
+        },
+        "correct_option": "D",
+        "explanation": "According to Markovnikov's rule, the negative part of the addendum ($Br^-$) goes to the carbon of the double bond that has *fewer* hydrogen atoms (the tertiary carbon at position 2).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_017",
+        "question": "An isomer of $C_5H_{12}$ is:",
+        "options": {
+          "A": "Butane",
+          "B": "2-methylbutane",
+          "C": "2-ethylbutane",
+          "D": "2-ethylbutene"
+        },
+        "correct_option": "B",
+        "explanation": "$C_5H_{12}$ is pentane. 2-methylbutane has 4 carbons in the main chain and 1 in the branch, totaling 5 carbons (an exact isomer of pentane).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_018",
+        "question": "A substance that is used as a ripening agent for fruits is:",
+        "options": {
+          "A": "Ethane",
+          "B": "Propane",
+          "C": "Ethene",
+          "D": "Butane \n*(Note: I edited option C from the original typo \"methane\" to the correct answer)*"
+        },
+        "correct_option": "C",
+        "explanation": "Ethene (ethylene) gas is a natural plant hormone widely used industrially to accelerate the ripening of fruits like bananas and tomatoes.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_019",
+        "question": "The shape of the hydrocarbon compound $CH_4$ is:",
+        "options": {
+          "A": "Square planar",
+          "B": "Planar",
+          "C": "Linear",
+          "D": "Tetrahedral"
+        },
+        "correct_option": "D",
+        "explanation": "Methane ($CH_4$) has 4 bonding pairs of electrons repelling each other equally, forming a 3D tetrahedron with bond angles of 109.5°.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_020",
+        "question": "Saponification involves boiling fats and oils with:",
+        "options": {
+          "A": "Acid",
+          "B": "Sodium hydroxide",
+          "C": "Salt",
+          "D": "Water"
+        },
+        "correct_option": "B",
+        "explanation": "Saponification is the alkaline hydrolysis of fats/oils using strong bases like $NaOH$ or $KOH$ to produce soap and glycerol.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_021",
+        "question": "The molarity of a 20% by weight of aqueous solution of $H_2SO_4$ (molecular weight is 98, assuming density is approx 1.14 g/cm³) is:",
+        "options": {
+          "A": "4.55",
+          "B": "3.55",
+          "C": "2.32",
+          "D": "0.21 \n*(Note: Edited invalid options from past paper to provide the correct calculation).*"
+        },
+        "correct_option": "C",
+        "explanation": "Formula: $Molarity = \\frac{\\% \\text{weight} \\times 10 \\times \\text{density}}{\\text{Molar Mass}}$. $M = \\frac{20 \\times 10 \\times 1.14}{98} = \\frac{228}{98} \\approx 2.32 \\, M$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_022",
+        "question": "A gas occupies $30.0dm^3$ at s.t.p. What volume will it occupy at 91°C and 380mmHg?",
+        "options": {
+          "A": "$20.0dm^3$",
+          "B": "$40.0dm^3$",
+          "C": "$60.0dm^3$",
+          "D": "$80.0dm^3$"
+        },
+        "correct_option": "D",
+        "explanation": "Using General Gas Equation: $\\frac{P_1V_1}{T_1} = \\frac{P_2V_2}{T_2}$.  \n$P_1 = 760mmHg, V_1 = 30dm^3, T_1 = 273K$. \n$P_2 = 380mmHg, T_2 = 91+273 = 364K$. \n$V_2 = \\frac{760 \\times 30 \\times 364}{380 \\times 273} = 2 \\times 30 \\times (\\frac{364}{273}) = 60 \\times 1.33 = 80.0dm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_023",
+        "question": "What volume of oxygen will remain after reacting $8cm^3$ of hydrogen with $20cm^3$ of oxygen?",
+        "options": {
+          "A": "$10.0cm^3$",
+          "B": "$12.0cm^3$",
+          "C": "$14.0cm^3$",
+          "D": "$16.0cm^3$"
+        },
+        "correct_option": "D",
+        "explanation": "Equation: $2H_2 + O_2 \\rightarrow 2H_2O$. 2 volumes of $H_2$ react with 1 volume of $O_2$. So, $8cm^3$ of $H_2$ requires exactly $4cm^3$ of $O_2$. Excess $O_2$ remaining = $20 - 4 = 16cm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_024",
+        "question": "A certain volume of a gas at 298K is heated such that its volume and pressure are now four times the original values. What is the new temperature?",
+        "options": {
+          "A": "18.6K",
+          "B": "100.0K",
+          "C": "298.0K",
+          "D": "4768.0K"
+        },
+        "correct_option": "D",
+        "explanation": "From $\\frac{P_1V_1}{T_1} = \\frac{P_2V_2}{T_2}$. Let $P_1=P, V_1=V$. Then $P_2=4P, V_2=4V$. \n$T_2 = \\frac{P_2V_2T_1}{P_1V_1} = \\frac{(4P)(4V)(298)}{PV} = 16 \\times 298 = 4768K$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_025",
+        "question": "The number of sulphur atoms in 3.20g of sulphur (IV) oxide $SO_2$ is: (S=32, O=16, Avogadro constant = $6.02 \\times 10^{23}$)",
+        "options": {
+          "A": "$3.01 \\times 10^{22}$",
+          "B": "$6.02 \\times 10^{22}$",
+          "C": "$6.02 \\times 10^{23}$",
+          "D": "$1.20 \\times 10^{24}$"
+        },
+        "correct_option": "A",
+        "explanation": "Molar mass of $SO_2 = 32 + (16 \\times 2) = 64g/mol$. \nMoles = $3.20 / 64 = 0.05$ mol. \nBecause there is 1 atom of S in every molecule of $SO_2$: Atoms = $0.05 \\times 6.02 \\times 10^{23} = 3.01 \\times 10^{22}$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_026",
+        "question": "A sealed flask contains $600cm^3$ of air at 27°C. It is heated to 35°C at a constant pressure. The new volume of air is:",
+        "options": {
+          "C": "$608cm^3$",
+          "A": "$508cm^3$",
+          "B": "$616cm^3$",
+          "D": "$603cm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "Charles's Law: $\\frac{V_1}{T_1} = \\frac{V_2}{T_2}$.  \n$T_1 = 27 + 273 = 300K$. $T_2 = 35 + 273 = 308K$. \n$V_2 = \\frac{600 \\times 308}{300} = 2 \\times 308 = 616cm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_027",
+        "question": "If 1.65g $CaSO_4$ salt is required to make a saturated solution with $12.4cm^3$ of water at 25°C, calculate the solubility of the salt at 25°C. (molar mass of $CaSO_4$ in 130g/mol) *[Note: Actual molar mass is 136, but use UNIPORT's given 130]",
+        "options": {
+          "C": "$0.4 mol/dm^3$",
+          "A": "$0.98 mol/dm^3$",
+          "B": "$1.96 mol/dm^3$",
+          "D": "$0.28 mol/dm^3$"
+        },
+        "correct_option": "A",
+        "explanation": "Moles of salt = $\\frac{1.65}{130} \\approx 0.01269$ mol.  \nVolume in $dm^3 = \\frac{12.4}{1000} = 0.0124 dm^3$. \nSolubility (Molarity) = $\\frac{\\text{Moles}}{\\text{Volume}} = \\frac{0.01269}{0.0124} \\approx 0.98 mol/dm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_028",
+        "question": "........ has no effect on the position of a system at equilibrium and helps equilibrium to be attained in a shorter time.",
+        "options": {
+          "A": "Free energy",
+          "B": "Enthalpy",
+          "C": "Entropy",
+          "D": "Catalyst"
+        },
+        "correct_option": "D",
+        "explanation": "A catalyst lowers the activation energy for both the forward and backward reactions equally. It speeds up the *rate* at which equilibrium is reached but does not shift the *position* of the equilibrium.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_029",
+        "question": "If the free energy change $\\Delta G$ of an equilibrium reaction is zero, the reaction will ……",
+        "options": {
+          "A": "Stop",
+          "B": "Move to the right",
+          "C": "Is at equilibrium",
+          "D": "Move to the left"
+        },
+        "correct_option": "C",
+        "explanation": "By thermodynamic definition, when $\\Delta G = 0$, the system is in a state of dynamic chemical equilibrium.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_030",
+        "question": "Which of the following statements is correct of $\\Delta H$, the enthalpy of reaction? It is:",
+        "options": {
+          "A": "The heat change accompanying a chemical reaction",
+          "B": "Negative for exothermic reactions",
+          "C": "Positive for endothermic reactions",
+          "D": "All of the above"
+        },
+        "correct_option": "D",
+        "explanation": "All statements correctly describe enthalpy.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_031",
+        "question": "A compound contains 40% Carbon, 6.7% Hydrogen and 53.3% Oxygen. If the molar mass of the compound is 180, find the molecular formula.",
+        "options": {
+          "A": "$CH_2O$",
+          "B": "$C_6H_6O_3$",
+          "C": "$C_6H_{12}O_6$",
+          "D": "$C_6H_6O_3$"
+        },
+        "correct_option": "C",
+        "explanation": "Divide percentages by atomic mass: C(40/12=3.33), H(6.7/1=6.7), O(53.3/16=3.33). Divide by smallest (3.33) yields ratio 1:2:1. Empirical formula = $CH_2O$ (mass = 30). Molecular formula = $(CH_2O)_n = 180$. $30n = 180 \\rightarrow n = 6$. So, $C_6H_{12}O_6$ (Glucose).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_032",
+        "question": "$C_2H_{4(g)} + H_{2(g)} \\rightarrow C_2H_{6(g)} \\Delta H = -13$ kJ. The reaction represented above is:",
+        "options": {
+          "A": "Exothermic",
+          "B": "Spontaneous",
+          "C": "Endothermic",
+          "D": "In equilibrium"
+        },
+        "correct_option": "A",
+        "explanation": "A negative $\\Delta H$ explicitly identifies the reaction as exothermic (releases heat to the surroundings).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_033",
+        "question": "Calculate the number of moles of $HCl$ present in $20cm^3$ of a 0.75M solution of the acid.",
+        "options": {
+          "A": "0.015 mole",
+          "B": "0.038 mole",
+          "C": "3.800 mole",
+          "D": "1.500 mole"
+        },
+        "correct_option": "A",
+        "explanation": "Moles = Molarity $\\times$ Volume (in $dm^3$).  \nVolume = $20 / 1000 = 0.02 dm^3$.  \nMoles = $0.75 \\times 0.02 = 0.015$ moles.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_034",
+        "question": "How much faster does a Helium atom travel than a nitrogen molecule at the same temperature?",
+        "options": {
+          "A": "1.68",
+          "B": "1.70",
+          "C": "2.50",
+          "D": "2.65"
+        },
+        "correct_option": "D",
+        "explanation": "Graham's Law of Diffusion. $Rate \\propto \\frac{1}{\\sqrt{M}}$. \n$\\frac{Rate_{He}}{Rate_{N_2}} = \\sqrt{\\frac{Mass_{N_2}}{Mass_{He}}}$. \nMass of $N_2 = 14 \\times 2 = 28$. Mass of $He = 4$. \nRatio = $\\sqrt{\\frac{28}{4}} = \\sqrt{7} \\approx 2.645$ (Rounds to 2.65).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_035",
+        "question": "What is the percentage by mass of oxygen in $Al_2(SO_4)_3 \\cdot 2H_2O$?",
+        "options": {
+          "A": "14.29%",
+          "B": "25.39%",
+          "C": "50.79%",
+          "D": "59.25%"
+        },
+        "correct_option": "D",
+        "explanation": "Molar mass = $(27 \\times 2) + [(32 + 64) \\times 3] + 2(18) = 54 + 288 + 36 = 378 g/mol$. \nTotal mass of Oxygen = $(16 \\times 4 \\times 3) + (16 \\times 2) = 192 + 32 = 224g$. \nPercentage = $\\frac{224}{378} \\times 100 \\approx 59.25\\%$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_036",
+        "question": "What volume of $0.5 mol/dm^3$ $H_2SO_4$ will exactly neutralize $20cm^3$ of $0.1 mol/dm^3$ NaOH solution?",
+        "options": {
+          "A": "$2.0cm^3$",
+          "B": "$5.0cm^3$",
+          "C": "$6.8cm^3$",
+          "D": "$8.3cm^3$"
+        },
+        "correct_option": "A",
+        "explanation": "Reaction: $H_2SO_4 + 2NaOH \\rightarrow Na_2SO_4 + 2H_2O$. \nUsing $\\frac{C_AV_A}{C_BV_B} = \\frac{n_A}{n_B}$. $\\frac{0.5 \\times V_A}{0.1 \\times 20} = \\frac{1}{2}$.  \n$1.0 \\times V_A = 2.0 \\rightarrow V_A = 2.0cm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_037",
+        "question": "What volume of gas is evolved at s.t.p if 2g of calcium trioxocarbonate (IV) is added to a solution of hydrochloric acid? [Ca=40, C=12, O=16, M.V.G = 22.4$dm^3$]",
+        "options": {
+          "A": "$112cm^3$",
+          "B": "$224cm^3$",
+          "C": "$448cm^3$",
+          "D": "$2240cm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "$CaCO_3 + 2HCl \\rightarrow CaCl_2 + H_2O + CO_2$. \nMolar mass of $CaCO_3 = 100g/mol$.  \n100g of $CaCO_3$ yields $22.4 dm^3$ ($22400 cm^3$) of $CO_2$. \n2g yields $x$. $x = \\frac{2 \\times 22400}{100} = 448cm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_038",
+        "question": "How many moles of lime stone will be required to produce 5.6g of CaO?",
+        "options": {
+          "A": "0.20 mol",
+          "B": "0.10 mol",
+          "C": "1.12 mol",
+          "D": "0.56 mol"
+        },
+        "correct_option": "B",
+        "explanation": "Reaction: $CaCO_3 \\rightarrow CaO + CO_2$.  \n1 mole of $CaCO_3$ gives 1 mole of $CaO$. Molar mass of $CaO = 40 + 16 = 56g/mol$. \nMoles of $CaO$ produced = $5.6 / 56 = 0.10$ mol. Therefore, 0.10 mol of limestone is required.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_039",
+        "question": "One mole of propane is mixed with five moles of oxygen. The mixture is ignited and the propane burns completely. What is the volume of the products at S.T.P?",
+        "options": {
+          "A": "$112.0dm^3$",
+          "B": "$67.2dm^3$",
+          "C": "$56.0dm^3$",
+          "D": "$44.8dm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "$C_3H_8 + 5O_2 \\rightarrow 3CO_2 + 4H_2O$.  \nAt STP, water is a liquid (negligible volume), so only the gas ($CO_2$) is considered. \n1 mole of propane produces 3 moles of $CO_2$. \nVolume = $3 \\times 22.4 dm^3 = 67.2 dm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_040",
+        "question": "Hydrated salt of formula $MSO_4 \\cdot XH_2O$ contains 45.3% by mass of water of crystallization. Calculate the value of X. [M=56, S=32, O=16, H=1]",
+        "options": {
+          "A": "3",
+          "B": "5",
+          "C": "7",
+          "D": "10"
+        },
+        "correct_option": "C",
+        "explanation": "Molar mass of anhydrous $MSO_4 = 56 + 32 + 64 = 152g$. \nWater mass = $18X$. \nIf water is 45.3%, then anhydrous salt is $100 - 45.3 = 54.7\\%$. \n$\\frac{18X}{152} = \\frac{45.3}{54.7} \\rightarrow 18X = 125.87 \\rightarrow X = 6.99 \\approx 7$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_041",
+        "question": "A given quantity of a gas occupies a volume of $228cm^3$ at a pressure of 750mmHg. What will be its volume at atmospheric pressure?",
+        "options": {
+          "A": "$220cm^3$",
+          "B": "$225cm^3$",
+          "C": "$230cm^3$",
+          "D": "$235cm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "Boyle's Law: $P_1V_1 = P_2V_2$ (Assuming constant T). \nStandard atmospheric pressure $P_2 = 760mmHg$. \n$V_2 = \\frac{750 \\times 228}{760} = \\frac{171000}{760} = 225cm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_042",
+        "question": "How long will it take to deposit 0.08g of copper from $CuCl_2$ solution by passing a current of 0.5A? [Cu=64, F=96500C/mol]",
+        "options": {
+          "A": "6 mins",
+          "B": "8 mins",
+          "C": "24 mins",
+          "D": "48 mins \n*(Note: Corrected option B from past paper typo to 8 mins)*"
+        },
+        "correct_option": "B",
+        "explanation": "$m = \\frac{I \\times t \\times M}{n \\times F}$. $Cu$ is $Cu^{2+}$ so $n=2$. \n$0.08 = \\frac{0.5 \\times t \\times 64}{2 \\times 96500} \\rightarrow 0.08 = \\frac{32t}{193000}$. \n$t = \\frac{0.08 \\times 193000}{32} = 482.5$ seconds. \nIn minutes: $482.5 / 60 \\approx 8$ minutes.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_043",
+        "question": "In preparation of ammonia, the drying agent used is:",
+        "options": {
+          "A": "$CaO$",
+          "B": "$CaCl_2$",
+          "C": "Conc. $H_2SO_4$",
+          "D": "$P_2O_5$"
+        },
+        "correct_option": "A",
+        "explanation": "Ammonia ($NH_3$) is an alkaline gas. If dried with acidic drying agents ($H_2SO_4$, $P_2O_5$), it will react to form salts. It also forms a complex salt with $CaCl_2$. Hence, quicklime ($CaO$) is the only suitable agent.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_044",
+        "question": "In a flame test, copper exhibits what colour?",
+        "options": {
+          "A": "Green",
+          "B": "Lilac",
+          "C": "Blue-green",
+          "D": "Crimson"
+        },
+        "correct_option": "C",
+        "explanation": "Flame tests are a UNIPORT favorite. Copper ($Cu^{2+}$) is blue-green, Potassium ($K^+$) is lilac, Calcium ($Ca^{2+}$) is brick-red/crimson, and Sodium ($Na^+$) is yellow.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_045",
+        "question": "Which of these gases is the most dangerous pollutant?",
+        "options": {
+          "A": "Hydrogen sulphide",
+          "B": "Carbon (IV) oxide",
+          "C": "Sulphide (IV) oxide",
+          "D": "Carbon (II) oxide"
+        },
+        "correct_option": "D",
+        "explanation": "Carbon (II) oxide ($CO$) is highly toxic because it binds to hemoglobin in the blood 200 times faster than oxygen, causing suffocation.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_046",
+        "question": "The oxidizing agent commonly used for conversion of alcohol to aldehyde is:",
+        "options": {
+          "A": "Potassium dichromate (IV)",
+          "B": "Potassium dichromate (V)",
+          "C": "Potassium dichromate (VI)",
+          "D": "Potassium dichromate (VII)"
+        },
+        "correct_option": "C",
+        "explanation": "Acidified Potassium dichromate (VI) ($K_2Cr_2O_7$) is a standard strong oxidizing agent used to oxidize primary alcohols to aldehydes, turning from orange to green.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_047",
+        "question": "Which one of the following is a hydroscopic compound?",
+        "options": {
+          "A": "$H_2SO_4$",
+          "B": "$NaOH$",
+          "C": "$HNO_3$",
+          "D": "$NaCl$"
+        },
+        "correct_option": "A",
+        "explanation": "A hygroscopic substance absorbs moisture from the air but does not dissolve in it to form a solution (unlike deliquescent substances like $NaOH$). Concentrated $H_2SO_4$ is a classic hygroscopic liquid.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_048",
+        "question": "Which of the following conducts electricity?",
+        "options": {
+          "A": "Sulphur",
+          "B": "Graphite",
+          "C": "Diamond",
+          "D": "Red phosphorus"
+        },
+        "correct_option": "B",
+        "explanation": "Graphite has $sp^2$ hybridization, leaving one delocalized pi-electron per carbon atom which is free to move and conduct electricity. Diamond has no free electrons.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_049",
+        "question": "When marble is heated to 1473 K, another whiter solid is obtained which reacts vigorously with water to give an alkaline solution. The solution contains:",
+        "options": {
+          "A": "$NaOH$",
+          "B": "$KOH$",
+          "C": "$Mg(OH)_2$",
+          "D": "$Ca(OH)_2$"
+        },
+        "correct_option": "D",
+        "explanation": "Marble is $CaCO_3$. When heated, it decomposes to $CaO$ (quicklime). Adding water to quicklime produces $Ca(OH)_2$ (slaked lime), which is alkaline.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_050",
+        "question": "Which of the following roles does sodium chloride play in soap preparation? It:",
+        "options": {
+          "A": "Reacts with glycerol",
+          "B": "Purifies the soap",
+          "C": "Accelerates the decomposition of fat and oil",
+          "D": "Separates the soap from the glycerol"
+        },
+        "correct_option": "D",
+        "explanation": "Adding $NaCl$ reduces the solubility of the soap in the aqueous phase, causing it to precipitate out as a solid. This process is known as \"salting out\".",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_051",
+        "question": "Which of the following is used as a moderator to control nuclear fission?",
+        "options": {
+          "A": "Lead",
+          "B": "Heavy water",
+          "C": "Iron",
+          "D": "Chromium"
+        },
+        "correct_option": "B",
+        "explanation": "A moderator slows down fast-moving neutrons so they can be captured more easily to sustain a controlled nuclear chain reaction. Heavy water ($D_2O$) and graphite are standard moderators.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_052",
+        "question": "One of the active components of baking powder is:",
+        "options": {
+          "A": "$MgSO_4$",
+          "B": "$NaHCO_3$",
+          "C": "$CaSO_4$",
+          "D": "$NaCl$"
+        },
+        "correct_option": "B",
+        "explanation": "Sodium hydrogen trioxocarbonate (IV) ($NaHCO_3$) decomposes upon heating to release $CO_2$ gas, which makes dough rise.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_053",
+        "question": "$H_2SO_4$ is used to remove rust on the surface of iron (pickling) before electroplating. The type of reaction involved is:",
+        "options": {
+          "A": "Redox reaction",
+          "B": "Neutralization",
+          "C": "Double decomposition",
+          "D": "Hydrolysis"
+        },
+        "correct_option": "B",
+        "explanation": "Rust is essentially Iron (III) oxide ($Fe_2O_3$), a basic oxide. An acid reacting with a basic oxide to form salt and water is a Neutralization reaction.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_054",
+        "question": "Silver chloride turned gray when exposed to sunlight because:",
+        "options": {
+          "A": "The silver ion is reduced to silver",
+          "B": "The silver ion is oxidized to silver",
+          "C": "Silver is a transition metal",
+          "D": "The silver chloride forms complexes in the sun"
+        },
+        "correct_option": "A",
+        "explanation": "This is a photochemical reaction where light energy causes the reduction of $Ag^+$ ions to metallic silver atoms ($Ag$), which appear grey/black.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_055",
+        "question": "The shape of a graphite crystal is:",
+        "options": {
+          "A": "Tetrahedral",
+          "B": "Pyramidal",
+          "C": "Octahedral",
+          "D": "Hexagonal"
+        },
+        "correct_option": "D",
+        "explanation": "Graphite consists of planar layers of carbon atoms arranged in flat, hexagonal rings.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_056",
+        "question": "The following substances are ores of metals except:",
+        "options": {
+          "A": "Bauxite",
+          "B": "Cuprite",
+          "C": "Graphite",
+          "D": "Cassiterite"
+        },
+        "correct_option": "C",
+        "explanation": "Bauxite is Aluminum ore, Cuprite is Copper ore, and Cassiterite is Tin ore. Graphite is an allotrope of carbon (a non-metal).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_057",
+        "question": "Which of the following processes does not involve the use of limestone?",
+        "options": {
+          "A": "Extraction of iron in the blast furnace",
+          "B": "Production of cement",
+          "C": "Production of washing soda by Solvay process",
+          "D": "Manufacture of Tetraoxosulphate (VI) acid by contact process"
+        },
+        "correct_option": "D",
+        "explanation": "The Contact process uses Sulphur, Oxygen, and a $V_2O_5$ catalyst. It does not use limestone.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_058",
+        "question": "Which of the following separation techniques would show that black ink is a mixture of chemical compounds?",
+        "options": {
+          "A": "Chromatography",
+          "B": "Crystallization",
+          "C": "Filtration",
+          "D": "Sublimation"
+        },
+        "correct_option": "A",
+        "explanation": "Paper chromatography separates components based on their different rates of migration across a stationary phase under the influence of a solvent.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_059",
+        "question": "In the extraction of iron in the blast furnace, limestone is used to:",
+        "options": {
+          "A": "Release $CO_2$ for the reaction",
+          "B": "Reduce the iron ore",
+          "C": "Increase the strength of the iron",
+          "D": "Remove impurities"
+        },
+        "correct_option": "D",
+        "explanation": "Limestone decomposes into $CaO$, which then reacts with silica ($SiO_2$) impurities to form calcium silicate ($CaSiO_3$), known as slag.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_060",
+        "question": "Which of the following is/are water pollutants?",
+        "options": {
+          "A": "Fertilizers",
+          "B": "Human wastes",
+          "C": "Industrial wastes",
+          "D": "All of the above"
+        },
+        "correct_option": "D",
+        "explanation": "All the listed options introduce harmful chemicals, pathogens, or excess nutrients (causing eutrophication) into water bodies.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_061",
+        "question": "Who discovered the atom?",
+        "options": {
+          "A": "Rutherford",
+          "B": "Dalton",
+          "C": "Neils Bohr",
+          "D": "Goldstein"
+        },
+        "correct_option": "B",
+        "explanation": "John Dalton is credited with proposing the first modern atomic theory in the early 1800s.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_062",
+        "question": "The technique used for the separation of immiscible liquids is:",
+        "options": {
+          "A": "Distillation",
+          "B": "Chromatography",
+          "C": "The use of separating funnel",
+          "D": "Fractional distillation"
+        },
+        "correct_option": "C",
+        "explanation": "Immiscible liquids (like oil and water) form distinct layers based on density and can be drained sequentially using a separating funnel.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_063",
+        "question": "Which of the following denotes an alpha particle?",
+        "options": {
+          "A": "$^1_0n$",
+          "B": "$^4_2He$",
+          "C": "$^0_{-1}e$",
+          "D": "$^9_4Be$"
+        },
+        "correct_option": "B",
+        "explanation": "An alpha particle is a helium nucleus, consisting of 2 protons and 2 neutrons (Atomic mass 4, Atomic number 2).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_064",
+        "question": "The shapes of $CO_2$, $H_2O$ and $CH_4$ respectively are:",
+        "options": {
+          "A": "Bent, linear and tetrahedral",
+          "B": "Bent, tetrahedral and linear",
+          "C": "Linear, bent and tetrahedral",
+          "D": "Tetrahedral, linear and bent"
+        },
+        "correct_option": "C",
+        "explanation": "$CO_2$ is linear ($180^\\circ$), $H_2O$ is bent ($104.5^\\circ$ due to lone pairs), and $CH_4$ is tetrahedral ($109.5^\\circ$).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_065",
+        "question": "Aluminium hydroxide is used in the dyeing industry as a:",
+        "options": {
+          "A": "Salt",
+          "B": "Dye",
+          "C": "Mordant",
+          "D": "Dispersant"
+        },
+        "correct_option": "C",
+        "explanation": "A mordant is a substance used to set or bind dyes on fabrics by forming a coordination complex with the dye.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_066",
+        "question": "An element that occurs in the free state is:",
+        "options": {
+          "A": "Pb",
+          "B": "K",
+          "C": "Al",
+          "D": "Ar"
+        },
+        "correct_option": "D",
+        "explanation": "Argon (Ar) is a noble gas and is extremely unreactive, so it exists purely in the free (uncombined) state in the atmosphere.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_067",
+        "question": "Chlorine consisting of 2 isotopes of mass numbers 35 and 37 in the ratio 3:1 has an atomic mass of 35.5. Calculate the relative abundance of the isotope of mass number 37?",
+        "options": {
+          "A": "20%",
+          "B": "25%",
+          "C": "60%",
+          "D": "75%"
+        },
+        "correct_option": "B",
+        "explanation": "A ratio of 3:1 means out of every 4 atoms, 3 are Cl-35 and 1 is Cl-37. The abundance of Cl-37 is $1/4 \\times 100 = 25\\%$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_068",
+        "question": "The oxidation state of oxygen in tetraoxosulphate (VI) acid is:",
+        "options": {
+          "A": "-4",
+          "B": "-2",
+          "C": "+4",
+          "D": "-8"
+        },
+        "correct_option": "B",
+        "explanation": "Except in peroxides and when bonded to Fluorine, the oxidation state of Oxygen is always -2.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_069",
+        "question": "The salt formed from a strong acid and a strong base is:",
+        "options": {
+          "A": "Complex",
+          "B": "Neutral",
+          "C": "Basic",
+          "D": "Acidic"
+        },
+        "correct_option": "B",
+        "explanation": "A strong acid completely neutralizes a strong base, resulting in a salt that does not undergo hydrolysis, keeping the pH at 7 (Neutral).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_070",
+        "question": "A carcinogenic substance is:",
+        "options": {
+          "A": "Asbestos dust",
+          "B": "Sawdust",
+          "C": "Nitrogen (II) oxide",
+          "D": "Carbon (II) oxide"
+        },
+        "correct_option": "A",
+        "explanation": "Inhalation of asbestos dust causes mesothelioma and lung cancer.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_071",
+        "question": "In the electrolysis of brine, the anode is:",
+        "options": {
+          "A": "Platinum",
+          "B": "Copper",
+          "C": "Zinc",
+          "D": "Carbon"
+        },
+        "correct_option": "D",
+        "explanation": "Carbon (graphite) is used as the inert anode in the electrolysis of concentrated $NaCl$ (brine) to withstand the corrosive chlorine gas evolved.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_072",
+        "question": "Which of the following hydrogen halides has the highest entropy value?",
+        "options": {
+          "A": "HF",
+          "B": "HCl",
+          "C": "HBr",
+          "D": "HI"
+        },
+        "correct_option": "D",
+        "explanation": "Entropy (disorder) generally increases with molar mass and size of the molecule for similar gas-phase substances. $HI$ is the heaviest.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_073",
+        "question": "The allotrope of carbon used in the decolonization of sugar is:",
+        "options": {
+          "A": "Graphite",
+          "B": "Soot",
+          "C": "Charcoal",
+          "D": "Lampblack"
+        },
+        "correct_option": "C",
+        "explanation": "Animal charcoal (bone black) is highly porous and widely used to adsorb coloring matter and impurities from raw sugar.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_074",
+        "question": "Sulphur (IV) oxide bleaches by:",
+        "options": {
+          "A": "Reduction",
+          "B": "Oxidation",
+          "C": "Hydration",
+          "D": "Absorption"
+        },
+        "correct_option": "A",
+        "explanation": "$SO_2$ bleaches by removing oxygen (reducing) the colored dye to a colorless compound. Note: This bleaching is temporary; oxygen in the air can re-oxidize the dye over time. (Unlike Chlorine, which bleaches permanently by oxidation).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_075",
+        "question": "Phenolphthalein in acidic solution is:",
+        "options": {
+          "A": "Red",
+          "B": "Orange",
+          "C": "Colourless",
+          "D": "Yellow"
+        },
+        "correct_option": "C",
+        "explanation": "Phenolphthalein is colourless in acidic and neutral solutions, and turns pink/red in alkaline (basic) solutions.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_076",
+        "question": "When iron is exposed to moisture and it rusts, the value of $\\Delta G$ for the reaction is:",
+        "options": {
+          "A": "Neutral",
+          "B": "Zero",
+          "C": "Positive",
+          "D": "Negative"
+        },
+        "correct_option": "D",
+        "explanation": "Rusting is a spontaneous natural process at room temperature. For any spontaneous reaction, the Gibbs free energy change ($\\Delta G$) must be negative.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_077",
+        "question": "Sugar is separated from its impurities by:",
+        "options": {
+          "A": "Precipitation",
+          "B": "Crystallization",
+          "C": "Distillation",
+          "D": "Evaporation"
+        },
+        "correct_option": "B",
+        "explanation": "Crystallization is used to obtain pure solid sugar crystals from a saturated sugar solution containing soluble impurities.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_078",
+        "question": "The component of an atom that contributes least to the mass is the:",
+        "options": {
+          "A": "Proton",
+          "B": "Nucleus",
+          "C": "Neutron",
+          "D": "Electron"
+        },
+        "correct_option": "D",
+        "explanation": "Electrons are approximately 1/1836th the mass of a proton or neutron. The nucleus contains virtually all the mass of the atom.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_079",
+        "question": "An element will readily form an electrovalent compound if its electron configuration is:",
+        "options": {
+          "A": "2, 8, 1",
+          "B": "2, 8, 4",
+          "C": "2, 8, 8, 12",
+          "D": "2, 8, 5"
+        },
+        "correct_option": "A",
+        "explanation": "Electrovalent (ionic) compounds are easily formed by atoms that readily lose or gain electrons. An element with configuration 2,8,1 (Sodium) has 1 valence electron, which it loses extremely easily to become a cation.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_080",
+        "question": "The most suitable metal that can be used as a lightning conductor is:",
+        "options": {
+          "A": "Silver",
+          "B": "Copper",
+          "C": "Iron",
+          "D": "Aluminum"
+        },
+        "correct_option": "B",
+        "explanation": "Copper is an excellent conductor of electricity, highly malleable, and relatively resistant to corrosion, making it perfect for safely guiding lightning strikes to the ground.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_081",
+        "question": "The most abundant element on the earth’s crust is:",
+        "options": {
+          "A": "Nitrogen",
+          "B": "Hydrogen",
+          "C": "Oxygen",
+          "D": "Fluorine"
+        },
+        "correct_option": "C",
+        "explanation": "Oxygen accounts for nearly 47% of the Earth's crust by mass, occurring in oxides and silicates.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_082",
+        "question": "Metalloids are also referred to as:",
+        "options": {
+          "A": "Semi-metals",
+          "B": "Metals",
+          "C": "Colloids",
+          "D": "Non-metals"
+        },
+        "correct_option": "A",
+        "explanation": "Metalloids (like Silicon and Germanium) possess properties intermediate between those of metals and non-metals.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_083",
+        "question": "The ores that can be concentrated by flotation are:",
+        "options": {
+          "A": "Nitride ores",
+          "B": "Sulphide ores",
+          "C": "Oxide ores",
+          "D": "Chloride ores"
+        },
+        "correct_option": "B",
+        "explanation": "Froth flotation is heavily utilized for Sulphide ores (like Galena, Zinc blende) because pine oil preferentially wets the sulphide particles while water wets the gangue.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_084",
+        "question": "Stainless steel is an alloy of:",
+        "options": {
+          "A": "Carbon, Iron and lead",
+          "B": "Carbon, Iron and chromium",
+          "C": "Carbon, Iron and copper",
+          "D": "Carbon, Iron and silver"
+        },
+        "correct_option": "B",
+        "explanation": "Adding chromium (and sometimes nickel) to iron and carbon provides the \"stainless\" quality by forming a passive layer of chromium oxide that resists corrosion.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_085",
+        "question": "Crude petroleum usually seen on some Nigeria's creeks and water ways can be dispersed or remove by:",
+        "options": {
+          "A": "Heating the affected parts",
+          "B": "Mechanically stirring",
+          "C": "Pouring organic solvents",
+          "D": "Spraying the water with detergents"
+        },
+        "correct_option": "D",
+        "explanation": "Detergents act as dispersants. They break up the oil slick into tiny droplets, allowing them to mix with the water and be degraded by naturally occurring bacteria.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_086",
+        "question": "Solutions X, Y and Z have $pH$ values of 3.0, 5.0 and 9.0 respectively. Which of the following statements is correct?",
+        "options": {
+          "A": "All the solutions are acidic",
+          "B": "All solutions are basic",
+          "C": "Y and Z are more acidic than water",
+          "D": "X is the most acidic \n*(Note: Edited invalid options from past paper to provide the correct statement).*"
+        },
+        "correct_option": "D",
+        "explanation": "The lower the pH, the higher the acidity. Solution X (pH 3.0) has the highest concentration of $H^+$ ions.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_087",
+        "question": "A molar solution of caustic soda is prepared by dissolving:",
+        "options": {
+          "A": "40g NaOH in 100g of water",
+          "B": "40g NaOH in $1 dm^3$ of solution",
+          "C": "20g NaOH in 500g of solution",
+          "D": "20g NaOH in 1000g of solution \n*(Note: Edited to provide a correct standard definition).*"
+        },
+        "correct_option": "B",
+        "explanation": "Molarity is defined as moles of solute per cubic decimeter ($1 dm^3$ or 1 Liter) of *solution*, not solvent. Molar mass of $NaOH = 40g/mol$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_088",
+        "question": "Water is said to be hard if it:",
+        "options": {
+          "A": "Easily forms ice",
+          "B": "Has to be warmed before sodium chloride dissolves in it",
+          "C": "Forms an insoluble scum with soap",
+          "D": "Contains nitrates"
+        },
+        "correct_option": "C",
+        "explanation": "Hard water contains dissolved $Ca^{2+}$ and $Mg^{2+}$ ions which react with the stearate ions in soap to form an insoluble precipitate called scum.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_089",
+        "question": "Ammonia gas is normally dried with:",
+        "options": {
+          "A": "Concentrated sulphuric acid",
+          "B": "Quicklime",
+          "C": "Anhydrous calcium chloride",
+          "D": "Magnesium sulphate"
+        },
+        "correct_option": "B",
+        "explanation": "(Repeated concept for emphasis) Ammonia is alkaline; it must be dried with a basic drying agent like Quicklime ($CaO$).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_090",
+        "question": "Oxygen demanding wastes are considered to be a water pollutant because they:",
+        "options": {
+          "A": "Deplete oxygen which is necessary for the survival of aquatic organisms",
+          "B": "Increase oxygen which is necessary for the survival of aquatic organisms",
+          "C": "Deplete other gaseous species",
+          "D": "Produce oxygen gas"
+        },
+        "correct_option": "A",
+        "explanation": "Biodegradable organic wastes stimulate the growth of bacteria, which consume the dissolved oxygen in the water, causing fish and other organisms to suffocate.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_091",
+        "question": "When a metal plate is placed in a solution containing its ions, some of the metallic ions in solution will take up electrons from the metal plate and deposit themselves as neutral atoms on the plate. Which option favours the reaction:",
+        "options": {
+          "A": "The electrode or metal plate becomes positively charged with respect to the solution",
+          "B": "The electrode or metal plate becomes neutral",
+          "C": "The electrode or metal plate has more electrons",
+          "D": "The electrode or metal plate becomes negatively charged"
+        },
+        "correct_option": "A",
+        "explanation": "As positive metal ions ($M^+$) pull electrons out of the metal plate to become neutral atoms, they leave the metal plate deficient in electrons, giving it a net positive charge.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_092",
+        "question": "$MnO_{2(s)} + xHCl_{(aq)} \\rightarrow MnCl_{2(aq)} + yH_2O_{(l)} + zCl_{2(g)}$. In the equation above, what are the values of x, y and z respectively?",
+        "options": {
+          "A": "2, 1, 2",
+          "B": "4, 1, 2",
+          "C": "4, 2, 1",
+          "D": "1, 2, 1"
+        },
+        "correct_option": "C",
+        "explanation": "To balance the equation:  \n1 Mn on left, 1 Mn on right.  \n2 O on left, so we need 2 $H_2O$ on right ($y=2$).  \nThis gives 4 H on right, so we need 4 $HCl$ on left ($x=4$).  \nThis gives 4 Cl on left. On the right, we have 2 Cl in $MnCl_2$, leaving 2 Cl to form 1 $Cl_2$ gas ($z=1$). So, 4, 2, 1.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_093",
+        "question": "The reaction that takes place in Daniel cell is:",
+        "options": {
+          "A": "Direct combination",
+          "B": "Redox",
+          "C": "Double decomposition",
+          "D": "Neutralization"
+        },
+        "correct_option": "B",
+        "explanation": "A Daniel cell converts chemical energy into electrical energy via spontaneous Oxidation-Reduction (Redox) reactions between Zinc and Copper half-cells.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_094",
+        "question": "Which of the following acts as both a reducing and an oxidizing agent?",
+        "options": {
+          "A": "$H_2$",
+          "B": "$SO_2$",
+          "C": "$H_2S$",
+          "D": "$CO_2$"
+        },
+        "correct_option": "B",
+        "explanation": "In $SO_2$, Sulphur has an oxidation state of +4. It can be further oxidized to +6 (acting as a reducing agent) or reduced to 0 or -2 (acting as an oxidizing agent).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_095",
+        "question": "2CO(g) + O2(g) $\\rightarrow$ 2CO2(g). Given that $\\Delta H[CO]$ is -110.4 kJ/mol and $\\Delta H[CO_2]$ is -393.0 kJ/mol. The energy change of the reaction above is?",
+        "options": {
+          "A": "-503.7 kJ",
+          "B": "-565.2 kJ",
+          "C": "+282.6 kJ",
+          "D": "+503.7 kJ \n*(Note: Edited to include the correct mathematical answer missing from the 2009 paper).*"
+        },
+        "correct_option": "B",
+        "explanation": "$\\Delta H_{reaction} = \\sum \\Delta H_{products} - \\sum \\Delta H_{reactants}$. \n$= [2 \\times (-393)] - [2 \\times (-110.4) + 0]$ \n$= -786 - (-220.8) = -786 + 220.8 = -565.2$ kJ.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_096",
+        "question": "A child who hits smaller and weaker children is a:",
+        "options": {
+          "A": "Rascal",
+          "B": "Imp",
+          "C": "Bully",
+          "D": "Tyrant"
+        },
+        "correct_option": "C",
+        "explanation": "This is a classic UNIPORT style trick question occasionally mixed into science papers to test quick vocabulary comprehension. A bully targets the weak.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_097",
+        "question": "Tartaric acid is used industrially to:",
+        "options": {
+          "A": "Make baking powder",
+          "B": "Make fruit juices",
+          "C": "Remove rust",
+          "D": "Dry substances"
+        },
+        "correct_option": "A",
+        "explanation": "Baking powder is a mixture of sodium bicarbonate and a weak dry acid, like tartaric acid. When mixed with water, they react to release $CO_2$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_098",
+        "question": "The salt formed from a strong acid and a strong base is:",
+        "options": {
+          "A": "Complex",
+          "B": "Neutral",
+          "C": "Basic",
+          "D": "Acidic"
+        },
+        "correct_option": "B",
+        "explanation": "Complete neutralization occurs without hydrolysis of the resulting salt ions, keeping the water pH at 7.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_099",
+        "question": "Which of the following denoting the shapes of $CO_2$, $H_2O$ and $CH_4$ respectively is correct?",
+        "options": {
+          "A": "Bent, linear and tetrahedral",
+          "B": "Bent, tetrahedral and linear",
+          "C": "Linear, bent and tetrahedral",
+          "D": "Tetrahedral, linear and bent"
+        },
+        "correct_option": "C",
+        "explanation": "Carbon dioxide is $180^\\circ$ linear, Water has lone pairs causing a bent $104.5^\\circ$ shape, and Methane is a $109.5^\\circ$ tetrahedron.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_100",
+        "question": "A given quantity of a gas occupies a volume of 228cm³ at a pressure of 750mmHg. What will be its volume at atmospheric pressure?",
+        "options": {
+          "A": "220cm³",
+          "B": "225cm³",
+          "C": "230cm³",
+          "D": "235cm³"
+        },
+        "correct_option": "B",
+        "explanation": "Boyle’s law: $P_1V_1 = P_2V_2$. $750 \\times 228 = 760 \\times V_2$. $V_2 = 225 cm^3$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_101",
+        "question": "What weight of sodium hydroxide is required to make 500cm³ of 0.2M solution? (Na = 23, O = 16, H = 1).",
+        "options": {
+          "A": "40g",
+          "B": "20g",
+          "C": "10g",
+          "D": "4g"
+        },
+        "correct_option": "D",
+        "explanation": "Moles required = Molarity $\\times$ Volume ($dm^3$) = $0.2 \\times (500/1000) = 0.2 \\times 0.5 = 0.1$ moles.  \nMass = Moles $\\times$ Molar mass. $0.1 \\times 40 = 4g$.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_102",
+        "question": "0.16g of methane when burnt raises the temperature of 100g of water by 40°C. What is the heat of combustion of methane if the heat capacity of water is 4.2 J/g/°C? ($CH_4 = 16$)",
+        "options": {
+          "C": "1.560 kJ/mol",
+          "A": "1.160 kJ/mol",
+          "B": "1.180 kJ/mol",
+          "D": "1.680 kJ/mol"
+        },
+        "correct_option": "D",
+        "explanation": "First, calculate the heat absorbed by water: $Q = mc\\Delta T = 100 \\times 4.2 \\times 40 = 16,800$ Joules $= 16.8$ kJ. \nMoles of methane burnt = $\\frac{Mass}{Molar Mass} = \\frac{0.16}{16} = 0.01$ moles. \nHeat of combustion ($\\Delta H_c$) is heat released per 1 mole: $\\frac{16.8 kJ}{0.01 mol} = 1,680$ kJ/mol.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_103",
+        "question": "The general methods of preparing salts include:",
+        "options": {
+          "A": "I & ii",
+          "B": "iii & iv",
+          "C": "I, ii & iii",
+          "D": "I, ii, iii & iv"
+        },
+        "correct_option": "C",
+        "explanation": "Salts can be prepared by neutralizing an acid and a base, precipitating an insoluble salt from two soluble ones (which is also known as double decomposition). So i, ii, and iii are all valid.",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_104",
+        "question": "Which of the following compounds is not the correct product formed when the parent metal is heated in air?",
+        "options": {
+          "A": "Calcium oxide ($CaO$)",
+          "B": "Sodium oxide ($Na_2O$)",
+          "C": "Copper (II) oxide ($CuO$)",
+          "D": "Tri-iron tetroxide ($Fe_3O_4$) \n*(Note: Corrected $Fe_3O$ typo from original past paper to $Fe_3O_4$).*"
+        },
+        "correct_option": "B",
+        "explanation": "When Sodium is heated in excess air/oxygen, it primarily forms Sodium peroxide ($Na_2O_2$), not the normal oxide ($Na_2O$).",
+        "topic": "General"
+      },
+      {
+        "id": "obj_up_chem_105",
+        "question": "H2SO4 is used to remove rust on the surface of iron (pickling) before electroplating. The type of reaction involved is:",
+        "options": {
+          "A": "Redox reaction",
+          "B": "Neutralization",
+          "C": "Double decomposition",
+          "D": "Hydrolysis"
+        },
+        "correct_option": "B",
+        "explanation": "Iron rust is essentially Iron (III) oxide ($Fe_2O_3$), which is a basic oxide. The reaction between an acid ($H_2SO_4$) and a base (rust) is a Neutralization reaction, yielding salt and water.",
+        "topic": "General"
+      }
+    ]
   }
 ]

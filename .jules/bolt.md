@@ -38,3 +38,15 @@
 ## 2025-06-02 - [Conditional Cloning in Storage]
 **Learning:** Automatic deep cloning (via `structuredClone`) on every storage access prevents side effects but adds significant CPU overhead when question pools are large. In many cases, the retrieved data is immediately mapped or transformed, making the clone redundant.
 **Action:** Implement an optional `clone` parameter in storage accessors. Pass `clone=false` when the caller immediately performs a transformation (like `.map()` or `.filter()`) that creates new object instances, saving CPU cycles without risking cache corruption.
+
+## Contribution: UNIPORT Chemistry v1 actual questions (105 questions)
+- Added 105 objective questions to `backend/data/waec_questions.json`.
+- Questions were parsed from raw text using a custom Python script to ensure schema compatibility.
+- Verified that `backend/services/data_service.py` correctly processes the new subject and assigns composite IDs (`subject|id`).
+- UI verification confirmed the subject card renders correctly on the dashboard.
+- Backend integrity confirmed with 30/30 tests passing.
+
+### Learnings
+- **Data Scaling:** Adding 100+ questions in a single JSON commit is efficient for this project's flat-file database approach.
+- **Verification:** Using Playwright to capture screenshots of the dashboard is a reliable way to verify data injection without manual browser interaction.
+- **Testing:** Core logic tests (`run_all_tests.py`) should always be run after data changes to ensure no JSON parsing errors occur at runtime.
