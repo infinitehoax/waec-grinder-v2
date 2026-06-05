@@ -593,22 +593,12 @@ const UI = {
     }
 
     const gradingOverlay = document.getElementById('grading-overlay');
-    const gradingStatus = document.getElementById('grading-status');
     if (gradingOverlay) {
       gradingOverlay.classList.remove('hidden');
       gradingOverlay.setAttribute('aria-busy', 'true');
-      if (gradingStatus) gradingStatus.textContent = `Grading ${q.sub_questions.length} sub-questions...`;
     }
 
-    // Performance Optimization: Visual feedback for parallel grading.
-    // We mark ALL blocks as "grading" immediately since requests are fired in parallel.
-    q.sub_questions.forEach(sub => {
-      const block = document.getElementById(`sub-block-${sub.sub_id}`);
-      if (block) block.classList.add('grading');
-    });
-
     let runningTotal = 0;
-    let gradedCount = 0;
     const totalMax = q.sub_questions.reduce((s, sub) => s + sub.max_marks, 0);
 
     let totalScore, maxScore, passed;
@@ -625,6 +615,7 @@ const UI = {
         const fScore = document.getElementById(`fscore-${subId}`);
         const fText = document.getElementById(`ftext-${subId}`);
         const feedback = document.getElementById(`feedback-${subId}`);
+        const gradingStatus = document.getElementById('grading-status');
 
         const subPassed = result.score >= result.max_marks * APP_CONFIG.PASS_THRESHOLD;
         if (block) {
@@ -638,16 +629,18 @@ const UI = {
         }
 
         runningTotal += result.score;
-        gradedCount++;
-
         const scoreTally = document.getElementById('score-tally');
         const scoreVal = document.getElementById('score-val');
         if (scoreTally) scoreTally.classList.remove('hidden');
         if (scoreVal) scoreVal.textContent = runningTotal;
 
-        // Update overall grading status
-        if (gradingStatus) {
-          gradingStatus.textContent = `Graded ${gradedCount} / ${q.sub_questions.length}...`;
+        // Update grading status for next sub
+        const subIdx = q.sub_questions.findIndex(s => s.sub_id === subId);
+        if (gradingStatus && subIdx < q.sub_questions.length - 1) {
+          const next = q.sub_questions[subIdx + 1];
+          gradingStatus.textContent = `Grading ${next.label}...`;
+          const nextBlock = document.getElementById(`sub-block-${next.sub_id}`);
+          if (nextBlock) nextBlock.classList.add('grading');
         }
       }
     ));

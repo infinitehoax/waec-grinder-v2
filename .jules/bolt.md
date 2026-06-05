@@ -38,7 +38,3 @@
 ## 2025-06-02 - [Conditional Cloning in Storage]
 **Learning:** Automatic deep cloning (via `structuredClone`) on every storage access prevents side effects but adds significant CPU overhead when question pools are large. In many cases, the retrieved data is immediately mapped or transformed, making the clone redundant.
 **Action:** Implement an optional `clone` parameter in storage accessors. Pass `clone=false` when the caller immediately performs a transformation (like `.map()` or `.filter()`) that creates new object instances, saving CPU cycles without risking cache corruption.
-
-## 2026-06-04 - [Parallel I/O for Multi-Part Tasks]
-**Learning:** Sequential execution of multiple I/O-bound tasks (like AI grading for each sub-question) multiplies latency and leads to a poor user experience. For a 3-part question, wait time can exceed 10 seconds if handled serially.
-**Action:** Utilize `Promise.all` in the frontend to parallelize independent API requests. This reduces total wait time to approximately the duration of the single slowest request. Ensure the UI provides concurrent feedback for all parallel tracks to maintain responsiveness.

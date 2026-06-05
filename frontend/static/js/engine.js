@@ -178,8 +178,7 @@ const Engine = {
   },
 
   /**
-   * Grade all sub-questions for a theory question via API in parallel.
-   * Uses Promise.all to significantly reduce wait time for multi-part questions.
+   * Grade all sub-questions for a theory question via API.
    * Calls onSubGraded(subId, result) as each sub-question returns.
    * Returns { totalScore, maxScore, passed }
    */
@@ -187,8 +186,7 @@ const Engine = {
     let totalScore = 0;
     let maxScore = 0;
 
-    // Parallelize grading requests to reduce TCP wait time and latency
-    const gradingPromises = q.sub_questions.map(async (sub) => {
+    for (const sub of q.sub_questions) {
       const answer = answers[sub.sub_id] || '';
       const result = await API.gradeSubQuestion({
         sub_question: sub.question,
@@ -196,17 +194,10 @@ const Engine = {
         rubric: sub.rubric,
         max_marks: sub.max_marks,
       });
-
+      totalScore += result.score;
+      maxScore += sub.max_marks;
       if (onSubGraded) onSubGraded(sub.sub_id, result);
-      return { score: result.score, max_marks: sub.max_marks };
-    });
-
-    const results = await Promise.all(gradingPromises);
-
-    results.forEach(res => {
-      totalScore += res.score;
-      maxScore += res.max_marks;
-    });
+    }
 
     const passed = this.markTheoryResult(q, totalScore, maxScore);
     return { totalScore, maxScore, passed };
