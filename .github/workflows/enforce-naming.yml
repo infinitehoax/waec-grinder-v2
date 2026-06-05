@@ -1,0 +1,22 @@
+name: Enforce PR Naming Convention
+
+on:
+  pull_request:
+    types: [opened, edited, synchronized]
+
+jobs:
+  check-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR Title
+        shell: bash
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          REGEX="^(feat|add|New|fix|bug|patch|docs|chore|test): .+$"
+          if [[ ! $TITLE =~ $REGEX ]]; then
+            echo "Error: PR title '$TITLE' does not follow the naming convention."
+            echo "Expected format: <prefix>: <description>"
+            echo "Allowed prefixes: feat, add, New, fix, bug, patch, docs, chore, test"
+            /usr/bin/false
+          fi
+          echo "PR title matches naming convention."
