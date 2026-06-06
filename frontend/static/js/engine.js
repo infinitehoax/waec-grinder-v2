@@ -10,45 +10,45 @@ import API from './api.js';
 const Engine = {
   /**
    * Helper to interleave items from multiple subjects in a round-robin fashion.
+   * Optimized with a pointer-based approach to avoid O(N) shift() and large map() allocations.
    * @param {string[]} subjects - List of subject names.
    * @param {number} limit - Max items to return.
    * @param {Function} getItemsFn - Callback (subject) => array of available items.
+   * @param {Function} mapFn - Optional callback (item, subject) => transformed item.
    * @returns {Array} Interleaved items.
    */
-  _getInterleaved(subjects, limit, getItemsFn) {
+  _getInterleaved(subjects, limit, getItemsFn, mapFn) {
     const result = [];
-    const pools = {};
-    let activeSubjects = [];
+    let activePools = [];
 
     subjects.forEach(sub => {
       const items = getItemsFn(sub);
       if (items && items.length > 0) {
-        pools[sub] = [...items]; // Clone to avoid mutation
-        activeSubjects.push(sub);
+        // We use a pointer to avoid O(N) array.shift() operations
+        activePools.push({ items, pointer: 0, subject: sub });
       }
     });
 
-    while (result.length < limit && activeSubjects.length > 0) {
-      // Shuffle active subjects in each round for "probability engine" feel
-      for (let i = activeSubjects.length - 1; i > 0; i--) {
+    while (result.length < limit && activePools.length > 0) {
+      // Shuffle active pools in each round for variety
+      for (let i = activePools.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [activeSubjects[i], activeSubjects[j]] = [activeSubjects[j], activeSubjects[i]];
+        [activePools[i], activePools[j]] = [activePools[j], activePools[i]];
       }
 
       const nextActive = [];
-      for (const sub of activeSubjects) {
+      for (const pool of activePools) {
         if (result.length >= limit) break;
 
-        const item = pools[sub].shift();
-        if (item) {
-          result.push(item);
-          if (pools[sub].length > 0) {
-            nextActive.push(sub);
-          }
+        const item = pool.items[pool.pointer++];
+        // Map item only when it is actually picked for the batch
+        result.push(mapFn ? mapFn(item, pool.subject) : item);
+
+        if (pool.pointer < pool.items.length) {
+          nextActive.push(pool);
         }
       }
-      // Only subjects that still have items go into the next round
-      activeSubjects = nextActive;
+      activePools = nextActive;
     }
 
     return result;
@@ -71,58 +71,87 @@ const Engine = {
 
     // Review Mode: Pull exclusively from mastered queues
     if (mode === 'review') {
-      return this._getInterleaved(subjects, limit, (sub) => {
-        const obj = Storage.getMasteredObj(sub).map(q => ({ ...q, _type: 'obj', _from_failed: false, _is_review: true, _subject: sub }));
-        const theory = Storage.getMasteredTheory(sub).map(q => ({ ...q, _type: 'theory', _from_failed: false, _is_review: true, _subject: sub }));
-        const pool = [...obj, ...theory];
+      return this._getInterleaved(
+        subjects,
+        limit,
+        (sub) => {
+          // Optimization: Use raw references (clone=false)
+          const obj = Storage.getMasteredObj(sub, false);
+          const theory = Storage.getMasteredTheory(sub, false);
+          const pool = [...obj, ...theory];
 
-        // Shuffle each subject pool to pick random mastered questions
-        for (let i = pool.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [pool[i], pool[j]] = [pool[j], pool[i]];
-        }
-        return pool;
-      });
+          // Shuffle each subject pool once to pick random mastered questions
+          for (let i = pool.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [pool[i], pool[j]] = [pool[j], pool[i]];
+          }
+          return pool;
+        },
+        (item, sub) => ({
+          ...item,
+          _type: (item.options ? 'obj' : 'theory'),
+          _from_failed: false,
+          _is_review: true,
+          _subject: sub
+        })
+      );
     }
 
     // 1. Failed OBJ
     if (mode === 'obj' || mode === 'both') {
-      const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        // Optimization: Pass clone=false as items are mapped into new objects immediately
-        let qs = Storage.getFailedObj(sub, false);
-        if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
-        return qs.map(q => ({ ...q, _type: 'obj', _from_failed: true, _subject: sub }));
-      });
+      const interleaved = this._getInterleaved(
+        subjects,
+        limit - batch.length,
+        (sub) => {
+          // Pass clone=false as items are mapped individually by mapFn only when picked
+          let qs = Storage.getFailedObj(sub, false);
+          if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
+          return qs;
+        },
+        (item, sub) => ({ ...item, _type: 'obj', _from_failed: true, _subject: sub })
+      );
       batch.push(...interleaved);
     }
     // 2. Failed Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
-      const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        // Optimization: Pass clone=false as items are mapped into new objects immediately
-        let qs = Storage.getFailedTheory(sub, false);
-        if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
-        return qs.map(q => ({ ...q, _type: 'theory', _from_failed: true, _subject: sub }));
-      });
+      const interleaved = this._getInterleaved(
+        subjects,
+        limit - batch.length,
+        (sub) => {
+          let qs = Storage.getFailedTheory(sub, false);
+          if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
+          return qs;
+        },
+        (item, sub) => ({ ...item, _type: 'theory', _from_failed: true, _subject: sub })
+      );
       batch.push(...interleaved);
     }
     // 3. Unseen OBJ
     if ((mode === 'obj' || mode === 'both') && batch.length < limit) {
-      const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        // Optimization: Pass clone=false as items are mapped into new objects immediately
-        let qs = Storage.getUnseenObj(sub, false);
-        if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
-        return qs.map(q => ({ ...q, _type: 'obj', _from_failed: false, _subject: sub }));
-      });
+      const interleaved = this._getInterleaved(
+        subjects,
+        limit - batch.length,
+        (sub) => {
+          let qs = Storage.getUnseenObj(sub, false);
+          if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
+          return qs;
+        },
+        (item, sub) => ({ ...item, _type: 'obj', _from_failed: false, _subject: sub })
+      );
       batch.push(...interleaved);
     }
     // 4. Unseen Theory
     if ((mode === 'theory' || mode === 'both') && batch.length < limit) {
-      const interleaved = this._getInterleaved(subjects, limit - batch.length, (sub) => {
-        // Optimization: Pass clone=false as items are mapped into new objects immediately
-        let qs = Storage.getUnseenTheory(sub, false);
-        if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
-        return qs.map(q => ({ ...q, _type: 'theory', _from_failed: false, _subject: sub }));
-      });
+      const interleaved = this._getInterleaved(
+        subjects,
+        limit - batch.length,
+        (sub) => {
+          let qs = Storage.getUnseenTheory(sub, false);
+          if (focusTopic) qs = qs.filter(q => q.topic === focusTopic);
+          return qs;
+        },
+        (item, sub) => ({ ...item, _type: 'theory', _from_failed: false, _subject: sub })
+      );
       batch.push(...interleaved);
     }
 
