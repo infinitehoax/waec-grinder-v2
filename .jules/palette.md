@@ -67,3 +67,6 @@
 ## 2025-06-10 - [Staggered Animations & Programmatic Focus for Report Cards]
 **Learning:** When rendering complex data summaries (like report cards) in Vanilla JS, using staggered animations for list items (e.g., topic rows) significantly enhances the "premium" feel. However, replacing the entire page content via `innerHTML` requires manual focus management on the new container's header to ensure screen readers don't lose context.
 **Action:** Apply staggered `animation-delay` to dynamically generated list items. Ensure the summary header has `tabindex="-1"` and is focused immediately after the DOM update.
+## 2026-06-15 - [Keyboard-Driven Workflow & ARIA Sync]
+**Learning:** In high-repetition study tools, keyboard shortcuts (like Enter for continuation and D for navigation) significantly reduce friction during transition phases like report cards. Additionally, ARIA attributes (like `aria-valuenow`) on progress bars must be explicitly synchronized with the DOM state in Vanilla JS to remain accessible.
+**Action:** Always include <kbd> hints for major report card actions. Synchronize `aria-valuenow` and `aria-valuetext` whenever progress bars are updated.
