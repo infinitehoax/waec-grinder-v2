@@ -134,6 +134,9 @@ def handle_leave_room(data):
     player_uuid = data.get('player_uuid')
     if request.sid in sid_to_player:
         del sid_to_player[request.sid]
+    if player_uuid in player_to_sid:
+        del player_to_sid[player_uuid]
+
     if room_service.leave_room(room_id, player_uuid):
         leave_room(room_id)
         # Optimization: Exclude questions and messages from leave events
