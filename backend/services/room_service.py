@@ -29,7 +29,7 @@ def _interleave_questions(pools, limit):
     copies from the caller, we can safely use O(1) pop() from the end.
     """
     result = []
-    # Since 'pools' already contains shuffled local copies from start_game,
+    # Since "pools" already contains shuffled local copies from start_game,
     # we can use them directly without re-reversing if we pop from the end.
     # We only filter out empty pools.
     active_subjects = [sub for sub, qs in pools.items() if qs]
@@ -48,16 +48,11 @@ def _interleave_questions(pools, limit):
                 # pop() from the end is O(1)
                 result.append(pool.pop())
                 if pool:
-            if pools[sub]:
-                # Pop from the end (O(1)). Shuffled lists mean end vs start doesn't matter.
-                result.append(pools[sub].pop())
-                if pools[sub]:
                     next_active.append(sub)
 
         active_subjects = next_active
 
     return result
-
 def create_room(player_uuid, sid, host_name, mode, subjects=None, mastered_ids=None):
     room_id = str(uuid.uuid4())[:6].upper()
     while room_id in rooms:
