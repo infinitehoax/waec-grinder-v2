@@ -29,6 +29,9 @@ def _interleave_questions(pools, limit):
     copies from the caller, we can safely use O(1) pop() from the end.
     """
     result = []
+    # Since 'pools' already contains shuffled local copies from start_game,
+    # we can use them directly without re-reversing if we pop from the end.
+    # We only filter out empty pools.
     active_subjects = [sub for sub, qs in pools.items() if qs]
 
     while len(result) < limit and active_subjects:
@@ -40,6 +43,11 @@ def _interleave_questions(pools, limit):
             if len(result) >= limit:
                 break
 
+            pool = pools[sub]
+            if pool:
+                # pop() from the end is O(1)
+                result.append(pool.pop())
+                if pool:
             if pools[sub]:
                 # Pop from the end (O(1)). Shuffled lists mean end vs start doesn't matter.
                 result.append(pools[sub].pop())
