@@ -23,12 +23,13 @@ def _interleave_questions(pools, limit):
     Interleaves questions from multiple subject pools in a round-robin fashion.
     Shuffles the order of subjects in each round for variety.
     pools: dict of {subject_name: [list_of_questions]}
+
+    Optimization: This function now mutates the provided pools directly to avoid
+    redundant O(N) list copying and reversal. Since pools are already shuffled
+    copies from the caller, we can safely use O(1) pop() from the end.
     """
     result = []
-    # Work on a copy of the pools to avoid mutating the original.
-    # Reverse the lists so we can use pop() which is O(1) instead of pop(0) which is O(N).
-    current_pools = {sub: list(reversed(qs)) for sub, qs in pools.items() if qs}
-    active_subjects = list(current_pools.keys())
+    active_subjects = [sub for sub, qs in pools.items() if qs]
 
     while len(result) < limit and active_subjects:
         # Shuffle subjects for this round
@@ -39,9 +40,10 @@ def _interleave_questions(pools, limit):
             if len(result) >= limit:
                 break
 
-            if current_pools[sub]:
-                result.append(current_pools[sub].pop())
-                if current_pools[sub]:
+            if pools[sub]:
+                # Pop from the end (O(1)). Shuffled lists mean end vs start doesn't matter.
+                result.append(pools[sub].pop())
+                if pools[sub]:
                     next_active.append(sub)
 
         active_subjects = next_active
