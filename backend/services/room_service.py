@@ -4,18 +4,6 @@ import time
 from backend.services.data_service import load_questions
 
 # In-memory storage for rooms
-# rooms = {
-#     room_id: {
-#         "host_id": sid,
-#         "players": {sid: {"name": name, "progress": 0, "total": 0, "score": 0}},
-#         "questions": [],
-#         "status": "waiting" | "playing" | "finished",
-#         "mode": "obj" | "theory" | "both",
-#         "subjects": [subject1, subject2],
-#         "randomize_questions": bool,
-#         "randomize_options": bool
-#     }
-# }
 rooms = {}
 
 def _interleave_questions(pools, limit):
@@ -23,15 +11,8 @@ def _interleave_questions(pools, limit):
     Interleaves questions from multiple subject pools in a round-robin fashion.
     Shuffles the order of subjects in each round for variety.
     pools: dict of {subject_name: [list_of_questions]}
-
-    Optimization: This function now mutates the provided pools directly to avoid
-    redundant O(N) list copying and reversal. Since pools are already shuffled
-    copies from the caller, we can safely use O(1) pop() from the end.
     """
     result = []
-    # Since 'pools' already contains shuffled local copies from start_game,
-    # we can use them directly without re-reversing if we pop from the end.
-    # We only filter out empty pools.
     active_subjects = [sub for sub, qs in pools.items() if qs]
 
     while len(result) < limit and active_subjects:
@@ -48,25 +29,20 @@ def _interleave_questions(pools, limit):
                 # pop() from the end is O(1)
                 result.append(pool.pop())
                 if pool:
-            if pools[sub]:
-                # Pop from the end (O(1)). Shuffled lists mean end vs start doesn't matter.
-                result.append(pools[sub].pop())
-                if pools[sub]:
                     next_active.append(sub)
 
         active_subjects = next_active
 
     return result
 
-def create_room(player_uuid, sid, host_name, mode, subjects=None, mastered_ids=None):
-    room_id = str(uuid.uuid4())[:6].upper()
-    while room_id in rooms:
-        room_id = str(uuid.uuid4())[:6].upper()
-
+def create_room(host_id, sid, host_name, mode="both", subjects=None, mastered_ids=None):
+    room_id = str(uuid.uuid4())[:8].upper()
     rooms[room_id] = {
-        "host_id": player_uuid,
+        "host_id": host_id,
+        "mode": mode,
+        "subjects": subjects or [],
         "players": {
-            player_uuid: {
+            host_id: {
                 "sid": sid,
                 "name": host_name,
                 "progress": 0,
@@ -79,10 +55,10 @@ def create_room(player_uuid, sid, host_name, mode, subjects=None, mastered_ids=N
             }
         },
         "questions": [],
-        "status": "waiting",
-        "mode": mode,
-        "subjects": subjects or [],
         "messages": [],
+        "status": "waiting",
+        "created_at": time.time(),
+        "time_limit": 0,
         "randomize_questions": False,
         "randomize_options": False,
         "anti_cheat": False
@@ -197,7 +173,6 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
     theory_by_subject = {}
 
     # Aggregate mastered IDs from all players if filtering is requested.
-    # BUG FIX: Use composite IDs (subject|id) to avoid collisions across different subjects.
     mastered_pool = set()
     if filter_mastered:
         for p_data in rooms[room_id]["players"].values():
@@ -206,26 +181,19 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
     for data in selected_data:
         sub_name = data.get("subject")
         if mode == "obj" or mode == "both":
-            # Always copy the list to prevent random.shuffle from mutating the in-memory cache in data_service
             obj_qs = list(data.get("obj", []))
             if filter_mastered:
-                # Optimized filtering using O(1) set lookups for composite IDs.
                 obj_qs = [q for q in obj_qs if q.get("_composite_id") not in mastered_pool]
-            # Shuffle the individual subject pool before interleaving
             random.shuffle(obj_qs)
             obj_by_subject[sub_name] = obj_qs
 
         if mode == "theory" or mode == "both":
-            # Always copy the list to prevent random.shuffle from mutating the in-memory cache in data_service
             theory_qs = list(data.get("theory", []))
             if filter_mastered:
-                # Optimized filtering using O(1) set lookups for composite IDs.
                 theory_qs = [q for q in theory_qs if q.get("_composite_id") not in mastered_pool]
-            # Shuffle the individual subject pool before interleaving
             random.shuffle(theory_qs)
             theory_by_subject[sub_name] = theory_qs
 
-    # Determine total available counts
     total_available_obj = sum(len(qs) for qs in obj_by_subject.values())
     total_available_theory = sum(len(qs) for qs in theory_by_subject.values())
     available_count = (total_available_obj if mode == "obj" else
@@ -248,11 +216,9 @@ def start_game(room_id, host_id, total_questions=None, time_limit=0, randomize_q
     elif mode == "theory":
         questions = _interleave_questions(theory_by_subject, count)
     else:
-        # For mixed mode, try to maintain 70/30 split if possible
         obj_target = int(count * 0.7)
         theory_target = count - obj_target
 
-        # Adjust targets based on availability
         if total_available_obj < obj_target:
             obj_target = total_available_obj
             theory_target = min(total_available_theory, count - obj_target)
@@ -294,8 +260,6 @@ def report_player_cheat(room_id, player_uuid, reason):
         player["cheated"] = True
         player["cheat_reason"] = reason
         player["finished"] = True
-
-        # Check if all players are finished now
         game_just_finished = check_room_finished(room_id)
         return True, game_just_finished
     return False, False
@@ -305,12 +269,9 @@ def update_player_progress(room_id, player_uuid, progress, score, finished=False
         rooms[room_id]["players"][player_uuid]["progress"] = progress
         rooms[room_id]["players"][player_uuid]["score"] = score
         rooms[room_id]["players"][player_uuid]["finished"] = finished
-
-        # Check if all players are finished
         game_just_finished = False
         if finished:
             game_just_finished = check_room_finished(room_id)
-
         return True, game_just_finished
     return False, False
 
@@ -318,40 +279,25 @@ def add_message(room_id, player_name, text):
     if room_id in rooms:
         msg = {"name": player_name, "text": text}
         rooms[room_id]["messages"].append(msg)
-        # Keep last 50 messages
         if len(rooms[room_id]["messages"]) > 50:
             rooms[room_id]["messages"].pop(0)
         return msg
     return None
 
 def _sanitize_player(p_data):
-    """Returns a copy of player data without sensitive/large fields like sid and mastered_ids."""
     return {k: v for k, v in p_data.items() if k not in ['sid', 'mastered_ids']}
 
 def get_room_state(room_id, include_questions=True, include_messages=True):
-    """
-    Returns the state of a room.
-    If include_questions is False, the 'questions' list is excluded to reduce payload size.
-    If include_messages is False, the 'messages' list is excluded.
-    All player objects are sanitized to remove sid and mastered_ids to save bandwidth.
-    """
     room = rooms.get(room_id)
     if not room:
         return None
-
-    # Always return a copy to prevent accidental mutation of the global state
     state_copy = {k: v for k, v in room.items() if k not in ["questions", "messages"]}
     if include_questions:
         state_copy["questions"] = room["questions"]
-
     if include_messages:
-        # Return a shallow copy of messages to prevent accidental mutation
         state_copy["messages"] = list(room.get("messages", []))
-
-    # Sanitize players to remove redundant and large mastered_ids/sid
     state_copy["players"] = {
         p_uuid: _sanitize_player(p_data)
         for p_uuid, p_data in room["players"].items()
     }
-
     return state_copy

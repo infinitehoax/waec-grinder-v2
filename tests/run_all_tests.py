@@ -20,6 +20,8 @@ async def run_playwright_tests():
         "verify_rendering.py",
         "verify_explanation_rendering.py",
         "verify_report_card.py",
+        "verify_achievements.py",
+        "verify_advanced_features.py",
         "multiplayer/verify_multiplayer_all.py"
     ]
 

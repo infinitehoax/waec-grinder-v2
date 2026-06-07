@@ -35,6 +35,18 @@ Then open your browser to: **http://localhost:5000**
 
 ---
 
+## 🌟 Key Features
+
+- **Spaced Repetition Engine**: Automatically re-queues failed questions for immediate review.
+- **AI Theory Grading**: Granular, rubric-based grading for multi-part theory questions using OpenRouter.
+- **Exam Mode (CBT)**: Simulate real exam conditions with timed sessions and delayed marking.
+- **Multiplayer Mode**: Study with friends in real-time rooms with live progress tracking and anti-cheat protection.
+- **Rich Formatting**: Support for LaTeX Math, Markdown, Tables, and Images with subtitles.
+- **Achievements & Streaks**: Stay motivated with over 50 unlockable achievements and consistency tracking.
+- **Performance Analytics**: Track mastery by topic and identify weak areas for focused study.
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -45,16 +57,18 @@ waec-grinder/
 │   ├── routes/
 │   │   ├── api_routes.py    # /api/questions, /api/grade, /api/config
 │   │   └── view_routes.py   # /, /study, /summary
+│   │   └── socket_events.py # Multiplayer WebSocket events
 │   ├── services/
 │   │   ├── llm_service.py   # OpenRouter AI grading
-│   │   └── data_service.py  # JSON question loader
+│   │   ├── data_service.py  # JSON question loader
+│   │   └── room_service.py  # Multiplayer logic
 │   └── data/
 │       └── waec_questions.json   # ← Your questions go here
 ├── frontend/
 │   ├── static/
 │   │   ├── css/             # variables, main, study styles
-│   │   └── js/              # config, storage, api, engine, ui
-│   └── templates/           # base, index, study, summary HTML
+│   │   └── js/              # config, storage, api, engine, ui, achievements
+│   └── templates/           # base, index, study, summary, multiplayer HTML
 ├── .env                     # API key (never commit this)
 ├── run_app.py               # Entry point
 └── README.md
@@ -62,79 +76,15 @@ waec-grinder/
 
 ---
 
-## 👩‍🏫 For Teachers: How to Add Questions
+## 📖 Documentation
 
-Edit `backend/data/waec_questions.json`. The file is a **list of subjects**, where each subject contains its own `obj` and `theory` questions.
-
-### Multi-Subject Structure
-
-```json
-[
-  {
-    "subject": "Biology",
-    "obj": [
-      {
-        "id": "obj_001",
-        "question": "Which organelle is the site of energy production?",
-        "options": {
-          "A": "Nucleus",
-          "B": "Mitochondrion",
-          "C": "Ribosome",
-          "D": "Golgi body"
-        },
-        "correct_option": "B",
-        "explanation": "The mitochondrion produces ATP through cellular respiration.",
-        "topic": "Cell Biology"
-      }
-    ],
-    "theory": [
-      {
-        "id": "th_001",
-        "main_context": "Question 1: Cellular Respiration (Total: 10 Marks)",
-        "topic": "Cell Biology",
-        "sub_questions": [
-          {
-            "sub_id": "th_001_a",
-            "label": "1(a)",
-            "question": "Define cellular respiration.",
-            "rubric": "Process by which glucose is broken down to release energy (ATP). Award 2 marks for complete definition.",
-            "max_marks": 2
-          }
-        ]
-      }
-    ]
-  }
-]
-```
-
-> **Tip:** Detailed rubrics lead to more accurate AI grading. Use the `topic` field to help the engine track your weak areas!
+- [User Guide](docs/USER_GUIDE.md) - How to use the app as a student.
+- [Teacher's Guide](docs/TEACHER_FORMAT.md) - How to add and format questions.
+- [Contributing](docs/CONTRIBUTING.md) - Guidelines for developers and AI agents.
 
 ---
 
-## ⚙️ How the Grinder Works
-
-### Queue System
-All questions start in the **unseen queue**. There is also an empty **failed queue**.
-
-### Batching
-Questions arrive in batches (default: 5). The engine fills each batch by:
-1. First pulling from the **failed queue** (repeats)
-2. Then pulling from the **unseen queue** (new questions)
-
-This guarantees that questions you fail in Batch 1 immediately reappear in Batch 2.
-
-### OBJ Grading
-Auto-graded in the browser. Correct = mastered and removed. Wrong = added to failed queue.
-
-### Theory Grading (Per-Unit Scoring)
-Each sub-question (e.g. 1a, 1b, 1c) is sent to OpenRouter **separately** to prevent AI hallucination. The AI grades each one against its specific rubric. Scores are aggregated. If total < 50%, the entire question goes to failed queue.
-
-### Mastery
-Once both queues are empty — every question answered correctly at least once — the Mastery screen appears.
-
----
-
-## 🔧 Configuration
+## 🛠️ Configuration
 
 | Setting | Default | Location |
 |---------|---------|----------|
@@ -153,38 +103,9 @@ These work great for grading:
 
 Change the model in `backend/config.py`.
 
-## ✨ Rich Formatting Standards
-
-The Grinder supports advanced formatting in all `question`, `options`, and `explanation` fields:
-
-- **Markdown**: Use `**bold**`, `*italics*`, and `<u>underline</u>`.
-- **LaTeX Math**: Use `$E = mc^2$` for inline or `$$ \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$` for block math.
-- **Tables**: Standard Markdown tables are rendered with professional styling.
-- **Images**: Use `![Subtitle](URL)` syntax to embed images with automatic captioning.
-- **Newlines**: Use `\n` for newlines in your JSON strings.
-
-For a complete guide on formatting, see [docs/TEACHER_FORMAT.md](docs/TEACHER_FORMAT.md).
-
 ---
 
 ### 📚 Release Naming Convention
-To ensure our auto-generated release notes are organized correctly, please ensure your commits follow these prefixes:
+To ensure our auto-generated release notes are organized correctly, please ensure your commits follow the mandatory prefixes: `feat:`, `add:`, `New:`, `fix:`, `bug:`, `patch:`, `docs:`, `chore:`, `test:`.
 
-#### 🚀 For Features:
-* `feat:` (e.g., `feat: added AI caching for faster theory grading`)
-* `add:` (e.g., `add: new math rendering support`)
-* `New:` (e.g., `New: multiplayer mode lobby`)
-
-#### 🐛 For Bugs:
-* `fix:` (e.g., `fix: resolved issue where failed queue duplicated questions`)
-* `bug:` (e.g., `bug: corrected syntax error in JSON loader`)
-* `patch:` (e.g., `patch: fixed timer not resetting`)
-
-#### 📝 For Other/Maintenance:
-* `docs:` (e.g., `docs: updated README with new API instructions`)
-* `chore:` (e.g., `chore: refactored CSS styling`)
-* `test:` (e.g., `test: added playwright UI tests`)
-
-*These prefixes allow the Auto-Release bot to categorize your work automatically!*
-
-> **Note:** These prefixes are strictly enforced. Pull Requests with non-compliant titles will be automatically blocked by CI.
+See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details.
