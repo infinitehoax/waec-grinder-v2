@@ -132,6 +132,8 @@ def handle_send_message(data):
 def handle_leave_room(data):
     room_id = data.get('room_id')
     player_uuid = data.get('player_uuid')
+
+    # Memory Leak Fix: Cleanup SID mappings when explicitly leaving
     if request.sid in sid_to_player:
         del sid_to_player[request.sid]
     if player_uuid in player_to_sid:

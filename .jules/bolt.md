@@ -55,6 +55,8 @@
 **Action:** Always verify that every global state addition has a corresponding removal in all exit paths (leave, disconnect, timeout). Use in-place mutations safely on local data copies to maximize performance in interleaving algorithms.
 
 ### Learnings
+- **In-Place Mutation vs. Redundant Reversal:** Reversing a list is an O(N) operation. If a function is guaranteed to receive a unique, mutable copy of a list (e.g., from `list(original)`), it is more efficient to mutate it directly using O(1) `pop()` from the end rather than reversing it just to use `pop()`.
+- **WebSocket Resource Cleanup:** In-memory SID mappings (`player_to_sid`) must be purged during explicit "leave" events, not just "disconnect" events, to prevent growth from players who leave rooms but stay on the site. Always pair `create/join` mapping logic with explicit `leave` cleanup in stateful Socket.IO handlers.
 - **Data Scaling:** Adding 100+ questions in a single JSON commit is efficient for this project's flat-file database approach.
 - **Verification:** Using Playwright to capture screenshots of the dashboard is a reliable way to verify data injection without manual browser interaction.
 - **Testing:** Core logic tests (`run_all_tests.py`) should always be run after data changes to ensure no JSON parsing errors occur at runtime.

@@ -370,6 +370,7 @@ const UI = {
 
   updateProgress() {
     const bar = document.getElementById('progress-fill');
+    const container = bar ? bar.closest('.progress-bar') : null;
     const label = document.getElementById('progress-label');
     const isTimed = !!Storage.getTimeLimit();
 
@@ -377,7 +378,17 @@ const UI = {
       ? Math.round((this.currentIdx / this.batch.length) * 100)
       : 0;
 
-    if (bar) bar.style.width = `${pct}%`;
+    if (bar) {
+      bar.style.width = `${pct}%`;
+      if (pct === 100) bar.classList.add('complete');
+      else bar.classList.remove('complete');
+    }
+
+    if (container) {
+      container.setAttribute('aria-valuenow', pct);
+      container.setAttribute('aria-valuetext', isTimed ? `${this.currentIdx} questions solved` : `${this.currentIdx} of ${this.batch.length} questions completed`);
+    }
+
     if (label) {
       if (isTimed) {
         label.textContent = `${this.currentIdx} solved`;
@@ -968,15 +979,15 @@ const UI = {
     content += `
       <div class="report-card card animate-fade-in">
         <div class="report-stats-grid">
-          <div class="report-stat">
+          <div class="report-stat animate-bounce-in" style="animation-delay: 0.1s">
             <div class="report-stat__label">Batch Score</div>
             <div class="report-stat__value ${correctCount === totalCount ? 'text-pass' : ''}">${correctCount} / ${totalCount}</div>
           </div>
-          <div class="report-stat">
+          <div class="report-stat animate-bounce-in" style="animation-delay: 0.2s">
             <div class="report-stat__label">Time Taken</div>
             <div class="report-stat__value">${timeStr}</div>
           </div>
-          <div class="report-stat">
+          <div class="report-stat animate-bounce-in" style="animation-delay: 0.3s">
             <div class="report-stat__label">Mastered (Global)</div>
             <div class="report-stat__value text-accent">${summary.stats.mastered}</div>
           </div>
@@ -987,12 +998,19 @@ const UI = {
           <div class="topic-breakdown">
             ${Object.entries(topicStats).map(([topic, stats], idx) => {
               const successRate = Math.round((stats.correct / stats.total) * 100);
+              const isPerfect = successRate === 100;
+              const isFailing = successRate < (APP_CONFIG.PASS_THRESHOLD * 100);
+              const barColor = isPerfect ? 'var(--pass)' : (isFailing ? 'var(--fail)' : 'var(--accent)');
+
               return `
-                <div class="topic-row animate-slide-in" style="animation-delay: ${0.1 + (idx * 0.05)}s" aria-label="${escapeHtml(topic)}: ${stats.correct} out of ${stats.total} correct, ${successRate}%">
-                  <span class="topic-name" aria-hidden="true">${escapeHtml(topic)}</span>
+                <div class="topic-row animate-slide-in" style="animation-delay: ${0.4 + (idx * 0.05)}s" aria-label="${escapeHtml(topic)}: ${stats.correct} out of ${stats.total} correct, ${successRate}%">
+                  <span class="topic-name" aria-hidden="true">
+                    ${escapeHtml(topic)}
+                    ${isPerfect ? '<span class="badge badge--pass" style="margin-left:8px; font-size:0.6rem; padding:1px 6px;">✨ PERFECT</span>' : ''}
+                  </span>
                   <div class="topic-bar-wrapper">
                     <div class="topic-bar" aria-hidden="true">
-                      <div class="topic-bar__fill" style="width: ${successRate}%"></div>
+                      <div class="topic-bar__fill" style="width: ${successRate}%; background: ${barColor}"></div>
                     </div>
                     <span class="topic-score" aria-hidden="true">${stats.correct}/${stats.total}</span>
                   </div>
@@ -1057,11 +1075,11 @@ const UI = {
 
         <div class="report-actions">
           ${allDone ? `
-            <button class="btn btn--primary btn--lg" onclick="UI.restartSession()">🔄 Study Again</button>
+            <button class="btn btn--primary btn--lg" id="restart-session-btn" onclick="UI.restartSession()">🔄 Study Again <span class="kbd-hint" aria-hidden="true">Enter</span></button>
           ` : `
-            <button class="btn btn--primary btn--lg" onclick="UI.nextBatch()">Next Batch &rarr;</button>
+            <button class="btn btn--primary btn--lg" id="next-batch-btn" onclick="UI.nextBatch()">Next Batch <span class="kbd-hint" aria-hidden="true">Enter</span> &rarr;</button>
           `}
-          <a href="/" class="btn btn--ghost btn--lg">← Dashboard</a>
+          <a href="/" class="btn btn--ghost btn--lg" id="dashboard-btn">← Dashboard <span class="kbd-hint" aria-hidden="true">D</span></a>
         </div>
       </div>
     `;
@@ -1071,6 +1089,8 @@ const UI = {
     // Accessibility: Focus the report header so screen readers start reading the summary
     const header = wrapper.querySelector('.report-header');
     if (header) header.focus();
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   },
 
   async nextBatch() {
@@ -1542,9 +1562,30 @@ window.addEventListener('keydown', (e) => {
       UI.showBatchComplete();
       return;
     }
+
+    // Report Card Shortcuts
+    const nextBatchBtn = document.getElementById('next-batch-btn');
+    if (nextBatchBtn && window.getComputedStyle(nextBatchBtn).display !== 'none') {
+      UI.nextBatch();
+      return;
+    }
+    const restartBtn = document.getElementById('restart-session-btn');
+    if (restartBtn && window.getComputedStyle(restartBtn).display !== 'none') {
+      UI.restartSession();
+      return;
+    }
   }
 
   const key = e.key.toUpperCase();
+
+  // 'D' to Dashboard (Report Card)
+  if (key === 'D') {
+    const dashBtn = document.getElementById('dashboard-btn');
+    if (dashBtn && window.getComputedStyle(dashBtn).display !== 'none') {
+      window.location.href = '/';
+      return;
+    }
+  }
 
   // 'B' to go back
   if (key === 'B' && Storage.isCbtMode()) {
