@@ -1117,12 +1117,14 @@
   transition: all var(--transition-fast);
 }
 
-.nav-box:hover {
+.nav-box:hover,
+.nav-box:focus-visible {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-glow);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  outline: none;
 }
 
 .nav-box--current {
