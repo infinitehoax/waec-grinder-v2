@@ -295,6 +295,7 @@ const UI = {
   currentIdx: 0,
   _gradingActive: false,
   _timerInterval: null,
+  _currentExplanationMarkdown: null,
 
   init(batch) {
     this.batch = batch.map(q => ({
@@ -1335,6 +1336,7 @@ const UI = {
     if (!modal || !body) return;
 
     this._lastActiveElement = document.activeElement;
+    this._currentExplanationMarkdown = markdown;
 
     // Use formatText to handle markdown and latex
     body.innerHTML = formatText(markdown);
@@ -1386,12 +1388,32 @@ const UI = {
     if (modal) {
       modal.classList.remove('visible');
       document.body.style.overflow = '';
+      this._currentExplanationMarkdown = null;
 
       if (this._lastActiveElement) {
         this._lastActiveElement.focus();
         this._lastActiveElement = null;
       }
     }
+  },
+
+  copyExplanation() {
+    if (!this._currentExplanationMarkdown) return;
+
+    const btn = document.getElementById('copy-explanation-btn');
+    const originalHTML = btn ? btn.innerHTML : '';
+
+    navigator.clipboard.writeText(this._currentExplanationMarkdown).then(() => {
+      showToast('Explanation copied to clipboard', 'success');
+      if (btn) {
+        btn.innerHTML = '✅ Copied!';
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+        }, 2000);
+      }
+    }).catch(err => {
+      showToast('Failed to copy explanation', 'error');
+    });
   },
 
   setupAntiCheat() {
@@ -1531,8 +1553,12 @@ window.addEventListener('keydown', (e) => {
     return;
   }
 
-  // If modal is open, let it handle its own keys (like focus trap)
-  if (isModalVisible) return;
+  if (isModalVisible) {
+    if (e.key.toUpperCase() === 'C') {
+      UI.copyExplanation();
+    }
+    return;
+  }
 
   // Ctrl+Enter or Cmd+Enter to submit theory (works even inside textarea)
   if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
