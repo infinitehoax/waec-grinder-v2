@@ -1,0 +1,456 @@
+**1.** Evaluate $11011_2 + 10101_2$ in base 2.
+A. $101110_2$
+B. $110000_2$
+C. $111000_2$
+D. $100000_2$
+
+**2.** Convert $35_8$ to base 10.
+A. 27
+B. 28
+C. 29
+D. 30
+
+**3.** Express $0.0000562$ in standard form.
+A. $5.62 \times 10^{-4}$
+B. $5.62 \times 10^{-5}$
+C. $5.62 \times 10^{-6}$
+D. $56.2 \times 10^{-5}$
+
+**4.** Evaluate $\frac{2.5 \times 10^3}{5 \times 10^{-2}}$
+A. $5.0 \times 10^3$
+B. $5.0 \times 10^4$
+C. $5.0 \times 10^5$
+D. $0.5 \times 10^4$
+
+**5.** Find $x$ if $2^{x+1} = 8$.
+A. 1
+B. 2
+C. 3
+D. 4
+
+**6.** Simplify $\log_2 8 + \log_3 9$.
+A. 2
+B. 3
+C. 5
+D. 6
+
+**7.** Simplify $\frac{1}{\sqrt{3}-\sqrt{2}}$.
+A. $\sqrt{3} - \sqrt{2}$
+B. $\sqrt{3} + \sqrt{2}$
+C. $3 - \sqrt{2}$
+D. $2 - \sqrt{3}$
+
+**8.** Evaluate $125^{2/3}$.
+A. 5
+B. 25
+C. 15
+D. 50
+
+**9.** Make $x$ the subject of the formula: $y = \frac{x+1}{x-1}$.
+A. $x = \frac{y-1}{y+1}$
+B. $x = \frac{y+1}{y-1}$
+C. $x = \frac{1-y}{y+1}$
+D. $x = \frac{y}{y-1}$
+
+**10.** $y$ varies inversely as the square of $x$. If $y=4$ when $x=2$, find $y$ when $x=4$.
+A. 1
+B. 2
+C. 4
+D. 16
+
+**11.** A binary operation $\ast$ is defined as $a \ast b = ab + a + b$. Find $2 \ast 3$.
+A. 6
+B. 9
+C. 11
+D. 12
+
+**12.** Find the remainder when $x^3 - 2x^2 + x - 5$ is divided by $x-2$.
+A. $-5$
+B. $-3$
+C. $2$
+D. $5$
+
+**13.** Factorize completely: $x^2 - 5x + 6$.
+A. $(x-1)(x-6)$
+B. $(x-2)(x-3)$
+C. $(x+2)(x+3)$
+D. $(x-2)(x+3)$
+
+**14.** Find the sum of the roots of the equation $2x^2 - 5x + 3 = 0$.
+A. $-5/2$
+B. $2/5$
+C. $5/2$
+D. $3/2$
+
+**15.** Find the range of values of $x$ for which $x^2 - 4x - 5 < 0$.
+A. $-1 < x < 5$
+B. $x < -1$ or $x > 5$
+C. $1 < x < -5$
+D. $-5 < x < 1$
+
+**16.** Solve the simultaneous equations: $x + y = 5$ and $x - y = 1$.
+A. $x=2, y=3$
+B. $x=3, y=2$
+C. $x=4, y=1$
+D. $x=1, y=4$
+
+**17.** The 4th term of an Arithmetic Progression is 13, and the 10th term is 31. Find the common difference.
+A. 2
+B. 3
+C. 4
+D. 5
+
+**18.** Find the sum to infinity of the geometric sequence: $1, 1/2, 1/4, \dots$
+A. 1
+B. 1.5
+C. 2
+D. 4
+
+**19.** A matrix $A = \begin{pmatrix} 2 & 1 \\ 4 & x \end{pmatrix}$ has a determinant of 10. Find $x$.
+A. 4
+B. 5
+C. 6
+D. 7
+
+**20.** Find the determinant of $\begin{pmatrix} 3 & 2 \\ 7 & 5 \end{pmatrix}$.
+A. 1
+B. -1
+C. 29
+D. 15
+
+**21.** The sum of interior angles of a regular polygon is $1080^\circ$. Find the number of sides.
+A. 6
+B. 7
+C. 8
+D. 10
+
+**22.** Calculate the length of an arc of a circle of radius 7cm which subtends an angle of $90^\circ$ at the center. (Take $\pi = 22/7$)
+A. 11 cm
+B. 22 cm
+C. 44 cm
+D. 77 cm
+
+**23.** If $\sin \theta = 3/5$ and $\theta$ is acute, find $\tan \theta$.
+A. $4/5$
+B. $3/4$
+C. $4/3$
+D. $5/3$
+
+**24.** A man walks 30m East, and then 40m North. Find his distance from the starting point.
+A. 10 m
+B. 50 m
+C. 70 m
+D. 120 m
+
+**25.** The bearing of point A from point B is $045^\circ$. What is the bearing of B from A?
+A. $135^\circ$
+B. $225^\circ$
+C. $270^\circ$
+D. $315^\circ$
+
+**26.** Find the distance between the points $(1,2)$ and $(4,6)$.
+A. 3
+B. 4
+C. 5
+D. 7
+
+**27.** Find the midpoint of the line joining $(2, -3)$ and $(4, 7)$.
+A. $(1, 2)$
+B. $(3, 2)$
+C. $(3, 5)$
+D. $(6, 4)$
+
+**28.** What is the gradient of the line $3y - 2x = 5$?
+A. $-2/3$
+B. $2/3$
+C. $3/2$
+D. $2$
+
+**29.** Find the derivative of $y = 3x^3 - 2x^2 + x$.
+A. $6x^2 - 4x + 1$
+B. $9x^2 - 2x + 1$
+C. $9x^2 - 4x + 1$
+D. $3x^2 - 4x + 1$
+
+**30.** Find the maximum value of $y = 4x - x^2$.
+A. 2
+B. 4
+C. 6
+D. 8
+
+**31.** Integrate $\int 3x^2 \, dx$.
+A. $6x + C$
+B. $x^3 + C$
+C. $3x^3 + C$
+D. $\frac{x^3}{3} + C$
+
+**32.** Evaluate $\int_{0}^{2} 2x \, dx$.
+A. 2
+B. 4
+C. 6
+D. 8
+
+**33.** A car accelerates from rest at $2\,m/s^2$. Find its velocity after 5 seconds.
+A. $5\,m/s$
+B. $7\,m/s$
+C. $10\,m/s$
+D. $20\,m/s$
+
+**34.** The mean of the numbers $2, 4, x, 8,$ and $10$ is 6. Find $x$.
+A. 4
+B. 5
+C. 6
+D. 8
+
+**35.** Find the median of the data set: $1, 5, 2, 4, 3, 6, 7$.
+A. 3
+B. 4
+C. 5
+D. 6
+
+**36.** What is the range of the numbers: $5, 2, 9, 1, 15$?
+A. 13
+B. 14
+C. 15
+D. 16
+
+**37.** Find the standard deviation of the numbers: $2, 2, 2, 2$.
+A. 0
+B. 1
+C. 2
+D. 4
+
+**38.** In how many ways can 5 people be seated in a row?
+A. 24
+B. 60
+C. 120
+D. 240
+
+**39.** In how many ways can a committee of 3 students be chosen from a class of 5?
+A. 10
+B. 15
+C. 20
+D. 60
+
+**40.** A fair die is rolled twice. What is the probability of obtaining a sum of 7?
+A. $1/12$
+B. $1/6$
+C. $1/4$
+D. $1/3$
+
+**41.** A coin is tossed 3 times. What is the probability of getting exactly 2 heads?
+A. $1/8$
+B. $1/4$
+C. $3/8$
+D. $1/2$
+
+**42.** A bag contains 4 red balls and 3 blue balls. If two balls are picked one after the other with replacement, find the probability that both are red.
+A. $16/49$
+B. $12/49$
+C. $4/7$
+D. $2/7$
+
+**43.** The probability that John passes Math is 0.6 and the probability he passes English is 0.8. Find the probability that he passes both subjects.
+A. 0.14
+B. 0.48
+C. 0.60
+D. 1.40
+
+**44.** Solve for $x$: $3(x - 2) = 2(x + 1)$.
+A. 4
+B. 5
+C. 6
+D. 8
+
+**45.** Calculate the simple interest on ₦5000 at 4% per annum for 3 years.
+A. ₦400
+B. ₦600
+C. ₦800
+D. ₦1200
+
+**46.** Evaluate $P(A \cup B)$ if $P(A)=0.4$, $P(B)=0.5$, and events A and B are mutually exclusive.
+A. 0.1
+B. 0.2
+C. 0.8
+D. 0.9
+
+**47.** Evaluate $\int (2x + 1)^2 \, dx$.
+A. $\frac{(2x+1)^3}{3} + C$
+B. $\frac{(2x+1)^3}{6} + C$
+C. $\frac{(2x+1)^3}{2} + C$
+D. $(2x+1)^3 + C$
+
+**48.** Differentiate $y = \sin(3x)$ with respect to $x$.
+A. $\cos(3x)$
+B. $-3\cos(3x)$
+C. $3\cos(3x)$
+D. $- \cos(3x)$
+
+**49.** If $\begin{pmatrix} x & 2 \\ 3 & 4 \end{pmatrix}$ is a singular matrix, find $x$.
+A. 1.5
+B. 2.0
+C. 2.5
+D. 3.0
+
+**50.** Find the area of a circle whose circumference is $10\pi$.
+A. $5\pi$
+B. $10\pi$
+C. $25\pi$
+D. $100\pi$
+
+**51.** A box contains 5 white balls and $x$ black balls. If the probability of picking a white ball is $1/3$, find $x$.
+A. 5
+B. 10
+C. 15
+D. 20
+
+**52.** Find the mode of the distribution: $2, 3, 3, 4, 5, 3$.
+A. 2
+B. 3
+C. 4
+D. 5
+
+**53.** Calculate the volume of a cylinder of radius 3cm and height 10cm. (Leave answer in terms of $\pi$)
+A. $30\pi$
+B. $60\pi$
+C. $90\pi$
+D. $120\pi$
+
+**54.** Find the derivative of $y = e^{2x}$.
+A. $e^{2x}$
+B. $2e^{2x}$
+C. $e^x$
+D. $1/2 e^{2x}$
+
+**55.** If $f(x) = x^2 - 1$, find $f(f(2))$.
+A. 3
+B. 8
+C. 15
+D. 24
+
+**56.** If $\sin A = 0.5$ and $A$ is an obtuse angle ($90^\circ < A < 180^\circ$), find $A$.
+A. $120^\circ$
+B. $135^\circ$
+C. $150^\circ$
+D. $165^\circ$
+
+**57.** Express $\frac{2}{x-1} - \frac{1}{x+1}$ as a single fraction.
+A. $\frac{x+3}{x^2-1}$
+B. $\frac{x-1}{x^2-1}$
+C. $\frac{3x+1}{x^2-1}$
+D. $\frac{x+1}{x^2-1}$
+
+**58.** In a class of 40 students, 25 offer Mathematics, 20 offer English, and 5 offer neither of the two. How many students offer both subjects?
+A. 5
+B. 10
+C. 15
+D. 20
+
+**59.** The sum of the ages of a father and his son is 50. Five years ago, the father was 4 times as old as the son. What is the son's present age?
+A. 10
+B. 13
+C. 15
+D. 18
+
+**60.** Express $0.125$ as a fraction in its lowest terms.
+A. $1/4$
+B. $1/5$
+C. $1/8$
+D. $1/16$
+
+**61.** Find the mean deviation of the numbers: $2, 4, 6, 8$.
+A. 1.5
+B. 2.0
+C. 2.5
+D. 3.0
+
+**62.** Evaluate $\lim_{x \to 2} \frac{x^2 - 4}{x - 2}$.
+A. 0
+B. 2
+C. 4
+D. Undefined
+
+**63.** Find the 15th term of the arithmetic sequence: $2, 5, 8, 11, \dots$
+A. 41
+B. 44
+C. 47
+D. 50
+
+**64.** A sector of a circle of radius 14cm contains an angle of $60^\circ$. Calculate the area of the sector. (Take $\pi = 22/7$)
+A. $25.67 \text{ cm}^2$
+B. $51.33 \text{ cm}^2$
+C. $102.67 \text{ cm}^2$
+D. $154.00 \text{ cm}^2$
+
+**65.** Evaluate $\int_{1}^{3} (3x^2 + 2x) \, dx$.
+A. 20
+B. 28
+C. 34
+D. 38
+
+### **ANSWER KEY & BRIEF SOLUTIONS**
+1. **B** ($11011_2 + 10101_2 = 110000_2$)
+2. **C** ($3 \times 8^1 + 5 \times 8^0 = 24 + 5 = 29$)
+3. **B** ($5.62 \times 10^{-5}$)
+4. **B** ($2.5/5 \times 10^{3-(-2)} = 0.5 \times 10^5 = 5.0 \times 10^4$)
+5. **B** ($2^{x+1} = 2^3 \implies x+1=3 \implies x=2$)
+6. **C** ($3 + 2 = 5$)
+7. **B** (Rationalize by multiplying numerator and denominator by $\sqrt{3}+\sqrt{2}$)
+8. **B** ($(\sqrt[3]{125})^2 = 5^2 = 25$)
+9. **B** (Cross multiply and factor out x)
+10. **A** ($y = k/x^2 \implies k = 16$. When $x=4$, $y = 16/16 = 1$)
+11. **C** ($2(3) + 2 + 3 = 11$)
+12. **B** (Apply remainder theorem $f(2) = 2^3 - 2(2^2) + 2 - 5 = -3$)
+13. **B** ($(x-2)(x-3)$)
+14. **C** (Sum of roots $\alpha + \beta = -b/a = -(-5)/2 = 5/2$)
+15. **A** ($(x-5)(x+1) < 0 \implies -1 < x < 5$)
+16. **B** (Add the two equations: $2x = 6 \implies x=3$, $y=2$)
+17. **B** ($a+9d = 31$, $a+3d = 13$. Subtracting gives $6d = 18 \implies d=3$)
+18. **C** ($S_\infty = \frac{a}{1-r} = \frac{1}{1-0.5} = 2$)
+19. **D** ($2x - 4 = 10 \implies 2x = 14 \implies x=7$)
+20. **A** ($(3 \times 5) - (7 \times 2) = 15 - 14 = 1$)
+21. **C** ($(n-2)180 = 1080 \implies n-2=6 \implies n=8$)
+22. **A** ($\frac{\theta}{360} \times 2\pi r = \frac{90}{360} \times 2 \times \frac{22}{7} \times 7 = 11$)
+23. **B** (Opposite = 3, Hypotenuse = 5, Adjacent = 4. $\tan \theta = 3/4$)
+24. **B** ($\sqrt{30^2 + 40^2} = 50$)
+25. **B** ($045^\circ + 180^\circ = 225^\circ$)
+26. **C** ($\sqrt{(4-1)^2 + (6-2)^2} = \sqrt{9+16} = \sqrt{25} = 5$)
+27. **B** ($\frac{2+4}{2}, \frac{-3+7}{2} = (3, 2)$)
+28. **B** ($3y = 2x + 5 \implies y = \frac{2}{3}x + \frac{5}{3}$)
+29. **C** ($3(3x^2) - 2(2x) + 1 = 9x^2 - 4x + 1$)
+30. **B** ($dy/dx = 4-2x = 0 \implies x=2$. $y = 4(2)-2^2 = 8-4 = 4$)
+31. **B** ($\int 3x^2 dx = \frac{3x^3}{3} + C = x^3 + C$)
+32. **B** ($\left[x^2\right]_0^2 = 2^2 - 0 = 4$)
+33. **C** ($v = u + at = 0 + 2(5) = 10$)
+34. **C** ($\frac{2+4+x+8+10}{5} = 6 \implies 24+x = 30 \implies x=6$)
+35. **B** (Order: 1,2,3,4,5,6,7. Middle term is 4)
+36. **B** ($15 - 1 = 14$)
+37. **A** (All values are identical, hence no deviation)
+38. **C** ($5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$)
+39. **A** ($^5C_3 = \frac{5!}{3!2!} = 10$)
+40. **B** ($6/36 = 1/6$)
+41. **C** (HHT, HTH, THH out of 8 possible outcomes)
+42. **A** ($\frac{4}{7} \times \frac{4}{7} = \frac{16}{49}$)
+43. **B** ($0.6 \times 0.8 = 0.48$)
+44. **D** ($3x - 6 = 2x + 2 \implies x = 8$)
+45. **B** ($I = \frac{PRT}{100} = \frac{5000 \times 4 \times 3}{100} = 600$)
+46. **D** ($P(A \cup B) = P(A) + P(B) = 0.4 + 0.5 = 0.9$)
+47. **B** (Use substitution rule. Derivative of $(2x+1)$ is 2. Integral is $\frac{(2x+1)^3}{3 \times 2}$)
+48. **C** ($3\cos(3x)$)
+49. **A** ($4x - 6 = 0 \implies 4x = 6 \implies x = 1.5$)
+50. **C** ($2\pi r = 10\pi \implies r=5$. Area $= \pi r^2 = 25\pi$)
+51. **B** ($\frac{5}{5+x} = \frac{1}{3} \implies 15 = 5+x \implies x=10$)
+52. **B** (3 appears most frequently)
+53. **C** ($V = \pi r^2 h = \pi \times 3^2 \times 10 = 90\pi$)
+54. **B** (By chain rule)
+55. **B** ($f(2) = 2^2-1 = 3$. $f(f(2)) = f(3) = 3^2 - 1 = 8$)
+56. **C** (Reference angle $= \sin^{-1}(0.5) = 30^\circ$. Obtuse $= 180^\circ - 30^\circ = 150^\circ$)
+57. **A** ($\frac{2(x+1) - 1(x-1)}{(x-1)(x+1)} = \frac{2x+2-x+1}{x^2-1} = \frac{x+3}{x^2-1}$)
+58. **B** (Total = 40. $40 - 5 = 35$ offer subjects. $25 + 20 - x = 35 \implies 45 - x = 35 \implies x = 10$)
+59. **B** ($f + s = 50$, $f - 5 = 4(s - 5) \implies (50-s)-5 = 4s-20 \implies 45-s = 4s-20 \implies 5s=65 \implies s=13$)
+60. **C** ($125/1000 = 1/8$)
+61. **B** (Mean $= 5$. Deviations: $3, 1, 1, 3$. Sum of deviations $= 8$. Mean deviation $= 8/4 = 2$)
+62. **C** (Factorize: $\frac{(x-2)(x+2)}{x-2} = x+2$. As $x \to 2$, $x+2 = 4$)
+63. **B** ($a=2, d=3$. $T_{15} = a + 14d = 2 + 14(3) = 2 + 42 = 44$)
+64. **C** ($\frac{60}{360} \times \frac{22}{7} \times 14^2 = \frac{1}{6} \times 22 \times 28 \approx 102.67$)
+65. **C** ($\left[x^3 + x^2\right]_1^3 = (27 + 9) - (1 + 1) = 36 - 2 = 34$)

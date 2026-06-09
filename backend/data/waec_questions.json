@@ -21386,5 +21386,856 @@
         "topic": "Biology Practical"
       }
     ]
+  },
+  {
+    "subject": "UNIPORT Maths Friday mock",
+    "obj": [
+      {
+        "id": "obj_uniport_math_2026_001",
+        "question": "Evaluate $11011_2 + 10101_2$ in base 2.",
+        "options": {
+          "A": "$101110_2$",
+          "B": "$110000_2$",
+          "C": "$111000_2$",
+          "D": "$100000_2$"
+        },
+        "correct_option": "B",
+        "explanation": "$11011_2 + 10101_2 = 110000_2$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_002",
+        "question": "Convert $35_8$ to base 10.",
+        "options": {
+          "A": "27",
+          "B": "28",
+          "C": "29",
+          "D": "30"
+        },
+        "correct_option": "C",
+        "explanation": "$3 \\times 8^1 + 5 \\times 8^0 = 24 + 5 = 29$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_003",
+        "question": "Express $0.0000562$ in standard form.",
+        "options": {
+          "A": "$5.62 \\times 10^{-4}$",
+          "B": "$5.62 \\times 10^{-5}$",
+          "C": "$5.62 \\times 10^{-6}$",
+          "D": "$56.2 \\times 10^{-5}$"
+        },
+        "correct_option": "B",
+        "explanation": "$5.62 \\times 10^{-5}$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_004",
+        "question": "Evaluate $\\frac{2.5 \\times 10^3}{5 \\times 10^{-2}}$",
+        "options": {
+          "A": "$5.0 \\times 10^3$",
+          "B": "$5.0 \\times 10^4$",
+          "C": "$5.0 \\times 10^5$",
+          "D": "$0.5 \\times 10^4$"
+        },
+        "correct_option": "B",
+        "explanation": "$2.5/5 \\times 10^{3-(-2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_005",
+        "question": "Find $x$ if $2^{x+1} = 8$.",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+        },
+        "correct_option": "B",
+        "explanation": "$2^{x+1} = 2^3 \\implies x+1=3 \\implies x=2$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_006",
+        "question": "Simplify $\\log_2 8 + \\log_3 9$.",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "5",
+          "D": "6"
+        },
+        "correct_option": "C",
+        "explanation": "$3 + 2 = 5$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_007",
+        "question": "Simplify $\\frac{1}{\\sqrt{3}-\\sqrt{2}}$.",
+        "options": {
+          "A": "$\\sqrt{3} - \\sqrt{2}$",
+          "B": "$\\sqrt{3} + \\sqrt{2}$",
+          "C": "$3 - \\sqrt{2}$",
+          "D": "$2 - \\sqrt{3}$"
+        },
+        "correct_option": "B",
+        "explanation": "Rationalize by multiplying numerator and denominator by $\\sqrt{3}+\\sqrt{2}$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_008",
+        "question": "Evaluate $125^{2/3}$.",
+        "options": {
+          "A": "5",
+          "B": "25",
+          "C": "15",
+          "D": "50"
+        },
+        "correct_option": "B",
+        "explanation": "$(\\sqrt[3]{125}",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_009",
+        "question": "Make $x$ the subject of the formula: $y = \\frac{x+1}{x-1}$.",
+        "options": {
+          "A": "$x = \\frac{y-1}{y+1}$",
+          "B": "$x = \\frac{y+1}{y-1}$",
+          "C": "$x = \\frac{1-y}{y+1}$",
+          "D": "$x = \\frac{y}{y-1}$"
+        },
+        "correct_option": "B",
+        "explanation": "Cross multiply and factor out x",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_010",
+        "question": "$y$ varies inversely as the square of $x$. If $y=4$ when $x=2$, find $y$ when $x=4$.",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "4",
+          "D": "16"
+        },
+        "correct_option": "A",
+        "explanation": "$y = k/x^2 \\implies k = 16$. When $x=4$, $y = 16/16 = 1$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_011",
+        "question": "A binary operation $\\ast$ is defined as $a \\ast b = ab + a + b$. Find $2 \\ast 3$.",
+        "options": {
+          "A": "6",
+          "B": "9",
+          "C": "11",
+          "D": "12"
+        },
+        "correct_option": "C",
+        "explanation": "$2(3",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_012",
+        "question": "Find the remainder when $x^3 - 2x^2 + x - 5$ is divided by $x-2$.",
+        "options": {
+          "A": "$-5$",
+          "B": "$-3$",
+          "C": "$2$",
+          "D": "$5$"
+        },
+        "correct_option": "B",
+        "explanation": "Apply remainder theorem $f(2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_013",
+        "question": "Factorize completely: $x^2 - 5x + 6$.",
+        "options": {
+          "A": "$(x-1)(x-6)$",
+          "B": "$(x-2)(x-3)$",
+          "C": "$(x+2)(x+3)$",
+          "D": "$(x-2)(x+3)$"
+        },
+        "correct_option": "B",
+        "explanation": "$(x-2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_014",
+        "question": "Find the sum of the roots of the equation $2x^2 - 5x + 3 = 0$.",
+        "options": {
+          "A": "$-5/2$",
+          "B": "$2/5$",
+          "C": "$5/2$",
+          "D": "$3/2$"
+        },
+        "correct_option": "C",
+        "explanation": "Sum of roots $\\alpha + \\beta = -b/a = -(-5",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_015",
+        "question": "Find the range of values of $x$ for which $x^2 - 4x - 5 < 0$.",
+        "options": {
+          "A": "$-1 < x < 5$",
+          "B": "$x < -1$ or $x > 5$",
+          "C": "$1 < x < -5$",
+          "D": "$-5 < x < 1$"
+        },
+        "correct_option": "A",
+        "explanation": "$(x-5",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_016",
+        "question": "Solve the simultaneous equations: $x + y = 5$ and $x - y = 1$.",
+        "options": {
+          "A": "$x=2, y=3$",
+          "B": "$x=3, y=2$",
+          "C": "$x=4, y=1$",
+          "D": "$x=1, y=4$"
+        },
+        "correct_option": "B",
+        "explanation": "Add the two equations: $2x = 6 \\implies x=3$, $y=2$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_017",
+        "question": "The 4th term of an Arithmetic Progression is 13, and the 10th term is 31. Find the common difference.",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "5"
+        },
+        "correct_option": "B",
+        "explanation": "$a+9d = 31$, $a+3d = 13$. Subtracting gives $6d = 18 \\implies d=3$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_018",
+        "question": "Find the sum to infinity of the geometric sequence: $1, 1/2, 1/4, \\dots$",
+        "options": {
+          "A": "1",
+          "B": "1.5",
+          "C": "2",
+          "D": "4"
+        },
+        "correct_option": "C",
+        "explanation": "$S_\\infty = \\frac{a}{1-r} = \\frac{1}{1-0.5} = 2$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_019",
+        "question": "A matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 4 & x \\end{pmatrix}$ has a determinant of 10. Find $x$.",
+        "options": {
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "7"
+        },
+        "correct_option": "D",
+        "explanation": "$2x - 4 = 10 \\implies 2x = 14 \\implies x=7$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_020",
+        "question": "Find the determinant of $\\begin{pmatrix} 3 & 2 \\\\ 7 & 5 \\end{pmatrix}$.",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "29",
+          "D": "15"
+        },
+        "correct_option": "A",
+        "explanation": "$(3 \\times 5",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_021",
+        "question": "The sum of interior angles of a regular polygon is $1080^\\circ$. Find the number of sides.",
+        "options": {
+          "A": "6",
+          "B": "7",
+          "C": "8",
+          "D": "10"
+        },
+        "correct_option": "C",
+        "explanation": "$(n-2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_022",
+        "question": "Calculate the length of an arc of a circle of radius 7cm which subtends an angle of $90^\\circ$ at the center. (Take $\\pi = 22/7$)",
+        "options": {
+          "A": "11 cm",
+          "B": "22 cm",
+          "C": "44 cm",
+          "D": "77 cm"
+        },
+        "correct_option": "A",
+        "explanation": "$\\frac{\\theta}{360} \\times 2\\pi r = \\frac{90}{360} \\times 2 \\times \\frac{22}{7} \\times 7 = 11$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_023",
+        "question": "If $\\sin \\theta = 3/5$ and $\\theta$ is acute, find $\\tan \\theta$.",
+        "options": {
+          "A": "$4/5$",
+          "B": "$3/4$",
+          "C": "$4/3$",
+          "D": "$5/3$"
+        },
+        "correct_option": "B",
+        "explanation": "Opposite = 3, Hypotenuse = 5, Adjacent = 4. $\\tan \\theta = 3/4$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_024",
+        "question": "A man walks 30m East, and then 40m North. Find his distance from the starting point.",
+        "options": {
+          "A": "10 m",
+          "B": "50 m",
+          "C": "70 m",
+          "D": "120 m"
+        },
+        "correct_option": "B",
+        "explanation": "$\\sqrt{30^2 + 40^2} = 50$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_025",
+        "question": "The bearing of point A from point B is $045^\\circ$. What is the bearing of B from A?",
+        "options": {
+          "A": "$135^\\circ$",
+          "B": "$225^\\circ$",
+          "C": "$270^\\circ$",
+          "D": "$315^\\circ$"
+        },
+        "correct_option": "B",
+        "explanation": "$045^\\circ + 180^\\circ = 225^\\circ$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_026",
+        "question": "Find the distance between the points $(1,2)$ and $(4,6)$.",
+        "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "7"
+        },
+        "correct_option": "C",
+        "explanation": "$\\sqrt{(4-1",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_027",
+        "question": "Find the midpoint of the line joining $(2, -3)$ and $(4, 7)$.",
+        "options": {
+          "A": "$(1, 2)$",
+          "B": "$(3, 2)$",
+          "C": "$(3, 5)$",
+          "D": "$(6, 4)$"
+        },
+        "correct_option": "B",
+        "explanation": "$\\frac{2+4}{2}, \\frac{-3+7}{2} = (3, 2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_028",
+        "question": "What is the gradient of the line $3y - 2x = 5$?",
+        "options": {
+          "A": "$-2/3$",
+          "B": "$2/3$",
+          "C": "$3/2$",
+          "D": "$2$"
+        },
+        "correct_option": "B",
+        "explanation": "$3y = 2x + 5 \\implies y = \\frac{2}{3}x + \\frac{5}{3}$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_029",
+        "question": "Find the derivative of $y = 3x^3 - 2x^2 + x$.",
+        "options": {
+          "A": "$6x^2 - 4x + 1$",
+          "B": "$9x^2 - 2x + 1$",
+          "C": "$9x^2 - 4x + 1$",
+          "D": "$3x^2 - 4x + 1$"
+        },
+        "correct_option": "C",
+        "explanation": "$3(3x^2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_030",
+        "question": "Find the maximum value of $y = 4x - x^2$.",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+        },
+        "correct_option": "B",
+        "explanation": "$dy/dx = 4-2x = 0 \\implies x=2$. $y = 4(2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_031",
+        "question": "Integrate $\\int 3x^2 \\, dx$.",
+        "options": {
+          "A": "$6x + C$",
+          "B": "$x^3 + C$",
+          "C": "$3x^3 + C$",
+          "D": "$\\frac{x^3}{3} + C$"
+        },
+        "correct_option": "B",
+        "explanation": "$\\int 3x^2 dx = \\frac{3x^3}{3} + C = x^3 + C$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_032",
+        "question": "Evaluate $\\int_{0}^{2} 2x \\, dx$.",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+        },
+        "correct_option": "B",
+        "explanation": "$\\left[x^2\\right]_0^2 = 2^2 - 0 = 4$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_033",
+        "question": "A car accelerates from rest at $2\\,m/s^2$. Find its velocity after 5 seconds.",
+        "options": {
+          "A": "$5\\,m/s$",
+          "B": "$7\\,m/s$",
+          "C": "$10\\,m/s$",
+          "D": "$20\\,m/s$"
+        },
+        "correct_option": "C",
+        "explanation": "$v = u + at = 0 + 2(5",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_034",
+        "question": "The mean of the numbers $2, 4, x, 8,$ and $10$ is 6. Find $x$.",
+        "options": {
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "8"
+        },
+        "correct_option": "C",
+        "explanation": "$\\frac{2+4+x+8+10}{5} = 6 \\implies 24+x = 30 \\implies x=6$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_035",
+        "question": "Find the median of the data set: $1, 5, 2, 4, 3, 6, 7$.",
+        "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "6"
+        },
+        "correct_option": "B",
+        "explanation": "Order: 1,2,3,4,5,6,7. Middle term is 4",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_036",
+        "question": "What is the range of the numbers: $5, 2, 9, 1, 15$?",
+        "options": {
+          "A": "13",
+          "B": "14",
+          "C": "15",
+          "D": "16"
+        },
+        "correct_option": "B",
+        "explanation": "$15 - 1 = 14$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_037",
+        "question": "Find the standard deviation of the numbers: $2, 2, 2, 2$.",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "2",
+          "D": "4"
+        },
+        "correct_option": "A",
+        "explanation": "All values are identical, hence no deviation",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_038",
+        "question": "In how many ways can 5 people be seated in a row?",
+        "options": {
+          "A": "24",
+          "B": "60",
+          "C": "120",
+          "D": "240"
+        },
+        "correct_option": "C",
+        "explanation": "$5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_039",
+        "question": "In how many ways can a committee of 3 students be chosen from a class of 5?",
+        "options": {
+          "A": "10",
+          "B": "15",
+          "C": "20",
+          "D": "60"
+        },
+        "correct_option": "A",
+        "explanation": "$^5C_3 = \\frac{5!}{3!2!} = 10$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_040",
+        "question": "A fair die is rolled twice. What is the probability of obtaining a sum of 7?",
+        "options": {
+          "A": "$1/12$",
+          "B": "$1/6$",
+          "C": "$1/4$",
+          "D": "$1/3$"
+        },
+        "correct_option": "B",
+        "explanation": "$6/36 = 1/6$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_041",
+        "question": "A coin is tossed 3 times. What is the probability of getting exactly 2 heads?",
+        "options": {
+          "A": "$1/8$",
+          "B": "$1/4$",
+          "C": "$3/8$",
+          "D": "$1/2$"
+        },
+        "correct_option": "C",
+        "explanation": "HHT, HTH, THH out of 8 possible outcomes",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_042",
+        "question": "A bag contains 4 red balls and 3 blue balls. If two balls are picked one after the other with replacement, find the probability that both are red.",
+        "options": {
+          "A": "$16/49$",
+          "B": "$12/49$",
+          "C": "$4/7$",
+          "D": "$2/7$"
+        },
+        "correct_option": "A",
+        "explanation": "$\\frac{4}{7} \\times \\frac{4}{7} = \\frac{16}{49}$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_043",
+        "question": "The probability that John passes Math is 0.6 and the probability he passes English is 0.8. Find the probability that he passes both subjects.",
+        "options": {
+          "A": "0.14",
+          "B": "0.48",
+          "C": "0.60",
+          "D": "1.40"
+        },
+        "correct_option": "B",
+        "explanation": "$0.6 \\times 0.8 = 0.48$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_044",
+        "question": "Solve for $x$: $3(x - 2) = 2(x + 1)$.",
+        "options": {
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "8"
+        },
+        "correct_option": "D",
+        "explanation": "$3x - 6 = 2x + 2 \\implies x = 8$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_045",
+        "question": "Calculate the simple interest on \u20a65000 at 4% per annum for 3 years.",
+        "options": {
+          "A": "\u20a6400",
+          "B": "\u20a6600",
+          "C": "\u20a6800",
+          "D": "\u20a61200"
+        },
+        "correct_option": "B",
+        "explanation": "$I = \\frac{PRT}{100} = \\frac{5000 \\times 4 \\times 3}{100} = 600$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_046",
+        "question": "Evaluate $P(A \\cup B)$ if $P(A)=0.4$, $P(B)=0.5$, and events A and B are mutually exclusive.",
+        "options": {
+          "A": "0.1",
+          "B": "0.2",
+          "C": "0.8",
+          "D": "0.9"
+        },
+        "correct_option": "D",
+        "explanation": "$P(A \\cup B",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_047",
+        "question": "Evaluate $\\int (2x + 1)^2 \\, dx$.",
+        "options": {
+          "A": "$\\frac{(2x+1)^3}{3} + C$",
+          "B": "$\\frac{(2x+1)^3}{6} + C$",
+          "C": "$\\frac{(2x+1)^3}{2} + C$",
+          "D": "$(2x+1)^3 + C$"
+        },
+        "correct_option": "B",
+        "explanation": "Use substitution rule. Derivative of $(2x+1",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_048",
+        "question": "Differentiate $y = \\sin(3x)$ with respect to $x$.",
+        "options": {
+          "A": "$\\cos(3x)$",
+          "B": "$-3\\cos(3x)$",
+          "C": "$3\\cos(3x)$",
+          "D": "$- \\cos(3x)$"
+        },
+        "correct_option": "C",
+        "explanation": "$3\\cos(3x",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_049",
+        "question": "If $\\begin{pmatrix} x & 2 \\\\ 3 & 4 \\end{pmatrix}$ is a singular matrix, find $x$.",
+        "options": {
+          "A": "1.5",
+          "B": "2.0",
+          "C": "2.5",
+          "D": "3.0"
+        },
+        "correct_option": "A",
+        "explanation": "$4x - 6 = 0 \\implies 4x = 6 \\implies x = 1.5$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_050",
+        "question": "Find the area of a circle whose circumference is $10\\pi$.",
+        "options": {
+          "A": "$5\\pi$",
+          "B": "$10\\pi$",
+          "C": "$25\\pi$",
+          "D": "$100\\pi$"
+        },
+        "correct_option": "C",
+        "explanation": "$2\\pi r = 10\\pi \\implies r=5$. Area $= \\pi r^2 = 25\\pi$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_051",
+        "question": "A box contains 5 white balls and $x$ black balls. If the probability of picking a white ball is $1/3$, find $x$.",
+        "options": {
+          "A": "5",
+          "B": "10",
+          "C": "15",
+          "D": "20"
+        },
+        "correct_option": "B",
+        "explanation": "$\\frac{5}{5+x} = \\frac{1}{3} \\implies 15 = 5+x \\implies x=10$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_052",
+        "question": "Find the mode of the distribution: $2, 3, 3, 4, 5, 3$.",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "5"
+        },
+        "correct_option": "B",
+        "explanation": "3 appears most frequently",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_053",
+        "question": "Calculate the volume of a cylinder of radius 3cm and height 10cm. (Leave answer in terms of $\\pi$)",
+        "options": {
+          "A": "$30\\pi$",
+          "B": "$60\\pi$",
+          "C": "$90\\pi$",
+          "D": "$120\\pi$"
+        },
+        "correct_option": "C",
+        "explanation": "$V = \\pi r^2 h = \\pi \\times 3^2 \\times 10 = 90\\pi$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_054",
+        "question": "Find the derivative of $y = e^{2x}$.",
+        "options": {
+          "A": "$e^{2x}$",
+          "B": "$2e^{2x}$",
+          "C": "$e^x$",
+          "D": "$1/2 e^{2x}$"
+        },
+        "correct_option": "B",
+        "explanation": "By chain rule",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_055",
+        "question": "If $f(x) = x^2 - 1$, find $f(f(2))$.",
+        "options": {
+          "A": "3",
+          "B": "8",
+          "C": "15",
+          "D": "24"
+        },
+        "correct_option": "B",
+        "explanation": "$f(2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_056",
+        "question": "If $\\sin A = 0.5$ and $A$ is an obtuse angle ($90^\\circ < A < 180^\\circ$), find $A$.",
+        "options": {
+          "A": "$120^\\circ$",
+          "B": "$135^\\circ$",
+          "C": "$150^\\circ$",
+          "D": "$165^\\circ$"
+        },
+        "correct_option": "C",
+        "explanation": "Reference angle $= \\sin^{-1}(0.5",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_057",
+        "question": "Express $\\frac{2}{x-1} - \\frac{1}{x+1}$ as a single fraction.",
+        "options": {
+          "A": "$\\frac{x+3}{x^2-1}$",
+          "B": "$\\frac{x-1}{x^2-1}$",
+          "C": "$\\frac{3x+1}{x^2-1}$",
+          "D": "$\\frac{x+1}{x^2-1}$"
+        },
+        "correct_option": "A",
+        "explanation": "$\\frac{2(x+1",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_058",
+        "question": "In a class of 40 students, 25 offer Mathematics, 20 offer English, and 5 offer neither of the two. How many students offer both subjects?",
+        "options": {
+          "A": "5",
+          "B": "10",
+          "C": "15",
+          "D": "20"
+        },
+        "correct_option": "B",
+        "explanation": "Total = 40. $40 - 5 = 35$ offer subjects. $25 + 20 - x = 35 \\implies 45 - x = 35 \\implies x = 10$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_059",
+        "question": "The sum of the ages of a father and his son is 50. Five years ago, the father was 4 times as old as the son. What is the son's present age?",
+        "options": {
+          "A": "10",
+          "B": "13",
+          "C": "15",
+          "D": "18"
+        },
+        "correct_option": "B",
+        "explanation": "$f + s = 50$, $f - 5 = 4(s - 5",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_060",
+        "question": "Express $0.125$ as a fraction in its lowest terms.",
+        "options": {
+          "A": "$1/4$",
+          "B": "$1/5$",
+          "C": "$1/8$",
+          "D": "$1/16$"
+        },
+        "correct_option": "C",
+        "explanation": "$125/1000 = 1/8$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_061",
+        "question": "Find the mean deviation of the numbers: $2, 4, 6, 8$.",
+        "options": {
+          "A": "1.5",
+          "B": "2.0",
+          "C": "2.5",
+          "D": "3.0"
+        },
+        "correct_option": "B",
+        "explanation": "Mean $= 5$. Deviations: $3, 1, 1, 3$. Sum of deviations $= 8$. Mean deviation $= 8/4 = 2$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_062",
+        "question": "Evaluate $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$.",
+        "options": {
+          "A": "0",
+          "B": "2",
+          "C": "4",
+          "D": "Undefined"
+        },
+        "correct_option": "C",
+        "explanation": "Factorize: $\\frac{(x-2",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_063",
+        "question": "Find the 15th term of the arithmetic sequence: $2, 5, 8, 11, \\dots$",
+        "options": {
+          "A": "41",
+          "B": "44",
+          "C": "47",
+          "D": "50"
+        },
+        "correct_option": "B",
+        "explanation": "$a=2, d=3$. $T_{15} = a + 14d = 2 + 14(3",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_064",
+        "question": "A sector of a circle of radius 14cm contains an angle of $60^\\circ$. Calculate the area of the sector. (Take $\\pi = 22/7$)",
+        "options": {
+          "A": "$25.67 \\text{ cm}^2$",
+          "B": "$51.33 \\text{ cm}^2$",
+          "C": "$102.67 \\text{ cm}^2$",
+          "D": "$154.00 \\text{ cm}^2$"
+        },
+        "correct_option": "C",
+        "explanation": "$\\frac{60}{360} \\times \\frac{22}{7} \\times 14^2 = \\frac{1}{6} \\times 22 \\times 28 \\approx 102.67$",
+        "topic": "UNIPORT Predicted 2026"
+      },
+      {
+        "id": "obj_uniport_math_2026_065",
+        "question": "Evaluate $\\int_{1}^{3} (3x^2 + 2x) \\, dx$.",
+        "options": {
+          "A": "20",
+          "B": "28",
+          "C": "34",
+          "D": "38"
+        },
+        "correct_option": "C",
+        "explanation": "$\\left[x^3 + x^2\\right]_1^3 = (27 + 9",
+        "topic": "UNIPORT Predicted 2026"
+      }
+    ],
+    "theory": []
   }
 ]
