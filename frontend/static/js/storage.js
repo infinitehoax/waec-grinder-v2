@@ -128,8 +128,9 @@ const Storage = {
   updateSubjectData(subject, updateFn) {
     const key = `wg_sub_${subject}`;
     const data = Storage._get(key) || {};
-    updateFn(data);
+    const result = updateFn(data);
     Storage._set(key, data);
+    return result;
   },
 
   /**
@@ -144,14 +145,14 @@ const Storage = {
 
     Storage.updateSubjectData(subject, (data) => {
       // 1. Initialize stats if missing
-      if (!data.stats) data.stats = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+      const s = Storage._ensureStats(data);
 
       // 2. Topic stats
       if (q.topic) {
-        if (!data.stats.topic_stats) data.stats.topic_stats = {};
-        if (!data.stats.topic_stats[q.topic]) data.stats.topic_stats[q.topic] = { correct: 0, total: 0 };
-        data.stats.topic_stats[q.topic].total += 1;
-        if (passed) data.stats.topic_stats[q.topic].correct += 1;
+        if (!s.topic_stats) s.topic_stats = {};
+        if (!s.topic_stats[q.topic]) s.topic_stats[q.topic] = { correct: 0, total: 0 };
+        s.topic_stats[q.topic].total += 1;
+        if (passed) s.topic_stats[q.topic].correct += 1;
       }
 
       const qKey = q._type === 'obj' ? 'failed_obj' : 'failed_theory';
@@ -173,12 +174,12 @@ const Storage = {
         if (!data[qKey]) data[qKey] = [];
         if (!data[qKey].find(x => x.id === q.id)) {
           data[qKey].push(q);
-          data.stats.failed_total = (data.stats.failed_total || 0) + 1;
+          s.failed_total = (s.failed_total || 0) + 1;
         }
       }
 
       // 6. SINGLE SOURCE OF TRUTH: Derive mastered count directly from array lengths
-      data.stats.mastered = (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
+      s.mastered = (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
 
       // 7. Check for subject completion within the same atomic update
       const remaining = (data.unseen_obj?.length || 0) +
@@ -255,7 +256,7 @@ const Storage = {
         if (!d.failed_theory) d.failed_theory = [];
         if (!d.mastered_obj) d.mastered_obj = [];
         if (!d.mastered_theory) d.mastered_theory = [];
-        if (!d.stats) d.stats = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+        Storage._ensureStats(d);
       });
     });
   },
@@ -290,7 +291,9 @@ const Storage = {
       stats.sessions += 1;
 
       Storage._remove(`wg_sub_${subject}`);
-      Storage._setScoped(subject, SUB_KEYS.STATS, stats);
+      Storage.updateSubjectData(subject, (d) => {
+        d[SUB_KEYS.STATS] = stats;
+      });
     });
 
     Storage._remove(KEYS.CURRENT_BATCH);
@@ -349,7 +352,7 @@ const Storage = {
       const data = Storage._getRaw(`wg_sub_${sub}`) || {};
       // Bug Fix: Ensure we return a clone of stats so UI mutations don't pollute the cache.
       // Also derive 'mastered' directly from primary arrays to ensure consistency.
-      const stats = deepClone(data.stats || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} });
+      const stats = deepClone(data[SUB_KEYS.STATS] || { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} });
       stats.mastered = (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
       return stats;
     }
@@ -361,7 +364,7 @@ const Storage = {
     const aggregate = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
     subjects.forEach(s => {
       const data = Storage._getRaw(`wg_sub_${s}`) || {};
-      const stats = data.stats || {};
+      const stats = data[SUB_KEYS.STATS] || {};
       aggregate.mastered += (data.mastered_obj?.length || 0) + (data.mastered_theory?.length || 0);
       aggregate.failed_total += (stats.failed_total || 0);
       aggregate.sessions = Math.max(aggregate.sessions, stats.sessions || 0);
@@ -424,98 +427,122 @@ const Storage = {
   pushFailedObj(q) {
     const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = Storage.getFailedObj(sub);
-    if (!arr.find(x => x.id === q.id)) arr.push(q);
-    Storage._setScoped(sub, SUB_KEYS.FAILED_OBJ, arr);
+    Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.FAILED_OBJ]) data[SUB_KEYS.FAILED_OBJ] = [];
+      if (!data[SUB_KEYS.FAILED_OBJ].find(x => x.id === q.id)) data[SUB_KEYS.FAILED_OBJ].push(q);
+    });
   },
   pushFailedTheory(q) {
     const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = Storage.getFailedTheory(sub);
-    if (!arr.find(x => x.id === q.id)) arr.push(q);
-    Storage._setScoped(sub, SUB_KEYS.FAILED_THEORY, arr);
+    Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.FAILED_THEORY]) data[SUB_KEYS.FAILED_THEORY] = [];
+      if (!data[SUB_KEYS.FAILED_THEORY].find(x => x.id === q.id)) data[SUB_KEYS.FAILED_THEORY].push(q);
+    });
   },
   pushUnseenObj(q) {
     const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = Storage.getUnseenObj(sub);
-    if (!arr.find(x => x.id === q.id)) arr.push(q);
-    Storage._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
+    Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.UNSEEN_OBJ]) data[SUB_KEYS.UNSEEN_OBJ] = [];
+      if (!data[SUB_KEYS.UNSEEN_OBJ].find(x => x.id === q.id)) data[SUB_KEYS.UNSEEN_OBJ].push(q);
+    });
   },
   pushUnseenTheory(q) {
     const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = Storage.getUnseenTheory(sub);
-    if (!arr.find(x => x.id === q.id)) arr.push(q);
-    Storage._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
+    Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.UNSEEN_THEORY]) data[SUB_KEYS.UNSEEN_THEORY] = [];
+      if (!data[SUB_KEYS.UNSEEN_THEORY].find(x => x.id === q.id)) data[SUB_KEYS.UNSEEN_THEORY].push(q);
+    });
   },
   pushMasteredObj(q) {
     const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = Storage.getMasteredObj(sub);
-    if (!arr.find(x => x.id === q.id)) arr.push(q);
-    Storage._setScoped(sub, SUB_KEYS.MASTERED_OBJ, arr);
+    Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.MASTERED_OBJ]) data[SUB_KEYS.MASTERED_OBJ] = [];
+      if (!data[SUB_KEYS.MASTERED_OBJ].find(x => x.id === q.id)) data[SUB_KEYS.MASTERED_OBJ].push(q);
+    });
   },
   pushMasteredTheory(q) {
     const sub = q._subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const arr = Storage.getMasteredTheory(sub);
-    if (!arr.find(x => x.id === q.id)) arr.push(q);
-    Storage._setScoped(sub, SUB_KEYS.MASTERED_THEORY, arr);
+    Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.MASTERED_THEORY]) data[SUB_KEYS.MASTERED_THEORY] = [];
+      if (!data[SUB_KEYS.MASTERED_THEORY].find(x => x.id === q.id)) data[SUB_KEYS.MASTERED_THEORY].push(q);
+    });
   },
   removeFailedObj(id, subject) {
     const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    Storage._setScoped(sub, SUB_KEYS.FAILED_OBJ, Storage.getFailedObj(sub).filter(q => q.id !== id));
+    Storage.updateSubjectData(sub, (data) => {
+      if (data[SUB_KEYS.FAILED_OBJ]) {
+        data[SUB_KEYS.FAILED_OBJ] = data[SUB_KEYS.FAILED_OBJ].filter(q => q.id !== id);
+      }
+    });
   },
   removeFailedTheory(id, subject) {
     const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    Storage._setScoped(sub, SUB_KEYS.FAILED_THEORY, Storage.getFailedTheory(sub).filter(q => q.id !== id));
+    Storage.updateSubjectData(sub, (data) => {
+      if (data[SUB_KEYS.FAILED_THEORY]) {
+        data[SUB_KEYS.FAILED_THEORY] = data[SUB_KEYS.FAILED_THEORY].filter(q => q.id !== id);
+      }
+    });
   },
   shiftUnseenObj(subject) {
     const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return null;
-    const arr = Storage.getUnseenObj(sub);
-    const q = arr.shift();
-    Storage._setScoped(sub, SUB_KEYS.UNSEEN_OBJ, arr);
-    return q;
+    return Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.UNSEEN_OBJ] || data[SUB_KEYS.UNSEEN_OBJ].length === 0) return null;
+      return data[SUB_KEYS.UNSEEN_OBJ].shift();
+    });
   },
   shiftUnseenTheory(subject) {
     const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return null;
-    const arr = Storage.getUnseenTheory(sub);
-    const q = arr.shift();
-    Storage._setScoped(sub, SUB_KEYS.UNSEEN_THEORY, arr);
-    return q;
+    return Storage.updateSubjectData(sub, (data) => {
+      if (!data[SUB_KEYS.UNSEEN_THEORY] || data[SUB_KEYS.UNSEEN_THEORY].length === 0) return null;
+      return data[SUB_KEYS.UNSEEN_THEORY].shift();
+    });
   },
 
   // ---- Stats updaters ----
+  _ensureStats(data) {
+    if (!data[SUB_KEYS.STATS]) {
+      data[SUB_KEYS.STATS] = { mastered: 0, failed_total: 0, sessions: 0, topic_stats: {} };
+    }
+    return data[SUB_KEYS.STATS];
+  },
+
   incrementMastered(count = 1, subject) {
     const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const s = Storage.getStats(sub);
-    s.mastered += count;
-    Storage._setScoped(sub, SUB_KEYS.STATS, s);
+    Storage.updateSubjectData(sub, (data) => {
+      const s = Storage._ensureStats(data);
+      s.mastered += count;
+    });
   },
   incrementFailed(count = 1, subject) {
     const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const s = Storage.getStats(sub);
-    s.failed_total += count;
-    Storage._setScoped(sub, SUB_KEYS.STATS, s);
+    Storage.updateSubjectData(sub, (data) => {
+      const s = Storage._ensureStats(data);
+      s.failed_total += count;
+    });
   },
 
   updateTopicStats(topic, passed, subject) {
     if (!topic) return;
     const sub = subject || (Array.isArray(Storage.getSubject()) ? null : Storage.getSubject());
     if (!sub) return;
-    const s = Storage.getStats(sub);
-    if (!s.topic_stats) s.topic_stats = {};
-    if (!s.topic_stats[topic]) s.topic_stats[topic] = { correct: 0, total: 0 };
-    s.topic_stats[topic].total += 1;
-    if (passed) s.topic_stats[topic].correct += 1;
-    Storage._setScoped(sub, SUB_KEYS.STATS, s);
+    Storage.updateSubjectData(sub, (data) => {
+      const s = Storage._ensureStats(data);
+      if (!s.topic_stats) s.topic_stats = {};
+      if (!s.topic_stats[topic]) s.topic_stats[topic] = { correct: 0, total: 0 };
+      s.topic_stats[topic].total += 1;
+      if (passed) s.topic_stats[topic].correct += 1;
+    });
   },
 
 
@@ -757,7 +784,7 @@ const Storage = {
     const subjects = this._getRaw(KEYS.SUBJECTS_STARTED) || [];
     subjects.forEach(subject => {
       const subData = this._getRaw(`wg_sub_${subject}`);
-      if (subData && subData.stats && subData.stats.mastered > 0) {
+      if (subData && subData[SUB_KEYS.STATS] && subData[SUB_KEYS.STATS].mastered > 0) {
         count++;
       }
     });
