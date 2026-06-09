@@ -58,7 +58,10 @@
       <div class="modal__body" id="modal-explanation-body">
         <!-- Content injected by JS -->
       </div>
-      <div class="modal__footer">
+      <div class="modal__footer" style="gap: 12px;">
+        <button class="btn btn--secondary" onclick="UI.copyExplanationToNotes()" aria-label="Copy explanation to clipboard (C)">
+          Copy to Notes <kbd class="kbd-hint" aria-hidden="true">C</kbd>
+        </button>
         <button class="btn btn--primary" onclick="UI.closeExplanationModal()">Got it, thanks!</button>
       </div>
     </div>

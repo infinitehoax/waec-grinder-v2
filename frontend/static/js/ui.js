@@ -1335,6 +1335,7 @@ const UI = {
     if (!modal || !body) return;
 
     this._lastActiveElement = document.activeElement;
+    this._currentExplanationMarkdown = markdown;
 
     // Use formatText to handle markdown and latex
     body.innerHTML = formatText(markdown);
@@ -1386,11 +1387,24 @@ const UI = {
     if (modal) {
       modal.classList.remove('visible');
       document.body.style.overflow = '';
+      this._currentExplanationMarkdown = null;
 
       if (this._lastActiveElement) {
         this._lastActiveElement.focus();
         this._lastActiveElement = null;
       }
+    }
+  },
+
+  async copyExplanationToNotes() {
+    if (!this._currentExplanationMarkdown) return;
+
+    try {
+      await navigator.clipboard.writeText(this._currentExplanationMarkdown);
+      showToast('Explanation copied to clipboard!', 'success');
+    } catch (err) {
+      showToast('Failed to copy explanation.', 'error');
+      console.error('Clipboard error:', err);
     }
   },
 
@@ -1531,8 +1545,14 @@ window.addEventListener('keydown', (e) => {
     return;
   }
 
-  // If modal is open, let it handle its own keys (like focus trap)
-  if (isModalVisible) return;
+  // Handle modal-specific shortcuts
+  if (isModalVisible) {
+    if (e.key.toLowerCase() === 'c' && !e.ctrlKey && !e.metaKey) {
+      UI.copyExplanationToNotes();
+      return;
+    }
+    return; // Let modal handle other keys like Tab focus trap
+  }
 
   // Ctrl+Enter or Cmd+Enter to submit theory (works even inside textarea)
   if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {

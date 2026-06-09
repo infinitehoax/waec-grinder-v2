@@ -74,3 +74,7 @@
 ## 2026-06-12 - [Dynamic Visual Feedback & Sequential Reveals]
 **Learning:** In report cards, static data can be overwhelming. Combining staggered `animation-delay` for high-level stats with conditional color-coding (Green for 100%, Red for failing) and visual rewards (like a "PERFECT" badge) provides immediate cognitive feedback and positive reinforcement.
 **Action:** Use sequential reveals for summary metrics. Implement color-coded performance thresholds and mastery badges to highlight achievements at a glance.
+
+## 2026-06-16 - [Accessible Keyboard Shortcuts & Clipboard UX]
+**Learning:** When adding keyboard shortcuts for specific UI components (like modals), it's crucial to check for the absence of modifier keys (Ctrl/Cmd) to avoid hijacking standard browser shortcuts (like Ctrl+C for selection). Additionally, for interactive elements with keyboard shortcuts, providing a descriptive 'aria-label' that includes the shortcut key and hiding the visual hint from screen readers via 'aria-hidden="true"' ensures a clear and non-redundant experience for assistive technology users.
+**Action:** Use 'if (e.key.toLowerCase() === "c" && !e.ctrlKey && !e.metaKey)' for single-key shortcuts. Apply 'aria-label="Action description (Key)"' to buttons and '<kbd aria-hidden="true">' for visual hints.
