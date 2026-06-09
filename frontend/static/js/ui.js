@@ -295,6 +295,7 @@ const UI = {
   currentIdx: 0,
   _gradingActive: false,
   _timerInterval: null,
+  _theorySaveTimeout: null,
 
   init(batch) {
     this.batch = batch.map(q => ({
@@ -336,7 +337,21 @@ const UI = {
     const q = this.batch[this.currentIdx];
     if (!q._answers) q._answers = {};
     q._answers[subId] = el.value;
-    Storage.saveBatch(this.batch);
+
+    // Debounce LocalStorage persistence to reduce I/O overhead on every keystroke
+    if (this._theorySaveTimeout) clearTimeout(this._theorySaveTimeout);
+    this._theorySaveTimeout = setTimeout(() => {
+      Storage.saveBatch(this.batch);
+      this._theorySaveTimeout = null;
+    }, 1000);
+  },
+
+  _flushTheorySave() {
+    if (this._theorySaveTimeout) {
+      clearTimeout(this._theorySaveTimeout);
+      Storage.saveBatch(this.batch);
+      this._theorySaveTimeout = null;
+    }
   },
 
   renderCurrent() {
@@ -439,6 +454,7 @@ const UI = {
 
   jumpToQuestion(idx) {
     if (idx < 0 || idx >= this.batch.length) return;
+    this._flushTheorySave(); // Ensure drafts are saved before navigation
     this.currentIdx = idx;
     Storage.saveIdx(idx);
     this.renderCurrent();
@@ -571,6 +587,7 @@ const UI = {
   async submitTheory() {
     if (this._gradingActive) return;
     this._gradingActive = true;
+    this._flushTheorySave();
 
     const q = this.batch[this.currentIdx];
     const answers = {};
@@ -747,6 +764,7 @@ const UI = {
   },
 
   skipQuestion() {
+    this._flushTheorySave();
     this.resumeTimer();
     showToast('Question skipped', 'info');
     const q = this.batch[this.currentIdx];
@@ -783,6 +801,7 @@ const UI = {
   },
 
   nextQuestion() {
+    this._flushTheorySave();
     this.resumeTimer();
     this.currentIdx++;
     Storage.saveIdx(this.currentIdx);
@@ -793,6 +812,8 @@ const UI = {
   },
 
   async showBatchComplete(timedOut = false) {
+    this._flushTheorySave();
+
     // Auto-save current question if in CBT mode and not already answered
     if (Storage.isCbtMode() && this.batch[this.currentIdx]) {
       const q = this.batch[this.currentIdx];
