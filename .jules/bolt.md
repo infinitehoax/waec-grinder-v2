@@ -60,3 +60,7 @@
 - **Data Scaling:** Adding 100+ questions in a single JSON commit is efficient for this project's flat-file database approach.
 - **Verification:** Using Playwright to capture screenshots of the dashboard is a reliable way to verify data injection without manual browser interaction.
 - **Testing:** Core logic tests (`run_all_tests.py`) should always be run after data changes to ensure no JSON parsing errors occur at runtime.
+
+## 2026-06-05 - [Debounced UI Persistence]
+**Learning:** High-frequency events like `oninput` in textareas can trigger excessive Disk I/O if they call synchronous `localStorage.setItem` directly. This leads to noticeable input lag and UI jank.
+**Action:** Always debounce state persistence (e.g., 1s delay) for free-text inputs. Implement a mandatory "flush" mechanism in all navigation and submission paths to ensure pending drafts are saved before state changes.
