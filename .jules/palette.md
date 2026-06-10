@@ -33,7 +33,7 @@
 **Learning:** For a study application, keyboard shortcuts like 'S' for skip or 'Ctrl+Enter' for submission are critical for a "flow state." However, they must be guarded against visibility and input focus to prevent accidental triggers.
 **Action:** Implement global listeners that check `window.getComputedStyle(btn).display !== 'none'` and avoid triggering when the user is already focused on an input or textarea (unless specifically intended, like Ctrl+Enter).
 
-## 2026-05-26 - Improving Shortcut Discoverability & Selection States
+## 2026-06-26 - Improving Shortcut Discoverability & Selection States
 **Learning:** Keyboard shortcuts ('S' for skip, 'Enter' for next, 'Ctrl+Enter' for theory) are powerful but invisible. Users often miss them unless they read documentation. Additionally, toggle buttons (like batch size or timed session) in Vanilla JS environments often lack proper ARIA communication for their "pressed" state, making them inaccessible to screen readers.
 **Action:** Always include subtle <kbd> hints in the UI for keyboard-driven actions (hiding them on mobile). Use 'aria-pressed' and 'aria-label' on toggle buttons and ensure the JS handlers update these attributes during DOM manipulation to maintain accessibility.
 
@@ -78,3 +78,7 @@
 ## 2026-06-20 - [Scoped Modal Keyboard Shortcuts]
 **Learning:** When using global keyboard listeners in a Vanilla JS app, modal-specific shortcuts (like 'C' for copy) must be guarded by checking the modal's visibility. This prevents "shortcut bleeding" where keys intended for the modal trigger background actions like navigation or answering questions.
 **Action:** Always check 'isModalVisible' at the top of the global 'keydown' listener and early-return after handling modal-specific keys to ensure focus and action integrity.
+
+## 2026-06-21 - [Tactile Visual Feedback & Reduced Motion Accessibility]
+**Learning:** Micro-interactions like 'shake' for errors or 'pulse' for success provide immediate tactile feedback that improves the UX of objective questions. However, these animations can be disorienting for users with vestibular sensitivities.
+**Action:** Use 'prefers-reduced-motion: reduce' media queries to disable non-essential animations. Always use theme CSS variables for animation colors (e.g., '--pass-border') to maintain consistency.
