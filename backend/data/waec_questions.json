@@ -2041,7 +2041,8 @@
         "correct_option": "D",
         "explanation": "The final inference states `Starch is present`, verifying the specimen composition listed at the top."
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "Agricultural Science",
@@ -3346,7 +3347,8 @@
         "correct_option": "C",
         "explanation": "Bush clearing destroys the shady breeding and resting habitats of the tsetse fly."
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "Friday Social Riddles",
@@ -4001,7 +4003,8 @@
         "correct_option": "B",
         "explanation": "Popcorn kernels pop loudly when heating, expanding greatly in volume (larger) while losing moisture weight during the process."
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "Physics",
@@ -6059,7 +6062,8 @@
         "correct_option": "B",
         "explanation": "E.g., TT or tt. Heterozygous means having different alleles, e.g., Tt."
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "UNIPORT Post-UTME Biology Mock v2 (actual questions)",
@@ -7307,7 +7311,8 @@
         "correct_option": "C",
         "explanation": "Produced by the pancreas, insulin lowers blood sugar levels."
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "UNIPORT English Language Post-UTME v1",
@@ -8612,7 +8617,8 @@
         "correct_option": "A",
         "explanation": "The question contradicts \"WHO\" with \"that\". All other details must remain exactly the same."
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "UNIPORT Post-UTME English v2 (actual questions)",
@@ -9994,7 +10000,8 @@
         "correct_option": "B",
         "explanation": "The phrase \"at the gate\" modifies the noun \"girl\" (telling us *which* girl), so it functions as an adjectival phrase."
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "Uche hard quiz",
@@ -11630,7 +11637,8 @@
         "explanation": "Iron rust is essentially Iron (III) oxide ($Fe_2O_3$), which is a basic oxide. The reaction between an acid ($H_2SO_4$) and a base (rust) is a Neutralization reaction, yielding salt and water.",
         "topic": "General"
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "WAEC Biology Practical 2026",
@@ -21385,7 +21393,8 @@
         "explanation": "",
         "topic": "Biology Practical"
       }
-    ]
+    ],
+    "theory": []
   },
   {
     "subject": "UNIPORT English Friday mock",
@@ -22755,6 +22764,11 @@
         },
         "correct_option": "B",
         "explanation": "The correct answer is B."
+      }
+    ],
+    "theory": []
+  },
+  {
     "subject": "UNIPORT Physics Friday mock",
     "obj": [
       {
@@ -23601,6 +23615,11 @@
         "correct_option": "B",
         "explanation": " 16 days / 4 days = 4 half-lives. 800 / (2\u2074) = 800 / 16 = 50 counts/min ",
         "topic": "Modern Physics"
+      }
+    ],
+    "theory": []
+  },
+  {
     "subject": "UNIPORT Chem Friday mock",
     "obj": [
       {
