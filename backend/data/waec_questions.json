@@ -22755,6 +22755,1694 @@
         },
         "correct_option": "B",
         "explanation": "The correct answer is B."
+    "subject": "UNIPORT Physics Friday mock",
+    "obj": [
+      {
+        "id": "obj_001",
+        "question": "A car traveling at a constant speed of 20 $m/s$ overcomes a frictional resistance of 300N. What is the horsepower of the engine? (1 HP = 750W)",
+        "options": {
+          "A": "5 HP",
+          "B": "7 HP",
+          "C": "8 HP",
+          "D": "10 HP"
+        },
+        "correct_option": "C",
+        "explanation": " Power = F \u00d7 V = 300 \u00d7 20 = 6000W. (6000 / 750) = 8 HP ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_002",
+        "question": "A body of mass 60g appears to have a mass of 39g when totally immersed in oil and 36g when totally immersed in water. Calculate the relative density of the oil.",
+        "options": {
+          "A": "7/8",
+          "B": "13/12",
+          "C": "12/13",
+          "D": "13/20"
+        },
+        "correct_option": "A",
+        "explanation": " R.D = (Mass in air - Mass in oil) / (Mass in air - Mass in water) = (60-39)/(60-36) = 21/24 = 7/8 ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_003",
+        "question": "When the size of the hole of a pin-hole camera is increased, the result is:",
+        "options": {
+          "A": "A sharper focus of the image",
+          "B": "A magnified image",
+          "C": "Correction for chromatic aberration",
+          "D": "A blurred image"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "Optics"
+      },
+      {
+        "id": "obj_004",
+        "question": "On dispersing white light with a spectrometer, the component with the shortest wavelength is:",
+        "options": {
+          "A": "Red",
+          "B": "Yellow",
+          "C": "Green",
+          "D": "Violet"
+        },
+        "correct_option": "D",
+        "explanation": " Violet bends the most because it has the shortest wavelength ",
+        "topic": "Optics"
+      },
+      {
+        "id": "obj_005",
+        "question": "Which of the following is a vector quantity?",
+        "options": {
+          "A": "Electric charge",
+          "B": "Electric field",
+          "C": "Electric potential difference",
+          "D": "Electric capacitance"
+        },
+        "correct_option": "B",
+        "explanation": " Electric Field is a vector ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_006",
+        "question": "Surface tension is responsible for which of the following phenomena?",
+        "options": {
+          "A": "The floating of a ship in water",
+          "B": "The diffusion of a sugar solution across a membrane",
+          "C": "The floating of a dry needle in water",
+          "D": "The floating of a balloon in air"
+        },
+        "correct_option": "C",
+        "explanation": "",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_007",
+        "question": "Thermionic emission is the process by which:",
+        "options": {
+          "A": "X-rays are produced",
+          "B": "Electrons leave a hot element",
+          "C": "Alpha rays are produced",
+          "D": "Electrons are transferred to a hot element"
+        },
+        "correct_option": "B",
+        "explanation": "",
+        "topic": "Modern Physics"
+      },
+      {
+        "id": "obj_008",
+        "question": "Most of the gas in a discharge tube is pumped out so that electricity is conducted at:",
+        "options": {
+          "A": "High pressure",
+          "B": "Low voltage",
+          "C": "Steady voltage",
+          "D": "Low pressure"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_009",
+        "question": "The ground is cold at night because:",
+        "options": {
+          "A": "The sun no longer shines",
+          "B": "The atmosphere reflects the sun's energy at night",
+          "C": "Earth radiates heat to the atmosphere at night",
+          "D": "The atmosphere absorbs the sun's energy at night"
+        },
+        "correct_option": "C",
+        "explanation": "",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_010",
+        "question": "If the refractive index of a medium in air is 2.0, what is the critical angle for this medium?",
+        "options": {
+          "A": "30\u00b0",
+          "B": "42\u00b0",
+          "C": "45\u00b0",
+          "D": "50\u00b0"
+        },
+        "correct_option": "A",
+        "explanation": " Sin C = 1/n = 1/2. C = arcsin(0.5) = 30\u00b0 ",
+        "topic": "Optics"
+      },
+      {
+        "id": "obj_011",
+        "question": "A ball is thrown vertically upwards from the ground with an initial velocity of 50$m/s$. What is the total time spent by the ball in the air? (g = 10$m/s^2$)",
+        "options": {
+          "A": "2.5s",
+          "B": "5.0s",
+          "C": "10.0s",
+          "D": "15.0s"
+        },
+        "correct_option": "C",
+        "explanation": " t = 2U/g = (2 \u00d7 50) / 10 = 10s ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_012",
+        "question": "Two resistors $R_1$ and $R_2$ are connected in parallel, $R_2$ being greater than $R_1$. The combined resistance is:",
+        "options": {
+          "A": "Less than $R_1$",
+          "B": "Greater than $R_2$",
+          "C": "The sum of $R_1$ and $R_2$",
+          "D": "Greater than $R_1$ but less than $R_2$"
+        },
+        "correct_option": "A",
+        "explanation": " The equivalent resistance of resistors in parallel is always less than the smallest resistor ",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_013",
+        "question": "Two capacitors of 6$\\mu F$ and 8$\\mu F$ are connected in series. What additional capacitance must be connected in series with this combination to give a total equivalent capacitance of 3$\\mu F$?",
+        "options": {
+          "A": "14$\\mu F$",
+          "B": "16$\\mu F$",
+          "C": "24$\\mu F$",
+          "D": "30$\\mu F$"
+        },
+        "correct_option": "C",
+        "explanation": " 1/C_eq = 1/6 + 1/8 + 1/x = 1/3. 1/x = 1/3 - 7/24 = 1/24. x = 24$\\mu F$ ",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_014",
+        "question": "A wave of frequency 75Hz forms a stationary pattern in a medium where the distance between adjacent nodes is 2.0cm. What is the velocity of the wave?",
+        "options": {
+          "A": "3 $m/s$",
+          "B": "30 $m/s$",
+          "C": "150 $m/s$",
+          "D": "300 $m/s$"
+        },
+        "correct_option": "A",
+        "explanation": " Distance between adjacent nodes = $\\lambda$/2 = 0.02m. $\\lambda$ = 0.04m. V = f$\\lambda$ = 75 \u00d7 0.04 = 3 $m/s$ ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_015",
+        "question": "A boy, on looking into a mirror, discovers that his face appeared to have grown bigger. The boy must have been looking at a:",
+        "options": {
+          "A": "Convex mirror with his face at the focus",
+          "B": "Concave mirror with his face between the focus and the mirror",
+          "C": "Convex mirror with his face between the focus and the mirror",
+          "D": "Concave mirror with his face at the center of curvature"
+        },
+        "correct_option": "B",
+        "explanation": " A concave mirror gives a magnified, upright, virtual image when the object is placed between the pole and focus ",
+        "topic": "Optics"
+      },
+      {
+        "id": "obj_016",
+        "question": "An electric device is rated 2000W, 250V. The correct fuse rating of the device is:",
+        "options": {
+          "A": "6A",
+          "B": "7A",
+          "C": "8A",
+          "D": "9A"
+        },
+        "correct_option": "C",
+        "explanation": " I = P/V = 2000/250 = 8A ",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_017",
+        "question": "The half-life of a radioactive element is 9 days. Calculate the fraction that remains after 36 days.",
+        "options": {
+          "A": "1/4",
+          "B": "1/8",
+          "C": "1/16",
+          "D": "1/32"
+        },
+        "correct_option": "C",
+        "explanation": " 36/9 = 4 half-lives. Fraction remaining = (1/2)\u2074 = 1/16 ",
+        "topic": "Modern Physics"
+      },
+      {
+        "id": "obj_018",
+        "question": "The graphite rods surrounding the uranium fuel rods in a nuclear reactor are used to:",
+        "options": {
+          "A": "Absorb the neutrons and hence halt the nuclear process",
+          "B": "Create the neutrons and hence slow down the nuclear process",
+          "C": "Speed up the neutrons and hence speed up the nuclear process",
+          "D": "Slow down the neutrons to sustain the nuclear process"
+        },
+        "correct_option": "D",
+        "explanation": " Graphite acts as a moderator to slow down fast-moving neutrons ",
+        "topic": "Modern Physics"
+      },
+      {
+        "id": "obj_019",
+        "question": "A hydrometer is an instrument used for measuring:",
+        "options": {
+          "A": "The depth of water in a vessel",
+          "B": "Relative density of a liquid by method of flotation",
+          "C": "Relative density of a liquid by finding the apparent loss in weight",
+          "D": "Relative humidity of the atmosphere"
+        },
+        "correct_option": "B",
+        "explanation": "",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_020",
+        "question": "A bead traveling on a straight horizontal wire is brought to rest at 0.2m by friction. If the mass of the bead is 0.01kg and the coefficient of friction is 0.1, determine the work done by friction. (g = 10$m/s^2$)",
+        "options": {
+          "A": "$2 \\times 10^{-4}$ J",
+          "B": "$2 \\times 10^{-3}$ J",
+          "C": "$2 \\times 10^{1}$ J",
+          "D": "$2 \\times 10^{2}$ J"
+        },
+        "correct_option": "B",
+        "explanation": " Work done = Frictional force \u00d7 distance = (\u03bcmg) \u00d7 d = 0.1 \u00d7 0.01 \u00d7 10 \u00d7 0.2 = 0.002 J = $2 \\times 10^{-3}$ J ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_021",
+        "question": "A machine whose efficiency is 60% has a velocity ratio of 5. If a force of 500N is applied to lift a load P, what is the magnitude of P?",
+        "options": {
+          "A": "500N",
+          "B": "750N",
+          "C": "1500N",
+          "D": "4166N"
+        },
+        "correct_option": "C",
+        "explanation": " Efficiency = (MA/VR) \u00d7 100%. 0.6 = MA/5. MA = 3. MA = Load/Effort, Load = 3 \u00d7 500 = 1500N ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_022",
+        "question": "A mass of gas at 7$^\\circ C$ and 70cm of mercury has a volume of 1200$cm^3$. Determine its volume at 27$^\\circ C$ and a pressure of 75cm of mercury.",
+        "options": {
+          "A": "1200 $cm^3$",
+          "B": "1378 $cm^3$",
+          "C": "4320 $cm^3$",
+          "D": "4629 $cm^3$"
+        },
+        "correct_option": "A",
+        "explanation": " P1V1/T1 = P2V2/T2. (70 \u00d7 1200)/280 = (75 \u00d7 $V_2$)/300. $V_2$ = 1200 $cm^3$ ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_023",
+        "question": "A motor tyre is inflated to a pressure of $2.0 \\times 10^{5}$ N/m\u00b2 when the temperature of the air is 27$^\\circ C$. What will be the pressure at 87$^\\circ C$ assuming the volume does not change?",
+        "options": {
+          "A": "$1.3 \\times 10^{5}$ N/m\u00b2",
+          "B": "$2.2 \\times 10^{5}$ N/m\u00b2",
+          "C": "$2.4 \\times 10^{5}$ N/m\u00b2",
+          "D": "$2.6 \\times 10^{5}$ N/m\u00b2"
+        },
+        "correct_option": "C",
+        "explanation": " $P_1$/T1 = $P_2$/T2. $2.0 \\times 10^{5}$ / 300 = $P_2$ / 360. $P_2$ = $2.4 \\times 10^{5}$ N/m\u00b2 ",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_024",
+        "question": "The wavelength of a signal from a radio transmitter is 1500m and the frequency is 200kHz. What is the velocity of the propagation?",
+        "options": {
+          "A": "$3 \\times 10^{4}$ $m/s$",
+          "B": "$3 \\times 10^{8}$ $m/s$",
+          "C": "$7 \\times 10^{3}$ $m/s$",
+          "D": "7 $m/s$"
+        },
+        "correct_option": "B",
+        "explanation": " V = f$\\lambda$ = 200,000 \u00d7 1500 = $3 \\times 10^{8}$ $m/s$ ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_025",
+        "question": "A weight of 1000g hangs from a lever 20cm to the right of the fulcrum. At the left is a 500g weight 20cm from the fulcrum, and a 200g weight at x cm from the fulcrum. What is the value of x that will make the lever balanced?",
+        "options": {
+          "A": "10cm",
+          "B": "20cm",
+          "C": "50cm",
+          "D": "70cm"
+        },
+        "correct_option": "C",
+        "explanation": " Clockwise Moment = Anticlockwise Moment. 1000 \u00d7 20 = (500 \u00d7 20) + (200 \u00d7 X). 20000 = 10000 + 200X. X = 50cm ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_026",
+        "question": "What is the relative permittivity of a capacitor if its capacitance with a medium as dielectric is 16 Farads and its capacitance with a vacuum as dielectric is 2 Farads?",
+        "options": {
+          "A": "2",
+          "B": "8",
+          "C": "14",
+          "D": "32"
+        },
+        "correct_option": "B",
+        "explanation": " Relative permittivity (Er) = C_medium / C_vacuum = 16 / 2 = 8 ",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_027",
+        "question": "If the magnification of a virtual image formed of an object 10cm from a convex lens is 3, then the focal length of the lens is:",
+        "options": {
+          "A": "10cm",
+          "B": "15cm",
+          "C": "16cm",
+          "D": "20cm"
+        },
+        "correct_option": "B",
+        "explanation": " Virtual magnification m = 3, so v = -30. 1/f = 1/u + 1/v = 1/10 - 1/30 = 2/30. f = 15cm ",
+        "topic": "Optics"
+      },
+      {
+        "id": "obj_028",
+        "question": "If a water pump at Kainji Dam is capable of lifting 1000kg of water through a vertical height of 10m in 10s, the power of the pump is: (g = 10$m/s^2$)",
+        "options": {
+          "A": "1.0 kW",
+          "B": "10.0 kW",
+          "C": "12.5 kW",
+          "D": "15.0 kW"
+        },
+        "correct_option": "B",
+        "explanation": " Power = mgh/t = (1000 \u00d7 10 \u00d7 10)/10 = 10,000 W = 10 kW ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_029",
+        "question": "A simple pendulum with a period of 2.0s has its length doubled. Its new period is:",
+        "options": {
+          "A": "1.00s",
+          "B": "1.41s",
+          "C": "2.83s",
+          "D": "4.00s"
+        },
+        "correct_option": "C",
+        "explanation": " T \u221d \u221aL. If length doubles, new period = 2.0 \u00d7 \u221a2 = 2.83s ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_030",
+        "question": "In order to find the depth of the sea, a ship sends out a sound wave and receives an echo after one second. If the velocity of sound in water is 1500$m/s$, what is the depth of the sea?",
+        "options": {
+          "A": "0.75 km",
+          "B": "1.50 km",
+          "C": "2.20 km",
+          "D": "3.00 km"
+        },
+        "correct_option": "A",
+        "explanation": " Depth = (v \u00d7 t) / 2 = (1500 \u00d7 1) / 2 = 750m = 0.75 km ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_031",
+        "question": "A uniform cylindrical block of wood floats in water with one-third of its height above the water level. In a liquid of relative density 0.8, what fraction of its height will be above the liquid level?",
+        "options": {
+          "A": "1/6",
+          "B": "1/5",
+          "C": "1/3",
+          "D": "5/6"
+        },
+        "correct_option": "A",
+        "explanation": " Relative density of wood = 2/3. Fraction submerged in liquid = 0.666/0.8 = 5/6. Fraction above = 1 - 5/6 = 1/6 ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_032",
+        "question": "The resistances of a platinum wire at the ice and steam points are 0.75$\\Omega$ and 1.05$\\Omega$ respectively. Determine the temperature at which the resistance of the wire is 0.90$\\Omega$.",
+        "options": {
+          "A": "43.0$^\\circ C$",
+          "B": "50.0$^\\circ C$",
+          "C": "69.9$^\\circ C$",
+          "D": "87.0$^\\circ C$"
+        },
+        "correct_option": "B",
+        "explanation": " $\\theta$ = (R$\\theta$ - $R_0$)/($R_100$ - $R_0$) \u00d7 100 = (0.90 - 0.75)/(1.05 - 0.75) \u00d7 100 = 50$^\\circ C$ ",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_033",
+        "question": "The electrochemical equivalent of platinum is $5.0 \\times 10^{-7}$ kg/C. To plate out 1.0kg of platinum, a current of 100A must be passed through an appropriate vessel for:",
+        "options": {
+          "A": "5.6 hours",
+          "B": "14 hours",
+          "C": "56 hours",
+          "D": "200 hours"
+        },
+        "correct_option": "A",
+        "explanation": " m = ZIt. 1 = $5.0 \\times 10^{-7}$ \u00d7 100 \u00d7 t. t = 20,000s = 5.55 hrs \u2248 5.6 hours ",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_034",
+        "question": "The distance traveled by a particle starting from rest is plotted against the square of the time elapsed from the commencement of motion. The resulting graph is linear. The slope of this graph is a measure of:",
+        "options": {
+          "A": "Initial displacement",
+          "B": "Initial velocity",
+          "C": "Half the acceleration",
+          "D": "Acceleration"
+        },
+        "correct_option": "C",
+        "explanation": " From S = ut + \u00bdat\u00b2, if u=0, S = \u00bdat\u00b2. Slope of S vs t\u00b2 graph = \u00bda ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_035",
+        "question": "A small needle is carefully floated on water in a beaker. When a few drops of kerosene are introduced into the water, the needle sinks. Which of the following statements correctly explains the observation?",
+        "options": {
+          "A": "There is tension on the water surface",
+          "B": "Kerosene reduces the density of water",
+          "C": "Kerosene reduces the surface tension of water",
+          "D": "Kerosene increases the upthrust"
+        },
+        "correct_option": "C",
+        "explanation": "",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_036",
+        "question": "Which of the following is a correct explanation of the inertia of a body?",
+        "options": {
+          "A": "Ability to overcome the earth's gravity",
+          "B": "Reluctance to stop moving only",
+          "C": "Readiness to start moving",
+          "D": "Reluctance to start moving and its reluctance to stop moving once it has begun to move"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_037",
+        "question": "Two masses 40g and 60g are attached firmly to the ends of a light metre rule. The center of gravity of the system is:",
+        "options": {
+          "A": "At the midpoint of the meter rule",
+          "B": "40cm from the lighter mass",
+          "C": "60cm from the heavier mass",
+          "D": "40cm from the heavier mass"
+        },
+        "correct_option": "D",
+        "explanation": " Taking moments about 60g mass: 100x = 40 \u00d7 100. x = 40cm from the heavier mass ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_038",
+        "question": "The mode of heat transfer which does not require a material medium is:",
+        "options": {
+          "A": "Conduction",
+          "B": "Radiation",
+          "C": "Convection",
+          "D": "Propagation"
+        },
+        "correct_option": "B",
+        "explanation": "",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_039",
+        "question": "When two objects P and Q are supplied with the same quantity of heat, the temperature change in P is observed to be twice that of Q. If the mass of P is half of Q, the ratio of the specific heat capacity of P to that of Q is:",
+        "options": {
+          "A": "1:4",
+          "B": "1:1",
+          "C": "2:1",
+          "D": "4:1"
+        },
+        "correct_option": "B",
+        "explanation": " Q = mc\u0394$\\theta$. Since heat is equal: mP cP \u0394$\\theta$P = mQ cQ \u0394$\\theta$Q. (mQ/2) cP (2\u0394$\\theta$Q) = mQ cQ \u0394$\\theta$Q. cP = cQ. Ratio is 1:1 ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_040",
+        "question": "The wavelength of the first overtone of a note in a closed pipe of length 33cm is:",
+        "options": {
+          "A": "17 cm",
+          "B": "22 cm",
+          "C": "33 cm",
+          "D": "44 cm"
+        },
+        "correct_option": "D",
+        "explanation": " 1st overtone in a closed pipe is the 3rd harmonic. L = 3$\\lambda$/4. $\\lambda$ = 4L/3 = (4 \u00d7 33)/3 = 44cm ",
+        "topic": "Optics"
+      },
+      {
+        "id": "obj_041",
+        "question": "The correct unit of energy density is:",
+        "options": {
+          "A": "kg m\u207b\u00b3 s\u207b\u00b2",
+          "B": "kg m\u207b\u00b9 s\u207b\u00b2",
+          "C": "kg m s\u207b\u00b2",
+          "D": "kg m\u00b2 s\u207b\u00b2"
+        },
+        "correct_option": "B",
+        "explanation": " Energy Density = Joules/m\u00b3 = (kg m\u00b2 s\u207b\u00b2) / m\u00b3 = kg m\u207b\u00b9 s\u207b\u00b2 ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_042",
+        "question": "The motion of smoke particles from a chimney is typical of:",
+        "options": {
+          "A": "Oscillatory motion",
+          "B": "Rotational motion",
+          "C": "Circular motion",
+          "D": "Random motion"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_043",
+        "question": "One of the properties of gamma rays is that they are:",
+        "options": {
+          "A": "Negatively charged",
+          "B": "Positively charged",
+          "C": "Massive",
+          "D": "Neutral (uncharged)"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "Modern Physics"
+      },
+      {
+        "id": "obj_044",
+        "question": "The process whereby a liquid turns spontaneously into vapor at temperatures below its boiling point is called:",
+        "options": {
+          "A": "Evaporation",
+          "B": "Regelation",
+          "C": "Boiling",
+          "D": "Sublimation"
+        },
+        "correct_option": "A",
+        "explanation": "",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_045",
+        "question": "The velocity of sound in air will be doubled if its absolute temperature is:",
+        "options": {
+          "A": "Halved",
+          "B": "Doubled",
+          "C": "Tripled",
+          "D": "Quadrupled"
+        },
+        "correct_option": "D",
+        "explanation": " Velocity \u221d \u221aT. To double velocity, absolute temp T must be quadrupled ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_046",
+        "question": "A thin converging lens has a power of 4.0 diopters. Determine its focal length.",
+        "options": {
+          "A": "0.03 m",
+          "B": "0.25 m",
+          "C": "2.50 m",
+          "D": "5.00 m"
+        },
+        "correct_option": "B",
+        "explanation": " f = 1/P = 1/4 = 0.25m ",
+        "topic": "Optics"
+      },
+      {
+        "id": "obj_047",
+        "question": "Satellite communication networks make use of:",
+        "options": {
+          "A": "Infrared rays",
+          "B": "Sound waves",
+          "C": "Visible light",
+          "D": "Radio waves (Microwaves)"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_048",
+        "question": "If two inductors of inductances 3H and 6H are arranged in series, the total inductance is:",
+        "options": {
+          "A": "0.5 H",
+          "B": "2.0 H",
+          "C": "9.0 H",
+          "D": "18.0 H"
+        },
+        "correct_option": "C",
+        "explanation": " L = L1 + L2 = 3 + 6 = 9H ",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_049",
+        "question": "The current in a reverse-biased PN junction is largely due to:",
+        "options": {
+          "A": "Electrons only",
+          "B": "Majority carriers",
+          "C": "Holes only",
+          "D": "Minority carriers"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_050",
+        "question": "In an A.C circuit that contains only a capacitor, the voltage lags behind the current by:",
+        "options": {
+          "A": "0\u00b0",
+          "B": "30\u00b0",
+          "C": "90\u00b0",
+          "D": "180\u00b0"
+        },
+        "correct_option": "C",
+        "explanation": "",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_051",
+        "question": "The ray which causes gas molecules to glow in a discharge tube is known as:",
+        "options": {
+          "A": "Molecular ray",
+          "B": "Gamma ray",
+          "C": "Anode ray",
+          "D": "Cathode ray"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_052",
+        "question": "The charge carriers in gases are:",
+        "options": {
+          "A": "Ions only",
+          "B": "Electrons only",
+          "C": "Electrons and holes",
+          "D": "Electrons and ions"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "Heat"
+      },
+      {
+        "id": "obj_053",
+        "question": "The instrument used for securing a large number of similar charges by induction is called:",
+        "options": {
+          "A": "Capacitor",
+          "B": "Electrophorus",
+          "C": "Electroscope",
+          "D": "Proof-plane"
+        },
+        "correct_option": "B",
+        "explanation": "",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_054",
+        "question": "The pitch of a sound note depends on:",
+        "options": {
+          "A": "Timbre",
+          "B": "Harmonics",
+          "C": "Quality",
+          "D": "Frequency"
+        },
+        "correct_option": "D",
+        "explanation": "",
+        "topic": "Waves & Sound"
+      },
+      {
+        "id": "obj_055",
+        "question": "In which of the following material media would sound travel fastest?",
+        "options": {
+          "A": "Water",
+          "B": "Oil",
+          "C": "Metal",
+          "D": "Gas"
+        },
+        "correct_option": "C",
+        "explanation": " Sound travels fastest in solids ",
+        "topic": "Waves & Sound"
+      },
+      {
+        "id": "obj_056",
+        "question": "A solid weighs 4.8g in air, 2.8g in water, and 3.2g in kerosene. The ratio of the density of the solid to that of the kerosene is:",
+        "options": {
+          "A": "1.5",
+          "B": "2",
+          "C": "3",
+          "D": "5"
+        },
+        "correct_option": "C",
+        "explanation": " Upthrust in water = 4.8 - 2.8 = 2.0g. Upthrust in kero = 4.8 - 3.2 = 1.6g. R.D. of solid = 4.8/2.0 = 2.4. R.D of kero = 1.6/2.0 = 0.8. Ratio = 2.4/0.8 = 3 ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_057",
+        "question": "The extension in a spring when a 5g weight was hung from it was 0.56cm. If Hooke's law is obeyed, what is the extension caused by a load of 20g weight?",
+        "options": {
+          "A": "1.12 cm",
+          "B": "2.14 cm",
+          "C": "2.24 cm",
+          "D": "2.80 cm"
+        },
+        "correct_option": "C",
+        "explanation": " e \u221d F. 5g gives 0.56cm, so 20g gives (20/5) \u00d7 0.56 = 2.24cm ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_058",
+        "question": "An electric cell has an internal resistance of 2 ohms. A current of 0.5A is found to flow when a resistor of 5 ohms is connected across it. What is the electromotive force of the cell?",
+        "options": {
+          "A": "1.0 V",
+          "B": "2.5 V",
+          "C": "3.5 V",
+          "D": "5.0 V"
+        },
+        "correct_option": "C",
+        "explanation": " E = I(R+r) = 0.5(5 + 2) = 3.5 V ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_059",
+        "question": "A 500kg car which was initially at rest traveled with an acceleration of 5$m/s^2$. Its kinetic energy after 4 seconds was:",
+        "options": {
+          "A": "$10^2$ J",
+          "B": "$10^3$ J",
+          "C": "$10^4$ J",
+          "D": "$10^5$ J"
+        },
+        "correct_option": "D",
+        "explanation": " v = at = 5 \u00d7 4 = 20$m/s$. K.E = \u00bdmv\u00b2 = \u00bd \u00d7 500 \u00d7 400 = 100,000 J = $10^5$ J ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_060",
+        "question": "An air force jet flying with a speed of 335 $m/s$ went past an anti-aircraft gun. How far is the aircraft 5s later when the gun was fired?",
+        "options": {
+          "A": "67 m",
+          "B": "670 m",
+          "C": "1675 m",
+          "D": "3350 m"
+        },
+        "correct_option": "C",
+        "explanation": " Distance = speed \u00d7 time = 335 \u00d7 5 = 1675m ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_061",
+        "question": "A potential difference of 6V is used to produce a current of 5A for 200s through a heating coil. The heat produced is:",
+        "options": {
+          "A": "2400 J",
+          "B": "4800 J",
+          "C": "6000 J",
+          "D": "12000 J"
+        },
+        "correct_option": "C",
+        "explanation": " H = VIt = 6 \u00d7 5 \u00d7 200 = 6000 J ",
+        "topic": "Electricity & Magnetism"
+      },
+      {
+        "id": "obj_062",
+        "question": "A wire of 5$\\Omega$ resistance is drawn out so that its new length is twice the original length. If the resistivity of the wire remains the same and the cross-sectional area is halved, the new resistance is:",
+        "options": {
+          "A": "10 $\\Omega$",
+          "B": "20 $\\Omega$",
+          "C": "40 $\\Omega$",
+          "D": "50 $\\Omega$"
+        },
+        "correct_option": "B",
+        "explanation": " R = $\\rho$L/A. If L doubles and A is halved, R_new = $\\rho$(2L)/(A/2) = 4($\\rho$L/A) = 4 \u00d7 5 = 20 $\\Omega$ ",
+        "topic": "General Physics"
+      },
+      {
+        "id": "obj_063",
+        "question": "An electron of charge $1.6 \\times 10^{-19}$ C is accelerated between two metal plates. If the kinetic energy of the electron is $4.8 \\times 10^{-17}$ J, the potential difference between the plates is:",
+        "options": {
+          "A": "30 V",
+          "B": "40 V",
+          "C": "300 V",
+          "D": "400 V"
+        },
+        "correct_option": "C",
+        "explanation": " V = E/q = ($4.8 \\times 10^{-17}$) / ($1.6 \\times 10^{-19}$) = 300 V ",
+        "topic": "Mechanics"
+      },
+      {
+        "id": "obj_064",
+        "question": "Caesium has a work function of $3.0 \\times 10^{-19}$ J. The maximum energy of liberated electrons when it is illuminated by light of frequency $6.7 \\times 10^{14}$ Hz is: (h = $6.63 \\times 10^{-34}$ Js)",
+        "options": {
+          "A": "$1.44 \\times 10^{-19}$ J",
+          "B": "$3.00 \\times 10^{-19}$ J",
+          "C": "$4.42 \\times 10^{-19}$ J",
+          "D": "$7.42 \\times 10^{-19}$ J"
+        },
+        "correct_option": "A",
+        "explanation": " E = hf - W = ($6.63 \\times 10^{-34}$ \u00d7 $6.7 \\times 10^{14}$) - $3.0 \\times 10^{-19}$ = $4.44 \\times 10^{-19}$ - $3.0 \\times 10^{-19}$ = $1.44 \\times 10^{-19}$ J ",
+        "topic": "Waves & Sound"
+      },
+      {
+        "id": "obj_065",
+        "question": "The count rate of a radioactive material is 800 counts/min. If the half-life of the material is 4 days, what would the count rate be 16 days later?",
+        "options": {
+          "A": "25 counts/min",
+          "B": "50 counts/min",
+          "C": "100 counts/min",
+          "D": "200 counts/min"
+        },
+        "correct_option": "B",
+        "explanation": " 16 days / 4 days = 4 half-lives. 800 / (2\u2074) = 800 / 16 = 50 counts/min ",
+        "topic": "Modern Physics"
+    "subject": "UNIPORT Chem Friday mock",
+    "obj": [
+      {
+        "id": "uni_chem_001",
+        "question": "A certain volume of a gas at 298 K is heated such that its volume and pressure are now four times the original values. What is the new temperature?",
+        "options": {
+          "A": "18.6 K",
+          "B": "100.0 K",
+          "C": "298.0 K",
+          "D": "1192.0 K",
+          "E": "4768.0 K"
+        },
+        "correct_option": "E",
+        "explanation": "From combined gas law: P1V1/$T_{1}$ = P2V2/$T_{2}$. If P and V both quadruple, $T_{2}$ = 16$\\times$298 = 4768 K",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_002",
+        "question": "The boiling points of water, ethanol, toluene, and butan-2-ol are 373.0 K, 352.3 K, 383.6 K, and 372.5 K respectively. Which liquid has the highest vapour pressure at 323.0 K?",
+        "options": {
+          "A": "Water",
+          "B": "Toluene",
+          "C": "Ethanol",
+          "D": "Butan-2-ol",
+          "E": "None of the above"
+        },
+        "correct_option": "C",
+        "explanation": "Ethanol has the lowest boiling point, meaning the weakest intermolecular forces, hence the highest vapour pressure",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_003",
+        "question": "The function of sulphur during the vulcanization of rubber is to:",
+        "options": {
+          "A": "Act as a catalyst for the polymerization of rubber molecules",
+          "B": "Convert rubber from thermosetting to thermoplastic polymer",
+          "C": "Form chains which bind rubber molecules together (cross-linking)",
+          "D": "Break down the rubber polymer molecule",
+          "E": "Shorten the chain length of the rubber polymer"
+        },
+        "correct_option": "C",
+        "explanation": "Sulphur cross-links the polyisoprene chains, making it harder and more durable",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_004",
+        "question": "The complete hydrogenation of ethyne yields:",
+        "options": {
+          "A": "Benzene",
+          "B": "Methane",
+          "C": "Ethane",
+          "D": "Ethene",
+          "E": "Propane"
+        },
+        "correct_option": "C",
+        "explanation": "Ethyne + 2H2 $\\rightarrow$ Ethane",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_005",
+        "question": "The mixing of an aqueous solution of barium hydroxide and sodium tetraoxocarbonate (IV) yields a white precipitate of:",
+        "options": {
+          "A": "Barium oxide",
+          "B": "Sodium tetraoxocarbonate (IV)",
+          "C": "Sodium oxide",
+          "D": "Sodium hydroxide",
+          "E": "Barium tetraoxocarbonate (IV)"
+        },
+        "correct_option": "E",
+        "explanation": "Ba(OH)2 + Na2CO3 $\\rightarrow$ BaCO3(s) + 2NaOH. Barium tetraoxocarbonate is the precipitate",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_006",
+        "question": "An organic compound decolorized acidified KMnO4 solution but failed to react with ammoniacal silver nitrate solution. The organic compound is likely to be:",
+        "options": {
+          "A": "A carboxylic acid",
+          "B": "An alkane",
+          "C": "An alkene",
+          "D": "An alkyne",
+          "E": "An alkanone"
+        },
+        "correct_option": "C",
+        "explanation": "Alkenes decolorize KMnO4 but do not have terminal acidic alkynes that react with Tollens' reagent",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_007",
+        "question": "Which of the following solid substances conducts electricity?",
+        "options": {
+          "A": "Sulphur",
+          "B": "Graphite",
+          "C": "Diamond",
+          "D": "Red phosphorus",
+          "E": "Yellow phosphorus"
+        },
+        "correct_option": "B",
+        "explanation": "Graphite has delocalized electrons allowing it to conduct electricity",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_008",
+        "question": "When marble is heated to 1473 K, another white solid is obtained which reacts vigorously with water to give an alkaline solution. The solution contains:",
+        "options": {
+          "A": "NaOH",
+          "B": "KOH",
+          "C": "Mg(OH)2",
+          "D": "Ca(OH)2"
+        },
+        "correct_option": "D",
+        "explanation": "Produces Calcium Hydroxide, Ca(OH)2, when CaO is dissolved in water",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_009",
+        "question": "Which of the following roles does sodium chloride play in soap preparation? It:",
+        "options": {
+          "A": "Reacts with glycerol",
+          "B": "Purifies the soap",
+          "C": "Accelerates the decomposition of fat and oil",
+          "D": "Separates the soap from the glycerol",
+          "E": "Converts the fat acid to its sodium salt"
+        },
+        "correct_option": "D",
+        "explanation": "NaCl causes the \"salting out\" of soap by decreasing its solubility",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_010",
+        "question": "Which of the following is used as a moderator to control nuclear fission?",
+        "options": {
+          "A": "Lead",
+          "B": "Heavy water",
+          "C": "Iron",
+          "D": "Chromium"
+        },
+        "correct_option": "B",
+        "explanation": "Heavy water or graphite is used to slow down neutrons",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_011",
+        "question": "One of the active components of baking powder is:",
+        "options": {
+          "A": "MgSO4",
+          "B": "NaHCO3",
+          "C": "CaSO4",
+          "D": "NaCl"
+        },
+        "correct_option": "B",
+        "explanation": "Sodium hydrogen carbonate/Sodium bicarbonate",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_012",
+        "question": "H2SO4 is used to remove rust on the surface of iron (pickling) before electroplating. The type of reaction involved is:",
+        "options": {
+          "A": "Redox reaction",
+          "B": "Neutralization",
+          "C": "Double decomposition",
+          "D": "Hydrolysis"
+        },
+        "correct_option": "B",
+        "explanation": "Neutralization. Fe2O3 + 3H2SO4 $\\rightarrow$ $Fe_{2}$(SO4)3 + 3H2O",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_013",
+        "question": "Silver chloride turns gray when exposed to sunlight because:",
+        "options": {
+          "A": "The silver ion is reduced to silver",
+          "B": "The silver ion is oxidized to silver",
+          "C": "Silver is a transition metal",
+          "D": "The silver chloride forms complexes in the sun"
+        },
+        "correct_option": "A",
+        "explanation": "Photochemical reduction: 2AgCl $\\rightarrow$ 2Ag + $Cl_{2}$. The Ag ions are reduced to metallic Ag",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_014",
+        "question": "Which of these compounds exhibits resonance?",
+        "options": {
+          "A": "Benzene",
+          "B": "Ethanol",
+          "C": "Propene",
+          "D": "Butyne"
+        },
+        "correct_option": "A",
+        "explanation": "Benzene ring exhibits resonance of its pi electrons",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_015",
+        "question": "A compound contains 40% Carbon, 6.7% Hydrogen, and 53.3% Oxygen. If the molar mass of the compound is 180, find the molecular formula. (H=1, C=12, O=16)",
+        "options": {
+          "A": "CH2O",
+          "B": "C6H6O3",
+          "C": "C6H12O6",
+          "D": "C6H6O6"
+        },
+        "correct_option": "C",
+        "explanation": "Empirical formula CH2O = 30. 180/30 = 6. (CH2O)6 = C6H12O6",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_016",
+        "question": "Aluminium hydroxide is used in the dyeing industry as a:",
+        "options": {
+          "A": "Salt",
+          "B": "Dye",
+          "C": "Mordant",
+          "D": "Dispersant"
+        },
+        "correct_option": "C",
+        "explanation": "It acts as a mordant to fix the dye to the fabric",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_017",
+        "question": "An element that occurs abundantly in the free state in the atmosphere is:",
+        "options": {
+          "A": "Pb",
+          "B": "K",
+          "C": "Al",
+          "D": "Ar"
+        },
+        "correct_option": "D",
+        "explanation": "Argon is an inert noble gas found free in the atmosphere",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_018",
+        "question": "C2H4(g) + $H_{2}$(g) $\\rightarrow$ C2H6(g) $\\Delta H$ = -13 kJ. The reaction represented above is:",
+        "options": {
+          "A": "Exothermic",
+          "B": "Spontaneous",
+          "C": "Endothermic",
+          "D": "In equilibrium"
+        },
+        "correct_option": "A",
+        "explanation": "Negative Delta H means the reaction is exothermic",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_019",
+        "question": "Calculate the mass of chlorine gas which occupies a volume of 1.12 $dm^3$ at S.T.P. [Cl = 35.5, Molar Volume = 22.4 $dm^3$]",
+        "options": {
+          "A": "15.50 g",
+          "B": "7.10 g",
+          "C": "3.55 g",
+          "D": "1.80 g"
+        },
+        "correct_option": "C",
+        "explanation": "1.12 / 22.4 = 0.05 moles. Mass = 0.05$\\times$71 g/mol = 3.55 g",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_020",
+        "question": "Calculate the number of moles of HCl present in 20 $cm^3$ of a 0.75 M solution of the acid.",
+        "options": {
+          "A": "0.015 mole",
+          "B": "0.038 mole",
+          "C": "3.800 mole",
+          "D": "1.500 mole"
+        },
+        "correct_option": "A",
+        "explanation": "Moles = Molarity$\\times$Volume in $dm^3$ = 0.75$\\times$0.020 = 0.015 mol",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_021",
+        "question": "Chlorine consisting of 2 isotopes of mass numbers 35 and 37 in the ratio 3:1 has an atomic mass of 35.5. Calculate the relative abundance of the isotope of mass number 37.",
+        "options": {
+          "A": "20%",
+          "B": "25%",
+          "C": "60%",
+          "D": "75%"
+        },
+        "correct_option": "B",
+        "explanation": "Ratio is 3:1. The abundance of 37Cl is 1 / (3+1) = 25%",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_022",
+        "question": "How much faster does a Helium atom travel than a nitrogen molecule at the same temperature? (He=4, $N_{2}$=28)",
+        "options": {
+          "A": "1.68",
+          "B": "1.70",
+          "C": "2.50",
+          "D": "2.65"
+        },
+        "correct_option": "D",
+        "explanation": "Graham's Law: Rate1/Rate2 = sqrt($M_{2}$/$M_{1}$). sqrt(28/4) = sqrt(7) approx 2.65",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_023",
+        "question": "Tartaric acid is used industrially to:",
+        "options": {
+          "A": "Make baking powder",
+          "B": "Make fruit juices",
+          "C": "Remove rust",
+          "D": "Dry substances"
+        },
+        "correct_option": "A",
+        "explanation": "Used to prepare baking powder",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_024",
+        "question": "The carbon atoms in ethane are __________ hybridized.",
+        "options": {
+          "A": "$sp^{4}$",
+          "B": "$sp^{3}$",
+          "C": "$sp^{2}$",
+          "D": "$sp$"
+        },
+        "correct_option": "B",
+        "explanation": "Ethane has only single bonds, so carbons are $sp^{3}$ hybridized",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_025",
+        "question": "The oxidation state of oxygen in tetraoxosulphate (VI) acid is:",
+        "options": {
+          "A": "-4",
+          "B": "-2",
+          "C": "+4",
+          "D": "-8"
+        },
+        "correct_option": "B",
+        "explanation": "Oxygen generally has an oxidation state of -2 in tetraoxosulphates",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_026",
+        "question": "The reaction that takes place in a Daniel cell is:",
+        "options": {
+          "A": "Direct combination",
+          "B": "Redox",
+          "C": "Double decomposition",
+          "D": "Neutralization"
+        },
+        "correct_option": "B",
+        "explanation": "A Daniel cell operates via a spontaneous redox reaction",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_027",
+        "question": "The type of reaction that is peculiar to benzene is:",
+        "options": {
+          "A": "Addition",
+          "B": "Hydrolysis",
+          "C": "Polymerization",
+          "D": "Substitution"
+        },
+        "correct_option": "D",
+        "explanation": "Electrophilic substitution is characteristic of aromatic rings like benzene",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_028",
+        "question": "Under normal conditions of ionic addition, what will be the major product of the addition of HBr to 2-methyl-2-butene?",
+        "options": {
+          "A": "2-Bromo-3-methylbutane",
+          "B": "1-Bromo-3-methylbutane",
+          "C": "2-methyl-1-bromobutane",
+          "D": "2-Bromo-2-methylbutane"
+        },
+        "correct_option": "D",
+        "explanation": "Follows Markovnikov's rule. Hydrogen goes to the carbon with more hydrogens",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_029",
+        "question": "Which experiment led to the measurement of the charge on an electron?",
+        "options": {
+          "A": "Mass spectrometric experiment",
+          "B": "Oil-drop experiment",
+          "C": "Scattering alpha-particle",
+          "D": "Discharge tube experiment"
+        },
+        "correct_option": "B",
+        "explanation": "Millikan's Oil-drop experiment",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_030",
+        "question": "Maximum number of electrons is found in one of these sub-levels:",
+        "options": {
+          "A": "4s",
+          "B": "4p",
+          "C": "4d",
+          "D": "4f"
+        },
+        "correct_option": "D",
+        "explanation": "4f sub-level holds a maximum of 14 electrons",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_031",
+        "question": "The shape of the s-orbital is:",
+        "options": {
+          "A": "Spherical",
+          "B": "Elliptical",
+          "C": "Spiral",
+          "D": "Circular"
+        },
+        "correct_option": "A",
+        "explanation": "s-orbitals are spherical in shape",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_032",
+        "question": "A known carcinogenic substance is:",
+        "options": {
+          "A": "Asbestos dust",
+          "B": "Sawdust",
+          "C": "Nitrogen (II) oxide",
+          "D": "Carbon (II) oxide"
+        },
+        "correct_option": "A",
+        "explanation": "Asbestos dust causes lung cancer/mesothelioma",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_033",
+        "question": "In the electrolysis of brine, the anode is made of:",
+        "options": {
+          "A": "Platinum",
+          "B": "Copper",
+          "C": "Zinc",
+          "D": "Carbon (Graphite)"
+        },
+        "correct_option": "D",
+        "explanation": "Carbon/Graphite is commonly used as the anode to withstand chlorine gas",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_034",
+        "question": "Which of the following hydrogen halides has the highest entropy value?",
+        "options": {
+          "A": "HF",
+          "B": "HCl",
+          "C": "HBr",
+          "D": "HI"
+        },
+        "correct_option": "D",
+        "explanation": "HI is the heaviest and largest, hence has the highest entropy",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_035",
+        "question": "The allotrope of carbon used in the decolonization of sugar is:",
+        "options": {
+          "A": "Graphite",
+          "B": "Soot",
+          "C": "Animal Charcoal",
+          "D": "Lampblack"
+        },
+        "correct_option": "C",
+        "explanation": "Animal charcoal is used for adsorbing coloring matter",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_036",
+        "question": "Sulphur (IV) oxide bleaches by:",
+        "options": {
+          "A": "Reduction",
+          "B": "Oxidation",
+          "C": "Hydration",
+          "D": "Absorption"
+        },
+        "correct_option": "A",
+        "explanation": "SO2 bleaches by reduction, unlike Chlorine which bleaches by oxidation",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_037",
+        "question": "An isomer of C5H12 is:",
+        "options": {
+          "A": "Butane",
+          "B": "2-methylbutane",
+          "C": "2-ethylbutane",
+          "D": "2-ethylbutene"
+        },
+        "correct_option": "B",
+        "explanation": "2-methylbutane, also known as isopentane",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_038",
+        "question": "Vulcanization involves the removal of:",
+        "options": {
+          "A": "A monomer",
+          "B": "The single bond",
+          "C": "The double bond",
+          "D": "A polymer"
+        },
+        "correct_option": "C",
+        "explanation": "Double bonds are broken to form sulphur cross-links",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_039",
+        "question": "Phenolphthalein in acidic solution is:",
+        "options": {
+          "A": "Red",
+          "B": "Orange",
+          "C": "Colourless",
+          "D": "Yellow"
+        },
+        "correct_option": "C",
+        "explanation": "Phenolphthalein is colourless in acid, pink in base",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_040",
+        "question": "When iron is exposed to moisture and it rusts, the value of $\\Delta G$ for the reaction is:",
+        "options": {
+          "A": "Neutral",
+          "B": "Zero",
+          "C": "Positive",
+          "D": "Negative"
+        },
+        "correct_option": "D",
+        "explanation": "Rusting is spontaneous, so the Gibbs Free Energy change is negative",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_041",
+        "question": "A substance that is used as a ripening agent for fruits is:",
+        "options": {
+          "A": "Ethane",
+          "B": "Propane",
+          "C": "Methane",
+          "D": "Ethene"
+        },
+        "correct_option": "D",
+        "explanation": "Ethene gas stimulates fruit ripening",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_043",
+        "question": "Sugar is best separated from its impurities by:",
+        "options": {
+          "A": "Precipitation",
+          "B": "Crystallization",
+          "C": "Distillation",
+          "D": "Evaporation"
+        },
+        "correct_option": "B",
+        "explanation": "Crystallization is the standard method for purifying sugar",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_044",
+        "question": "The component of an atom that contributes least to the mass is the:",
+        "options": {
+          "A": "Proton",
+          "B": "Nucleus",
+          "C": "Neutron",
+          "D": "Electron"
+        },
+        "correct_option": "D",
+        "explanation": "An electron has negligible mass compared to protons and neutrons",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_045",
+        "question": "An element will readily form an electrovalent compound if its electron configuration is:",
+        "options": {
+          "A": "2, 8, 1",
+          "B": "2, 8, 4",
+          "C": "2, 8, 8, 12",
+          "D": "2, 8, 5"
+        },
+        "correct_option": "A",
+        "explanation": "2,8,1 is Sodium, an alkali metal which readily loses 1 electron to form ionic bonds",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_046",
+        "question": "The most suitable metal that can be used as a lightning conductor is:",
+        "options": {
+          "A": "Silver",
+          "B": "Copper",
+          "C": "Iron",
+          "D": "Aluminum"
+        },
+        "correct_option": "B",
+        "explanation": "Copper is highly conductive and used for lightning arresters",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_047",
+        "question": "The most abundant element on the earth\u2019s crust is:",
+        "options": {
+          "A": "Nitrogen",
+          "B": "Hydrogen",
+          "C": "Oxygen",
+          "D": "Fluorine"
+        },
+        "correct_option": "C",
+        "explanation": "Oxygen is the most abundant element in the Earth's crust by mass",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_048",
+        "question": "Metalloids are also referred to as:",
+        "options": {
+          "A": "Semi-metals",
+          "B": "Metals",
+          "C": "Colloids",
+          "D": "Non-metals"
+        },
+        "correct_option": "A",
+        "explanation": "Metalloids are semi-metals",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_049",
+        "question": "The ores that can be concentrated by flotation are:",
+        "options": {
+          "A": "Nitride ores",
+          "B": "Sulphide ores",
+          "C": "Oxide ores",
+          "D": "Chloride ores"
+        },
+        "correct_option": "B",
+        "explanation": "Froth flotation is heavily used for sulfide ores like Galena",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_050",
+        "question": "Which of the following is/are water pollutants?",
+        "options": {
+          "A": "Fertilizers",
+          "B": "Human wastes",
+          "C": "Industrial wastes",
+          "D": "All of the above"
+        },
+        "correct_option": "D",
+        "explanation": "All listed contribute to water pollution",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_051",
+        "question": "The technique used for the separation of immiscible liquids is:",
+        "options": {
+          "A": "Distillation",
+          "B": "Chromatography",
+          "C": "The use of a separating funnel",
+          "D": "Fractional distillation"
+        },
+        "correct_option": "C",
+        "explanation": "A separating funnel is used for liquids that do not mix, like oil and water",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_052",
+        "question": "Which of the following denotes an alpha particle?",
+        "options": {
+          "A": "$^1_0n$",
+          "B": "$^4_2He$",
+          "C": "$^0_{-1}e$",
+          "D": "$^9_4Be$"
+        },
+        "correct_option": "B",
+        "explanation": "An alpha particle is a Helium nucleus",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_053",
+        "question": "120 $cm^3$ of Hydrogen were sparked with 60 $cm^3$ of Oxygen at 110$^{\\circ}C$. What was the volume of steam produced? (Equation: 2H\u2082(g) + $O_{2}$(g) $\\rightarrow$ 2H\u2082O(g))",
+        "options": {
+          "A": "30 $cm^3$",
+          "B": "120 $cm^3$",
+          "C": "60 $cm^3$",
+          "D": "180 $cm^3$"
+        },
+        "correct_option": "B",
+        "explanation": "Gay-Lussac's Law of combining volumes: 2H2 + $O_{2}$ $\\rightarrow$ 2H2O. 120 $cm^3$ of $H_{2}$ yields 120 $cm^3$ of H2O",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_054",
+        "question": "The number of orbitals in a p-sub level of an atom is:",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "5",
+          "D": "6"
+        },
+        "correct_option": "B",
+        "explanation": "p-sublevel has 3 degenerate orbitals: px, py, pz",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_055",
+        "question": "The number of sulphur atoms in 3.20 g of sulphur (IV) oxide SO\u2082 is: (O = 16.0; S = 32.0; Avogadro constant = $6.02 \\times 10^{23}$)",
+        "options": {
+          "A": "$3.01 \\times 10^{22}$",
+          "B": "$6.02 \\times 10^{22}$",
+          "C": "$6.02 \\times 10^{23}$",
+          "D": "$1.20 \\times 10^{24}$"
+        },
+        "correct_option": "A",
+        "explanation": "Moles = 3.20/64 = 0.05. Atoms = 0.05$\\times$$6.02 \\times 10^{23}$ = $3.01 \\times 10^{22}$",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_056",
+        "question": "The shape of a graphite crystal is:",
+        "options": {
+          "A": "Tetrahedral",
+          "B": "Pyramidal",
+          "C": "Octahedral",
+          "D": "Hexagonal"
+        },
+        "correct_option": "D",
+        "explanation": "Graphite consists of layers of hexagonal carbon rings",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_057",
+        "question": "The following substances are ores of metals except:",
+        "options": {
+          "A": "Bauxite",
+          "B": "Cuprite",
+          "C": "Graphite",
+          "D": "Cassiterite"
+        },
+        "correct_option": "C",
+        "explanation": "Graphite is an allotrope of carbon, not a metal ore",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_058",
+        "question": "Which of the following separation techniques would show that black ink is a mixture of chemical compounds?",
+        "options": {
+          "A": "Chromatography",
+          "B": "Crystallization",
+          "C": "Filtration",
+          "D": "Sublimation"
+        },
+        "correct_option": "A",
+        "explanation": "Chromatography separates the different colored pigments in the ink",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_059",
+        "question": "The compound that makes palm wine taste sour after exposure to the air for a few days is:",
+        "options": {
+          "A": "Ethanol",
+          "B": "Ethanoic acid",
+          "C": "Methanol",
+          "D": "Methanoic acid"
+        },
+        "correct_option": "B",
+        "explanation": "Bacteria oxidize the ethanol in palm wine into ethanoic/acetic acid",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_060",
+        "question": "35 $cm^3$ of hydrogen was sparked with 12 $cm^3$ of oxygen at 110$^{\\circ}C$ and 760mmHg to produce steam. What percentage of the total volume of gas left after the reaction is hydrogen?",
+        "options": {
+          "A": "11%",
+          "B": "31%",
+          "C": "35%",
+          "D": "69%",
+          "E": "80%"
+        },
+        "correct_option": "B",
+        "explanation": "12 $cm^3$ of $O_{2}$ reacts with 24 $cm^3$ of $H_{2}$ to produce 24 $cm^3$ of steam. Excess $H_{2}$ = 35 - 24 = 11 $cm^3$. Total resulting gas volume = 11 + 24 = 35 $cm^3$. %$H_{2}$ = (11/35)$\\times$100 approx 31%",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_061",
+        "question": "In the extraction of iron in the blast furnace, limestone is used to:",
+        "options": {
+          "A": "Release CO\u2082 for the reaction",
+          "B": "Reduce the iron ore",
+          "C": "Increase the strength of the iron",
+          "D": "Remove impurities as slag"
+        },
+        "correct_option": "D",
+        "explanation": "Limestone decomposes to CaO which reacts with silica to form slag, removing impurities",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_062",
+        "question": "How many isomers can be obtained from butane (C\u2084H\u2081\u2080)?",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "2",
+          "D": "3"
+        },
+        "correct_option": "C",
+        "explanation": "n-butane and isobutane",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_063",
+        "question": "Which of the following acts as both a reducing and an oxidizing agent?",
+        "options": {
+          "A": "$H_{2}$",
+          "B": "SO\u2082",
+          "C": "H\u2082S",
+          "D": "CO\u2082"
+        },
+        "correct_option": "B",
+        "explanation": "Sulphur (IV) oxide can be oxidized to SO3 or reduced to S",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_064",
+        "question": "What volume of gas is evolved at s.t.p if 2 g of calcium trioxocarbonate (IV) is added to a solution of hydrochloric acid? [Ca = 40, C = 12, O = 16, Molar volume of gas at s.t.p = 22.4 $dm^3$]",
+        "options": {
+          "A": "112 $cm^3$",
+          "B": "224 $cm^3$",
+          "C": "448 $cm^3$",
+          "D": "2240 $cm^3$"
+        },
+        "correct_option": "C",
+        "explanation": "Molar mass of CaCO3 = 100g/mol. Moles = 2/100 = 0.02. Volume = 0.02$\\times$22400 $cm^3$ = 448 $cm^3$",
+        "topic": "Chemistry"
+      },
+      {
+        "id": "uni_chem_065",
+        "question": "The shapes of CO\u2082, H\u2082O, and CH\u2084 respectively are:",
+        "options": {
+          "A": "Bent, linear, and tetrahedral",
+          "B": "Bent, tetrahedral, and linear",
+          "C": "Linear, bent, and tetrahedral",
+          "D": "Tetrahedral, linear, and bent"
+        },
+        "correct_option": "C",
+        "explanation": "CO2 is linear, H2O is bent, and CH4 is tetrahedral",
+        "topic": "Chemistry"
       }
     ],
     "theory": []
