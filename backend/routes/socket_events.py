@@ -152,12 +152,25 @@ def handle_leave_room(data):
 def delayed_disconnect_cleanup(room_id, player_uuid, old_sid):
     # Wait 5 seconds for reconnection
     eventlet.sleep(5)
-    # If the player hasn't reconnected with a new SID, perform cleanup
-    if player_to_sid.get(player_uuid) == old_sid:
-        if player_uuid in player_to_sid:
-            del player_to_sid[player_uuid]
 
-        # Perform standard leave room logic
+    # Check if the player has reconnected to the SAME room
+    current_sid = player_to_sid.get(player_uuid)
+    is_reconnected_to_same_room = False
+
+    if current_sid:
+        current_info = sid_to_player.get(current_sid)
+        if current_info and current_info.get('room_id') == room_id:
+            is_reconnected_to_same_room = True
+
+    # If the player hasn't reconnected to the SAME room, we must clean up their
+    # presence in the old room to avoid "ghost players".
+    if not is_reconnected_to_same_room:
+        # Only clear the global player_to_sid mapping if they haven't reconnected AT ALL
+        if current_sid == old_sid:
+            if player_uuid in player_to_sid:
+                del player_to_sid[player_uuid]
+
+        # Perform standard leave room logic for the specific room they disconnected from
         if room_service.leave_room(room_id, player_uuid):
             # Optimization: Exclude questions and messages from leave events
             state = room_service.get_room_state(room_id, include_questions=False, include_messages=False)
