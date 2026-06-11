@@ -78,3 +78,7 @@
 ## 2026-06-20 - [Scoped Modal Keyboard Shortcuts]
 **Learning:** When using global keyboard listeners in a Vanilla JS app, modal-specific shortcuts (like 'C' for copy) must be guarded by checking the modal's visibility. This prevents "shortcut bleeding" where keys intended for the modal trigger background actions like navigation or answering questions.
 **Action:** Always check 'isModalVisible' at the top of the global 'keydown' listener and early-return after handling modal-specific keys to ensure focus and action integrity.
+
+## 2026-06-21 - [Keyboard Shortcut Conflicts & Contextual Fallbacks]
+**Learning:** In keyboard-heavy Vanilla JS applications, global listeners can easily suffer from "shortcut collisions" (e.g., 'B' for 'Back' vs 'B' for 'Option B'). Additionally, when shortcuts trigger functions normally bound to specific DOM elements (like 'Explain Simpler'), those functions must implement a contextual fallback to find the correct trigger element when called programmatically.
+**Action:** Use unique mnemonics for navigation (e.g., 'P' for Previous) to avoid conflicts with data-driven shortcuts (A-D). Implement 'document.querySelector' fallbacks in action handlers to ensure global shortcuts work even when a specific 'id' context is missing.
