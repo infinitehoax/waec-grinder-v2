@@ -296,6 +296,7 @@ const UI = {
   _gradingActive: false,
   _timerInterval: null,
   _currentExplanationMarkdown: null,
+  _theorySaveTimeout: null,
 
   init(batch) {
     this.batch = batch.map(q => ({
@@ -337,7 +338,21 @@ const UI = {
     const q = this.batch[this.currentIdx];
     if (!q._answers) q._answers = {};
     q._answers[subId] = el.value;
-    Storage.saveBatch(this.batch);
+
+    // PERFORMANCE OPTIMIZATION: Debounce theory saves to reduce Disk I/O (Storage.saveBatch) during typing.
+    if (this._theorySaveTimeout) clearTimeout(this._theorySaveTimeout);
+    this._theorySaveTimeout = setTimeout(() => {
+      Storage.saveBatch(this.batch);
+      this._theorySaveTimeout = null;
+    }, 1000);
+  },
+
+  _flushTheorySave() {
+    if (this._theorySaveTimeout) {
+      clearTimeout(this._theorySaveTimeout);
+      Storage.saveBatch(this.batch);
+      this._theorySaveTimeout = null;
+    }
   },
 
   renderCurrent() {
@@ -439,6 +454,7 @@ const UI = {
   },
 
   jumpToQuestion(idx) {
+    this._flushTheorySave();
     if (idx < 0 || idx >= this.batch.length) return;
     this.currentIdx = idx;
     Storage.saveIdx(idx);
@@ -469,6 +485,7 @@ const UI = {
 
   // ---- OBJ: select an option ----
   async selectOption(btn, letter) {
+    this._flushTheorySave();
     if (btn.disabled) return;
 
     const grid = btn.closest('#options-grid');
@@ -570,6 +587,7 @@ const UI = {
 
   // ---- Theory: submit all sub-questions ----
   async submitTheory() {
+    this._flushTheorySave();
     if (this._gradingActive) return;
     this._gradingActive = true;
 
@@ -748,6 +766,7 @@ const UI = {
   },
 
   skipQuestion() {
+    this._flushTheorySave();
     this.resumeTimer();
     showToast('Question skipped', 'info');
     const q = this.batch[this.currentIdx];
@@ -784,6 +803,7 @@ const UI = {
   },
 
   nextQuestion() {
+    this._flushTheorySave();
     this.resumeTimer();
     this.currentIdx++;
     Storage.saveIdx(this.currentIdx);
@@ -794,6 +814,7 @@ const UI = {
   },
 
   async showBatchComplete(timedOut = false) {
+    this._flushTheorySave();
     // Auto-save current question if in CBT mode and not already answered
     if (Storage.isCbtMode() && this.batch[this.currentIdx]) {
       const q = this.batch[this.currentIdx];

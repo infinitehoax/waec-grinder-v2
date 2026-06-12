@@ -206,6 +206,7 @@ const multiplayer_study = {
 
         // Custom showBatchComplete for multiplayer
         UI.showBatchComplete = () => {
+            UI._flushTheorySave();
             this.emitProgress(true);
             this.isFinished = true;
 
@@ -257,6 +258,7 @@ const multiplayer_study = {
         if (exitBtn) {
             exitBtn.onclick = () => {
                 if (confirm('Are you sure you want to leave the room?')) {
+                    UI._flushTheorySave();
                     SocketClient.leaveRoom(this.roomId);
                     window.location.href = '/multiplayer';
                 }
