@@ -71,6 +71,10 @@
 **Learning:** In high-repetition study tools, keyboard shortcuts (like Enter for continuation and D for navigation) significantly reduce friction during transition phases like report cards. Additionally, ARIA attributes (like `aria-valuenow`) on progress bars must be explicitly synchronized with the DOM state in Vanilla JS to remain accessible.
 **Action:** Always include <kbd> hints for major report card actions. Synchronize `aria-valuenow` and `aria-valuetext` whenever progress bars are updated.
 
+## 2026-06-21 - [Tactile Visual Feedback & Reduced Motion Accessibility]
+**Learning:** Providing immediate tactile visual feedback, such as a "shake" for incorrect answers and a "pulse" for correct ones, significantly improves the perceived responsiveness and delight of a study interface. However, these animations must be wrapped in a 'prefers-reduced-motion' media query to remain accessible to users with vestibular disorders or motion sensitivities.
+**Action:** Implement 'shake' and 'pulse-correct' keyframes for feedback. Always provide a CSS override to disable these animations for users who prefer reduced motion.
+
 ## 2026-06-12 - [Dynamic Visual Feedback & Sequential Reveals]
 **Learning:** In report cards, static data can be overwhelming. Combining staggered `animation-delay` for high-level stats with conditional color-coding (Green for 100%, Red for failing) and visual rewards (like a "PERFECT" badge) provides immediate cognitive feedback and positive reinforcement.
 **Action:** Use sequential reveals for summary metrics. Implement color-coded performance thresholds and mastery badges to highlight achievements at a glance.
