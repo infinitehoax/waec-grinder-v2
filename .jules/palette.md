@@ -78,3 +78,7 @@
 ## 2026-06-20 - [Scoped Modal Keyboard Shortcuts]
 **Learning:** When using global keyboard listeners in a Vanilla JS app, modal-specific shortcuts (like 'C' for copy) must be guarded by checking the modal's visibility. This prevents "shortcut bleeding" where keys intended for the modal trigger background actions like navigation or answering questions.
 **Action:** Always check 'isModalVisible' at the top of the global 'keydown' listener and early-return after handling modal-specific keys to ensure focus and action integrity.
+
+## 2026-06-22 - [Keyboard Shortcut Collision in MCQ Interfaces]
+**Learning:** In Multiple Choice Question (MCQ) interfaces, using common keys like 'B' for navigation (Back) creates a direct conflict with selecting options (Option B). This breaks keyboard accessibility for users attempting to answer questions.
+**Action:** Use 'P' (Previous) or other non-conflicting keys for navigation in MCQ contexts. Always verify that global keyboard shortcuts do not overlap with valid input options.
