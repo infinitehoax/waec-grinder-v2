@@ -54,6 +54,10 @@
 **Learning:** WebSocket event handlers that manage global mappings (like `player_to_sid`) must explicitly clean up those mappings during leave events, even if the connection is still active, to prevent memory leaks. In question interleaving, if input pools are already local shuffled copies, we can avoid the O(N) overhead of list reversal and re-copying by consuming them directly from the end using `pop()`.
 **Action:** Always verify that every global state addition has a corresponding removal in all exit paths (leave, disconnect, timeout). Use in-place mutations safely on local data copies to maximize performance in interleaving algorithms.
 
+## 2026-06-06 - [Frontend Performance & Data Reliability]
+**Learning:** Synchronous `localStorage` writes (Disk I/O) on every keystroke in large textareas (like theory essays) cause UI jank. Debouncing these writes improves performance but risks data loss on navigation or page exit.
+**Action:** Implement debounced storage writes for real-time inputs. Use a "flush" pattern (`_flushTheorySave`) to immediately persist state before navigation (`nextQuestion`, `jumpToQuestion`), submission, or page lifecycle events (`beforeunload`, `visibilitychange`).
+
 ### Learnings
 - **In-Place Mutation vs. Redundant Reversal:** Reversing a list is an O(N) operation. If a function is guaranteed to receive a unique, mutable copy of a list (e.g., from `list(original)`), it is more efficient to mutate it directly using O(1) `pop()` from the end rather than reversing it just to use `pop()`.
 - **WebSocket Resource Cleanup:** In-memory SID mappings (`player_to_sid`) must be purged during explicit "leave" events, not just "disconnect" events, to prevent growth from players who leave rooms but stay on the site. Always pair `create/join` mapping logic with explicit `leave` cleanup in stateful Socket.IO handlers.
