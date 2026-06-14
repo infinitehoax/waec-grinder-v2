@@ -296,6 +296,7 @@ const UI = {
   _gradingActive: false,
   _timerInterval: null,
   _currentExplanationMarkdown: null,
+  _theorySaveTimeout: null,
 
   init(batch) {
     this.batch = batch.map(q => ({
@@ -337,7 +338,21 @@ const UI = {
     const q = this.batch[this.currentIdx];
     if (!q._answers) q._answers = {};
     q._answers[subId] = el.value;
-    Storage.saveBatch(this.batch);
+
+    // Bolt Optimization: Debounce localStorage writes (Disk I/O) during active typing
+    if (this._theorySaveTimeout) clearTimeout(this._theorySaveTimeout);
+    this._theorySaveTimeout = setTimeout(() => {
+      Storage.saveBatch(this.batch);
+      this._theorySaveTimeout = null;
+    }, 1000);
+  },
+
+  _flushTheorySave() {
+    if (this._theorySaveTimeout) {
+      clearTimeout(this._theorySaveTimeout);
+      Storage.saveBatch(this.batch);
+      this._theorySaveTimeout = null;
+    }
   },
 
   renderCurrent() {
@@ -433,12 +448,14 @@ const UI = {
   },
 
   prevQuestion() {
+    this._flushTheorySave();
     if (this.currentIdx > 0) {
       this.jumpToQuestion(this.currentIdx - 1);
     }
   },
 
   jumpToQuestion(idx) {
+    this._flushTheorySave();
     if (idx < 0 || idx >= this.batch.length) return;
     this.currentIdx = idx;
     Storage.saveIdx(idx);
@@ -470,6 +487,7 @@ const UI = {
   // ---- OBJ: select an option ----
   async selectOption(btn, letter) {
     if (btn.disabled) return;
+    this._flushTheorySave();
 
     const grid = btn.closest('#options-grid');
     const correct = grid ? grid.dataset.correct : '';
@@ -572,6 +590,7 @@ const UI = {
   async submitTheory() {
     if (this._gradingActive) return;
     this._gradingActive = true;
+    this._flushTheorySave();
 
     const q = this.batch[this.currentIdx];
     const answers = {};
@@ -748,6 +767,7 @@ const UI = {
   },
 
   skipQuestion() {
+    this._flushTheorySave();
     this.resumeTimer();
     showToast('Question skipped', 'info');
     const q = this.batch[this.currentIdx];
@@ -784,6 +804,7 @@ const UI = {
   },
 
   nextQuestion() {
+    this._flushTheorySave();
     this.resumeTimer();
     this.currentIdx++;
     Storage.saveIdx(this.currentIdx);
@@ -794,6 +815,7 @@ const UI = {
   },
 
   async showBatchComplete(timedOut = false) {
+    this._flushTheorySave();
     // Auto-save current question if in CBT mode and not already answered
     if (Storage.isCbtMode() && this.batch[this.currentIdx]) {
       const q = this.batch[this.currentIdx];
@@ -1542,6 +1564,12 @@ const UI = {
 
 // Expose UI globally so inline onclick handlers work
 window.UI = UI;
+
+// Reliability Pattern: Flush pending theory drafts before exiting or hiding the page
+window.addEventListener('beforeunload', () => UI._flushTheorySave());
+window.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') UI._flushTheorySave();
+});
 
 // Global Keyboard Shortcuts
 window.addEventListener('keydown', (e) => {
