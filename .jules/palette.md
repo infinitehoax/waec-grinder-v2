@@ -78,3 +78,7 @@
 ## 2026-06-20 - [Scoped Modal Keyboard Shortcuts]
 **Learning:** When using global keyboard listeners in a Vanilla JS app, modal-specific shortcuts (like 'C' for copy) must be guarded by checking the modal's visibility. This prevents "shortcut bleeding" where keys intended for the modal trigger background actions like navigation or answering questions.
 **Action:** Always check 'isModalVisible' at the top of the global 'keydown' listener and early-return after handling modal-specific keys to ensure focus and action integrity.
+
+## 2026-06-21 - [Tactile Feedback & Reduced Motion]
+**Learning:** Adding subtle animations to feedback states (like correct/wrong) significantly improves the "feel" of a study app, but must always be paired with `prefers-reduced-motion` guards to maintain accessibility.
+**Action:** Always wrap state-based animations in reduced-motion media queries and ensure they don't interfere with existing focus or selection transforms.
