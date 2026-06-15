@@ -60,3 +60,7 @@
 - **Data Scaling:** Adding 100+ questions in a single JSON commit is efficient for this project's flat-file database approach.
 - **Verification:** Using Playwright to capture screenshots of the dashboard is a reliable way to verify data injection without manual browser interaction.
 - **Testing:** Core logic tests (`run_all_tests.py`) should always be run after data changes to ensure no JSON parsing errors occur at runtime.
+
+## 2026-06-07 - [Debounced UI Persistence]
+**Learning:** Frequent synchronous writes to `localStorage` (Disk I/O) during active text entry in theory questions cause noticeable UI lag and unnecessary CPU/Disk overhead.
+**Action:** Implement a 1-second debounce for theory input persistence. Ensure data integrity by calling a "flush" method during all navigation, submission, and page visibility/unload events to immediately persist pending drafts.
