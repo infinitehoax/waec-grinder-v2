@@ -100,13 +100,13 @@ function renderObjQuestion(q, idx, total) {
       <div class="explanation-block" id="explanation-block" role="region" aria-live="polite" aria-labelledby="explanation-label">
         <div class="explanation-block__label" id="explanation-label">📖 Explanation</div>
         <div class="explanation-block__text"></div>
-        <button class="btn-explain" id="explain-btn" onclick="UI.explainSimpler()" aria-label="Explain this concept simpler">
-          💡 Explain It Simpler
+        <button class="btn-explain" id="explain-btn" onclick="UI.explainSimpler()" aria-label="Explain this concept simpler (E)">
+          💡 Explain It Simpler <span class="kbd-hint" aria-hidden="true">E</span>
         </button>
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (B)">&larr; <span class="kbd-hint" aria-hidden="true">B</span>Back</button>` : ''}
+          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (P)">&larr; <span class="kbd-hint" aria-hidden="true">P</span>Back</button>` : ''}
           <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question (S)"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
         </div>
         <div class="action-bar__right">
@@ -152,7 +152,7 @@ function renderTheoryQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (B)">&larr; <span class="kbd-hint" aria-hidden="true">B</span>Back</button>` : ''}
+          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (P)">&larr; <span class="kbd-hint" aria-hidden="true">P</span>Back</button>` : ''}
           <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question (S)"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
           <span class="score-tally hidden" id="score-tally">
             Score: <strong id="score-val">0</strong> / ${totalMaxMarks}
@@ -196,8 +196,8 @@ function renderSubQuestion(sub, savedAnswer = "") {
           <span class="sub-feedback-score" id="fscore-${sub.sub_id}"></span>
           <span class="sub-feedback-text" id="ftext-${sub.sub_id}"></span>
         </div>
-        <button class="btn-explain" onclick="UI.explainSimpler('${sub.sub_id}')" aria-label="Explain this concept simpler">
-          💡 Explain Simpler
+        <button class="btn-explain" onclick="UI.explainSimpler('${sub.sub_id}')" aria-label="Explain this concept simpler (E)">
+          💡 Explain Simpler <span class="kbd-hint" aria-hidden="true">E</span>
         </button>
       </div>
     </div>
@@ -1343,7 +1343,7 @@ const UI = {
     if (subId) {
       btn = document.querySelector(`#feedback-${subId} .btn-explain`);
     } else {
-      btn = document.getElementById('explain-btn');
+      btn = document.getElementById('explain-btn') || document.querySelector('.btn-explain');
     }
 
     const originalHTML = btn.innerHTML;
@@ -1648,10 +1648,19 @@ window.addEventListener('keydown', (e) => {
     }
   }
 
-  // 'B' to go back
-  if (key === 'B' && Storage.isCbtMode()) {
+  // 'P' to go back
+  if (key === 'P' && Storage.isCbtMode()) {
     UI.prevQuestion();
     return;
+  }
+
+  // 'E' to explain simpler
+  if (key === 'E') {
+    const explainBtn = document.querySelector('.btn-explain');
+    if (explainBtn && window.getComputedStyle(explainBtn).display !== 'none' && !explainBtn.disabled) {
+      UI.explainSimpler();
+      return;
+    }
   }
 
   // 'S' to skip question
