@@ -106,7 +106,7 @@ function renderObjQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (B)">&larr; <span class="kbd-hint" aria-hidden="true">B</span>Back</button>` : ''}
+          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (P)">&larr; <span class="kbd-hint" aria-hidden="true">P</span>Prev</button>` : ''}
           <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question (S)"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
         </div>
         <div class="action-bar__right">
@@ -152,7 +152,7 @@ function renderTheoryQuestion(q, idx, total) {
       </div>
       <div class="action-bar">
         <div class="action-bar__left">
-          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (B)">&larr; <span class="kbd-hint" aria-hidden="true">B</span>Back</button>` : ''}
+          ${Storage.isCbtMode() ? `<button class="btn btn--ghost btn--sm" onclick="UI.prevQuestion()" ${idx === 0 ? 'disabled' : ''} aria-label="Previous question (P)">&larr; <span class="kbd-hint" aria-hidden="true">P</span>Prev</button>` : ''}
           <button class="btn btn--ghost btn--sm" onclick="UI.skipQuestion()" aria-label="Skip this question (S)"><span class="kbd-hint" aria-hidden="true">S</span>Skip</button>
           <span class="score-tally hidden" id="score-tally">
             Score: <strong id="score-val">0</strong> / ${totalMaxMarks}
@@ -1648,8 +1648,8 @@ window.addEventListener('keydown', (e) => {
     }
   }
 
-  // 'B' to go back
-  if (key === 'B' && Storage.isCbtMode()) {
+  // 'P' to go back
+  if (key === 'P' && Storage.isCbtMode()) {
     UI.prevQuestion();
     return;
   }
