@@ -86,3 +86,7 @@
 ## 2026-06-21 - [Tactile Feedback & Reduced Motion]
 **Learning:** Adding subtle animations to feedback states (like correct/wrong) significantly improves the "feel" of a study app, but must always be paired with `prefers-reduced-motion` guards to maintain accessibility.
 **Action:** Always wrap state-based animations in reduced-motion media queries and ensure they don't interfere with existing focus or selection transforms.
+
+## 2026-06-25 - [Scoped Batch Actions & Dynamic State Filter]
+**Learning:** In list-heavy interfaces, global actions like 'Select All' must be dynamically scoped to the current filtered view. Failing to do so causes "invisible state mutations" where users accidentally select hidden items, leading to confusion and potential data errors.
+**Action:** Always wrap batch selection logic in visibility checks (e.g., `item.style.display !== 'none'`) when a search or filter is active.
