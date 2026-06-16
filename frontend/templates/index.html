@@ -104,6 +104,13 @@
           <button class="btn btn--ghost btn--sm" onclick="selectNoneSubjects()" type="button" style="padding: 4px 8px; font-size: 0.7rem;">None</button>
         </div>
       </div>
+      <div style="margin-bottom: 12px; position: relative;">
+        <input type="text" id="subject-search" placeholder="Search subjects..." class="input-custom" oninput="filterSubjects()" aria-label="Search subjects" style="padding-right: 36px;">
+        <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;">🔍</span>
+      </div>
+      <div id="no-results-msg" style="display: none; padding: 20px; text-align: center; color: var(--text-muted); background: var(--bg-input); border-radius: var(--radius-md); border: 1px dashed var(--border-subtle); margin-bottom: 10px;">
+        No matching subjects found.
+      </div>
       <div id="subject-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; max-height: 240px; overflow-y: auto; padding: 4px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-input);">
         <!-- Generated via JS -->
       </div>
@@ -325,6 +332,7 @@
   window.toggleCbtMode = toggleCbtMode;
   window.toggleAntiCheat = toggleAntiCheat;
   window.editPlayerName = editPlayerName;
+  window.filterSubjects = filterSubjects;
 
   async function init() {
     // Update nav stats immediately from local storage
@@ -508,13 +516,50 @@
     }).join('');
   }
 
+  function filterSubjects() {
+    const query = document.getElementById('subject-search').value.toLowerCase().trim();
+    const items = document.querySelectorAll('.subject-item');
+    let visibleCount = 0;
+
+    items.forEach(item => {
+      const name = item.querySelector('.subject-name').textContent.toLowerCase();
+      if (name.includes(query)) {
+        item.style.display = 'flex';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    const noResults = document.getElementById('no-results-msg');
+    const subjectList = document.getElementById('subject-list');
+
+    if (visibleCount === 0) {
+      noResults.style.display = 'block';
+      subjectList.style.display = 'none';
+    } else {
+      noResults.style.display = 'none';
+      subjectList.style.display = 'grid';
+    }
+  }
+
   function selectAllSubjects() {
-    document.querySelectorAll('.subject-checkbox').forEach(cb => cb.checked = true);
+    document.querySelectorAll('.subject-item').forEach(item => {
+      if (item.style.display !== 'none') {
+        const cb = item.querySelector('.subject-checkbox');
+        if (cb) cb.checked = true;
+      }
+    });
     updateSubjectSelection();
   }
 
   function selectNoneSubjects() {
-    document.querySelectorAll('.subject-checkbox').forEach(cb => cb.checked = false);
+    document.querySelectorAll('.subject-item').forEach(item => {
+      if (item.style.display !== 'none') {
+        const cb = item.querySelector('.subject-checkbox');
+        if (cb) cb.checked = false;
+      }
+    });
     updateSubjectSelection();
   }
 
